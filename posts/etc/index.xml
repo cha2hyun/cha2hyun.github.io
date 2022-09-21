@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>cha2hyun.log</title>
-    <link>https://cha2hyun.github.io/</link>
-    <description>Recent content on cha2hyun.log</description>
+    <title>Etc on cha2hyun.log</title>
+    <link>https://cha2hyun.github.io/posts/etc/</link>
+    <description>Recent content in Etc on cha2hyun.log</description>
     <image>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/posts/etc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>마크다운 신택스 가이드</title>
       <link>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</link>
@@ -18,8 +18,6 @@
       <guid>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
     </item>
-    
-    
     
   </channel>
 </rss>
