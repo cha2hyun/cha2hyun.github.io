@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://cha2hyun.github.io/categories/</loc>
+  </url><url>
+    <loc>https://cha2hyun.github.io/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://cha2hyun.github.io/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://cha2hyun.github.io/fa/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cha2hyun.github.io/"
+                />
+  </url><url>
+    <loc>https://cha2hyun.github.io/series/</loc>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/</loc>
+  </url>
+</urlset>
