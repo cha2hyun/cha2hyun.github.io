@@ -8,16 +8,6 @@
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/series/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Themes Guide</title>
-      <link>https://cha2hyun.github.io/series/themes-guide/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cha2hyun.github.io/series/themes-guide/</guid>
-      <description></description>
-    </item>
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://cha2hyun.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
