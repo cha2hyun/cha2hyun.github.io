@@ -11,12 +11,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>마크다운 신택스 가이드</title>
+      <title>Markdown Syntax Guide</title>
       <link>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</guid>
-      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+      <description>마크다운 신택스 가이드 by Hugo Authors</description>
     </item>
     
   </channel>
