@@ -9,7 +9,7 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FastAPI에서 aiohttp를 이용한 비동기 크롤링</title>
       <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
@@ -20,11 +20,20 @@
     </item>
     
     <item>
+      <title>macOS Setup Guide</title>
+      <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
+      <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
+    </item>
+    
+    <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</link>
+      <link>https://cha2hyun.github.io/posts/markdown-syntac-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cha2hyun.github.io/posts/etc/markdown-syntac-guide/</guid>
+      <guid>https://cha2hyun.github.io/posts/markdown-syntac-guide/</guid>
       <description>마크다운 신택스 가이드 by Hugo Authors</description>
     </item>
     
