@@ -9,7 +9,25 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>brew</title>
+      <link>https://cha2hyun.github.io/tags/brew/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/brew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>https://cha2hyun.github.io/tags/macos/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aiohttp</title>
       <link>https://cha2hyun.github.io/tags/aiohttp/</link>

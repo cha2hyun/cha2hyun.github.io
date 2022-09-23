@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>macOS Setup Guide | cha2hyun.log</title>
+<meta name="keywords" content="macOS, brew">
+<meta name="description" content="맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.github.io/posts/mac-brew-list/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.96be34b9f6e3cc1a442f7c656ab735de5d96842be26ab7a70a3a7ebc8c2d3748.css" integrity="sha256-lr40ufbjzBpEL3xlarc13l2WhCviarenCjp&#43;vIwtN0g=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://cha2hyun.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="macOS Setup Guide" />
+<meta property="og:description" content="맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.github.io/posts/mac-brew-list/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-23T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="macOS Setup Guide"/>
+<meta name="twitter:description" content="맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://cha2hyun.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "macOS Setup Guide",
+      "item": "https://cha2hyun.github.io/posts/mac-brew-list/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "macOS Setup Guide",
+  "name": "macOS Setup Guide",
+  "description": "맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등",
+  "keywords": [
+    "macOS", "brew"
+  ],
+  "articleBody": "Homebrew brew 설치\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" # brew 설치 후 터미널에 표시되는 export 부분을 복붙해서 터미널에 치고 다시 터미널을 킬 것 brew install cask brew update brew로 설치 가능한 앱 리스트 확인 \u003e https://formulae.brew.sh/ 후 필요한 거 설치하기\n2022년 09월 23일 기준 설치했던 리스트\nbrew list ==\u003e Formulae autoconf\tlibtasn1 bdw-gc\tlibtool boost\tlibunistring bzip2\tlz4 ca-certificates\tm4 cask\tmpdecimal coreutils\tnettle double-conversion\tnvm emacs\topenssl@1.1 fb303\topenssl@3 fbthrift\tp11-kit fizz\tpcre fmt\tpcre2 folly\tpipenv gdbm\tpkg-config gettext\tpyenv gflags\tpyenv-virtualenv gh\tpython@3.10 glog\tpython@3.9 gmp\treadline gnutls\tsix go\tsnappy guile\tsqlite hugo\ttree icu4c\tunbound jansson\twangle libevent\twatchman libffi\txz libidn2\tzlib libnghttp2\tzstd libsodium ==\u003e Casks adoptopenjdk14\tmicrosoft-remote-desktop bettertouchtool\tnotion dbeaver-community\tscroll-reverser discord\tslack figma\tstats firefox\tsynology-chat google-chrome\tvisual-studio-code iterm2 iterm2 상태바 활성화\n설정 \u003e Profiles \u003e Sessions \u003e Status bar enable 테마설정 다운로드 : github dark theme\n테마 다운로드 후 확장자를 .itermcolors 로 변경 설정 \u003e Profiles \u003e Colors \u003e Color Presets \u003e 테마선택 OH MY ZSH \u0026 Powerlevel10k oh my zsh 설치\nsh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" Powerlevel10k 설치\ngit clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k .zshrc 파일 수정\nZSH_THEME=\"powerlevel10k/powerlevel10k\" gh 설치 brew install gh gh auth login # http를 선택 rosetta (M1 only) /usr/sbin/softwareupdate --install-rosetta --agree-to-license vscode preferences \u003e Setting sync on \u003e github login Font D2coding\nBettertouchtools 아래 파일을 ‘Default.bttpreset’ 으로 저장 후 실행시킨다.\nDefault.bttpreset { \"BTTPresetCreatorNotes\": \"\", \"BTTPresetInfoURL\": \"\", \"BTTPresetName\": \"Default\", \"BTTGeneralSettings\": { \"BTTPathSampleSize\": 100, \"BTTCMOnTop\": true, \"BTTForceForceClickPressure2F\": 700, \"BSTLeftHalfBlock\": true, \"BTTMinDrawingMovement\": 2, \"BTTTouchBarMouseModeClickBlock\": true, \"BSTRightHalfBlock\": true, \"disableScrollingIf2\": true, \"batteryWarning\": false, \"BSTDontShowSnapAreasWhileModMoving\": 0, \"BSTWindowGrabPosY\": 10, \"showTrackpadTab\": true, \"singleFingerTapRight\": 0.05000000074505806, \"BTTDrawingStrokeWidth\": 4, \"cornerSnap\": true, \"BTRScrollSpeed\": 1, \"BTTTouchBarHapticFeedbackRelease\": 0, \"BSTIncreaseSnappingArea\": true, \"showDrawingsTab\": true, \"SIRIMouseSpeed\": 1, \"BTTUseNewUI\": true, \"BSTEnableEnhancementCheck\": true, \"BTTNotchBarNotchWidgetModeHideLeftFixed\": false, \"useAppleRemotePlugin\": false, \"BTTTouchBarFontSize\": 15, \"BSTSnapAreaDefaultPictoDistanceFromBottom\": 0.10000000149011612, \"BTRMouseSpeed\": 1, \"BSTPreventTopMissionControl\": true, \"BSTSnapAreaDefaultDashedBorder\": false, \"BTTEnablePalmRecognition\": true, \"BSTBrokenAPICheckEnabled\": false, \"BTTAllowThumbIfAllFingersArePlacedSimultaneously\": true, \"BTTNotchBarStandardMenubarModeHideRightFixed\": false, \"BTTNotchBarNotchWidgetModeShowMiniMenubar\": true, \"BTTShowControlStripItem\": true, \"BSTSnapAreaDefaultCornerRadius\": 20, \"BTTNotchBarNotchMenubarModeHideLeftFixed\": true, \"BTTMovePastedToTop\": true, \"BTTMaxAllowedDrawingRotation\": 30, \"BTTDidRegisterForUpdateStats\": \"3.870\", \"BTTNotchBarNotchWidgetModeHideRightFixed\": false, \"BTTTpFourFingerSwipeSensitivity\": 0.40000000000000002, \"BSTMoveTreshold\": 2, \"BTTHideFomControlStripWhenOpen\": false, \"BTTNumberOfStarts\": 1081, \"BTTForceNormalClickPressure3F\": 150, \"showSiriRemoteTab\": true, \"SIRIScrollSpeed\": 1, \"BTTShowControlStrip\": true, \"tpThreeFingerDoubleTapDelay\": 0.5, \"showNormalMiceTab\": true, \"BTTNotchBarStandardMenubarModeHideLeftScrollable\": true, \"BSTSnapAreaDefaultBorderWidth\": 3, \"BTTTouchBarHapticFeedback\": 0, \"BTTForceNormalClickPressure\": 150, \"BTTDrawingRightMouse\": true, \"BTTConvertedDevices\": true, \"snapBottomRight\": true, \"BTTThreeFingerTipTapMinSpread\": 0.029999999999999999, \"BTTTouchBarVisible\": false, \"BTTIMGURDefault\": true, \"BSTSnapAreaDefaultBackgroundColor\": \"129.991390, 201.122858, 227.012328, 104.550000\", \"BSTSnapAreaDefaultPictoSize\": 0.69999998807907104, \"BSTSnapAreaDefaultBorderColor\": \"0.000000, 0.000000, 0.000000, 255.000000\", \"BTTNotchBarNotchMenubarModeHideLeftScrollable\": true, \"BTTNotchBarNotchMenubarModeShowOriginalStatusIcons\": true, \"BSTTopMissionControlTreshold\": 34, \"BTTNotchBarNotchWidgetModeHideRightScrollable\": false, \"BSTSnapAreaDefaultHighlightColor\": \"92.625547, 122.647995, 161.664332, 56.100000\", \"BTTForceForceClickPressure5F\": 600, \"BTTForceForceClickPressure\": 700, \"BSTMemorySaver\": true, \"BTTLastClamshellState\": false, \"BTTTouchBarAnimateGroups\": true, \"BTTShowBTTWhenControlStripHidden\": true, \"BTTFreeSpaceAfterESC\": 10, \"mmZoomRepeatDelay\": 0.10000000000000001, \"snapTopLeft\": true, \"BTTDrawingAreaWidth\": 915, \"BTTTiltWheelDelay\": 0.44999998807907104, \"twoFingerDoubleTapDelay\": 0.5, \"BTTForceNormalClickPressure5F\": 200, \"BTTShowESCWhenControlStripHidden\": true, \"showBTTRemoteTab\": true, \"BTTFilterMagicMouseLeftRightEdge\": true, \"BTTNotchBarStandardWidgetModeShowOriginalStatusIcons\": false, \"BTTDrawingsHighlightStartPoint\": true, \"BTTEnableUsageLogging\": true, \"snapBottomLeft\": true, \"BTTScreenshotOpenImgurInBrowser\": true, \"BTTDontRestartAfterSleep\": true, \"BTTForceNormalClickPressure2F\": 140, \"BSTSnapAreaDefaultInvisible\": false, \"BTTDrawingAreaHeight\": 626, \"BTTForceForceClickPressure4F\": 650, \"BTTTouchBarUseMonoSpacedFont\": true, \"BSTCornerRoundness\": 10.028582317073171, \"BTTForceForceHapticResponse\": 13, \"BTTNotchBarStandardMenubarModeHideLeftFixed\": true, \"showMagicMouseTab\": true, \"BTTNotchBarNotchWidgetModeShowOriginalStatusIcons\": false, \"BTTAlwaysShowPresetIndicators\": true, \"showTouchBarTab\": true, \"BTTFreeSpaceAfterBTT\": 20, \"BTTNotchBarStandardWidgetModeHideRightFixed\": false, \"BTTTwoFingerTipTapMinSpread\": 0.029999999999999999, \"BTTDismissIfNothingToShow\": true, \"BTTDrawingsRestoreMousePosition\": true, \"BSTDisableSnapAreas\": false, \"BTTDefaultTBIconWidth\": 22, \"snapTopRight\": true, \"BSTSnapAreaDefaultShowPictogram\": false, \"BTTSelectedKeyboardTabIndex\": 0, \"BTTTouchBarKeepIconRatio\": true, \"BSTBrokenAPICheckDelay\": 0.20000000000000001, \"showKeyboardTab\": true, \"BTTForceForceClickPressure3F\": 700, \"disableScrollingIf3\": true, \"BSTWindowGrabPosX\": 67, \"BTTHandleThumbsRestingOnTopEdgeAndCorners\": true, \"BTTAutoSwitchToOldKeyboardImplementation\": true, \"BTTTpThreeFingerSwipeSensitivity\": 0.29999999999999999, \"BTTCopyImgurURLToClipboard\": true, \"BTTForceNormalHapticResponse\": 12, \"BTTTouchBarSupportEnabled\": true, \"BTTDaysToKeepHistory\": 14, \"BTTNotchBarNotchMenubarModeHideRightFixed\": true, \"BTTDefaultTBIconHeight\": 22, \"BTTNotchBarStandardMenubarModeShowOriginalStatusIcons\": true, \"BTTNotchBarStandardWidgetModeHideLeftFixed\": false, \"singleFingerTapLeft\": 0.44999998807907104, \"BTTNotchBarStandardWidgetModeHideLeftScrollable\": false, \"BTTForceNormalClickPressure4F\": 175, \"BTTNotchBarNotchWidgetModeHideLeftScrollable\": false, \"BSTSnapAreaDefaultAnimationDuration\": 0.30000001192092896, \"BTTNotchBarStandardWidgetModeHideRightScrollable\": false, \"BTTNotchBarStandardMenubarModeHideRightScrollable\": false, \"showOtherTriggersTab\": true, \"BTTNotchBarNotchMenubarModeHideRightScrollable\": true, \"BSTSnapAreaDefaultPictoDistanceFromLeft\": 0.10000000149011612 }, \"BTTPresetUUID\": \"2375A6E0-2E42-46FC-B2CA-FECB49079972\", \"BTTPresetContent\": [ { \"BTTAppBundleIdentifier\": \"com.apple.finder\", \"BTTAppName\": \"Finder\", \"BTTAppAutoInvertIcon\": 1, \"BTTTriggers\": [ ] }, { \"BTTAppBundleIdentifier\": \"BT.G\", \"BTTAppName\": \"Global\", \"BTTAppAutoInvertIcon\": 1, \"BTTTriggers\": [ { \"BTTTriggerType\": 108, \"BTTTriggerTypeDescription\": \"4 Finger Swipe Up\", \"BTTTriggerClass\": \"BTTTriggerTypeTouchpadAll\", \"BTTPredefinedActionType\": 45, \"BTTPredefinedActionName\": \"Show Desktop\", \"BTTEnabled2\": 1, \"BTTAlternateModifierKeys\": 0, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"AF9F2E7B-4415-4BD9-8389-CF8501E8CDCC\", \"BTTNotesInsteadOfDescription\": 0, \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTOrder\": 1, \"BTTDisplayOrder\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 21, \"BTTPredefinedActionName\": \"Maximize Window\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"6A1F00BD-97DA-406F-94A0-299C83FDD70A\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"8\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 91, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 3, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 270, \"BTTPredefinedActionName\": \"Restore last saved window layout\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"7CFD2C3F-D079-4449-BD03-0391797DCC16\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"s\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 1, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 5, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 48, \"BTTPredefinedActionName\": \"Maximize Window to Next Monitor\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"97A815A5-3DB7-4836-A225-69070A11B65D\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"5\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 87, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 2, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 20, \"BTTPredefinedActionName\": \"Maximize Window Right Half\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"0785E15C-FFDA-4C90-862A-BEB6B9B53D56\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"6\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 88, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 1, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 269, \"BTTPredefinedActionName\": \"Save current window layout\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"4DEDE991-F2C1-49CC-912C-8539915B865F\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"s\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 1, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 4, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 107, \"BTTTriggerTypeDescription\": \"4 Finger Swipe Down\", \"BTTTriggerClass\": \"BTTTriggerTypeTouchpadAll\", \"BTTPredefinedActionType\": 5, \"BTTPredefinedActionName\": \"Mission Control\", \"BTTEnabled2\": 1, \"BTTAlternateModifierKeys\": 0, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"38408EAB-5F27-4843-BD5C-7DDAAD725052\", \"BTTNotesInsteadOfDescription\": 0, \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTOrder\": 0, \"BTTDisplayOrder\": 0 }, { \"BTTTriggerType\": 0, \"BTTTriggerClass\": \"BTTTriggerTypeKeyboardShortcut\", \"BTTPredefinedActionType\": 19, \"BTTPredefinedActionName\": \"Maximize Window Left Half\", \"BTTAdditionalConfiguration\": \"1572904\", \"BTTEnabled2\": 1, \"BTTKeyboardShortcutKeyboardType\": 5750, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"C9ED09DC-40F3-43C9-9FDF-5C7A31312921\", \"BTTTriggerOnDown\": 1, \"BTTNotesInsteadOfDescription\": 0, \"BTTLayoutIndependentChar\": \"4\", \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTShortcutKeyCode\": 86, \"BTTShortcutModifierKeys\": 1572864, \"BTTOrder\": 0, \"BTTDisplayOrder\": 0, \"BTTAutoAdaptToKeyboardLayout\": 0 }, { \"BTTTriggerType\": 123, \"BTTTriggerTypeDescription\": \"1 Finger Tap Top Right\", \"BTTTriggerClass\": \"BTTTriggerTypeTouchpadAll\", \"BTTPredefinedActionType\": 49, \"BTTPredefinedActionName\": \"Launch Application \\/ Open File \\/ Start Apple Script …\", \"BTTLaunchPath\": \"file:\\/\\/\\/Applications\\/Slidepad.app\\/\", \"BTTEnabled2\": 1, \"BTTAlternateModifierKeys\": 0, \"BTTRepeatDelay\": 0, \"BTTUUID\": \"65403F16-56A0-4C59-B0B9-CBFCCA993915\", \"BTTNotesInsteadOfDescription\": 0, \"BTTEnabled\": 1, \"BTTModifierMode\": 0, \"BTTOrder\": 2, \"BTTDisplayOrder\": 0 } ] } ], \"BTTPresetSnapAreas\": [ ] } ",
+  "wordCount" : "926",
+  "inLanguage": "en",
+  "datePublished": "2022-09-23T00:00:00Z",
+  "dateModified": "2022-09-23T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.github.io/posts/mac-brew-list/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "cha2hyun.log",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://cha2hyun.github.io/" accesskey="h" title="cha2hyun.log (Alt + H)">cha2hyun.log</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.github.io/projects/" title="프로젝트">
+                    <span>프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/posts/" title="게시글">
+                    <span>게시글</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/search/" title="검색">
+                    <span>검색</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/tags/" title="태그">
+                    <span>태그</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/cha2hyun/" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      macOS Setup Guide
+    </h1>
+    <div class="post-meta"><span title='2022-09-23 00:00:00 +0000 UTC'>September 23, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;cha2hyun
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#homebrew" aria-label="Homebrew">Homebrew</a></li>
+                <li>
+                    <a href="#iterm2" aria-label="iterm2">iterm2</a></li>
+                <li>
+                    <a href="#oh-my-zsh--powerlevel10k" aria-label="OH MY ZSH &amp;amp; Powerlevel10k">OH MY ZSH &amp; Powerlevel10k</a></li>
+                <li>
+                    <a href="#gh-%ec%84%a4%ec%b9%98" aria-label="gh 설치">gh 설치</a></li>
+                <li>
+                    <a href="#rosetta-m1-only" aria-label="rosetta (M1 only)">rosetta (M1 only)</a></li>
+                <li>
+                    <a href="#vscode" aria-label="vscode">vscode</a></li>
+                <li>
+                    <a href="#font" aria-label="Font">Font</a></li>
+                <li>
+                    <a href="#bettertouchtools" aria-label="Bettertouchtools">Bettertouchtools</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="homebrew">Homebrew<a hidden class="anchor" aria-hidden="true" href="#homebrew">#</a></h2>
+<p>brew 설치</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34;
+</span></span><span class="line"><span class="cl"># brew 설치 후 터미널에 표시되는 export 부분을 복붙해서 터미널에 치고 다시 터미널을 킬 것
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">brew install cask
+</span></span><span class="line"><span class="cl">brew update
+</span></span></code></pre></div><p>brew로 설치 가능한 앱 리스트 확인 &gt; <code>https://formulae.brew.sh/</code> 후 필요한 거 설치하기</p>
+<p><code>2022년 09월 23일 기준 설치했던 리스트</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew <span class="nv">list</span>
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; Formulae
+</span></span><span class="line"><span class="cl">autoconf		libtasn1
+</span></span><span class="line"><span class="cl">bdw-gc			libtool
+</span></span><span class="line"><span class="cl">boost			libunistring
+</span></span><span class="line"><span class="cl">bzip2			lz4
+</span></span><span class="line"><span class="cl">ca-certificates		m4
+</span></span><span class="line"><span class="cl">cask			mpdecimal
+</span></span><span class="line"><span class="cl">coreutils		nettle
+</span></span><span class="line"><span class="cl">double-conversion	nvm
+</span></span><span class="line"><span class="cl">emacs			openssl@1.1
+</span></span><span class="line"><span class="cl">fb303			openssl@3
+</span></span><span class="line"><span class="cl">fbthrift		p11-kit
+</span></span><span class="line"><span class="cl">fizz			pcre
+</span></span><span class="line"><span class="cl">fmt			pcre2
+</span></span><span class="line"><span class="cl">folly			pipenv
+</span></span><span class="line"><span class="cl">gdbm			pkg-config
+</span></span><span class="line"><span class="cl">gettext			pyenv
+</span></span><span class="line"><span class="cl">gflags			pyenv-virtualenv
+</span></span><span class="line"><span class="cl">gh			python@3.10
+</span></span><span class="line"><span class="cl">glog			python@3.9
+</span></span><span class="line"><span class="cl">gmp			readline
+</span></span><span class="line"><span class="cl">gnutls			six
+</span></span><span class="line"><span class="cl">go			snappy
+</span></span><span class="line"><span class="cl">guile			sqlite
+</span></span><span class="line"><span class="cl">hugo			tree
+</span></span><span class="line"><span class="cl">icu4c			unbound
+</span></span><span class="line"><span class="cl">jansson			wangle
+</span></span><span class="line"><span class="cl">libevent		watchman
+</span></span><span class="line"><span class="cl">libffi			xz
+</span></span><span class="line"><span class="cl">libidn2			zlib
+</span></span><span class="line"><span class="cl">libnghttp2		zstd
+</span></span><span class="line"><span class="cl"><span class="nv">libsodium</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; Casks
+</span></span><span class="line"><span class="cl">adoptopenjdk14			microsoft-remote-desktop
+</span></span><span class="line"><span class="cl">bettertouchtool			notion
+</span></span><span class="line"><span class="cl">dbeaver-community		scroll-reverser
+</span></span><span class="line"><span class="cl">discord				slack
+</span></span><span class="line"><span class="cl">figma				stats
+</span></span><span class="line"><span class="cl">firefox				synology-chat
+</span></span><span class="line"><span class="cl">google-chrome			visual-studio-code
+</span></span><span class="line"><span class="cl">iterm2
+</span></span></code></pre></div><hr>
+<h2 id="iterm2">iterm2<a hidden class="anchor" aria-hidden="true" href="#iterm2">#</a></h2>
+<p>상태바 활성화</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">설정 &gt; Profiles &gt; Sessions &gt; Status bar enable
+</span></span></code></pre></div><p>테마설정 다운로드 : <a href="https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/GitHub%20Dark.itermcolors">github dark theme</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">테마 다운로드 후 확장자를 .itermcolors 로 변경
+</span></span><span class="line"><span class="cl">설정 &gt; Profiles &gt; Colors &gt; Color Presets &gt; 테마선택
+</span></span></code></pre></div><hr>
+<h2 id="oh-my-zsh--powerlevel10k">OH MY ZSH &amp; Powerlevel10k<a hidden class="anchor" aria-hidden="true" href="#oh-my-zsh--powerlevel10k">#</a></h2>
+<p>oh my zsh 설치</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>Powerlevel10k 설치</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/romkatv/powerlevel10k.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="si">}</span>/themes/powerlevel10k
+</span></span></code></pre></div><p>.zshrc 파일 수정</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ZSH_THEME=&#34;powerlevel10k/powerlevel10k&#34;
+</span></span></code></pre></div><hr>
+<h2 id="gh-설치">gh 설치<a hidden class="anchor" aria-hidden="true" href="#gh-설치">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install gh
+</span></span><span class="line"><span class="cl">gh auth login
+</span></span><span class="line"><span class="cl"><span class="c1"># http를 선택</span>
+</span></span></code></pre></div><hr>
+<h2 id="rosetta-m1-only">rosetta (M1 only)<a hidden class="anchor" aria-hidden="true" href="#rosetta-m1-only">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+</span></span></code></pre></div><hr>
+<h2 id="vscode">vscode<a hidden class="anchor" aria-hidden="true" href="#vscode">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">preferences &gt; Setting sync on &gt; github login
+</span></span></code></pre></div><hr>
+<h2 id="font">Font<a hidden class="anchor" aria-hidden="true" href="#font">#</a></h2>
+<p><a href="https://github.com/naver/d2codingfont">D2coding</a></p>
+<hr>
+<h2 id="bettertouchtools">Bettertouchtools<a hidden class="anchor" aria-hidden="true" href="#bettertouchtools">#</a></h2>
+<p>아래 파일을 &lsquo;Default.bttpreset&rsquo; 으로 저장 후 실행시킨다.</p>
+<details>
+<summary>Default.bttpreset</summary>
+<div markdown="1">
+<pre><code>{
+&quot;BTTPresetCreatorNotes&quot;: &quot;&quot;,
+&quot;BTTPresetInfoURL&quot;: &quot;&quot;,
+&quot;BTTPresetName&quot;: &quot;Default&quot;,
+&quot;BTTGeneralSettings&quot;: {
+    &quot;BTTPathSampleSize&quot;: 100,
+    &quot;BTTCMOnTop&quot;: true,
+    &quot;BTTForceForceClickPressure2F&quot;: 700,
+    &quot;BSTLeftHalfBlock&quot;: true,
+    &quot;BTTMinDrawingMovement&quot;: 2,
+    &quot;BTTTouchBarMouseModeClickBlock&quot;: true,
+    &quot;BSTRightHalfBlock&quot;: true,
+    &quot;disableScrollingIf2&quot;: true,
+    &quot;batteryWarning&quot;: false,
+    &quot;BSTDontShowSnapAreasWhileModMoving&quot;: 0,
+    &quot;BSTWindowGrabPosY&quot;: 10,
+    &quot;showTrackpadTab&quot;: true,
+    &quot;singleFingerTapRight&quot;: 0.05000000074505806,
+    &quot;BTTDrawingStrokeWidth&quot;: 4,
+    &quot;cornerSnap&quot;: true,
+    &quot;BTRScrollSpeed&quot;: 1,
+    &quot;BTTTouchBarHapticFeedbackRelease&quot;: 0,
+    &quot;BSTIncreaseSnappingArea&quot;: true,
+    &quot;showDrawingsTab&quot;: true,
+    &quot;SIRIMouseSpeed&quot;: 1,
+    &quot;BTTUseNewUI&quot;: true,
+    &quot;BSTEnableEnhancementCheck&quot;: true,
+    &quot;BTTNotchBarNotchWidgetModeHideLeftFixed&quot;: false,
+    &quot;useAppleRemotePlugin&quot;: false,
+    &quot;BTTTouchBarFontSize&quot;: 15,
+    &quot;BSTSnapAreaDefaultPictoDistanceFromBottom&quot;: 0.10000000149011612,
+    &quot;BTRMouseSpeed&quot;: 1,
+    &quot;BSTPreventTopMissionControl&quot;: true,
+    &quot;BSTSnapAreaDefaultDashedBorder&quot;: false,
+    &quot;BTTEnablePalmRecognition&quot;: true,
+    &quot;BSTBrokenAPICheckEnabled&quot;: false,
+    &quot;BTTAllowThumbIfAllFingersArePlacedSimultaneously&quot;: true,
+    &quot;BTTNotchBarStandardMenubarModeHideRightFixed&quot;: false,
+    &quot;BTTNotchBarNotchWidgetModeShowMiniMenubar&quot;: true,
+    &quot;BTTShowControlStripItem&quot;: true,
+    &quot;BSTSnapAreaDefaultCornerRadius&quot;: 20,
+    &quot;BTTNotchBarNotchMenubarModeHideLeftFixed&quot;: true,
+    &quot;BTTMovePastedToTop&quot;: true,
+    &quot;BTTMaxAllowedDrawingRotation&quot;: 30,
+    &quot;BTTDidRegisterForUpdateStats&quot;: &quot;3.870&quot;,
+    &quot;BTTNotchBarNotchWidgetModeHideRightFixed&quot;: false,
+    &quot;BTTTpFourFingerSwipeSensitivity&quot;: 0.40000000000000002,
+    &quot;BSTMoveTreshold&quot;: 2,
+    &quot;BTTHideFomControlStripWhenOpen&quot;: false,
+    &quot;BTTNumberOfStarts&quot;: 1081,
+    &quot;BTTForceNormalClickPressure3F&quot;: 150,
+    &quot;showSiriRemoteTab&quot;: true,
+    &quot;SIRIScrollSpeed&quot;: 1,
+    &quot;BTTShowControlStrip&quot;: true,
+    &quot;tpThreeFingerDoubleTapDelay&quot;: 0.5,
+    &quot;showNormalMiceTab&quot;: true,
+    &quot;BTTNotchBarStandardMenubarModeHideLeftScrollable&quot;: true,
+    &quot;BSTSnapAreaDefaultBorderWidth&quot;: 3,
+    &quot;BTTTouchBarHapticFeedback&quot;: 0,
+    &quot;BTTForceNormalClickPressure&quot;: 150,
+    &quot;BTTDrawingRightMouse&quot;: true,
+    &quot;BTTConvertedDevices&quot;: true,
+    &quot;snapBottomRight&quot;: true,
+    &quot;BTTThreeFingerTipTapMinSpread&quot;: 0.029999999999999999,
+    &quot;BTTTouchBarVisible&quot;: false,
+    &quot;BTTIMGURDefault&quot;: true,
+    &quot;BSTSnapAreaDefaultBackgroundColor&quot;: &quot;129.991390, 201.122858, 227.012328, 104.550000&quot;,
+    &quot;BSTSnapAreaDefaultPictoSize&quot;: 0.69999998807907104,
+    &quot;BSTSnapAreaDefaultBorderColor&quot;: &quot;0.000000, 0.000000, 0.000000, 255.000000&quot;,
+    &quot;BTTNotchBarNotchMenubarModeHideLeftScrollable&quot;: true,
+    &quot;BTTNotchBarNotchMenubarModeShowOriginalStatusIcons&quot;: true,
+    &quot;BSTTopMissionControlTreshold&quot;: 34,
+    &quot;BTTNotchBarNotchWidgetModeHideRightScrollable&quot;: false,
+    &quot;BSTSnapAreaDefaultHighlightColor&quot;: &quot;92.625547, 122.647995, 161.664332, 56.100000&quot;,
+    &quot;BTTForceForceClickPressure5F&quot;: 600,
+    &quot;BTTForceForceClickPressure&quot;: 700,
+    &quot;BSTMemorySaver&quot;: true,
+    &quot;BTTLastClamshellState&quot;: false,
+    &quot;BTTTouchBarAnimateGroups&quot;: true,
+    &quot;BTTShowBTTWhenControlStripHidden&quot;: true,
+    &quot;BTTFreeSpaceAfterESC&quot;: 10,
+    &quot;mmZoomRepeatDelay&quot;: 0.10000000000000001,
+    &quot;snapTopLeft&quot;: true,
+    &quot;BTTDrawingAreaWidth&quot;: 915,
+    &quot;BTTTiltWheelDelay&quot;: 0.44999998807907104,
+    &quot;twoFingerDoubleTapDelay&quot;: 0.5,
+    &quot;BTTForceNormalClickPressure5F&quot;: 200,
+    &quot;BTTShowESCWhenControlStripHidden&quot;: true,
+    &quot;showBTTRemoteTab&quot;: true,
+    &quot;BTTFilterMagicMouseLeftRightEdge&quot;: true,
+    &quot;BTTNotchBarStandardWidgetModeShowOriginalStatusIcons&quot;: false,
+    &quot;BTTDrawingsHighlightStartPoint&quot;: true,
+    &quot;BTTEnableUsageLogging&quot;: true,
+    &quot;snapBottomLeft&quot;: true,
+    &quot;BTTScreenshotOpenImgurInBrowser&quot;: true,
+    &quot;BTTDontRestartAfterSleep&quot;: true,
+    &quot;BTTForceNormalClickPressure2F&quot;: 140,
+    &quot;BSTSnapAreaDefaultInvisible&quot;: false,
+    &quot;BTTDrawingAreaHeight&quot;: 626,
+    &quot;BTTForceForceClickPressure4F&quot;: 650,
+    &quot;BTTTouchBarUseMonoSpacedFont&quot;: true,
+    &quot;BSTCornerRoundness&quot;: 10.028582317073171,
+    &quot;BTTForceForceHapticResponse&quot;: 13,
+    &quot;BTTNotchBarStandardMenubarModeHideLeftFixed&quot;: true,
+    &quot;showMagicMouseTab&quot;: true,
+    &quot;BTTNotchBarNotchWidgetModeShowOriginalStatusIcons&quot;: false,
+    &quot;BTTAlwaysShowPresetIndicators&quot;: true,
+    &quot;showTouchBarTab&quot;: true,
+    &quot;BTTFreeSpaceAfterBTT&quot;: 20,
+    &quot;BTTNotchBarStandardWidgetModeHideRightFixed&quot;: false,
+    &quot;BTTTwoFingerTipTapMinSpread&quot;: 0.029999999999999999,
+    &quot;BTTDismissIfNothingToShow&quot;: true,
+    &quot;BTTDrawingsRestoreMousePosition&quot;: true,
+    &quot;BSTDisableSnapAreas&quot;: false,
+    &quot;BTTDefaultTBIconWidth&quot;: 22,
+    &quot;snapTopRight&quot;: true,
+    &quot;BSTSnapAreaDefaultShowPictogram&quot;: false,
+    &quot;BTTSelectedKeyboardTabIndex&quot;: 0,
+    &quot;BTTTouchBarKeepIconRatio&quot;: true,
+    &quot;BSTBrokenAPICheckDelay&quot;: 0.20000000000000001,
+    &quot;showKeyboardTab&quot;: true,
+    &quot;BTTForceForceClickPressure3F&quot;: 700,
+    &quot;disableScrollingIf3&quot;: true,
+    &quot;BSTWindowGrabPosX&quot;: 67,
+    &quot;BTTHandleThumbsRestingOnTopEdgeAndCorners&quot;: true,
+    &quot;BTTAutoSwitchToOldKeyboardImplementation&quot;: true,
+    &quot;BTTTpThreeFingerSwipeSensitivity&quot;: 0.29999999999999999,
+    &quot;BTTCopyImgurURLToClipboard&quot;: true,
+    &quot;BTTForceNormalHapticResponse&quot;: 12,
+    &quot;BTTTouchBarSupportEnabled&quot;: true,
+    &quot;BTTDaysToKeepHistory&quot;: 14,
+    &quot;BTTNotchBarNotchMenubarModeHideRightFixed&quot;: true,
+    &quot;BTTDefaultTBIconHeight&quot;: 22,
+    &quot;BTTNotchBarStandardMenubarModeShowOriginalStatusIcons&quot;: true,
+    &quot;BTTNotchBarStandardWidgetModeHideLeftFixed&quot;: false,
+    &quot;singleFingerTapLeft&quot;: 0.44999998807907104,
+    &quot;BTTNotchBarStandardWidgetModeHideLeftScrollable&quot;: false,
+    &quot;BTTForceNormalClickPressure4F&quot;: 175,
+    &quot;BTTNotchBarNotchWidgetModeHideLeftScrollable&quot;: false,
+    &quot;BSTSnapAreaDefaultAnimationDuration&quot;: 0.30000001192092896,
+    &quot;BTTNotchBarStandardWidgetModeHideRightScrollable&quot;: false,
+    &quot;BTTNotchBarStandardMenubarModeHideRightScrollable&quot;: false,
+    &quot;showOtherTriggersTab&quot;: true,
+    &quot;BTTNotchBarNotchMenubarModeHideRightScrollable&quot;: true,
+    &quot;BSTSnapAreaDefaultPictoDistanceFromLeft&quot;: 0.10000000149011612
+},
+&quot;BTTPresetUUID&quot;: &quot;2375A6E0-2E42-46FC-B2CA-FECB49079972&quot;,
+&quot;BTTPresetContent&quot;: [
+    {
+    &quot;BTTAppBundleIdentifier&quot;: &quot;com.apple.finder&quot;,
+    &quot;BTTAppName&quot;: &quot;Finder&quot;,
+    &quot;BTTAppAutoInvertIcon&quot;: 1,
+    &quot;BTTTriggers&quot;: [
+
+    ]
+    },
+    {
+    &quot;BTTAppBundleIdentifier&quot;: &quot;BT.G&quot;,
+    &quot;BTTAppName&quot;: &quot;Global&quot;,
+    &quot;BTTAppAutoInvertIcon&quot;: 1,
+    &quot;BTTTriggers&quot;: [
+        {
+        &quot;BTTTriggerType&quot;: 108,
+        &quot;BTTTriggerTypeDescription&quot;: &quot;4 Finger Swipe Up&quot;,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeTouchpadAll&quot;,
+        &quot;BTTPredefinedActionType&quot;: 45,
+        &quot;BTTPredefinedActionName&quot;: &quot;Show Desktop&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTAlternateModifierKeys&quot;: 0,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;AF9F2E7B-4415-4BD9-8389-CF8501E8CDCC&quot;,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTOrder&quot;: 1,
+        &quot;BTTDisplayOrder&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 21,
+        &quot;BTTPredefinedActionName&quot;: &quot;Maximize Window&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;6A1F00BD-97DA-406F-94A0-299C83FDD70A&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;8&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 91,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 3,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 270,
+        &quot;BTTPredefinedActionName&quot;: &quot;Restore last saved window layout&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;7CFD2C3F-D079-4449-BD03-0391797DCC16&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;s&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 1,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 5,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 48,
+        &quot;BTTPredefinedActionName&quot;: &quot;Maximize Window to Next Monitor&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;97A815A5-3DB7-4836-A225-69070A11B65D&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;5&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 87,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 2,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 20,
+        &quot;BTTPredefinedActionName&quot;: &quot;Maximize Window Right Half&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;0785E15C-FFDA-4C90-862A-BEB6B9B53D56&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;6&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 88,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 1,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 269,
+        &quot;BTTPredefinedActionName&quot;: &quot;Save current window layout&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;4DEDE991-F2C1-49CC-912C-8539915B865F&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;s&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 1,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 4,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 107,
+        &quot;BTTTriggerTypeDescription&quot;: &quot;4 Finger Swipe Down&quot;,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeTouchpadAll&quot;,
+        &quot;BTTPredefinedActionType&quot;: 5,
+        &quot;BTTPredefinedActionName&quot;: &quot;Mission Control&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTAlternateModifierKeys&quot;: 0,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;38408EAB-5F27-4843-BD5C-7DDAAD725052&quot;,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTOrder&quot;: 0,
+        &quot;BTTDisplayOrder&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 0,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeKeyboardShortcut&quot;,
+        &quot;BTTPredefinedActionType&quot;: 19,
+        &quot;BTTPredefinedActionName&quot;: &quot;Maximize Window Left Half&quot;,
+        &quot;BTTAdditionalConfiguration&quot;: &quot;1572904&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTKeyboardShortcutKeyboardType&quot;: 5750,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;C9ED09DC-40F3-43C9-9FDF-5C7A31312921&quot;,
+        &quot;BTTTriggerOnDown&quot;: 1,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTLayoutIndependentChar&quot;: &quot;4&quot;,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTShortcutKeyCode&quot;: 86,
+        &quot;BTTShortcutModifierKeys&quot;: 1572864,
+        &quot;BTTOrder&quot;: 0,
+        &quot;BTTDisplayOrder&quot;: 0,
+        &quot;BTTAutoAdaptToKeyboardLayout&quot;: 0
+        },
+        {
+        &quot;BTTTriggerType&quot;: 123,
+        &quot;BTTTriggerTypeDescription&quot;: &quot;1 Finger Tap Top Right&quot;,
+        &quot;BTTTriggerClass&quot;: &quot;BTTTriggerTypeTouchpadAll&quot;,
+        &quot;BTTPredefinedActionType&quot;: 49,
+        &quot;BTTPredefinedActionName&quot;: &quot;Launch Application \/ Open File \/ Start Apple Script …&quot;,
+        &quot;BTTLaunchPath&quot;: &quot;file:\/\/\/Applications\/Slidepad.app\/&quot;,
+        &quot;BTTEnabled2&quot;: 1,
+        &quot;BTTAlternateModifierKeys&quot;: 0,
+        &quot;BTTRepeatDelay&quot;: 0,
+        &quot;BTTUUID&quot;: &quot;65403F16-56A0-4C59-B0B9-CBFCCA993915&quot;,
+        &quot;BTTNotesInsteadOfDescription&quot;: 0,
+        &quot;BTTEnabled&quot;: 1,
+        &quot;BTTModifierMode&quot;: 0,
+        &quot;BTTOrder&quot;: 2,
+        &quot;BTTDisplayOrder&quot;: 0
+        }
+    ]
+    }
+],
+&quot;BTTPresetSnapAreas&quot;: [
+
+]
+}
+</code></pre>
+</div>
+</details>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.github.io/tags/macos/">macOS</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/brew/">brew</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://cha2hyun.github.io/posts/markdown-syntac-guide/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Markdown Syntax Guide</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://cha2hyun.github.io/">cha2hyun.log</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
