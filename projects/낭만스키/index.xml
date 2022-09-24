@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>낭만스키 프로젝트 on cha2hyun.log</title>
+    <title>낭만스키 (2022.09 ~) on cha2hyun.log</title>
     <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/</link>
-    <description>Recent content in 낭만스키 프로젝트 on cha2hyun.log</description>
+    <description>Recent content in 낭만스키 (2022.09 ~) on cha2hyun.log</description>
     <image>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>FastAPI에서 aiohttp를 이용한 비동기 크롤링</title>
+      <title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</title>
       <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
       <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
       

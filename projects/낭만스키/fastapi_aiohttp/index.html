@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>FastAPI에서 aiohttp를 이용한 비동기 크롤링 | cha2hyun.log</title>
+<title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기 | cha2hyun.log</title>
 <meta name="keywords" content="FastAPI, bs4, aiohttp, grequests, requests, aiohttp">
 <meta name="description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.">
 <meta name="author" content="cha2hyun">
@@ -54,7 +54,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="FastAPI에서 aiohttp를 이용한 비동기 크롤링" />
+</noscript><meta property="og:title" content="전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기" />
 <meta property="og:description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="projects" />
@@ -64,7 +64,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
 
-<meta name="twitter:title" content="FastAPI에서 aiohttp를 이용한 비동기 크롤링"/>
+<meta name="twitter:title" content="전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기"/>
 <meta name="twitter:description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다."/>
 
 
@@ -82,7 +82,7 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "FastAPI에서 aiohttp를 이용한 비동기 크롤링",
+      "name": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
       "item": "https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/"
     }
   ]
@@ -92,14 +92,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "FastAPI에서 aiohttp를 이용한 비동기 크롤링",
-  "name": "FastAPI에서 aiohttp를 이용한 비동기 크롤링",
+  "headline": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
+  "name": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
   "description": "서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.",
   "keywords": [
     "FastAPI", "bs4", "aiohttp", "grequests", "requests", "aiohttp"
   ],
-  "articleBody": "들어가며 전국의 스키장의 슬로프 현황을 실시간으로 보여주는 사이드 프로젝트 낭만스키를 진행하면서 다양한 규격의 리조트 사이트를 크롤링 해야했습니다.\n0.1초가 중요할 만큼 실시간이 필요하지 않기 때문에 크롤링만 담당하는 미니 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다.\n[문제점] 미니서버로 사용하고 메인API가 따로 있기 때문에 평상시에는 문제가 없지만 고객의 요청으로 인한 강제 새로고침 요청 시 전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 고객이 결과를 반환받기 까지 수초가 걸렸습니다.\n크롤링 -\u003e db insert -\u003e 다음 리조트 크롤링 -\u003e ... 반복 -\u003e 메인 서버에서 결과값 반환\n[해결방안] aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때도 크롤링 결과를 모아 bulk_update를 이용하는 방식으로 변경하여 걸리는 시간을 0.5초 이내로 낮출 수 있었습니다.\n비동기 크롤링 -\u003e bulk_update로 한번에 insert -\u003e 메인 서버에서 결과값 반환\n이 글에서는 우선 requests, grequests, aiohttp를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택해 FastAPI에 적용하려고 합니다. 같은 형식이 아닌 다양한 여러 페이지를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.\n실행환경은 다음과 같습니다.\nOS : MacOS Monterey (Mac Studio) Versions : pipenv(pyenv python3.10.3), FastAPI(0.84) Etc : Talend Api Tester, Mysql(AWS RDS) 테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 0.1초 후에 리턴합니다.\n# url : http://127.0.0.1:8002/test/{num} @app.get(\"/test/{num}\") def get_test(num): import time time.sleep(0.1) return {\"num\": num} requests 테스트 requests 라이브러리 설치\npipenv install requests 간단히 requests를 테스트해봅니다. 테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.\ndef request_test(): import requests import time start = time.time() cnt = 100 for i in range(1, cnt + 1): url = f\"http://127.0.0.1:8002/test/{i}\" res = requests.get(url) print(f\"{i}] status code -\u003e {res.status_code}\") total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") request_test() 결과값\n1] status code -\u003e 200 ... 100] status code -\u003e 200 Total -\u003e 11.1368sec Avg -\u003e 0.1114sec grequests 테스트 grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. https://github.com/spyoungtech/grequests\ngrequests 라이브러리 설치\npipenv install grequests 100번의 요청을 보내봅니다.\ndef grequest_test(): import grequests import time cnt = 100 urls = [f\"http://127.0.0.1:8002/test/{i}\" for i in range(1, cnt+1)] start = time.time() rs = (grequests.get(u) for u in urls) print(grequests.map(rs)) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") grequest_test() 결과값\n[, ..., ] Total -\u003e 0.4132sec Avg -\u003e 0.0041sec aiohttp 테스트 aiohttp 라이브러리 설치\npipenv install aiohttp 100번의 요청을 보내봅니다.\nimport asyncio import time from aiohttp import ClientSession async def aiohttp_test(url): async with ClientSession() as session: async with session.get(url) as response: return await response.read() cnt = 100 start = time.time() loop = asyncio.get_event_loop() coroutines = [aiohttp_test(f'http://127.0.0.1:8002/test/{i}') for i in range(cnt)] results = loop.run_until_complete(asyncio.gather(*coroutines)) # print(result) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") 결과\nTotal -\u003e 0.3705sec Avg -\u003e 0.0037sec requests vs grequests vs aiohttp 속도 비교 1개의 요청을 처리하는데 걸리는 평균 시간\nrequests : 0.1114sec grequests : 0.0041sec aiohttp : 0.0037sec 여러번 계속 테스트 해봐도 aiohttp가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다.\nFastAPI에 aiohttp 적용하기 대략적인 프로젝트 tree 구조\n. ├── Dockerfile ├── docker-compose.yml ├── .env ├── requirements.txt ├── scripts │ └── db_to_orm.sh └── src ├── config (RDS 연결) │ ├── __init__.py │ └── database.py ├── constant.py (상수값 저장) ├── crawler (크롤링) │ ├── __init__.py │ ├── crawler.py ├── main.py (api) ├── model (DB모델) │ ├── __init__.py │ └── models.py ├── service (DB insert) │ ├── __init__.py │ └── slope_time_service.py └── utils (결과 Discord 전송) └── webhook.py 작성중\n",
-  "wordCount" : "568",
+  "articleBody": "들어가며 다룰 내용 낭만스키의 기능중 하나인 전국의 스키장의 모든 슬로프 현황을 실시간으로 불러와서 동일한 포맷의 형태로 제공해주는 것을 만드는 과정에 대해서 작성합니다.\n슬로프 현황은 0.1초가 중요할 만큼 실시간성이 필요하지 않기 때문에 크롤링만 담당하는 크롤러 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다. 프론트에서 슬로프 현황을 요청할때는 메인 API에서 저장한 DB로 부터 데이터를 표시했습니다.\n여러 시행착오 끝에 가장 빠르게, 가장 효과적인 구조로 크롤링을 하는 방법에 대해 작성했습니다.\n실행 환경 로컬에서 테스트용으로 사용되는 환경은 다음과 같습니다.\nOS : MacOS Monterey (Mac Studio) Versions : pipenv(pyenv python3.10.3), FastAPI(0.84) Etc : Talend Api Tester, Mysql(AWS RDS) requests vs grequests vs aiohttp 무엇이 제일 빠른가? 왜 빨라야 할까? [문제점] 전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 유저가 업데이트된 정보를 요청하거나 문제가 생겼을 때 강제로 다시 크롤링 로직을 도는데 결과를 반환받기 까지 수초가 걸렸습니다.\n크롤링 -\u003e db insert -\u003e 다음 리조트 크롤링 -\u003e ... 반복 -\u003e 메인 서버에서 결과값 반환\n[해결방안] aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때도 크롤링 결과를 모아 bulk_update를 이용하는 방식으로 변경하여 걸리는 시간을 0.5초 이내로 낮출 수 있었습니다.\n비동기 크롤링 -\u003e bulk_update로 한번에 insert -\u003e 메인 서버에서 결과값 반환\n[테스트방법] requests, grequests, aiohttp를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택했습니다.\n테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 0.1초 후에 리턴합니다.\n# url : http://127.0.0.1:8002/test/{num} @app.get(\"/test/{num}\") def get_test(num): import time time.sleep(0.1) return {\"num\": num} requests 테스트 테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.\nInstall requests\npipenv install requests code\ndef request_test(): import requests import time start = time.time() cnt = 100 for i in range(1, cnt + 1): url = f\"http://127.0.0.1:8002/test/{i}\" res = requests.get(url) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") request_test() result\nTotal -\u003e 11.1368sec Avg -\u003e 0.1114sec grequests 테스트 grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. https://github.com/spyoungtech/grequests 마찬가지로 100번의 요청을 보내봤습니다.\ninstall grequests\npipenv install grequests code\ndef grequest_test(): import grequests import time cnt = 100 urls = [f\"http://127.0.0.1:8002/test/{i}\" for i in range(1, cnt+1)] start = time.time() rs = (grequests.get(u) for u in urls) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") grequest_test() result\nTotal -\u003e 0.4132sec Avg -\u003e 0.0041sec aiohttp 테스트 비동기 크롤링에 가장 보편적으로 많이 사용되는 라이브러리 입니다. 100번의 요청을 보냅니다.\ninstall aiohttp\npipenv install aiohttp 100번의 요청을 보내봅니다.\ncode\nimport asyncio import time from aiohttp import ClientSession async def aiohttp_test(url): async with ClientSession() as session: async with session.get(url) as response: return await response.read() cnt = 100 start = time.time() loop = asyncio.get_event_loop() coroutines = [aiohttp_test(f'http://127.0.0.1:8002/test/{i}') for i in range(cnt)] results = loop.run_until_complete(asyncio.gather(*coroutines)) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") result\nTotal -\u003e 0.3705sec Avg -\u003e 0.0037sec 속도 비교 결과 1개의 요청을 처리하는데 걸리는 평균 시간\nrequests : 0.1114sec grequests : 0.0041sec aiohttp : 0.0037sec 🏆 라이브러리 선택 여러번 계속 테스트 해봐도 aiohttp가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다. 내부망이 아닌 request 테스트 사이트 requestcatcher에서 테스트해본 결과도 동일하였습니다.\n0.1초후에 응답하는 api에 100번의 요청을 보냈을 때 싱글스레드(requests)는 평균 0.1114sec 초로 한개의 요청을 끝내고 다음 요청을 진행하는 것을 볼 수 있었습니다. 비동기를 이용했을때는 평균 약 0.004초가 걸렸습니다. 제 환경에서는 약 25개의 요청을 동시에 처리할 수 있다는 점을 알 수 있었습니다.\n크롤링하는 서버의 성능에 따라 인터넷 속도나 얼만큼 많은 쓰레드를 사용할 수 있는가에 따라 속도 차이가 좀 더 나겠지만, 전국 스키장의 수가 20개가 되지 않으므로 비동기를 이용하여 모든 스키장을 크롤링을 동시에 진행할 것이고 최소 시간은 가장 크롤링이 오래걸리는 스키장이 될 것으로 예상했습니다.\nFastAPI에 aiohttp 적용하기 FastAPI 선택 이유 크롤링 서버는 메인서버에서 분리되어 일정 시간마다 크롤링 \u003e DB Insert만 하는 아주 가볍게 돌아가는 서버이기 떄문에 Django나 Flask보다 가벼운 FastAPI를 선택했습니다. 간혹 오류나 크롤링 실패로 인해서 관리자나 프론트에서 유저가 다시 크롤링하라는 요청을 보내기 위해 get 요청을 받을 수 있게 api로 진행했습니다.\n프로젝트 트리 구조 스키장별로 제공하는 홈페이지가 모두 달랐습니다. 정적페이지로 제공하는지, API가 있는지 등 스키장마다 모두 다른 형태로 리턴받아서 구조와 클린코드를 어떻게 짜야할지 고민이 많았습니다. 같은 형식이 아닌 다양한 여러 페이지를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.\nFastAPI 프로젝트 tree\n. ├── Dockerfile ├── docker-compose.yml ├── .env ├── requirements.txt ├── scripts │ └── db_to_orm.sh └── src ├── config (RDS 연결) │ ├── __init__.py │ └── database.py ├── constant.py (상수값 저장) ├── crawler (크롤링) │ ├── __init__.py │ ├── crawler.py ├── main.py (api) ├── model (DB모델) │ ├── __init__.py │ └── models.py ├── service (DB insert) │ ├── __init__.py │ └── slope_time_service.py └── utils (결과 Discord 전송) └── webhook.py main.py 에서 get 요청을 처리합니다. 크롤링과 관련된 내용은 crawler.py에 저장하고 크롤링에 필요한 상수값 (resort_code, resort_name 등)은 DB에서 불러와도 되지만 상수로 저장해놓고 사용하는게 더 빠르기 때문에 constant.py에 저장했습니다.\ncrawler.py ",
+  "wordCount" : "773",
   "inLanguage": "en",
   "datePublished": "2022-09-21T00:00:00Z",
   "dateModified": "2022-09-21T00:00:00Z",
@@ -203,9 +203,9 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/projects/">Projects</a></div>
     <h1 class="post-title">
-      FastAPI에서 aiohttp를 이용한 비동기 크롤링
+      전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기
     </h1>
-    <div class="post-meta"><span title='2022-09-21 00:00:00 +0000 UTC'>September 21, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2022-09-21 00:00:00 +0000 UTC'>September 21, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -216,7 +216,18 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%eb%93%a4%ec%96%b4%ea%b0%80%eb%a9%b0" aria-label="들어가며">들어가며</a></li>
+                    <a href="#%eb%93%a4%ec%96%b4%ea%b0%80%eb%a9%b0" aria-label="들어가며">들어가며</a><ul>
+                        
+                <li>
+                    <a href="#%eb%8b%a4%eb%a3%b0-%eb%82%b4%ec%9a%a9" aria-label="다룰 내용">다룰 내용</a></li>
+                <li>
+                    <a href="#%ec%8b%a4%ed%96%89-%ed%99%98%ea%b2%bd" aria-label="실행 환경">실행 환경</a></li></ul>
+                </li>
+                <li>
+                    <a href="#requests-vs-grequests-vs-aiohttp-%eb%ac%b4%ec%97%87%ec%9d%b4-%ec%a0%9c%ec%9d%bc-%eb%b9%a0%eb%a5%b8%ea%b0%80" aria-label="requests vs grequests vs aiohttp 무엇이 제일 빠른가?"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 무엇이 제일 빠른가?</a><ul>
+                        
+                <li>
+                    <a href="#%ec%99%9c-%eb%b9%a8%eb%9d%bc%ec%95%bc-%ed%95%a0%ea%b9%8c" aria-label="왜 빨라야 할까?">왜 빨라야 할까?</a></li>
                 <li>
                     <a href="#requests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="requests 테스트"><code>requests</code> 테스트</a></li>
                 <li>
@@ -224,41 +235,65 @@
                 <li>
                     <a href="#aiohttp-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="aiohttp 테스트"><code>aiohttp</code> 테스트</a></li>
                 <li>
-                    <a href="#requests-vs-grequests-vs-aiohttp-%ec%86%8d%eb%8f%84-%eb%b9%84%ea%b5%90" aria-label="requests vs grequests vs aiohttp 속도 비교"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 속도 비교</a></li>
+                    <a href="#%ec%86%8d%eb%8f%84-%eb%b9%84%ea%b5%90-%ea%b2%b0%ea%b3%bc" aria-label="속도 비교 결과">속도 비교 결과</a></li>
                 <li>
-                    <a href="#fastapi%ec%97%90-aiohttp-%ec%a0%81%ec%9a%a9%ed%95%98%ea%b8%b0" aria-label="FastAPI에 aiohttp 적용하기"><code>FastAPI</code>에 <code>aiohttp</code> 적용하기</a>
+                    <a href="#%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%84%a0%ed%83%9d" aria-label="라이브러리 선택">라이브러리 선택</a></li></ul>
                 </li>
+                <li>
+                    <a href="#fastapi%ec%97%90-aiohttp-%ec%a0%81%ec%9a%a9%ed%95%98%ea%b8%b0" aria-label="FastAPI에 aiohttp 적용하기"><code>FastAPI</code>에 <code>aiohttp</code> 적용하기</a><ul>
+                        
+                <li>
+                    <a href="#fastapi-%ec%84%a0%ed%83%9d-%ec%9d%b4%ec%9c%a0" aria-label="FastAPI 선택 이유">FastAPI 선택 이유</a></li>
+                <li>
+                    <a href="#%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8-%ed%8a%b8%eb%a6%ac-%ea%b5%ac%ec%a1%b0" aria-label="프로젝트 트리 구조">프로젝트 트리 구조</a></li>
+                <li>
+                    <a href="#crawlerpy" aria-label="crawler.py">crawler.py</a>
+                </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
 </div>
 
   <div class="post-content"><h2 id="들어가며">들어가며<a hidden class="anchor" aria-hidden="true" href="#들어가며">#</a></h2>
-<p>전국의 스키장의 슬로프 현황을 실시간으로 보여주는 사이드 프로젝트 <a href="https://github.com/3underdog">낭만스키</a>를 진행하면서 다양한 규격의 리조트 사이트를 크롤링 해야했습니다.</p>
-<p>0.1초가 중요할 만큼 실시간이 필요하지 않기 때문에 크롤링만 담당하는 미니 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다.</p>
+<h3 id="다룰-내용">다룰 내용<a hidden class="anchor" aria-hidden="true" href="#다룰-내용">#</a></h3>
+<p><a href="https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/">낭만스키</a>의 기능중 하나인 전국의 스키장의 모든 슬로프 현황을 실시간으로 불러와서 동일한 포맷의 형태로 제공해주는 것을 만드는 과정에 대해서 작성합니다.</p>
+<p>슬로프 현황은 0.1초가 중요할 만큼 실시간성이 필요하지 않기 때문에 크롤링만 담당하는 크롤러 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다. 프론트에서 슬로프 현황을 요청할때는 메인 API에서 저장한 DB로 부터 데이터를 표시했습니다.</p>
+<p>여러 시행착오 끝에 가장 빠르게, 가장 효과적인 구조로 크롤링을 하는 방법에 대해 작성했습니다.</p>
+<h3 id="실행-환경">실행 환경<a hidden class="anchor" aria-hidden="true" href="#실행-환경">#</a></h3>
+<p>로컬에서 테스트용으로 사용되는 환경은 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">OS : MacOS Monterey <span class="o">(</span>Mac Studio<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Versions : pipenv<span class="o">(</span>pyenv python3.10.3<span class="o">)</span>, FastAPI<span class="o">(</span>0.84<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Etc : Talend Api Tester, Mysql<span class="o">(</span>AWS RDS<span class="o">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="requests-vs-grequests-vs-aiohttp-무엇이-제일-빠른가"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 무엇이 제일 빠른가?<a hidden class="anchor" aria-hidden="true" href="#requests-vs-grequests-vs-aiohttp-무엇이-제일-빠른가">#</a></h2>
+<h3 id="왜-빨라야-할까">왜 빨라야 할까?<a hidden class="anchor" aria-hidden="true" href="#왜-빨라야-할까">#</a></h3>
 <p><strong>[문제점]</strong>
-미니서버로 사용하고 메인API가 따로 있기 때문에 평상시에는 문제가 없지만 고객의 요청으로 인한 강제 새로고침 요청 시 전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 고객이 결과를 반환받기 까지 <strong>수초</strong>가 걸렸습니다.</p>
+전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 유저가 업데이트된 정보를 요청하거나 문제가 생겼을 때 강제로 다시 크롤링 로직을 도는데 결과를 반환받기 까지 <strong>수초</strong>가 걸렸습니다.</p>
 <p><code>크롤링 -&gt; db insert -&gt; 다음 리조트 크롤링 -&gt; ... 반복 -&gt; 메인 서버에서 결과값 반환</code></p>
 <p><strong>[해결방안]</strong>
 aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때도 크롤링 결과를 모아 bulk_update를 이용하는 방식으로 변경하여 걸리는 시간을 <strong>0.5초 이내</strong>로 낮출 수 있었습니다.</p>
 <p><code>비동기 크롤링 -&gt; bulk_update로 한번에 insert -&gt; 메인 서버에서 결과값 반환</code></p>
-<p>이 글에서는 우선 <code>requests</code>, <code>grequests</code>, <code>aiohttp</code>를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택해 <code>FastAPI</code>에 적용하려고 합니다. <strong>같은 형식이 아닌 다양한 여러 페이지</strong>를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.</p>
-<p>실행환경은 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">OS : MacOS Monterey <span class="o">(</span>Mac Studio<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Versions : pipenv<span class="o">(</span>pyenv python3.10.3<span class="o">)</span>, FastAPI<span class="o">(</span>0.84<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Etc : Talend Api Tester, Mysql<span class="o">(</span>AWS RDS<span class="o">)</span>
-</span></span></code></pre></div><p>테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 <strong>0.1</strong>초 후에 리턴합니다.</p>
+<p><strong>[테스트방법]</strong>
+<code>requests</code>, <code>grequests</code>, <code>aiohttp</code>를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택했습니다.</p>
+<p>테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 <strong>0.1</strong>초 후에 리턴합니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># url : http://127.0.0.1:8002/test/{num}</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/test/</span><span class="si">{num}</span><span class="s2">&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_test</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;num&#34;</span><span class="p">:</span> <span class="n">num</span><span class="p">}</span>
-</span></span></code></pre></div><hr>
-<h2 id="requests-테스트"><code>requests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#requests-테스트">#</a></h2>
-<p>requests 라이브러리 설치</p>
+</span></span></code></pre></div><br>
+<h3 id="requests-테스트"><code>requests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#requests-테스트">#</a></h3>
+<p>테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.</p>
+<blockquote>
+<p>Install requests</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install requests
-</span></span></code></pre></div><p>간단히 requests를 테스트해봅니다. 테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.</p>
+</span></span></code></pre></div><blockquote>
+<p>code</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">request_test</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">requests</span>
 </span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
@@ -267,25 +302,27 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">] status code -&gt; </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">request_test</span><span class="p">()</span>
-</span></span></code></pre></div><p>결과값</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">1<span class="o">]</span> status code -&gt; <span class="m">200</span>
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">100<span class="o">]</span> status code -&gt; <span class="m">200</span>
-</span></span><span class="line"><span class="cl">Total -&gt; 11.1368sec
+</span></span></code></pre></div><blockquote>
+<p>result</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Total -&gt; 11.1368sec
 </span></span><span class="line"><span class="cl">Avg -&gt; 0.1114sec
-</span></span></code></pre></div><hr>
-<h2 id="grequests-테스트"><code>grequests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#grequests-테스트">#</a></h2>
-<p>grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. <a href="https://github.com/spyoungtech/grequests">https://github.com/spyoungtech/grequests</a></p>
-<p>grequests 라이브러리 설치</p>
+</span></span></code></pre></div><br>
+<h3 id="grequests-테스트"><code>grequests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#grequests-테스트">#</a></h3>
+<p>grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. <a href="https://github.com/spyoungtech/grequests">https://github.com/spyoungtech/grequests</a> 마찬가지로 100번의 요청을 보내봤습니다.</p>
+<blockquote>
+<p>install grequests</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install grequests
-</span></span></code></pre></div><p>100번의 요청을 보내봅니다.</p>
+</span></span></code></pre></div><blockquote>
+<p>code</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">grequest_test</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">grequests</span>
 </span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
@@ -293,22 +330,28 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </span></span><span class="line"><span class="cl">    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&#34;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="n">rs</span> <span class="o">=</span> <span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">rs</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">grequest_test</span><span class="p">()</span>
-</span></span></code></pre></div><p>결과값</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[&lt;Response [200]&gt;, ..., &lt;Response [200]&gt;]
-</span></span><span class="line"><span class="cl">Total -&gt; 0.4132sec
+</span></span></code></pre></div><blockquote>
+<p>result</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Total -&gt; 0.4132sec
 </span></span><span class="line"><span class="cl">Avg -&gt; 0.0041sec
-</span></span></code></pre></div><hr>
-<h2 id="aiohttp-테스트"><code>aiohttp</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#aiohttp-테스트">#</a></h2>
-<p>aiohttp 라이브러리 설치</p>
+</span></span></code></pre></div><br>
+<h3 id="aiohttp-테스트"><code>aiohttp</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#aiohttp-테스트">#</a></h3>
+<p>비동기 크롤링에 가장 보편적으로 많이 사용되는 라이브러리 입니다. 100번의 요청을 보냅니다.</p>
+<blockquote>
+<p>install aiohttp</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install aiohttp
 </span></span></code></pre></div><p>100번의 요청을 보내봅니다.</p>
+<blockquote>
+<p>code</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">ClientSession</span>
@@ -323,26 +366,37 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </span></span><span class="line"><span class="cl"><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="n">coroutines</span> <span class="o">=</span> <span class="p">[</span><span class="n">aiohttp_test</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cnt</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coroutines</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># print(result)</span>
 </span></span><span class="line"><span class="cl"><span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><p>결과</p>
+</span></span></code></pre></div><blockquote>
+<p>result</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Total -&gt; 0.3705sec
 </span></span><span class="line"><span class="cl">Avg -&gt; 0.0037sec
-</span></span></code></pre></div><hr>
-<h2 id="requests-vs-grequests-vs-aiohttp-속도-비교"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 속도 비교<a hidden class="anchor" aria-hidden="true" href="#requests-vs-grequests-vs-aiohttp-속도-비교">#</a></h2>
+</span></span></code></pre></div><br>
+<h3 id="속도-비교-결과">속도 비교 결과<a hidden class="anchor" aria-hidden="true" href="#속도-비교-결과">#</a></h3>
 <p>1개의 요청을 처리하는데 걸리는 평균 시간</p>
 <ul>
 <li>requests : 0.1114sec</li>
 <li>grequests : 0.0041sec</li>
-<li>aiohttp : 0.0037sec</li>
+<li>aiohttp : 0.0037sec 🏆</li>
 </ul>
-<p>여러번 계속 테스트 해봐도 aiohttp가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다.</p>
+<br>
+<h3 id="라이브러리-선택">라이브러리 선택<a hidden class="anchor" aria-hidden="true" href="#라이브러리-선택">#</a></h3>
+<p>여러번 계속 테스트 해봐도 <code>aiohttp</code>가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다. 내부망이 아닌 request 테스트 사이트 <a href="https://requestcatcher.com/">requestcatcher</a>에서 테스트해본 결과도 동일하였습니다.</p>
+<p>0.1초후에 응답하는 api에 100번의 요청을 보냈을 때 싱글스레드(requests)는 평균 0.1114sec 초로 한개의 요청을 끝내고 다음 요청을 진행하는 것을 볼 수 있었습니다. 비동기를 이용했을때는 평균 약 0.004초가 걸렸습니다. 제 환경에서는 약 <strong>25개</strong>의 요청을 동시에 처리할 수 있다는 점을 알 수 있었습니다.</p>
+<p>크롤링하는 서버의 성능에 따라 인터넷 속도나 얼만큼 많은 쓰레드를 사용할 수 있는가에 따라 속도 차이가 좀 더 나겠지만, 전국 스키장의 수가 <strong>20개</strong>가 되지 않으므로 비동기를 이용하여 모든 스키장을 크롤링을 동시에 진행할 것이고 최소 시간은 <strong>가장 크롤링이 오래걸리는 스키장</strong>이 될 것으로 예상했습니다.</p>
 <hr>
 <h2 id="fastapi에-aiohttp-적용하기"><code>FastAPI</code>에 <code>aiohttp</code> 적용하기<a hidden class="anchor" aria-hidden="true" href="#fastapi에-aiohttp-적용하기">#</a></h2>
-<p>대략적인 프로젝트 tree 구조</p>
+<h3 id="fastapi-선택-이유">FastAPI 선택 이유<a hidden class="anchor" aria-hidden="true" href="#fastapi-선택-이유">#</a></h3>
+<p>크롤링 서버는 메인서버에서 분리되어 일정 시간마다 <code>크롤링 &gt; DB Insert</code>만 하는 아주 가볍게 돌아가는 서버이기 떄문에 <code>Django</code>나 <code>Flask</code>보다 가벼운 <code>FastAPI</code>를 선택했습니다. 간혹 오류나 크롤링 실패로 인해서 관리자나 프론트에서 유저가 다시 크롤링하라는 요청을 보내기 위해 get 요청을 받을 수 있게 api로 진행했습니다.</p>
+<h3 id="프로젝트-트리-구조">프로젝트 트리 구조<a hidden class="anchor" aria-hidden="true" href="#프로젝트-트리-구조">#</a></h3>
+<p>스키장별로 제공하는 홈페이지가 모두 달랐습니다. 정적페이지로 제공하는지, API가 있는지 등 스키장마다 모두 다른 형태로 리턴받아서 구조와 클린코드를 어떻게 짜야할지 고민이 많았습니다. <strong>같은 형식이 아닌 다양한 여러 페이지</strong>를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.</p>
+<blockquote>
+<p>FastAPI 프로젝트 tree</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
 </span></span><span class="line"><span class="cl">├── Dockerfile
 </span></span><span class="line"><span class="cl">├── docker-compose.yml
@@ -367,7 +421,10 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </span></span><span class="line"><span class="cl">    │   └── slope_time_service.py
 </span></span><span class="line"><span class="cl">    └── utils (결과 Discord 전송)
 </span></span><span class="line"><span class="cl">        └── webhook.py
-</span></span></code></pre></div><p>작성중</p>
+</span></span></code></pre></div><p><code>main.py</code> 에서 get 요청을 처리합니다. 크롤링과 관련된 내용은 <code>crawler.py</code>에 저장하고 크롤링에 필요한 상수값 (resort_code, resort_name 등)은 DB에서 불러와도 되지만 상수로 저장해놓고 사용하는게 더 빠르기 때문에 <code>constant.py</code>에 저장했습니다.</p>
+<h3 id="crawlerpy">crawler.py<a hidden class="anchor" aria-hidden="true" href="#crawlerpy">#</a></h3>
+<p><img loading="lazy" src="./img/index/crawler_version.png" alt="사진"  title="테스트를 해보았을때 aiohttp 적용이 가장 빨랐다."  />
+</p>
 
 
   </div>
