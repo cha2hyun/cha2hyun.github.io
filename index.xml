@@ -9,7 +9,34 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>12939] 최댓값과 최솟값</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>12951] JadenCase 문자열 만들기</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12951/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12951/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>70129] 이진 변환 반복하기</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</guid>
+      <description>월간 코드 챌린지 시즌1</description>
+    </item>
+    
     <item>
       <title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</title>
       <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
@@ -17,6 +44,24 @@
       
       <guid>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</guid>
       <description>서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.</description>
+    </item>
+    
+    <item>
+      <title>12941] 최솟값 만들기</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12941/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12941/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>12909] 올바른 괄호</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</guid>
+      <description>스택/큐</description>
     </item>
     
     <item>
