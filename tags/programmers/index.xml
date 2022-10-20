@@ -9,7 +9,16 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/programmers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/programmers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>43105] 정수 삼각형</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</guid>
+      <description>동적계획법(Dynamic Programing</description>
+    </item>
+    
     <item>
       <title>12939] 최댓값과 최솟값</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</link>
@@ -17,6 +26,15 @@
       
       <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</guid>
       <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>43268] 이중우선순위큐</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</guid>
+      <description>힙(Heap)</description>
     </item>
     
     <item>
@@ -53,15 +71,6 @@
       
       <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</guid>
       <description>스택/큐</description>
-    </item>
-    
-    <item>
-      <title>43105] 올바른 괄호</title>
-      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</guid>
-      <description>동적계획법(Dynamic Programing</description>
     </item>
     
     <item>
