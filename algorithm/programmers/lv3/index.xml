@@ -29,6 +29,15 @@
     </item>
     
     <item>
+      <title>12938] Python 최고의 집합</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
       <title>12927] Python 야근지수</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
@@ -38,12 +47,12 @@
     </item>
     
     <item>
-      <title>12938] Python 최고의 집합</title>
-      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</link>
+      <title>43162] Python 네트워크</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43162/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</guid>
-      <description>연습문제</description>
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/43162/</guid>
+      <description>깊이/너비 우선 탐색(DFS/BFS)</description>
     </item>
     
   </channel>
