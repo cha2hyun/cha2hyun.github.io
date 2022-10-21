@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>43105] 정수 삼각형</title>
+      <title>43105] Python 정수 삼각형</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>43268] 이중우선순위큐</title>
+      <title>43268] Python 이중우선순위큐</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,16 @@
     </item>
     
     <item>
-      <title>12938] 최고의 집합</title>
+      <title>12927] Python 야근지수</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>12938] Python 최고의 집합</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       

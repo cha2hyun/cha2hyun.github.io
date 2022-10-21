@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/programmers/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>43105] 정수 삼각형</title>
+      <title>43105] Python 정수 삼각형</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>12939] 최댓값과 최솟값</title>
+      <title>12939] Python 최댓값과 최솟값</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>43268] 이중우선순위큐</title>
+      <title>43268] Python 이중우선순위큐</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -38,7 +38,7 @@
     </item>
     
     <item>
-      <title>12951] JadenCase 문자열 만들기</title>
+      <title>12951] Python JadenCase 문자열 만들기</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12951/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -47,7 +47,16 @@
     </item>
     
     <item>
-      <title>12938] 최고의 집합</title>
+      <title>12927] Python 야근지수</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>12938] Python 최고의 집합</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -56,7 +65,7 @@
     </item>
     
     <item>
-      <title>70129] 이진 변환 반복하기</title>
+      <title>70129] Python 이진 변환 반복하기</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -65,7 +74,7 @@
     </item>
     
     <item>
-      <title>12941] 최솟값 만들기</title>
+      <title>12941] Python 최솟값 만들기</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12941/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -74,7 +83,7 @@
     </item>
     
     <item>
-      <title>12909] 올바른 괄호</title>
+      <title>12909] Python 올바른 괄호</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -83,7 +92,7 @@
     </item>
     
     <item>
-      <title>12924] 숫자의 표현</title>
+      <title>12924] Python 숫자의 표현</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12924/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -92,7 +101,7 @@
     </item>
     
     <item>
-      <title>12945] 피보나치 수</title>
+      <title>12945] Python 피보나치 수</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12945/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
       
@@ -101,7 +110,7 @@
     </item>
     
     <item>
-      <title>12911] 다음 큰 숫자</title>
+      <title>12911] Python 다음 큰 숫자</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12911/</link>
       <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
       
