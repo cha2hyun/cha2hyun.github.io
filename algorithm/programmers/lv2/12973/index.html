@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>12911] Python 다음 큰 숫자 | cha2hyun.log</title>
+<title>12973] Python 짝지어 제거하기 | cha2hyun.log</title>
 <meta name="keywords" content="programmers">
-<meta name="description" content="연습문제">
+<meta name="description" content="2017 팁스타운">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/">
+<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12973/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
@@ -54,18 +54,18 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="12911] Python 다음 큰 숫자" />
-<meta property="og:description" content="연습문제" />
+</noscript><meta property="og:title" content="12973] Python 짝지어 제거하기" />
+<meta property="og:description" content="2017 팁스타운" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
-<meta property="article:published_time" content="2022-09-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-26T00:00:00+00:00" />
+<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv2/12973/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
+<meta property="article:published_time" content="2022-10-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-24T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
 
-<meta name="twitter:title" content="12911] Python 다음 큰 숫자"/>
-<meta name="twitter:description" content="연습문제"/>
+<meta name="twitter:title" content="12973] Python 짝지어 제거하기"/>
+<meta name="twitter:description" content="2017 팁스타운"/>
 
 
 <script type="application/ld+json">
@@ -94,8 +94,8 @@
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "12911] Python 다음 큰 숫자",
-      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/12911/"
+      "name": "12973] Python 짝지어 제거하기",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/12973/"
     }
   ]
 }
@@ -104,24 +104,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "12911] Python 다음 큰 숫자",
-  "name": "12911] Python 다음 큰 숫자",
-  "description": "연습문제",
+  "headline": "12973] Python 짝지어 제거하기",
+  "name": "12973] Python 짝지어 제거하기",
+  "description": "2017 팁스타운",
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12911\n풀이 시도 1\nwhile문 돌면서 n을 1씩 더해서 2진수로 변환했을때 “1\"의 갯수가 원래 n의 2진수로 변환했을때 “1\"의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.\ndef solution(n): cnt = format(n, \"b\").count(\"1\") n += 1 while True: if format(n, \"b\").count(\"1\") == cnt: return n n += 1 다른사람 풀이\n가독성은 좋지 않지만 pythonic ..\ndef nextBigNumber(n, count = 0): return n if bin(n).count(\"1\") is count else nextBigNumber(n+1, bin(n).count(\"1\") if count is 0 else count) ",
-  "wordCount" : "78",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12973\n풀이 시도 1\n문자열 길이가 1백만이기 때문에 예외처리를 먼저 진행해야한다.\n전체 길이가 홀수면 나눠질 수 없음 문자열의 각 알파벳 갯수가 홀수 이면 나눠질 수 없음 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 55.2점으로 탈락\ndef solution(s): length = len(s) # 홀수 이면 나눠질 수 없음 if length % 2 == 1: return 0 # 문자열의 각 알파벳의 갯수가 홀수 이면 나눠질 수 없음 alpha = [] for i in s: if i not in alpha: alpha.append(i) for i in alpha: if s.count(i) % 2 == 1: return 0 # 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 if length % len(alpha) != 0: return 0 # 알파벳 종류만큼 돌면서 for i in range(len(alpha)): for a in alpha: # 문자열에 연속되는 알파벳이 있으면 삭제해줌 s = s.replace(a+a,'') # 문자열이 비었으면 성공 if s == '': return 1 return 0 # while True: 시도 2\n스택 사용하여 알파벳을 스택에 넣으면서 이전값과 같으면 팝, 다르면 푸쉬하여 스택이 비어져있으면 1을 리턴한다\ndef solution(s): stack = [] for i in range(len(s)): # print(stack) if not stack: stack.append(s[i]) else: if s[i] == stack[-1]: stack.pop() else: stack.append(s[i]) if stack: return 0 else: return 1 다른사람 풀이\n스택이 있는지 없는지를 판별해 리턴할때 한줄로 return not(stack)으로 표시가 가능\n... return not(stack) ",
+  "wordCount" : "207",
   "inLanguage": "en",
-  "datePublished": "2022-09-26T00:00:00Z",
-  "dateModified": "2022-09-26T00:00:00Z",
+  "datePublished": "2022-10-24T00:00:00Z",
+  "dateModified": "2022-10-24T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "cha2hyun"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv2/12911/"
+    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv2/12973/"
   },
   "publisher": {
     "@type": "Organization",
@@ -220,9 +220,9 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/">프로그래머스</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title">
-      12911] Python 다음 큰 숫자
+      12973] Python 짝지어 제거하기
     </h1>
-    <div class="post-meta"><span title='2022-09-26 00:00:00 +0000 UTC'>September 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2022-10-24 00:00:00 +0000 UTC'>October 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -243,26 +243,75 @@
 </div>
 
   <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
-<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12911">https://school.programmers.co.kr/learn/courses/30/lessons/12911</a></p>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12973">https://school.programmers.co.kr/learn/courses/30/lessons/12973</a></p>
 <h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
 <blockquote>
 <p>시도 1</p>
 </blockquote>
-<p>while문 돌면서 n을 1씩 더해서 2진수로 변환했을때 &ldquo;1&quot;의 갯수가 원래 n의 2진수로 변환했을때 &ldquo;1&quot;의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<p>문자열 길이가 1백만이기 때문에 예외처리를 먼저 진행해야한다.</p>
+<ol>
+<li>전체 길이가 홀수면 나눠질 수 없음</li>
+<li>문자열의 각 알파벳 갯수가 홀수 이면 나눠질 수 없음</li>
+<li>전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음</li>
+</ol>
+<p><code>55.2</code>점으로 탈락</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 홀수 이면 나눠질 수 없음</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 문자열의 각 알파벳의 갯수가 홀수 이면 나눠질 수 없음</span>
+</span></span><span class="line"><span class="cl">    <span class="n">alpha</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">alpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">length</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 알파벳 종류만큼 돌면서</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 문자열에 연속되는 알파벳이 있으면 삭제해줌</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 문자열이 비었으면 성공</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># while True:</span>
+</span></span></code></pre></div><blockquote>
+<p>시도 2</p>
+</blockquote>
+<p>스택 사용하여 알파벳을 스택에 넣으면서 이전값과 같으면 팝, 다르면 푸쉬하여 스택이 비어져있으면 1을 리턴한다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(stack)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
 </span></span></code></pre></div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
-<p>가독성은 좋지 않지만 pythonic ..</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">count</span> <span class="k">else</span> <span class="n">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="k">if</span> <span class="n">count</span> <span class="ow">is</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">count</span><span class="p">)</span>
+<p>스택이 있는지 없는지를 판별해 리턴할때 한줄로 <code>return not(stack)</code>으로 표시가 가능</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 </span></span></code></pre></div>
 
   </div>
@@ -272,15 +321,15 @@
       <li><a href="https://cha2hyun.github.io/tags/programmers/">programmers</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv3/42884/">
+  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/">
     <span class="title">« Prev</span>
     <br>
-    <span>42884] Python 단속카메라</span>
+    <span>12911] Python 다음 큰 숫자</span>
   </a>
-  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12973/">
+  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv3/42579/">
     <span class="title">Next »</span>
     <br>
-    <span>12973] Python 짝지어 제거하기</span>
+    <span>42579] Python 베스트앨범</span>
   </a>
 </nav>
 
