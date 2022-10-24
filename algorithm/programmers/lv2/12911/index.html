@@ -10,7 +10,7 @@
 <meta name="description" content="연습문제">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12911\n풀이 시도 1\nwhile문 돌면서 n을 1씩 더해서 2진수로 변환했을때 “1\"의 갯수가 원래 n의 2진수로 변환했을때 “1\"의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.\ndef solution(n): cnt = format(n, \"b\").count(\"1\") n += 1 while True: if format(n, \"b\").count(\"1\") == cnt: return n n += 1 다른사람 풀이\n가독성은 좋지 않지만 pythonic ..\ndef nextBigNumber(n, count = 0): return n if bin(n).count(\"1\") is count else nextBigNumber(n+1, bin(n).count(\"1\") if count is 0 else count) ",
-  "wordCount" : "78",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12911\n풀이 시도 1\nwhile문 돌면서 n을 1씩 더해서 2진수로 변환했을때 “1\"의 갯수가 원래 n의 2진수로 변환했을때 “1\"의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.\n1 2 3 4 5 6 7 def solution(n): cnt = format(n, \"b\").count(\"1\") n += 1 while True: if format(n, \"b\").count(\"1\") == cnt: return n n += 1 다른사람 풀이\n가독성은 좋지 않지만 pythonic ..\n1 2 def nextBigNumber(n, count = 0): return n if bin(n).count(\"1\") is count else nextBigNumber(n+1, bin(n).count(\"1\") if count is 0 else count) ",
+  "wordCount" : "87",
   "inLanguage": "en",
   "datePublished": "2022-09-26T00:00:00Z",
   "dateModified": "2022-09-26T00:00:00Z",
@@ -249,21 +249,42 @@
 <p>시도 1</p>
 </blockquote>
 <p>while문 돌면서 n을 1씩 더해서 2진수로 변환했을때 &ldquo;1&quot;의 갯수가 원래 n의 2진수로 변환했을때 &ldquo;1&quot;의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span>
 </span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
 <p>가독성은 좋지 않지만 pythonic ..</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">count</span> <span class="k">else</span> <span class="n">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="k">if</span> <span class="n">count</span> <span class="ow">is</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">count</span><span class="p">)</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 

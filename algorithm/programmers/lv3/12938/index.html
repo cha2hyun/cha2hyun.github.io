@@ -10,7 +10,7 @@
 <meta name="description" content="연습문제">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv3/12938/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12938\n풀이 시도 1\n각원소의 곱이 최대가 되기 위해서는 최대한 큰 시작값의 원소를 찾아야한다. s를 n으로 나누었을때 나머지는 생각하지 않고 몫을 answer 배열의 n개만큼 채워놓고 for문을 돌면서 원소의 합이 s와 같지 않으면 1씩 더하면 된다.\n어차피 n \u003e s 이므로 포문을 돌면서 1을 더하면 무조건 s의 값까지는 도달할 수 있다.\ndef solution(n, s): quotient, remainder = divmod(s, n) answer = [quotient] * n if n \u003e s: return [-1] for i in range(len(answer)): if sum(answer) != s: answer[i] += 1 else: return sorted(answer) 정확도 테스트는 전부 통과했지만 효율성 테스트에서 실패하여 75점\n시도 2\n나머지 값만큼만 합이 모잘랐기 때문에 포문은 나머지값만 돌면 되었다. 마지막에 리턴하지 sorted 하지 않고 배열의 끝부터 더하여 주었다.\ndef solution(n, s): if n \u003e s: return [-1] quotient, remainder = divmod(s, n) answer = [quotient] * n for i in range(remainder): answer[-i -1] += 1 return answer 다른사람풀이 수학적 풀이 방법\ndef bestSet(n, s): answer = [] a = int(s/n) if a == 0: return [-1] b = s%n for i in range(n-b): answer.append(a) for i in range(b): answer.append(a+1) return answer ",
-  "wordCount" : "175",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12938\n풀이 시도 1\n각원소의 곱이 최대가 되기 위해서는 최대한 큰 시작값의 원소를 찾아야한다. s를 n으로 나누었을때 나머지는 생각하지 않고 몫을 answer 배열의 n개만큼 채워놓고 for문을 돌면서 원소의 합이 s와 같지 않으면 1씩 더하면 된다.\n어차피 n \u003e s 이므로 포문을 돌면서 1을 더하면 무조건 s의 값까지는 도달할 수 있다.\n1 2 3 4 5 6 7 8 9 10 def solution(n, s): quotient, remainder = divmod(s, n) answer = [quotient] * n if n \u003e s: return [-1] for i in range(len(answer)): if sum(answer) != s: answer[i] += 1 else: return sorted(answer) 정확도 테스트는 전부 통과했지만 효율성 테스트에서 실패하여 75점\n시도 2\n나머지 값만큼만 합이 모잘랐기 때문에 포문은 나머지값만 돌면 되었다. 마지막에 리턴하지 sorted 하지 않고 배열의 끝부터 더하여 주었다.\n1 2 3 4 5 6 7 8 9 10 def solution(n, s): if n \u003e s: return [-1] quotient, remainder = divmod(s, n) answer = [quotient] * n for i in range(remainder): answer[-i -1] += 1 return answer 다른사람풀이 수학적 풀이 방법\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def bestSet(n, s): answer = [] a = int(s/n) if a == 0: return [-1] b = s%n for i in range(n-b): answer.append(a) for i in range(b): answer.append(a+1) return answer ",
+  "wordCount" : "210",
   "inLanguage": "en",
   "datePublished": "2022-10-21T00:00:00Z",
   "dateModified": "2022-10-21T00:00:00Z",
@@ -252,7 +252,21 @@
 </blockquote>
 <p>각원소의 곱이 최대가 되기 위해서는 <code>최대한 큰 시작값</code>의 원소를 찾아야한다. s를 n으로 나누었을때 나머지는 생각하지 않고 몫을 answer 배열의 n개만큼 채워놓고 for문을 돌면서 원소의 합이 s와 같지 않으면 1씩 더하면 된다.</p>
 <p>어차피 n &gt; s 이므로 포문을 돌면서 1을 더하면 무조건 s의 값까지는 도달할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">[</span><span class="n">quotient</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">s</span><span class="p">:</span>
@@ -262,12 +276,28 @@
 </span></span><span class="line"><span class="cl">            <span class="n">answer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
-</span></span></code></pre></div><p>정확도 테스트는 전부 통과했지만 효율성 테스트에서 실패하여 75점</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>정확도 테스트는 전부 통과했지만 효율성 테스트에서 실패하여 75점</p>
 <blockquote>
 <p>시도 2</p>
 </blockquote>
 <p>나머지 값만큼만 합이 모잘랐기 때문에 포문은 나머지값만 돌면 되었다. 마지막에 리턴하지 sorted 하지 않고 배열의 끝부터 더하여 주었다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">s</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -277,9 +307,30 @@
 </span></span><span class="line"><span class="cl">        <span class="n">answer</span><span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
-</span></span></code></pre></div><h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
 <p>수학적 풀이 방법</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">bestSet</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">bestSet</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -294,7 +345,9 @@
 </span></span><span class="line"><span class="cl">        <span class="n">answer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 
