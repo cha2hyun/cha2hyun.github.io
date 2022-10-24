@@ -10,7 +10,7 @@
 <meta name="description" content="스택/큐">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12924/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12924\n풀이 시도 1\n1부터 n의 절반까지 하나씩 덧셈하면서 n을 넘어가면 break, n의절반 + n의절반+1은 무조건 n을 넘어가니 break를 걸었습니다. 본인의 수도 포함되야 하므로 리턴할때 1을 더했습니다. 95.8점으로 실패하였습니다.\ndef solution(n): answer = 0 for x in range(1, (n + 1)): temp = 0 for y in range(x, (n + 1) // 2 + 1): temp += y if temp == n: answer += 1 break elif temp \u003e n: break return answer + 1 시도 2\n규칙을 찾아봅니다.\nx + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n x = n/k + (1-k)/2 n/k와 (1-k)/2 가 자연수가 되어야하므로 k는 홀수이면서 n의 약수여야 한다. def solution(n): answer = 0 for i in range(1, n + 1, 2): # 2만큼 증가하여 짝수는 고려하지 않음 if n % i == 0: answer += 1 return answer 다른사람 풀이\ndef expressions(num): return len([i for i in range(1,num+1,2) if num % i is 0]) ",
-  "wordCount" : "154",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12924\n풀이 시도 1\n1부터 n의 절반까지 하나씩 덧셈하면서 n을 넘어가면 break, n의절반 + n의절반+1은 무조건 n을 넘어가니 break를 걸었습니다. 본인의 수도 포함되야 하므로 리턴할때 1을 더했습니다. 95.8점으로 실패하였습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 def solution(n): answer = 0 for x in range(1, (n + 1)): temp = 0 for y in range(x, (n + 1) // 2 + 1): temp += y if temp == n: answer += 1 break elif temp \u003e n: break return answer + 1 시도 2\n규칙을 찾아봅니다.\n1 2 3 x + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n x = n/k + (1-k)/2 n/k와 (1-k)/2 가 자연수가 되어야하므로 k는 홀수이면서 n의 약수여야 한다. 1 2 3 4 5 6 def solution(n): answer = 0 for i in range(1, n + 1, 2): # 2만큼 증가하여 짝수는 고려하지 않음 if n % i == 0: answer += 1 return answer 다른사람 풀이\n1 2 def expressions(num): return len([i for i in range(1,num+1,2) if num % i is 0]) ",
+  "wordCount" : "177",
   "inLanguage": "en",
   "datePublished": "2022-09-25T00:00:00Z",
   "dateModified": "2022-09-25T00:00:00Z",
@@ -249,7 +249,23 @@
 <p>시도 1</p>
 </blockquote>
 <p><code>1부터 n의 절반</code>까지 하나씩 덧셈하면서 <code>n을 넘어가면 break</code>, <code>n의절반 + n의절반+1은 무조건 n을 넘어가니 break</code>를 걸었습니다. 본인의 수도 포함되야 하므로 <code>리턴할때 1을 더했습니다</code>. <code>95.8</code>점으로 실패하였습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
 </span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
@@ -261,27 +277,58 @@
 </span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="k">break</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>시도 2</p>
 </blockquote>
 <p>규칙을 찾아봅니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n
 </span></span><span class="line"><span class="cl">x = n/k + (1-k)/2
 </span></span><span class="line"><span class="cl">n/k와 (1-k)/2 가 자연수가 되어야하므로 k는 홀수이면서 n의 약수여야 한다.
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># 2만큼 증가하여 짝수는 고려하지 않음</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">expressions</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">expressions</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">len</span><span class="p">([</span><span class="n">i</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">])</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 

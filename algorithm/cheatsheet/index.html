@@ -8,10 +8,10 @@
 <title>알고리즘 풀때 참고하는 자료 | cha2hyun.log</title>
 <meta name="keywords" content="">
 <meta name="description" content="DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
-최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &#39;&#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용">
+최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 1 2 3 4 5 6 7 8 9 DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &#39;&#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/cheatsheet/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -201,7 +201,20 @@
 <li>경로의 특징을 저장해야 하는 문제에서 유리</li>
 <li>스택 혹은 재귀함수 이용</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">DFS</span> <span class="n">메서드</span> <span class="n">정의</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">DFS</span> <span class="n">메서드</span> <span class="n">정의</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">	<span class="c1"># 현재 노드를 방문 처리</span>
 </span></span><span class="line"><span class="cl">    <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -210,7 +223,9 @@
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
 </span></span><span class="line"><span class="cl">    	<span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
 </span></span><span class="line"><span class="cl">        	<span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="bfs-너비우선탐색">BFS (너비우선탐색))<a hidden class="anchor" aria-hidden="true" href="#bfs-너비우선탐색">#</a></h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="bfs-너비우선탐색">BFS (너비우선탐색))<a hidden class="anchor" aria-hidden="true" href="#bfs-너비우선탐색">#</a></h3>
 <blockquote>
 <p>두 노드 사이의 최단 거리를 찾을 때 사용</p>
 </blockquote>
@@ -219,7 +234,27 @@
 <li>미로찾기처럼 최단거리를 구해야하는 경우 유리</li>
 <li>큐</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># BFS 메서드 정의</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">	<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">start</span><span class="p">])</span>
@@ -235,7 +270,9 @@
 </span></span><span class="line"><span class="cl">        	<span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
 </span></span><span class="line"><span class="cl">            	<span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span></code></pre></div><h3 id="greedy-탐욕법">GREEDY (탐욕법)<a hidden class="anchor" aria-hidden="true" href="#greedy-탐욕법">#</a></h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="greedy-탐욕법">GREEDY (탐욕법)<a hidden class="anchor" aria-hidden="true" href="#greedy-탐욕법">#</a></h3>
 <blockquote>
 <p>최적의 해를 찾을 수 있을 때 사용</p>
 </blockquote>

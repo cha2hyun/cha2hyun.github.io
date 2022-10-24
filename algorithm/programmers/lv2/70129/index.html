@@ -10,7 +10,7 @@
 <meta name="description" content="월간 코드 챌린지 시즌1">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/70129/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/70129\n풀이 시도 1\nx의 모든 0을 제거합니다. 어차피 문자열이 0과 1밖에 없으므로 현재 길이에서 0의 갯수를 빼면된다. (굳이 0이 빠졌을때 어떤 값이 나오는지 값을 저장하지 않아도 된다.) x의 길이를 c라고 하면, x를 “c를 2진법으로 표현한 문자열\"로 바꿉니다. format(s, ‘b’) -\u003e 2진수로 변환하는 내장함수 def solution(s): delete_zero_cnt = 0 while_cnt = 0 while True: if s == \"1\": break while_cnt += 1 zero_cnt = 0 for char in s: if char == \"0\": zero_cnt += 1 delete_zero_cnt += zero_cnt s = len(s) - zero_cnt # 이진수로 변환 s = format(s, 'b') return [while_cnt, delete_zero_cnt] 다른사람 풀이\ndef solution(s): a, b = 0, 0 while s != '1': a += 1 num = s.count('1') b += len(s) - num s = bin(num)[2:] return [a, b] ",
-  "wordCount" : "125",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/70129\n풀이 시도 1\nx의 모든 0을 제거합니다. 어차피 문자열이 0과 1밖에 없으므로 현재 길이에서 0의 갯수를 빼면된다. (굳이 0이 빠졌을때 어떤 값이 나오는지 값을 저장하지 않아도 된다.) x의 길이를 c라고 하면, x를 “c를 2진법으로 표현한 문자열\"로 바꿉니다. format(s, ‘b’) -\u003e 2진수로 변환하는 내장함수 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 def solution(s): delete_zero_cnt = 0 while_cnt = 0 while True: if s == \"1\": break while_cnt += 1 zero_cnt = 0 for char in s: if char == \"0\": zero_cnt += 1 delete_zero_cnt += zero_cnt s = len(s) - zero_cnt # 이진수로 변환 s = format(s, 'b') return [while_cnt, delete_zero_cnt] 다른사람 풀이\n1 2 3 4 5 6 7 8 def solution(s): a, b = 0, 0 while s != '1': a += 1 num = s.count('1') b += len(s) - num s = bin(num)[2:] return [a, b] ",
+  "wordCount" : "149",
   "inLanguage": "en",
   "datePublished": "2022-09-24T00:00:00Z",
   "dateModified": "2022-09-24T00:00:00Z",
@@ -260,7 +260,27 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">delete_zero_cnt</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="n">while_cnt</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -276,11 +296,25 @@
 </span></span><span class="line"><span class="cl">        <span class="c1"># 이진수로 변환</span>
 </span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span><span class="n">while_cnt</span><span class="p">,</span> <span class="n">delete_zero_cnt</span><span class="p">]</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">s</span> <span class="o">!=</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -288,7 +322,9 @@
 </span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">num</span>
 </span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">num</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 

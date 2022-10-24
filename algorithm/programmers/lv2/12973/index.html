@@ -10,7 +10,7 @@
 <meta name="description" content="2017 팁스타운">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12973/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12973\n풀이 시도 1\n문자열 길이가 1백만이기 때문에 예외처리를 먼저 진행해야한다.\n전체 길이가 홀수면 나눠질 수 없음 문자열의 각 알파벳 갯수가 홀수 이면 나눠질 수 없음 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 55.2점으로 탈락\ndef solution(s): length = len(s) # 홀수 이면 나눠질 수 없음 if length % 2 == 1: return 0 # 문자열의 각 알파벳의 갯수가 홀수 이면 나눠질 수 없음 alpha = [] for i in s: if i not in alpha: alpha.append(i) for i in alpha: if s.count(i) % 2 == 1: return 0 # 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 if length % len(alpha) != 0: return 0 # 알파벳 종류만큼 돌면서 for i in range(len(alpha)): for a in alpha: # 문자열에 연속되는 알파벳이 있으면 삭제해줌 s = s.replace(a+a,'') # 문자열이 비었으면 성공 if s == '': return 1 return 0 # while True: 시도 2\n스택 사용하여 알파벳을 스택에 넣으면서 이전값과 같으면 팝, 다르면 푸쉬하여 스택이 비어져있으면 1을 리턴한다\ndef solution(s): stack = [] for i in range(len(s)): # print(stack) if not stack: stack.append(s[i]) else: if s[i] == stack[-1]: stack.pop() else: stack.append(s[i]) if stack: return 0 else: return 1 다른사람 풀이\n스택이 있는지 없는지를 판별해 리턴할때 한줄로 return not(stack)으로 표시가 가능\n... return not(stack) ",
-  "wordCount" : "207",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12973\n풀이 시도 1\n문자열 길이가 1백만이기 때문에 예외처리를 먼저 진행해야한다.\n전체 길이가 홀수면 나눠질 수 없음 문자열의 각 알파벳 갯수가 홀수 이면 나눠질 수 없음 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 55.2점으로 탈락\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 def solution(s): length = len(s) # 홀수 이면 나눠질 수 없음 if length % 2 == 1: return 0 # 문자열의 각 알파벳의 갯수가 홀수 이면 나눠질 수 없음 alpha = [] for i in s: if i not in alpha: alpha.append(i) for i in alpha: if s.count(i) % 2 == 1: return 0 # 전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음 if length % len(alpha) != 0: return 0 # 알파벳 종류만큼 돌면서 for i in range(len(alpha)): for a in alpha: # 문자열에 연속되는 알파벳이 있으면 삭제해줌 s = s.replace(a+a,'') # 문자열이 비었으면 성공 if s == '': return 1 return 0 # while True: 시도 2\n스택 사용하여 알파벳을 스택에 넣으면서 이전값과 같으면 팝, 다르면 푸쉬하여 스택이 비어져있으면 1을 리턴한다\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def solution(s): stack = [] for i in range(len(s)): # print(stack) if not stack: stack.append(s[i]) else: if s[i] == stack[-1]: stack.pop() else: stack.append(s[i]) if stack: return 0 else: return 1 다른사람 풀이\n스택이 있는지 없는지를 판별해 리턴할때 한줄로 return not(stack)으로 표시가 가능\n1 2 ... return not(stack) ",
+  "wordCount" : "255",
   "inLanguage": "en",
   "datePublished": "2022-10-24T00:00:00Z",
   "dateModified": "2022-10-24T00:00:00Z",
@@ -222,7 +222,7 @@
     <h1 class="post-title">
       12973] Python 짝지어 제거하기
     </h1>
-    <div class="post-meta"><span title='2022-10-24 00:00:00 +0000 UTC'>October 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2022-10-24 00:00:00 +0000 UTC'>October 24, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -255,7 +255,42 @@
 <li>전체길이가 알파벳 종류 갯수의 약수가 아니면 나눠질 수 없음</li>
 </ol>
 <p><code>55.2</code>점으로 탈락</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 홀수 이면 나눠질 수 없음</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -286,11 +321,32 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># while True:</span>
-</span></span></code></pre></div><blockquote>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>시도 2</p>
 </blockquote>
 <p>스택 사용하여 알파벳을 스택에 넣으면서 이전값과 같으면 팝, 다르면 푸쉬하여 스택이 비어져있으면 1을 리턴한다</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># print(stack)</span>
@@ -305,14 +361,24 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
 <p>스택이 있는지 없는지를 판별해 리턴할때 한줄로 <code>return not(stack)</code>으로 표시가 가능</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">...</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">...</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="ow">not</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 

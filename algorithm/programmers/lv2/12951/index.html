@@ -10,7 +10,7 @@
 <meta name="description" content="연습문제">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12951/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f6f5e9995bf6c5c97181ee8bbe4fc004f6b609aeb0a02daf2b5ee26b97eeaa76.css" integrity="sha256-9vXpmVv2xclxge6Lvk/ABPa2Ca6woC2vK17ia5fuqnY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12951\n풀이 시도 1\n문자열을 공백으로 자르고 맨 앞자리가 숫자인지 확인 후 숫자가 아니면 title()이나 capitalize()로 앞글자만 대문자로 변경해주려 했습니다. 쉽다고 생각했는데 44.4점으로 런타임 에러가 발생했습니다.\ndef solution(s): answer = '' arr = s.split(\" \") for string in arr: if string[0].isalpha(): answer += string.title() + \" \" else: answer += string + \" \" return answer[:-1] 시도 2\n문자열을 돌면서 flag를 이용해서 첫번째가 숫자인지 알파벳인지 확인하고 공백이 있을경우 flag값을 변경했습니다. 66.7점으로 런타임 에러가 발생했습니다.\ndef solution(s): answer = '' flag = True for char in s: if char.isdigit(): answer += char flag = False elif flag: answer += char.upper() flag = False elif char == \" \": answer += \" \" flag = True else: answer += char.lower() return answer 시도 3\n1번 풀이에서 앞글자가 숫자인지 판별하는 조건문을 뺐습니다.\ndef solution(s): answer = '' s = s.split(' ') for i in range(len(s)): s[i] = s[i].capitalize() answer=' '.join(s) return answer 다른사람 풀이\ndef solution(s): return ' '.join([word.capitalize() for word in s.split(\" \")]) ",
-  "wordCount" : "162",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12951\n풀이 시도 1\n문자열을 공백으로 자르고 맨 앞자리가 숫자인지 확인 후 숫자가 아니면 title()이나 capitalize()로 앞글자만 대문자로 변경해주려 했습니다. 쉽다고 생각했는데 44.4점으로 런타임 에러가 발생했습니다.\n1 2 3 4 5 6 7 8 9 def solution(s): answer = '' arr = s.split(\" \") for string in arr: if string[0].isalpha(): answer += string.title() + \" \" else: answer += string + \" \" return answer[:-1] 시도 2\n문자열을 돌면서 flag를 이용해서 첫번째가 숫자인지 알파벳인지 확인하고 공백이 있을경우 flag값을 변경했습니다. 66.7점으로 런타임 에러가 발생했습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 def solution(s): answer = '' flag = True for char in s: if char.isdigit(): answer += char flag = False elif flag: answer += char.upper() flag = False elif char == \" \": answer += \" \" flag = True else: answer += char.lower() return answer 시도 3\n1번 풀이에서 앞글자가 숫자인지 판별하는 조건문을 뺐습니다.\n1 2 3 4 5 6 7 def solution(s): answer = '' s = s.split(' ') for i in range(len(s)): s[i] = s[i].capitalize() answer=' '.join(s) return answer 다른사람 풀이\n1 2 def solution(s): return ' '.join([word.capitalize() for word in s.split(\" \")]) ",
+  "wordCount" : "196",
   "inLanguage": "en",
   "datePublished": "2022-09-24T00:00:00Z",
   "dateModified": "2022-09-24T00:00:00Z",
@@ -249,7 +249,20 @@
 <p>시도 1</p>
 </blockquote>
 <p>문자열을 공백으로 자르고 맨 앞자리가 숫자인지 확인 후 숫자가 아니면 title()이나 capitalize()로 앞글자만 대문자로 변경해주려 했습니다. 쉽다고 생각했는데 <code>44.4점</code>으로 런타임 에러가 발생했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">arr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
@@ -258,12 +271,34 @@
 </span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="n">answer</span> <span class="o">+=</span> <span class="n">string</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>시도 2</p>
 </blockquote>
 <p>문자열을 돌면서 flag를 이용해서 첫번째가 숫자인지 알파벳인지 확인하고 공백이 있을경우 flag값을 변경했습니다. <code>66.7점</code>으로 런타임 에러가 발생했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
@@ -279,24 +314,47 @@
 </span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="n">answer</span> <span class="o">+=</span> <span class="n">char</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
-</span></span></code></pre></div><blockquote>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>시도 3</p>
 </blockquote>
 <p>1번 풀이에서 앞글자가 숫자인지 판별하는 조건문을 뺐습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
 </span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="n">answer</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
-</span></span></code></pre></div><br>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
 <blockquote>
 <p>다른사람 풀이</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)])</span>
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 
