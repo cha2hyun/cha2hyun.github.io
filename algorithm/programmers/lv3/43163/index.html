@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>12911] Python 다음 큰 숫자 | cha2hyun.log</title>
+<title>43163] Python 단어변환 | cha2hyun.log</title>
 <meta name="keywords" content="programmers">
-<meta name="description" content="연습문제">
+<meta name="description" content="깊이/너비 우선 탐색(DFS/BFS)">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/">
+<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv3/43163/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.c37e555cc4670925b1ac738356d0133dfedd5efaa18827606a70133cba34c5e2.css" integrity="sha256-w35VXMRnCSWxrHODVtATPf7dXvqhiCdganATPLo0xeI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
@@ -54,18 +54,18 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="12911] Python 다음 큰 숫자" />
-<meta property="og:description" content="연습문제" />
+</noscript><meta property="og:title" content="43163] Python 단어변환" />
+<meta property="og:description" content="깊이/너비 우선 탐색(DFS/BFS)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv2/12911/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
-<meta property="article:published_time" content="2022-09-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-26T00:00:00+00:00" />
+<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv3/43163/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
+<meta property="article:published_time" content="2022-10-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-21T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
 
-<meta name="twitter:title" content="12911] Python 다음 큰 숫자"/>
-<meta name="twitter:description" content="연습문제"/>
+<meta name="twitter:title" content="43163] Python 단어변환"/>
+<meta name="twitter:description" content="깊이/너비 우선 탐색(DFS/BFS)"/>
 
 
 <script type="application/ld+json">
@@ -88,14 +88,14 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "LV2",
-      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/"
+      "name": "LV3",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv3/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "12911] Python 다음 큰 숫자",
-      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/12911/"
+      "name": "43163] Python 단어변환",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv3/43163/"
     }
   ]
 }
@@ -104,24 +104,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "12911] Python 다음 큰 숫자",
-  "name": "12911] Python 다음 큰 숫자",
-  "description": "연습문제",
+  "headline": "43163] Python 단어변환",
+  "name": "43163] Python 단어변환",
+  "description": "깊이/너비 우선 탐색(DFS/BFS)",
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12911\n풀이 시도 1\nwhile문 돌면서 n을 1씩 더해서 2진수로 변환했을때 “1\"의 갯수가 원래 n의 2진수로 변환했을때 “1\"의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.\ndef solution(n): cnt = format(n, \"b\").count(\"1\") n += 1 while True: if format(n, \"b\").count(\"1\") == cnt: return n n += 1 다른사람 풀이\n가독성은 좋지 않지만 pythonic ..\ndef nextBigNumber(n, count = 0): return n if bin(n).count(\"1\") is count else nextBigNumber(n+1, bin(n).count(\"1\") if count is 0 else count) ",
-  "wordCount" : "78",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/43163\n풀이 시도 1\n최소 깊이로 도달하는 것이기 때문에 DFS를 이용해서 진행한다. 큐를 사용하고 target과 같으면 바로 리턴하면 된다. def solution(begin, target, words): from collections import deque if target not in words: return 0 q = deque() # 현재 단어와 이동횟수를 큐에 담는다 q.append([begin, 0]) # q를 돌면서 while(q): # pop prev, cnt = q.popleft() # pop한 값이 타겟과 같으면 리턴 if prev == target: return cnt # words를 돌면서 for i in range(len(words)): # 다음에 들어갈 수 있는 단어가 있으면 if(isOneAlphabetDiff(prev, words[i])): # 큐에 넣고 카운트 1증가 q.append([words[i], cnt+1]) return 0 def isOneAlphabetDiff(prev, next): cnt = 0 for i in range(len(next)): if prev[i] != next[i]: cnt += 1 if cnt \u003e 1: return False return True ",
+  "wordCount" : "118",
   "inLanguage": "en",
-  "datePublished": "2022-09-26T00:00:00Z",
-  "dateModified": "2022-09-26T00:00:00Z",
+  "datePublished": "2022-10-21T00:00:00Z",
+  "dateModified": "2022-10-21T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "cha2hyun"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv2/12911/"
+    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv3/43163/"
   },
   "publisher": {
     "@type": "Organization",
@@ -218,11 +218,11 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/">프로그래머스</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/lv2/">LV2</a></div>
+    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/">프로그래머스</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/lv3/">LV3</a></div>
     <h1 class="post-title">
-      12911] Python 다음 큰 숫자
+      43163] Python 단어변환
     </h1>
-    <div class="post-meta"><span title='2022-09-26 00:00:00 +0000 UTC'>September 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2022-10-21 00:00:00 +0000 UTC'>October 21, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -243,26 +243,49 @@
 </div>
 
   <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
-<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12911">https://school.programmers.co.kr/learn/courses/30/lessons/12911</a></p>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/43163">https://school.programmers.co.kr/learn/courses/30/lessons/43163</a></p>
 <h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
 <blockquote>
 <p>시도 1</p>
 </blockquote>
-<p>while문 돌면서 n을 1씩 더해서 2진수로 변환했을때 &ldquo;1&quot;의 갯수가 원래 n의 2진수로 변환했을때 &ldquo;1&quot;의 갯수와 같으면 리턴했습니다. 다음 자연수를 찾는거에 시간복잡도가 크지 않을 거라 생각했습니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span></code></pre></div><br>
-<blockquote>
-<p>다른사람 풀이</p>
-</blockquote>
-<p>가독성은 좋지 않지만 pythonic ..</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">count</span> <span class="k">else</span> <span class="n">nextBigNumber</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span> <span class="k">if</span> <span class="n">count</span> <span class="ow">is</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">count</span><span class="p">)</span>
+<ul>
+<li>최소 깊이로 도달하는 것이기 때문에 DFS를 이용해서 진행한다.</li>
+<li>큐를 사용하고 target과 같으면 바로 리턴하면 된다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 현재 단어와 이동횟수를 큐에 담는다</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">begin</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># q를 돌면서</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pop</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prev</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pop한 값이 타겟과 같으면 리턴</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">prev</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">cnt</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># words를 돌면서</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 다음에 들어갈 수 있는 단어가 있으면</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">isOneAlphabetDiff</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 큐에 넣고 카운트 1증가</span>
+</span></span><span class="line"><span class="cl">                <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">isOneAlphabetDiff</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="nb">next</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">prev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">next</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">True</span>
 </span></span></code></pre></div>
 
   </div>
@@ -272,15 +295,15 @@
       <li><a href="https://cha2hyun.github.io/tags/programmers/">programmers</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv3/42884/">
+  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12909/">
     <span class="title">« Prev</span>
     <br>
-    <span>42884] Python 단속카메라</span>
+    <span>12909] Python 올바른 괄호</span>
   </a>
-  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv3/42579/">
+  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12924/">
     <span class="title">Next »</span>
     <br>
-    <span>42579] Python 베스트앨범</span>
+    <span>12924] Python 숫자의 표현</span>
   </a>
 </nav>
 

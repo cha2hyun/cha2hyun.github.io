@@ -55,5 +55,41 @@
       <description>깊이/너비 우선 탐색(DFS/BFS)</description>
     </item>
     
+    <item>
+      <title>43163] Python 단어변환</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/43163/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/43163/</guid>
+      <description>깊이/너비 우선 탐색(DFS/BFS)</description>
+    </item>
+    
+    <item>
+      <title>42898] Python 등굣길</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/42898/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/42898/</guid>
+      <description>동적계획법(Dynamic Programing)</description>
+    </item>
+    
+    <item>
+      <title>42884] Python 단속카메라</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/42884/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/42884/</guid>
+      <description>탐욕법(Greey)</description>
+    </item>
+    
+    <item>
+      <title>42579] Python 베스트앨범</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/42579/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/42579/</guid>
+      <description>해시</description>
+    </item>
+    
   </channel>
 </rss>
