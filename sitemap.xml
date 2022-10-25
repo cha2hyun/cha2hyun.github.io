@@ -2,62 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</loc>
-    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</loc>
-    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</loc>
-    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12951/</loc>
-    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</loc>
-    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12941/</loc>
-    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43162/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</loc>
-    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43163/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12924/</loc>
-    <lastmod>2022-09-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42898/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12945/</loc>
-    <lastmod>2022-09-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42884/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12911/</loc>
-    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12973/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42579/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12981/</loc>
+    <lastmod>2022-10-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/algorithm/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
@@ -77,8 +29,59 @@
     <loc>https://cha2hyun.github.io/algorithm/programmers/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/12938/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42579/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42884/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/42898/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43162/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43163/</loc>
+    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43105/</loc>
+    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv3/43628/</loc>
+    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12911/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12924/</loc>
+    <lastmod>2022-09-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12945/</loc>
+    <lastmod>2022-09-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12909/</loc>
+    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12939/</loc>
+    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12941/</loc>
+    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/12951/</loc>
+    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</loc>
+    <lastmod>2022-09-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/brew/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
@@ -126,8 +129,6 @@
     <loc>https://cha2hyun.github.io/search/</loc>
   </url><url>
     <loc>https://cha2hyun.github.io/series/</loc>
-  </url><url>
-    <loc>https://cha2hyun.github.io/algorithm/baekjoon/</loc>
   </url><url>
     <loc>https://cha2hyun.github.io/algorithm/cheatsheet/</loc>
   </url>
