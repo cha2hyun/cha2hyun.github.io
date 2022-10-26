@@ -9,11 +9,11 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/brew/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/brew/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>macOS Setup Guide</title>
       <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
       <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>

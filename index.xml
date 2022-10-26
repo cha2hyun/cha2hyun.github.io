@@ -38,6 +38,15 @@
     </item>
     
     <item>
+      <title>macOS Setup Guide</title>
+      <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
+      <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
+    </item>
+    
+    <item>
       <title>12973] Python 짝지어 제거하기</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv2/12973/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
@@ -206,15 +215,6 @@
       
       <guid>https://cha2hyun.github.io/algorithm/programmers/lv2/70129/</guid>
       <description>월간 코드 챌린지 시즌1</description>
-    </item>
-    
-    <item>
-      <title>macOS Setup Guide</title>
-      <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
-      <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
     </item>
     
     <item>
