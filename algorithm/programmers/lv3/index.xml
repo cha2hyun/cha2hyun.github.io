@@ -9,7 +9,25 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>12979] Python 기지국 설치</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12979/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12979/</guid>
+      <description>Summer/Winter Coding(~2018)</description>
+    </item>
+    
+    <item>
+      <title>12987] Python 숫자 게임</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12987/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/12987/</guid>
+      <description>Summer/Winter Coding(~2018)</description>
+    </item>
+    
     <item>
       <title>12927] Python 야근지수</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/12927/</link>
