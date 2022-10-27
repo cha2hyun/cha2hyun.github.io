@@ -9,7 +9,7 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</title>
       <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
@@ -17,6 +17,15 @@
       
       <guid>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</guid>
       <description>서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.</description>
+    </item>
+    
+    <item>
+      <title>64064] Python 불량 사용자</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/64064/</link>
+      <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/64064/</guid>
+      <description>2019 카카오 개발자 겨울 인턴십</description>
     </item>
     
     <item>
@@ -38,12 +47,12 @@
     </item>
     
     <item>
-      <title>macOS Setup Guide</title>
+      <title>개발자를 위한 Mac OS 셋업 가이드</title>
       <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
       <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
-      <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
+      <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
     </item>
     
     <item>
