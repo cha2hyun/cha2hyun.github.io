@@ -11,12 +11,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>macOS Setup Guide</title>
+      <title>개발자를 위한 Mac OS 셋업 가이드</title>
       <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
       <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
-      <description>맥 초기화 및 새로 구매 시 셋업해야하는 부분들을 정리했습니다. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
+      <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
     </item>
     
   </channel>
