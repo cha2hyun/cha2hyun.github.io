@@ -9,7 +9,16 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>67258] Python 보석쇼핑</title>
+      <link>https://cha2hyun.github.io/algorithm/programmers/lv3/67258/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/algorithm/programmers/lv3/67258/</guid>
+      <description>2020 카카오 인턴십</description>
+    </item>
+    
     <item>
       <title>64064] Python 불량 사용자</title>
       <link>https://cha2hyun.github.io/algorithm/programmers/lv3/64064/</link>
