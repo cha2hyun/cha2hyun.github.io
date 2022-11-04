@@ -9,7 +9,7 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 03 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python 함수와 알고리즘 정리</title>
       <link>https://cha2hyun.github.io/algorithm/python-algorithms/</link>
@@ -18,6 +18,15 @@
       <guid>https://cha2hyun.github.io/algorithm/python-algorithms/</guid>
       <description>알고리즘 DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &amp;#39;&amp;#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용</description>
+    </item>
+    
+    <item>
+      <title>Next.js 에서 무한스크롤 및 스크롤 위치 내용 저장하는 2가지 방법</title>
+      <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
+      <description>React Query의 InfiniteScroll을 적용하는 방법과 상세페이지에 들어갔다 나올때 스크롤 위치를 저장하는 방법에 대해 소개합니다.</description>
     </item>
     
     <item>
