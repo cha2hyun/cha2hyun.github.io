@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>큐찾사 (2021.09 ~) on 채수현 개발일지</title>
+    <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/</link>
+    <description>Recent content in 큐찾사 (2021.09 ~) on 채수현 개발일지</description>
+    <image>
+      <url>https://cha2hyun.github.io/papermod-cover.png</url>
+      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 04 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Next.js 에서 무한스크롤 및 스크롤 위치 내용 저장하는 2가지 방법</title>
+      <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
+      <description>React Query의 InfiniteScroll을 적용하는 방법과 상세페이지에 들어갔다 나올때 스크롤 위치를 저장하는 방법에 대해 소개합니다.</description>
+    </item>
+    
+  </channel>
+</rss>
