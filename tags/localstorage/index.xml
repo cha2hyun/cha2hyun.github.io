@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Next.js on 채수현 개발일지</title>
-    <link>https://cha2hyun.github.io/tags/next.js/</link>
-    <description>Recent content in Next.js on 채수현 개발일지</description>
+    <title>LocalStorage on 채수현 개발일지</title>
+    <link>https://cha2hyun.github.io/tags/localstorage/</link>
+    <description>Recent content in LocalStorage on 채수현 개발일지</description>
     <image>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/next.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/localstorage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next.js] InfiniteScroll Modal로 열거나 LocalStorage로 scrollY 저장하기</title>
       <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
