@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AWS on 채수현 개발일지</title>
+    <link>https://cha2hyun.github.io/tags/aws/</link>
+    <description>Recent content in AWS on 채수현 개발일지</description>
+    <image>
+      <url>https://cha2hyun.github.io/papermod-cover.png</url>
+      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 18 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>낭만스키 웹 배포 과정</title>
+      <link>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</link>
+      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</guid>
+      <description>Next.js + EC2 + Route53 + ACM&amp;amp;Loadbalancer(https) + CI/CD(github action).</description>
+    </item>
+    
+  </channel>
+</rss>
