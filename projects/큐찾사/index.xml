@@ -9,14 +9,23 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next.js] InfiniteScroll Modal로 열거나 LocalStorage로 scrollY 저장하기</title>
+      <title>Next.js] SSR를 이용한 상세페이지 SEO 최적화</title>
+      <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</guid>
+      <description>Next의 꽃 SSR &amp;amp; SEO</description>
+    </item>
+    
+    <item>
+      <title>Next.js] InfiniteScroll로 무한 스크롤 구현하기</title>
       <link>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
-      <description>React Query의 InfiniteScroll을 적용하는 방법과 상세페이지에 들어갔다 나올때 스크롤 위치를 저장하는 방법에 대해 소개합니다.</description>
+      <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
     </item>
     
   </channel>
