@@ -9,11 +9,20 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>next-sitemap</title>
+      <link>https://cha2hyun.github.io/tags/next-sitemap/</link>
+      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/next-sitemap/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Next.js</title>
       <link>https://cha2hyun.github.io/tags/next.js/</link>
-      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/tags/next.js/</guid>
       <description></description>
@@ -22,7 +31,7 @@
     <item>
       <title>SEO</title>
       <link>https://cha2hyun.github.io/tags/seo/</link>
-      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/tags/seo/</guid>
       <description></description>
@@ -31,7 +40,7 @@
     <item>
       <title>SSR</title>
       <link>https://cha2hyun.github.io/tags/ssr/</link>
-      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/tags/ssr/</guid>
       <description></description>
