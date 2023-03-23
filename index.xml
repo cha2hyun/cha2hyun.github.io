@@ -40,6 +40,15 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
     </item>
     
     <item>
+      <title>유튜브 라이브, 아프리카TV 실시간 채팅 크롤링 하기 feat.배돌이의 당구생활</title>
+      <link>https://cha2hyun.github.io/posts/youtubeafreecacrawling/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/posts/youtubeafreecacrawling/</guid>
+      <description>Python으로 BS4, selenium, websockets 크롤링으로 실시간 시청자들과 소통하기</description>
+    </item>
+    
+    <item>
       <title>처음으로 오픈소스 Collaborator가 되다</title>
       <link>https://cha2hyun.github.io/posts/firstcollaborator/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>

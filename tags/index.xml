@@ -11,6 +11,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>bs4</title>
+      <link>https://cha2hyun.github.io/tags/bs4/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/bs4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>collaborator</title>
       <link>https://cha2hyun.github.io/tags/collaborator/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
@@ -20,11 +29,47 @@
     </item>
     
     <item>
+      <title>crawling</title>
+      <link>https://cha2hyun.github.io/tags/crawling/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/crawling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>git</title>
       <link>https://cha2hyun.github.io/tags/git/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://cha2hyun.github.io/tags/python/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selenium</title>
+      <link>https://cha2hyun.github.io/tags/selenium/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/selenium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>websockets</title>
+      <link>https://cha2hyun.github.io/tags/websockets/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/tags/websockets/</guid>
       <description></description>
     </item>
     
@@ -142,15 +187,6 @@
       <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://cha2hyun.github.io/tags/aiohttp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bs4</title>
-      <link>https://cha2hyun.github.io/tags/bs4/</link>
-      <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://cha2hyun.github.io/tags/bs4/</guid>
       <description></description>
     </item>
     
