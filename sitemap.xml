@@ -20,7 +20,13 @@
     <loc>https://cha2hyun.github.io/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</loc>
     <lastmod>2022-11-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://cha2hyun.github.io/tags/bs4/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cha2hyun.github.io/tags/collaborator/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/crawling/</loc>
     <lastmod>2023-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/git/</loc>
@@ -29,7 +35,19 @@
     <loc>https://cha2hyun.github.io/posts/</loc>
     <lastmod>2023-03-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://cha2hyun.github.io/tags/python/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/selenium/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cha2hyun.github.io/tags/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/websockets/</loc>
+    <lastmod>2023-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/posts/youtubeafreecacrawling/</loc>
     <lastmod>2023-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/</loc>
@@ -168,9 +186,6 @@
     <lastmod>2022-09-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/aiohttp/</loc>
-    <lastmod>2022-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/tags/bs4/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/fastapi/</loc>
