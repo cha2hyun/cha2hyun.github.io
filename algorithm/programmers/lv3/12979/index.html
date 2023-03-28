@@ -1,102 +1,572 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>12979] Python 기지국 설치 | 채수현 개발일지</title><meta name=keywords content="programmers"><meta name=description content="Summer/Winter Coding(~2018)"><meta name=author content="cha2hyun"><link rel=canonical href=https://cha2hyun.github.io/algorithm/programmers/lv3/12979/><link crossorigin=anonymous href=/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY+h8=" rel="preload stylesheet" as=style><link rel=icon href=https://cha2hyun.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://cha2hyun.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://cha2hyun.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://cha2hyun.github.io/apple-touch-icon.png><link rel=mask-icon href=https://cha2hyun.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="12979] Python 기지국 설치"><meta property="og:description" content="Summer/Winter Coding(~2018)"><meta property="og:type" content="article"><meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv3/12979/"><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"><meta property="article:section" content="algorithm"><meta property="article:published_time" content="2022-10-26T00:00:00+00:00"><meta property="article:modified_time" content="2022-10-26T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://cha2hyun.github.io/papermod-cover.png"><meta name=twitter:title content="12979] Python 기지국 설치"><meta name=twitter:description content="Summer/Winter Coding(~2018)"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Algorithms","item":"https://cha2hyun.github.io/algorithm/"},{"@type":"ListItem","position":2,"name":"프로그래머스 문제풀이","item":"https://cha2hyun.github.io/algorithm/programmers/"},{"@type":"ListItem","position":3,"name":"LV3","item":"https://cha2hyun.github.io/algorithm/programmers/lv3/"},{"@type":"ListItem","position":4,"name":"12979] Python 기지국 설치","item":"https://cha2hyun.github.io/algorithm/programmers/lv3/12979/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"12979] Python 기지국 설치","name":"12979] Python 기지국 설치","description":"Summer/Winter Coding(~2018)","keywords":["programmers"],"articleBody":"문제 https://school.programmers.co.kr/learn/courses/30/lessons/12979\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 문제 설명 N개의 아파트가 일렬로 쭉 늘어서 있습니다. 이 중에서 일부 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 기술이 발전해 5g 수요가 높아져 4g 기지국을 5g 기지국으로 바꾸려 합니다. 그런데 5g 기지국은 4g 기지국보다 전달 범위가 좁아, 4g 기지국을 5g 기지국으로 바꾸면 어떤 아파트에는 전파가 도달하지 않습니다. 예를 들어 11개의 아파트가 쭉 늘어서 있고, [4, 11] 번째 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 만약 이 4g 기지국이 전파 도달 거리가 1인 5g 기지국으로 바뀔 경우 모든 아파트에 전파를 전달할 수 없습니다. (전파의 도달 거리가 W일 땐, 기지국이 설치된 아파트를 기준으로 전파를 양쪽으로 W만큼 전달할 수 있습니다.) 이때, 우리는 5g 기지국을 최소로 설치하면서 모든 아파트에 전파를 전달하려고 합니다. 위의 예시에선 최소 3개의 아파트 옥상에 기지국을 설치해야 모든 아파트에 전파를 전달할 수 있습니다. 아파트의 개수 N, 현재 기지국이 설치된 아파트의 번호가 담긴 1차원 배열 stations, 전파의 도달 거리 W가 매개변수로 주어질 때, 모든 아파트에 전파를 전달하기 위해 증설해야 할 기지국 개수의 최솟값을 리턴하는 solution 함수를 완성해주세요 제한사항 N: 200,000,000 이하의 자연수 stations의 크기: 10,000 이하의 자연수 stations는 오름차순으로 정렬되어 있고, 배열에 담긴 수는 N보다 같거나 작은 자연수입니다. W: 10,000 이하의 자연수 입출력 예 N\tstations\tW\tanswer 11\t[4, 11]\t1\t3 16\t[9]\t2\t3 풀이 Greedy한 방법으로 최소한의 시간복잡도로 풀어야하는 문제.\n처음 시도로는 n 길이인 모든 원소가 1인 스택을 선언후 스테이션을 돌면서 이미 커버가 가능한 구간은 0으로 변경한 다음 연속되는 원소의 값이 1인 구간을 뽑아서 최소한의 갯수로 모든 범위를 커버하려 했지만 효율성에서 탈락하였다 🥲\n다시 시도한 방법으로는 우선 전파 1개가 최대한으로 커버할 수 있는 범위는 2w + 1로 정해놓고 제공받은 스테이션 까지 최소 몇개를 깔아야할지 포문으로 한번 돌고 남은 범위를 더해주면 된다. O(N)\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 def solution(n, stations, w): from math import ceil answer = 0 # 스테이션이 최대 커버할 수 있는 거리는 왼쪽 w + 오른쪽 w + 본인 max_range = w + w + 1 # 시작 위치 cursor = 1 for station in stations: # 제공받은 스테이션까지 최소 몇개를 깔아야하는지 answer += ceil((station - w - cursor) / max_range) # 깔았다면 시작 위치 변경 cursor = station + w + 1 # 기존에 깔린 station 돌은 커서 위치가 전체 길이보다 작을 경우 if n \u003e= cursor: answer += ceil((n - cursor + 1) / max_range) return answer 다른사람풀이 내림을 활용한 풀이\nsolution.py 1 2 3 4 5 6 7 8 def solution(n, arr, w): bef=-w cnt=0 ww=w*2+1 for x in arr: cnt+=(x-bef-1)//ww bef=x return cnt+(n+w-bef)//ww ","wordCount":"426","inLanguage":"en","datePublished":"2022-10-26T00:00:00Z","dateModified":"2022-10-26T00:00:00Z","author":{"@type":"Person","name":"cha2hyun"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cha2hyun.github.io/algorithm/programmers/lv3/12979/"},"publisher":{"@type":"Organization","name":"채수현 개발일지","logo":{"@type":"ImageObject","url":"https://cha2hyun.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div><div class=logo><a href=https://cha2hyun.github.io/ accesskey=h title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style=justify-content:center>
-<img src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS" alt=Views></span></a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><div class=logo style=margin-bottom:-30px;margin-top:-30px;font-size:15px><span>기억은 유한하나, 기록은 무한하다 📚</span></div></div><ul id=menu><li><a href=https://cha2hyun.github.io/projects/ title=프로젝트><span style=font-weight:700>프로젝트</span></a></li><li><a href=https://cha2hyun.github.io/algorithm/ title=알고리즘><span style=font-weight:700>알고리즘</span></a></li><li><a href=https://cha2hyun.github.io/posts/ title=블로그><span style=font-weight:700>블로그</span></a></li><li><a href=https://cha2hyun.github.io/search/ title=검색><span style=font-weight:700>검색</span></a></li><li><a href=https://cha2hyun.github.io/tags/ title=태그><span style=font-weight:700>태그</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs></div><a href=https://cha2hyun.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/>Algorithms</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/programmers/>프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/programmers/lv3/>LV3</a></div><h1 class=post-title>12979] Python 기지국 설치</h1><div class=post-meta><div class=views style=margin-right:8px><span class=views><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fcha2hyun.github.io%2falgorithm%2fprogrammers%2flv3%2f12979%2f&left_color=gray&right_color=gray&left_text=Article Hits" alt=Views></span></div><span title='2022-10-26 00:00:00 +0000 UTC'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;cha2hyun</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%eb%ac%b8%ec%a0%9c aria-label=문제>문제</a></li><li><a href=#%ed%92%80%ec%9d%b4 aria-label=풀이>풀이</a></li><li><a href=#%eb%8b%a4%eb%a5%b8%ec%82%ac%eb%9e%8c%ed%92%80%ec%9d%b4 aria-label=다른사람풀이>다른사람풀이</a></li></ul></div></details></div><div class=post-content><h3 id=문제>문제<a hidden class=anchor aria-hidden=true href=#문제>#</a></h3><p><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12979>https://school.programmers.co.kr/learn/courses/30/lessons/12979</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>문제 설명
-</span></span><span class=line><span class=cl>N개의 아파트가 일렬로 쭉 늘어서 있습니다. 이 중에서 일부 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 기술이 발전해 5g 수요가 높아져 4g 기지국을 5g 기지국으로 바꾸려 합니다. 그런데 5g 기지국은 4g 기지국보다 전달 범위가 좁아, 4g 기지국을 5g 기지국으로 바꾸면 어떤 아파트에는 전파가 도달하지 않습니다.
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>예를 들어 11개의 아파트가 쭉 늘어서 있고, [4, 11] 번째 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 만약 이 4g 기지국이 전파 도달 거리가 1인 5g 기지국으로 바뀔 경우 모든 아파트에 전파를 전달할 수 없습니다. (전파의 도달 거리가 W일 땐, 기지국이 설치된 아파트를 기준으로 전파를 양쪽으로 W만큼 전달할 수 있습니다.)
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>이때, 우리는 5g 기지국을 최소로 설치하면서 모든 아파트에 전파를 전달하려고 합니다. 위의 예시에선 최소 3개의 아파트 옥상에 기지국을 설치해야 모든 아파트에 전파를 전달할 수 있습니다.
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>아파트의 개수 N, 현재 기지국이 설치된 아파트의 번호가 담긴 1차원 배열 stations, 전파의 도달 거리 W가 매개변수로 주어질 때, 모든 아파트에 전파를 전달하기 위해 증설해야 할 기지국 개수의 최솟값을 리턴하는 solution 함수를 완성해주세요
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>제한사항
-</span></span><span class=line><span class=cl>N: 200,000,000 이하의 자연수
-</span></span><span class=line><span class=cl>stations의 크기: 10,000 이하의 자연수
-</span></span><span class=line><span class=cl>stations는 오름차순으로 정렬되어 있고, 배열에 담긴 수는 N보다 같거나 작은 자연수입니다.
-</span></span><span class=line><span class=cl>W: 10,000 이하의 자연수
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>입출력 예
-</span></span><span class=line><span class=cl>N	stations	W	answer
-</span></span><span class=line><span class=cl>11	[4, 11]	1	3
-</span></span><span class=line><span class=cl>16	[9]	2	3
-</span></span></code></pre></td></tr></table></div></div><h3 id=풀이>풀이<a hidden class=anchor aria-hidden=true href=#풀이>#</a></h3><p>Greedy한 방법으로 최소한의 시간복잡도로 풀어야하는 문제.</p><p>처음 시도로는 n 길이인 모든 원소가 1인 스택을 선언후 스테이션을 돌면서 이미 커버가 가능한 구간은 0으로 변경한 다음 연속되는 원소의 값이 1인 구간을 뽑아서 최소한의 갯수로 모든 범위를 커버하려 했지만 효율성에서 탈락하였다 🥲</p><p>다시 시도한 방법으로는 우선 전파 1개가 최대한으로 커버할 수 있는 범위는 2w + 1로 정해놓고 제공받은 스테이션 까지 최소 몇개를 깔아야할지 포문으로 한번 돌고 남은 범위를 더해주면 된다. O(N)</p><div class="terminal space shadow"><div class=top><div class=btns><span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span></div><div class=title>solution.py</div></div><div class=terminalbody><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>solution</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=n>stations</span><span class=p>,</span> <span class=n>w</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=kn>from</span> <span class=nn>math</span> <span class=kn>import</span> <span class=n>ceil</span>
-</span></span><span class=line><span class=cl>    <span class=n>answer</span> <span class=o>=</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>    <span class=c1># 스테이션이 최대 커버할 수 있는 거리는 왼쪽 w + 오른쪽 w + 본인</span>
-</span></span><span class=line><span class=cl>    <span class=n>max_range</span> <span class=o>=</span> <span class=n>w</span> <span class=o>+</span> <span class=n>w</span> <span class=o>+</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=c1># 시작 위치</span>
-</span></span><span class=line><span class=cl>    <span class=n>cursor</span> <span class=o>=</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>station</span> <span class=ow>in</span> <span class=n>stations</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>        <span class=c1># 제공받은 스테이션까지 최소 몇개를 깔아야하는지</span>
-</span></span><span class=line><span class=cl>        <span class=n>answer</span> <span class=o>+=</span> <span class=n>ceil</span><span class=p>((</span><span class=n>station</span> <span class=o>-</span> <span class=n>w</span> <span class=o>-</span> <span class=n>cursor</span><span class=p>)</span> <span class=o>/</span> <span class=n>max_range</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=c1># 깔았다면 시작 위치 변경</span>
-</span></span><span class=line><span class=cl>        <span class=n>cursor</span> <span class=o>=</span> <span class=n>station</span> <span class=o>+</span> <span class=n>w</span> <span class=o>+</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=c1># 기존에 깔린 station 돌은 커서 위치가 전체 길이보다 작을 경우</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=o>&gt;=</span> <span class=n>cursor</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>        <span class=n>answer</span> <span class=o>+=</span> <span class=n>ceil</span><span class=p>((</span><span class=n>n</span> <span class=o>-</span> <span class=n>cursor</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>/</span> <span class=n>max_range</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>answer</span>
-</span></span></code></pre></td></tr></table></div></div></div></div><br><h3 id=다른사람풀이>다른사람풀이<a hidden class=anchor aria-hidden=true href=#다른사람풀이>#</a></h3><p>내림을 활용한 풀이</p><div class="terminal space shadow"><div class=top><div class=btns><span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span></div><div class=title>solution.py</div></div><div class=terminalbody><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>solution</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=n>arr</span><span class=p>,</span> <span class=n>w</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=n>bef</span><span class=o>=-</span><span class=n>w</span>
-</span></span><span class=line><span class=cl>    <span class=n>cnt</span><span class=o>=</span><span class=mi>0</span>
-</span></span><span class=line><span class=cl>    <span class=n>ww</span><span class=o>=</span><span class=n>w</span><span class=o>*</span><span class=mi>2</span><span class=o>+</span><span class=mi>1</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>        <span class=n>cnt</span><span class=o>+=</span><span class=p>(</span><span class=n>x</span><span class=o>-</span><span class=n>bef</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span><span class=o>//</span><span class=n>ww</span>
-</span></span><span class=line><span class=cl>        <span class=n>bef</span><span class=o>=</span><span class=n>x</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>cnt</span><span class=o>+</span><span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>w</span><span class=o>-</span><span class=n>bef</span><span class=p>)</span><span class=o>//</span><span class=n>ww</span>
-</span></span></code></pre></td></tr></table></div></div></div></div><br></div><footer class=post-footer><ul class=post-tags><li><a href=https://cha2hyun.github.io/tags/programmers/>programmers</a></li></ul><nav class=paginav><a class=prev href=https://cha2hyun.github.io/algorithm/programmers/lv3/64064/><span class=title>« Prev</span><br><span>64064] Python 불량 사용자</span></a>
-<a class=next href=https://cha2hyun.github.io/algorithm/programmers/lv3/12987/><span class=title>Next »</span><br><span>12987] Python 숫자 게임</span></a></nav><div style=padding-top:15px;padding-bottom:2px;font-size:x-large;font-weight:700>Any Comments? 😀</div><div class=share-buttons></div><script src=https://utteranc.es/client.js repo=cha2hyun/blog-comments issue-term=title theme=boxy-light crossorigin=anonymous async></script></footer></article></main><footer class=footer><span>&copy; 2023 <a href=https://cha2hyun.github.io/>채수현 개발일지</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>12979] Python 기지국 설치 | 채수현 개발일지</title>
+<meta name="keywords" content="programmers">
+<meta name="description" content="Summer/Winter Coding(~2018)">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv3/12979/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css" integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY&#43;h8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://cha2hyun.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="12979] Python 기지국 설치" />
+<meta property="og:description" content="Summer/Winter Coding(~2018)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv3/12979/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
+<meta property="article:published_time" content="2022-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-26T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="12979] Python 기지국 설치"/>
+<meta name="twitter:description" content="Summer/Winter Coding(~2018)"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Algorithms",
+      "item": "https://cha2hyun.github.io/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "프로그래머스 문제풀이",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "LV3",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv3/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "12979] Python 기지국 설치",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv3/12979/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "12979] Python 기지국 설치",
+  "name": "12979] Python 기지국 설치",
+  "description": "Summer/Winter Coding(~2018)",
+  "keywords": [
+    "programmers"
+  ],
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12979\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 문제 설명 N개의 아파트가 일렬로 쭉 늘어서 있습니다. 이 중에서 일부 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 기술이 발전해 5g 수요가 높아져 4g 기지국을 5g 기지국으로 바꾸려 합니다. 그런데 5g 기지국은 4g 기지국보다 전달 범위가 좁아, 4g 기지국을 5g 기지국으로 바꾸면 어떤 아파트에는 전파가 도달하지 않습니다. 예를 들어 11개의 아파트가 쭉 늘어서 있고, [4, 11] 번째 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 만약 이 4g 기지국이 전파 도달 거리가 1인 5g 기지국으로 바뀔 경우 모든 아파트에 전파를 전달할 수 없습니다. (전파의 도달 거리가 W일 땐, 기지국이 설치된 아파트를 기준으로 전파를 양쪽으로 W만큼 전달할 수 있습니다.) 이때, 우리는 5g 기지국을 최소로 설치하면서 모든 아파트에 전파를 전달하려고 합니다. 위의 예시에선 최소 3개의 아파트 옥상에 기지국을 설치해야 모든 아파트에 전파를 전달할 수 있습니다. 아파트의 개수 N, 현재 기지국이 설치된 아파트의 번호가 담긴 1차원 배열 stations, 전파의 도달 거리 W가 매개변수로 주어질 때, 모든 아파트에 전파를 전달하기 위해 증설해야 할 기지국 개수의 최솟값을 리턴하는 solution 함수를 완성해주세요 제한사항 N: 200,000,000 이하의 자연수 stations의 크기: 10,000 이하의 자연수 stations는 오름차순으로 정렬되어 있고, 배열에 담긴 수는 N보다 같거나 작은 자연수입니다. W: 10,000 이하의 자연수 입출력 예 N\tstations\tW\tanswer 11\t[4, 11]\t1\t3 16\t[9]\t2\t3 풀이 Greedy한 방법으로 최소한의 시간복잡도로 풀어야하는 문제.\n처음 시도로는 n 길이인 모든 원소가 1인 스택을 선언후 스테이션을 돌면서 이미 커버가 가능한 구간은 0으로 변경한 다음 연속되는 원소의 값이 1인 구간을 뽑아서 최소한의 갯수로 모든 범위를 커버하려 했지만 효율성에서 탈락하였다 🥲\n다시 시도한 방법으로는 우선 전파 1개가 최대한으로 커버할 수 있는 범위는 2w + 1로 정해놓고 제공받은 스테이션 까지 최소 몇개를 깔아야할지 포문으로 한번 돌고 남은 범위를 더해주면 된다. O(N)\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 def solution(n, stations, w): from math import ceil answer = 0 # 스테이션이 최대 커버할 수 있는 거리는 왼쪽 w + 오른쪽 w + 본인 max_range = w + w + 1 # 시작 위치 cursor = 1 for station in stations: # 제공받은 스테이션까지 최소 몇개를 깔아야하는지 answer += ceil((station - w - cursor) / max_range) # 깔았다면 시작 위치 변경 cursor = station + w + 1 # 기존에 깔린 station 돌은 커서 위치가 전체 길이보다 작을 경우 if n \u003e= cursor: answer += ceil((n - cursor + 1) / max_range) return answer 다른사람풀이 내림을 활용한 풀이\nsolution.py 1 2 3 4 5 6 7 8 def solution(n, arr, w): bef=-w cnt=0 ww=w*2+1 for x in arr: cnt+=(x-bef-1)//ww bef=x return cnt+(n+w-bef)//ww ",
+  "wordCount" : "426",
+  "inLanguage": "en",
+  "datePublished": "2022-10-26T00:00:00Z",
+  "dateModified": "2022-10-26T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv3/12979/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS"
+                            alt="Views"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
+        </div>
+        
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.github.io/projects/" title="프로젝트">
+                    <span style="font-weight: bold;">프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/algorithm/" title="알고리즘">
+                    <span style="font-weight: bold;">알고리즘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/posts/" title="블로그">
+                    <span style="font-weight: bold;">블로그</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/tags/" title="태그">
+                    <span style="font-weight: bold;">태그</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/lv3/">LV3</a></div>
+    <h1 class="post-title">
+      12979] Python 기지국 설치
+    </h1>
+    <div class="post-meta">
+      <div class="views" style="margin-right: 8px">
+        <span class="views">
+          <img
+            src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fcha2hyun.github.io%2falgorithm%2fprogrammers%2flv3%2f12979%2f&left_color=gray&right_color=gray&left_text=Article Hits"
+            alt="Views"
+          />
+        </span>
+      </div><span title='2022-10-26 00:00:00 +0000 UTC'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;cha2hyun
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c" aria-label="문제">문제</a></li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a></li>
+                <li>
+                    <a href="#%eb%8b%a4%eb%a5%b8%ec%82%ac%eb%9e%8c%ed%92%80%ec%9d%b4" aria-label="다른사람풀이">다른사람풀이</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12979">https://school.programmers.co.kr/learn/courses/30/lessons/12979</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">문제 설명
+</span></span><span class="line"><span class="cl">N개의 아파트가 일렬로 쭉 늘어서 있습니다. 이 중에서 일부 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 기술이 발전해 5g 수요가 높아져 4g 기지국을 5g 기지국으로 바꾸려 합니다. 그런데 5g 기지국은 4g 기지국보다 전달 범위가 좁아, 4g 기지국을 5g 기지국으로 바꾸면 어떤 아파트에는 전파가 도달하지 않습니다.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">예를 들어 11개의 아파트가 쭉 늘어서 있고, [4, 11] 번째 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 만약 이 4g 기지국이 전파 도달 거리가 1인 5g 기지국으로 바뀔 경우 모든 아파트에 전파를 전달할 수 없습니다. (전파의 도달 거리가 W일 땐, 기지국이 설치된 아파트를 기준으로 전파를 양쪽으로 W만큼 전달할 수 있습니다.)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">이때, 우리는 5g 기지국을 최소로 설치하면서 모든 아파트에 전파를 전달하려고 합니다. 위의 예시에선 최소 3개의 아파트 옥상에 기지국을 설치해야 모든 아파트에 전파를 전달할 수 있습니다.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">아파트의 개수 N, 현재 기지국이 설치된 아파트의 번호가 담긴 1차원 배열 stations, 전파의 도달 거리 W가 매개변수로 주어질 때, 모든 아파트에 전파를 전달하기 위해 증설해야 할 기지국 개수의 최솟값을 리턴하는 solution 함수를 완성해주세요
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">제한사항
+</span></span><span class="line"><span class="cl">N: 200,000,000 이하의 자연수
+</span></span><span class="line"><span class="cl">stations의 크기: 10,000 이하의 자연수
+</span></span><span class="line"><span class="cl">stations는 오름차순으로 정렬되어 있고, 배열에 담긴 수는 N보다 같거나 작은 자연수입니다.
+</span></span><span class="line"><span class="cl">W: 10,000 이하의 자연수
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">입출력 예
+</span></span><span class="line"><span class="cl">N	stations	W	answer
+</span></span><span class="line"><span class="cl">11	[4, 11]	1	3
+</span></span><span class="line"><span class="cl">16	[9]	2	3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
+<p>Greedy한 방법으로 최소한의 시간복잡도로 풀어야하는 문제.</p>
+<p>처음 시도로는 n 길이인 모든 원소가 1인 스택을 선언후 스테이션을 돌면서 이미 커버가 가능한 구간은 0으로 변경한 다음 연속되는 원소의 값이 1인 구간을 뽑아서 최소한의 갯수로 모든 범위를 커버하려 했지만 효율성에서 탈락하였다 🥲</p>
+<p>다시 시도한 방법으로는 우선 전파 1개가 최대한으로 커버할 수 있는 범위는 2w + 1로 정해놓고 제공받은 스테이션 까지 최소 몇개를 깔아야할지 포문으로 한번 돌고 남은 범위를 더해주면 된다. O(N)</p>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">stations</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 스테이션이 최대 커버할 수 있는 거리는 왼쪽 w + 오른쪽 w + 본인</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_range</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 시작 위치</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cursor</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 제공받은 스테이션까지 최소 몇개를 깔아야하는지</span>
+</span></span><span class="line"><span class="cl">        <span class="n">answer</span> <span class="o">+=</span> <span class="n">ceil</span><span class="p">((</span><span class="n">station</span> <span class="o">-</span> <span class="n">w</span> <span class="o">-</span> <span class="n">cursor</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 깔았다면 시작 위치 변경</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cursor</span> <span class="o">=</span> <span class="n">station</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 기존에 깔린 station 돌은 커서 위치가 전체 길이보다 작을 경우</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">cursor</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">answer</span> <span class="o">+=</span> <span class="n">ceil</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">cursor</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
+<p>내림을 활용한 풀이</p>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bef</span><span class="o">=-</span><span class="n">w</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ww</span><span class="o">=</span><span class="n">w</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cnt</span><span class="o">+=</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">bef</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="n">ww</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bef</span><span class="o">=</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">cnt</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">w</span><span class="o">-</span><span class="n">bef</span><span class="p">)</span><span class="o">//</span><span class="n">ww</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.github.io/tags/programmers/">programmers</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv3/64064/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>64064] Python 불량 사용자</span>
+  </a>
+  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv3/12987/">
+    <span class="title">Next »</span>
+    <br>
+    <span>12987] Python 숫자 게임</span>
+  </a>
+</nav>
+
+
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
+</div>
+<div class="share-buttons"></div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

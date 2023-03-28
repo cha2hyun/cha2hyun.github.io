@@ -1,52 +1,543 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>12941] Python 최솟값 만들기 | 채수현 개발일지</title><meta name=keywords content="programmers"><meta name=description content="연습문제"><meta name=author content="cha2hyun"><link rel=canonical href=https://cha2hyun.github.io/algorithm/programmers/lv2/12941/><link crossorigin=anonymous href=/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY+h8=" rel="preload stylesheet" as=style><link rel=icon href=https://cha2hyun.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://cha2hyun.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://cha2hyun.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://cha2hyun.github.io/apple-touch-icon.png><link rel=mask-icon href=https://cha2hyun.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="12941] Python 최솟값 만들기"><meta property="og:description" content="연습문제"><meta property="og:type" content="article"><meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv2/12941/"><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"><meta property="article:section" content="algorithm"><meta property="article:published_time" content="2022-09-24T00:00:00+00:00"><meta property="article:modified_time" content="2022-09-24T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://cha2hyun.github.io/papermod-cover.png"><meta name=twitter:title content="12941] Python 최솟값 만들기"><meta name=twitter:description content="연습문제"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Algorithms","item":"https://cha2hyun.github.io/algorithm/"},{"@type":"ListItem","position":2,"name":"프로그래머스 문제풀이","item":"https://cha2hyun.github.io/algorithm/programmers/"},{"@type":"ListItem","position":3,"name":"LV2","item":"https://cha2hyun.github.io/algorithm/programmers/lv2/"},{"@type":"ListItem","position":4,"name":"12941] Python 최솟값 만들기","item":"https://cha2hyun.github.io/algorithm/programmers/lv2/12941/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"12941] Python 최솟값 만들기","name":"12941] Python 최솟값 만들기","description":"연습문제","keywords":["programmers"],"articleBody":"문제 https://school.programmers.co.kr/learn/courses/30/lessons/12941\n풀이 시도 1\nA, B 배열에서 배열길이만큼 A에서 제일 큰수 * B에서 제일 작은수를 돌면서 곱한건 배열에서 삭제했습니다. 효율성 테스트에서 시간초과가 났습니다. 69.6점\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 def solution(A, B): length = len(A) total = 0 for i in range(length): Max = max(A) Min = min(B) A.remove(Max) B.remove(Min) total += Max * Min return total 시도 2\nA는 내림차순, B는 오름차순으로 먼저 정렬후에 같은 원소 번호끼리 곱해서 더했습니다.\nsolution.py 1 2 3 4 5 6 7 def solution(A, B): total = 0 A.sort(reverse = True) # A.reverse() B.sort() for i in range(len(A)): total += A[i] * B[i] return total 다른사람 풀이\nsolution.py 1 2 def getMinSum(A,B): return sum(a*b for a, b in zip(sorted(A), sorted(B, reverse = True))) ","wordCount":"127","inLanguage":"en","datePublished":"2022-09-24T00:00:00Z","dateModified":"2022-09-24T00:00:00Z","author":{"@type":"Person","name":"cha2hyun"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cha2hyun.github.io/algorithm/programmers/lv2/12941/"},"publisher":{"@type":"Organization","name":"채수현 개발일지","logo":{"@type":"ImageObject","url":"https://cha2hyun.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div><div class=logo><a href=https://cha2hyun.github.io/ accesskey=h title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style=justify-content:center>
-<img src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS" alt=Views></span></a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><div class=logo style=margin-bottom:-30px;margin-top:-30px;font-size:15px><span>기억은 유한하나, 기록은 무한하다 📚</span></div></div><ul id=menu><li><a href=https://cha2hyun.github.io/projects/ title=프로젝트><span style=font-weight:700>프로젝트</span></a></li><li><a href=https://cha2hyun.github.io/algorithm/ title=알고리즘><span style=font-weight:700>알고리즘</span></a></li><li><a href=https://cha2hyun.github.io/posts/ title=블로그><span style=font-weight:700>블로그</span></a></li><li><a href=https://cha2hyun.github.io/search/ title=검색><span style=font-weight:700>검색</span></a></li><li><a href=https://cha2hyun.github.io/tags/ title=태그><span style=font-weight:700>태그</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs></div><a href=https://cha2hyun.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/>Algorithms</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/programmers/>프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href=https://cha2hyun.github.io/algorithm/programmers/lv2/>LV2</a></div><h1 class=post-title>12941] Python 최솟값 만들기</h1><div class=post-meta><div class=views style=margin-right:8px><span class=views><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fcha2hyun.github.io%2falgorithm%2fprogrammers%2flv2%2f12941%2f&left_color=gray&right_color=gray&left_text=Article Hits" alt=Views></span></div><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%eb%ac%b8%ec%a0%9c aria-label=문제>문제</a></li><li><a href=#%ed%92%80%ec%9d%b4 aria-label=풀이>풀이</a></li></ul></div></details></div><div class=post-content><h3 id=문제>문제<a hidden class=anchor aria-hidden=true href=#문제>#</a></h3><p><a href=https://school.programmers.co.kr/learn/courses/30/lessons/12941>https://school.programmers.co.kr/learn/courses/30/lessons/12941</a></p><h3 id=풀이>풀이<a hidden class=anchor aria-hidden=true href=#풀이>#</a></h3><blockquote><p>시도 1</p></blockquote><p>A, B 배열에서 배열길이만큼 <code>A에서 제일 큰수 * B에서 제일 작은수</code>를 돌면서 곱한건 배열에서 삭제했습니다. 효율성 테스트에서 시간초과가 났습니다. <code>69.6점</code></p><p><div class="terminal space shadow"><div class=top><div class=btns><span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span></div><div class=title>solution.py</div></div><div class=terminalbody><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>solution</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=n>length</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=n>total</span> <span class=o>=</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>length</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>        <span class=n>Max</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>Min</span> <span class=o>=</span> <span class=nb>min</span><span class=p>(</span><span class=n>B</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>A</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>Max</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>B</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>Min</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>total</span> <span class=o>+=</span> <span class=n>Max</span> <span class=o>*</span> <span class=n>Min</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>total</span>
-</span></span></code></pre></td></tr></table></div></div></div></div><br><br></p><blockquote><p>시도 2</p></blockquote><p>A는 내림차순, B는 오름차순으로 먼저 정렬후에 같은 원소 번호끼리 곱해서 더했습니다.</p><div class="terminal space shadow"><div class=top><div class=btns><span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span></div><div class=title>solution.py</div></div><div class=terminalbody><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>solution</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=n>total</span> <span class=o>=</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>    <span class=n>A</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>reverse</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)</span> <span class=c1># A.reverse()</span>
-</span></span><span class=line><span class=cl>    <span class=n>B</span><span class=o>.</span><span class=n>sort</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
-</span></span><span class=line><span class=cl>        <span class=n>total</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>*</span> <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>total</span>
-</span></span></code></pre></td></tr></table></div></div></div></div><br><br><blockquote><p>다른사람 풀이</p></blockquote><div class="terminal space shadow"><div class=top><div class=btns><span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span></div><div class=title>solution.py</div></div><div class=terminalbody><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>getMinSum</span><span class=p>(</span><span class=n>A</span><span class=p>,</span><span class=n>B</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>sum</span><span class=p>(</span><span class=n>a</span><span class=o>*</span><span class=n>b</span> <span class=k>for</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=nb>sorted</span><span class=p>(</span><span class=n>A</span><span class=p>),</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>B</span><span class=p>,</span> <span class=n>reverse</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)))</span>
-</span></span></code></pre></td></tr></table></div></div></div></div><br></div><footer class=post-footer><ul class=post-tags><li><a href=https://cha2hyun.github.io/tags/programmers/>programmers</a></li></ul><nav class=paginav><a class=prev href=https://cha2hyun.github.io/algorithm/programmers/lv2/12939/><span class=title>« Prev</span><br><span>12939] Python 최댓값과 최솟값</span></a>
-<a class=next href=https://cha2hyun.github.io/algorithm/programmers/lv2/12951/><span class=title>Next »</span><br><span>12951] Python JadenCase 문자열 만들기</span></a></nav><div style=padding-top:15px;padding-bottom:2px;font-size:x-large;font-weight:700>Any Comments? 😀</div><div class=share-buttons></div><script src=https://utteranc.es/client.js repo=cha2hyun/blog-comments issue-term=title theme=boxy-light crossorigin=anonymous async></script></footer></article></main><footer class=footer><span>&copy; 2023 <a href=https://cha2hyun.github.io/>채수현 개발일지</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>12941] Python 최솟값 만들기 | 채수현 개발일지</title>
+<meta name="keywords" content="programmers">
+<meta name="description" content="연습문제">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12941/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css" integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY&#43;h8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://cha2hyun.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="12941] Python 최솟값 만들기" />
+<meta property="og:description" content="연습문제" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.github.io/algorithm/programmers/lv2/12941/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="algorithm" />
+<meta property="article:published_time" content="2022-09-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-24T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="12941] Python 최솟값 만들기"/>
+<meta name="twitter:description" content="연습문제"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Algorithms",
+      "item": "https://cha2hyun.github.io/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "프로그래머스 문제풀이",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "LV2",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "12941] Python 최솟값 만들기",
+      "item": "https://cha2hyun.github.io/algorithm/programmers/lv2/12941/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "12941] Python 최솟값 만들기",
+  "name": "12941] Python 최솟값 만들기",
+  "description": "연습문제",
+  "keywords": [
+    "programmers"
+  ],
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12941\n풀이 시도 1\nA, B 배열에서 배열길이만큼 A에서 제일 큰수 * B에서 제일 작은수를 돌면서 곱한건 배열에서 삭제했습니다. 효율성 테스트에서 시간초과가 났습니다. 69.6점\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 def solution(A, B): length = len(A) total = 0 for i in range(length): Max = max(A) Min = min(B) A.remove(Max) B.remove(Min) total += Max * Min return total 시도 2\nA는 내림차순, B는 오름차순으로 먼저 정렬후에 같은 원소 번호끼리 곱해서 더했습니다.\nsolution.py 1 2 3 4 5 6 7 def solution(A, B): total = 0 A.sort(reverse = True) # A.reverse() B.sort() for i in range(len(A)): total += A[i] * B[i] return total 다른사람 풀이\nsolution.py 1 2 def getMinSum(A,B): return sum(a*b for a, b in zip(sorted(A), sorted(B, reverse = True))) ",
+  "wordCount" : "127",
+  "inLanguage": "en",
+  "datePublished": "2022-09-24T00:00:00Z",
+  "dateModified": "2022-09-24T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.github.io/algorithm/programmers/lv2/12941/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS"
+                            alt="Views"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
+        </div>
+        
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.github.io/projects/" title="프로젝트">
+                    <span style="font-weight: bold;">프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/algorithm/" title="알고리즘">
+                    <span style="font-weight: bold;">알고리즘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/posts/" title="블로그">
+                    <span style="font-weight: bold;">블로그</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/tags/" title="태그">
+                    <span style="font-weight: bold;">태그</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/algorithm/programmers/lv2/">LV2</a></div>
+    <h1 class="post-title">
+      12941] Python 최솟값 만들기
+    </h1>
+    <div class="post-meta">
+      <div class="views" style="margin-right: 8px">
+        <span class="views">
+          <img
+            src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fcha2hyun.github.io%2falgorithm%2fprogrammers%2flv2%2f12941%2f&left_color=gray&right_color=gray&left_text=Article Hits"
+            alt="Views"
+          />
+        </span>
+      </div><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c" aria-label="문제">문제</a></li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12941">https://school.programmers.co.kr/learn/courses/30/lessons/12941</a></p>
+<h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
+<blockquote>
+<p>시도 1</p>
+</blockquote>
+<p>A, B 배열에서 배열길이만큼 <code>A에서 제일 큰수 * B에서 제일 작은수</code>를 돌면서 곱한건 배열에서 삭제했습니다. 효율성 테스트에서 시간초과가 났습니다. <code>69.6점</code></p>
+<p>
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">B</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Min</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="n">Max</span> <span class="o">*</span> <span class="n">Min</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<br></p>
+<blockquote>
+<p>시도 2</p>
+</blockquote>
+<p>A는 내림차순, B는 오름차순으로 먼저 정렬후에 같은 원소 번호끼리 곱해서 더했습니다.</p>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># A.reverse()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<br>
+<blockquote>
+<p>다른사람 풀이</p>
+</blockquote>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">getMinSum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.github.io/tags/programmers/">programmers</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12939/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>12939] Python 최댓값과 최솟값</span>
+  </a>
+  <a class="next" href="https://cha2hyun.github.io/algorithm/programmers/lv2/12951/">
+    <span class="title">Next »</span>
+    <br>
+    <span>12951] Python JadenCase 문자열 만들기</span>
+  </a>
+</nav>
+
+
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
+</div>
+<div class="share-buttons"></div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
