@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>12924] Python 숫자의 표현 | 채수현 개발일지</title>
+<meta name="keywords" content="programmers">
+<meta name="description" content="스택/큐">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.github.io/content/algorithm/programmers/lv2/12924/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css" integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY&#43;h8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://cha2hyun.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="12924] Python 숫자의 표현" />
+<meta property="og:description" content="스택/큐" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.github.io/content/algorithm/programmers/lv2/12924/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2022-09-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="12924] Python 숫자의 표현"/>
+<meta name="twitter:description" content="스택/큐"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.github.io/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Algorithms",
+      "item": "https://cha2hyun.github.io/content/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "프로그래머스 문제풀이",
+      "item": "https://cha2hyun.github.io/content/algorithm/programmers/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "LV2",
+      "item": "https://cha2hyun.github.io/content/algorithm/programmers/lv2/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "12924] Python 숫자의 표현",
+      "item": "https://cha2hyun.github.io/content/algorithm/programmers/lv2/12924/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "12924] Python 숫자의 표현",
+  "name": "12924] Python 숫자의 표현",
+  "description": "스택/큐",
+  "keywords": [
+    "programmers"
+  ],
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12924\n풀이 시도 1\n1부터 n의 절반까지 하나씩 덧셈하면서 n을 넘어가면 break, n의절반 + n의절반+1은 무조건 n을 넘어가니 break를 걸었습니다. 본인의 수도 포함되야 하므로 리턴할때 1을 더했습니다. 95.8점으로 실패하였습니다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 def solution(n): answer = 0 for x in range(1, (n + 1)): temp = 0 for y in range(x, (n + 1) // 2 + 1): temp += y if temp == n: answer += 1 break elif temp \u003e n: break return answer + 1 시도 2\n규칙을 찾아봅니다.\n1 2 3 x + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n x = n/k + (1-k)/2 n/k와 (1-k)/2 가 자연수가 되어야하므로 k는 홀수이면서 n의 약수여야 한다. solution.py 1 2 3 4 5 6 def solution(n): answer = 0 for i in range(1, n + 1, 2): # 2만큼 증가하여 짝수는 고려하지 않음 if n % i == 0: answer += 1 return answer 다른사람 풀이\nsolution.py 1 2 def expressions(num): return len([i for i in range(1,num+1,2) if num % i is 0]) ",
+  "wordCount" : "180",
+  "inLanguage": "en",
+  "datePublished": "2022-09-25T00:00:00Z",
+  "dateModified": "2022-09-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.github.io/content/algorithm/programmers/lv2/12924/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS"
+                            alt="Views"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
+        </div>
+        
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.github.io/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/posts/" title="개발일상">
+                    <span style="font-weight: bold;">개발일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/projects/" title="프로젝트">
+                    <span style="font-weight: bold;">프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/algorithm/" title="알고리즘">
+                    <span style="font-weight: bold;">알고리즘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/algorithm/programmers/lv2/">LV2</a></div>
+    <h1 class="post-title">
+      12924] Python 숫자의 표현
+    </h1>
+    <div class="post-meta">
+      <span title='2022-09-25 00:00:00 +0000 UTC'>September 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c" aria-label="문제">문제</a></li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12924">https://school.programmers.co.kr/learn/courses/30/lessons/12924</a></p>
+<h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
+<blockquote>
+<p>시도 1</p>
+</blockquote>
+<p><code>1부터 n의 절반</code>까지 하나씩 덧셈하면서 <code>n을 넘어가면 break</code>, <code>n의절반 + n의절반+1은 무조건 n을 넘어가니 break</code>를 걸었습니다. 본인의 수도 포함되야 하므로 <code>리턴할때 1을 더했습니다</code>. <code>95.8</code>점으로 실패하였습니다.</p>
+<p>
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">+=</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<br></p>
+<blockquote>
+<p>시도 2</p>
+</blockquote>
+<p>규칙을 찾아봅니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x + (x+1) + ... + (x+k-1) = k(2x+k-1) / 2 = n
+</span></span><span class="line"><span class="cl">x = n/k + (1-k)/2
+</span></span><span class="line"><span class="cl">n/k와 (1-k)/2 가 자연수가 되어야하므로 k는 홀수이면서 n의 약수여야 한다.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># 2만큼 증가하여 짝수는 고려하지 않음</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<br></p>
+<blockquote>
+<p>다른사람 풀이</p>
+</blockquote>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">expressions</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">len</span><span class="p">([</span><span class="n">i</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.github.io/tags/programmers/">programmers</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.github.io/content/algorithm/programmers/lv2/12911/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>12911] Python 다음 큰 숫자</span>
+  </a>
+  <a class="next" href="https://cha2hyun.github.io/content/algorithm/programmers/lv2/12945/">
+    <span class="title">Next »</span>
+    <br>
+    <span>12945] Python 피보나치 수</span>
+  </a>
+</nav>
+
+
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
+</div>
+<div class="share-buttons"></div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
