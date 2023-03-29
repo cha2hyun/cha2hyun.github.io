@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>큐찾사 (2021.09 ~) on 채수현 개발일지</title>
+    <link>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/</link>
+    <description>Recent content in 큐찾사 (2021.09 ~) on 채수현 개발일지</description>
+    <image>
+      <url>https://cha2hyun.github.io/papermod-cover.png</url>
+      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Next.js] SSR를 이용한 다이나믹라우트 페이지 SEO 최적화의 모든것 &#43; sitemap</title>
+      <link>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</link>
+      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</guid>
+      <description>Next의 꽃 SSR &amp;amp; SEO, 네이버 서치어드바이저, 구글 웹마스터도구 상단 노출 방법</description>
+    </item>
+    
+    <item>
+      <title>Next.js] InfiniteScroll로 무한 스크롤 구현하기</title>
+      <link>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
+      <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
+    </item>
+    
+  </channel>
+</rss>

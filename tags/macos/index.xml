@@ -12,10 +12,10 @@
     <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>맥 초기화하고 해야할 것 정리</title>
-      <link>https://cha2hyun.github.io/posts/mac-brew-list/</link>
+      <link>https://cha2hyun.github.io/content/posts/mac-brew-list/</link>
       <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cha2hyun.github.io/posts/mac-brew-list/</guid>
+      <guid>https://cha2hyun.github.io/content/posts/mac-brew-list/</guid>
       <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드. brew, iterm2, oh my zsh, powerlevel10k, gh, rosetta, vscode, font 등</description>
     </item>
     

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LV3 on 채수현 개발일지</title>
+    <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/</link>
+    <description>Recent content in LV3 on 채수현 개발일지</description>
+    <image>
+      <url>https://cha2hyun.github.io/papermod-cover.png</url>
+      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 03 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>49189] Python 가장 먼 노드</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/49189/</link>
+      <pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/49189/</guid>
+      <description>그래프</description>
+    </item>
+    
+    <item>
+      <title>64062] Python 징검다리건너기</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64062/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64062/</guid>
+      <description>2019 카카오 개발자 겨울 인턴십</description>
+    </item>
+    
+    <item>
+      <title>67258] Python 보석쇼핑</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/67258/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/67258/</guid>
+      <description>2020 카카오 인턴십</description>
+    </item>
+    
+    <item>
+      <title>64064] Python 불량 사용자</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64064/</link>
+      <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64064/</guid>
+      <description>2019 카카오 개발자 겨울 인턴십</description>
+    </item>
+    
+    <item>
+      <title>12979] Python 기지국 설치</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12979/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12979/</guid>
+      <description>Summer/Winter Coding(~2018)</description>
+    </item>
+    
+    <item>
+      <title>12987] Python 숫자 게임</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12987/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12987/</guid>
+      <description>Summer/Winter Coding(~2018)</description>
+    </item>
+    
+    <item>
+      <title>12927] Python 야근지수</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12927/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12927/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>12938] Python 최고의 집합</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12938/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12938/</guid>
+      <description>연습문제</description>
+    </item>
+    
+    <item>
+      <title>42579] Python 베스트앨범</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42579/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42579/</guid>
+      <description>해시</description>
+    </item>
+    
+    <item>
+      <title>42884] Python 단속카메라</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42884/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42884/</guid>
+      <description>탐욕법(Greey)</description>
+    </item>
+    
+    <item>
+      <title>42898] Python 등굣길</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42898/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42898/</guid>
+      <description>동적계획법(Dynamic Programing)</description>
+    </item>
+    
+    <item>
+      <title>43162] Python 네트워크</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43162/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43162/</guid>
+      <description>깊이/너비 우선 탐색(DFS/BFS)</description>
+    </item>
+    
+    <item>
+      <title>43163] Python 단어변환</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43163/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43163/</guid>
+      <description>깊이/너비 우선 탐색(DFS/BFS)</description>
+    </item>
+    
+    <item>
+      <title>43105] Python 정수 삼각형</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43105/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43105/</guid>
+      <description>동적계획법(Dynamic Programing)</description>
+    </item>
+    
+    <item>
+      <title>43268] Python 이중우선순위큐</title>
+      <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43628/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43628/</guid>
+      <description>힙(Heap)</description>
+    </item>
+    
+  </channel>
+</rss>

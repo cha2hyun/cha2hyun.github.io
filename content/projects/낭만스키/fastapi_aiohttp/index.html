@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기 | 채수현 개발일지</title>
+<meta name="keywords" content="FastAPI, bs4, aiohttp, grequests, requests, aiohttp, crawling">
+<meta name="description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css" integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY&#43;h8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://cha2hyun.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기" />
+<meta property="og:description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/" /><meta property="og:image" content="https://cha2hyun.github.io/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2022-11-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-10T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기"/>
+<meta name="twitter:description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.github.io/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Projects",
+      "item": "https://cha2hyun.github.io/content/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
+      "item": "https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
+  "name": "전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기",
+  "description": "서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.",
+  "keywords": [
+    "FastAPI", "bs4", "aiohttp", "grequests", "requests", "aiohttp", "crawling"
+  ],
+  "articleBody": "들어가며 다룰 내용 낭만스키의 기능중 하나인 전국의 스키장의 모든 슬로프 현황을 실시간으로 불러와서 동일한 포맷의 형태로 제공해주는 것을 만드는 과정에 대해서 작성합니다.\n슬로프 현황은 0.1초가 중요할 만큼 실시간성이 필요하지 않기 때문에 크롤링만 담당하는 크롤러 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다. 프론트에서 슬로프 현황을 요청할때는 메인 API에서 저장한 DB로 부터 데이터를 표시했습니다.\n여러 시행착오 끝에 가장 빠르게, 가장 효과적인 구조로 크롤링을 하는 방법에 대해 작성했습니다.\n실행 환경 로컬에서 테스트용으로 사용되는 환경은 다음과 같습니다.\n1 2 3 OS : MacOS Monterey (Mac Studio) Versions : pipenv(pyenv python3.10.3), FastAPI(0.84) Etc : Talend Api Tester, Mysql(AWS RDS) requests vs grequests vs aiohttp 무엇이 제일 빠른가? 왜 빨라야 할까? [문제점] 전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 유저가 업데이트된 정보를 요청하거나 문제가 생겼을 때 강제로 다시 크롤링 로직을 도는데 결과를 반환받기 까지 수초가 걸렸습니다.\n크롤링 -\u003e db insert -\u003e 다음 리조트 크롤링 -\u003e ... 반복 -\u003e 메인 서버에서 결과값 반환\n[해결방안] aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때도 크롤링 결과를 모아 bulk_update를 이용하는 방식으로 변경하여 걸리는 시간을 0.5초 이내로 낮출 수 있었습니다.\n비동기 크롤링 -\u003e bulk_update로 한번에 insert -\u003e 메인 서버에서 결과값 반환\n[테스트방법] requests, grequests, aiohttp를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택했습니다.\n테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 0.1초 후에 리턴합니다.\n1 2 3 4 5 6 # url : http://127.0.0.1:8002/test/{num} @app.get(\"/test/{num}\") def get_test(num): import time time.sleep(0.1) return {\"num\": num} requests 테스트 테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.\nInstall requests\n1 pipenv install requests code\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 def request_test(): import requests import time start = time.time() cnt = 100 for i in range(1, cnt + 1): url = f\"http://127.0.0.1:8002/test/{i}\" res = requests.get(url) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") request_test() result\n1 2 Total -\u003e 11.1368sec Avg -\u003e 0.1114sec grequests 테스트 grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. https://github.com/spyoungtech/grequests 마찬가지로 100번의 요청을 보내봤습니다.\ninstall grequests\n1 pipenv install grequests code\n1 2 3 4 5 6 7 8 9 10 11 12 13 def grequest_test(): import grequests import time cnt = 100 urls = [f\"http://127.0.0.1:8002/test/{i}\" for i in range(1, cnt+1)] start = time.time() rs = (grequests.get(u) for u in urls) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") grequest_test() result\n1 2 Total -\u003e 0.4132sec Avg -\u003e 0.0041sec aiohttp 테스트 비동기 크롤링에 가장 보편적으로 많이 사용되는 라이브러리 입니다. 100번의 요청을 보냅니다.\ninstall aiohttp\n1 pipenv install aiohttp 100번의 요청을 보내봅니다.\ncode\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 import asyncio import time from aiohttp import ClientSession async def aiohttp_test(url): async with ClientSession() as session: async with session.get(url) as response: return await response.read() cnt = 100 start = time.time() loop = asyncio.get_event_loop() coroutines = [aiohttp_test(f'http://127.0.0.1:8002/test/{i}') for i in range(cnt)] results = loop.run_until_complete(asyncio.gather(*coroutines)) total = round(time.time() - start, 4) average = round(total/cnt, 4) print(f\"Total -\u003e {total}sec\") print(f\"Avg -\u003e {average}sec\") result\n1 2 Total -\u003e 0.3705sec Avg -\u003e 0.0037sec 속도 비교 결과 1개의 요청을 처리하는데 걸리는 평균 시간\nrequests : 0.1114sec grequests : 0.0041sec aiohttp : 0.0037sec 🏆 라이브러리 선택 여러번 계속 테스트 해봐도 aiohttp가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다. 내부망이 아닌 request 테스트 사이트 requestcatcher에서 테스트해본 결과도 동일하였습니다.\n0.1초후에 응답하는 api에 100번의 요청을 보냈을 때 싱글스레드(requests)는 평균 0.1114sec 초로 한개의 요청을 끝내고 다음 요청을 진행하는 것을 볼 수 있었습니다. 비동기를 이용했을때는 평균 약 0.004초가 걸렸습니다. 제 환경에서는 약 25개의 요청을 동시에 처리할 수 있다는 점을 알 수 있었습니다.\n크롤링하는 서버의 성능에 따라 인터넷 속도나 얼만큼 많은 쓰레드를 사용할 수 있는가에 따라 속도 차이가 좀 더 나겠지만, 전국 스키장의 수가 20개가 되지 않으므로 비동기를 이용하여 모든 스키장을 크롤링을 동시에 진행할 것이고 최소 시간은 가장 크롤링이 오래걸리는 스키장이 될 것으로 예상했습니다.\nFastAPI + aiohttp로 크롤링하기 FastAPI 선택 이유 크롤링 서버는 메인서버에서 분리되어 일정 시간마다 크롤링 \u003e DB Insert만 하는 아주 가볍게 돌아가는 서버이기 떄문에 Django나 Flask보다 가벼운 FastAPI를 선택했습니다. 간혹 오류나 크롤링 실패로 인해서 관리자나 프론트에서 유저가 다시 크롤링하라는 요청을 보내기 위해 get 요청을 받을 수 있게 api로 진행했습니다.\n프로젝트 트리 구조 스키장별로 제공하는 홈페이지가 모두 달랐습니다. 정적페이지로 제공하는지, API가 있는지 등 스키장마다 모두 다른 형태로 리턴받아서 구조와 클린코드를 어떻게 짜야할지 고민이 많았습니다. 같은 형식이 아닌 다양한 여러 페이지를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.\nFastAPI 프로젝트 tree\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 . ├── Dockerfile ├── docker-compose.yml ├── .env ├── requirements.txt ├── scripts │ └── db_to_orm.sh └── src ├── config (RDS 연결) │ ├── __init__.py │ └── database.py ├── constant.py (상수값 저장) ├── crawler (크롤링) │ ├── __init__.py │ ├── crawler.py ├── main.py (api) ├── model (DB모델) │ ├── __init__.py │ └── models.py ├── service (DB insert) │ ├── __init__.py │ └── slope_time_service.py └── utils (결과 Discord 전송) └── webhook.py main.py 에서 get 요청을 처리합니다. 크롤링과 관련된 내용은 crawler.py에 저장하고 크롤링에 필요한 상수값 (resort_code, resort_name 등)은 DB에서 불러와도 되지만 상수로 저장해놓고 사용하는게 더 빠르기 때문에 constant.py에 저장했습니다.\n처리순서는 다음과 같습니다.\n1 2 3 4 5 6 7 8 1. 크롤링 요청 2. aiohttp client를 생성하고 3. 코루틴 리스트 배열을 만들고 4. 비동기로 모든 리조트를 크롤링 해서 5. aiohttp client를 종료 후 6. 결과값을 배열에 모아서 7. bulk_update로 DB에 저장하고 8. 크롤링 결과를 Discord에 푸쉬 코드 cralwer \u003e crawlerV3.py 여러번 테스트 결과 aiohttp 적용이 가장 빨랐다. (좌측:requests, 우측:aiohttp)\nclass SingletonAiohttp\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 class SingletonAiohttp: sem: Optional[asyncio.Semaphore] = None aiohttp_client: Optional[aiohttp.ClientSession] = None @classmethod def get_aiohttp_client(cls) -\u003e aiohttp.ClientSession: if cls.aiohttp_client is None: timeout = aiohttp.ClientTimeout(total=5) connector = aiohttp.TCPConnector( family=AF_INET, limit_per_host=SIZE_POOL_AIOHTTP, ssl=False ) cls.aiohttp_client = aiohttp.ClientSession( timeout=timeout, connector=connector, trust_env=True ) return cls.aiohttp_client @classmethod async def close_aiohttp_client(cls) -\u003e None: if cls.aiohttp_client: await cls.aiohttp_client.close() cls.aiohttp_client = None @classmethod async def crawl(cls, resortName: ResortName) -\u003e Any: client = cls.get_aiohttp_client() resort = Resort() try: async with client.get(url=FakeDB[resortName][\"url\"]) as response: if response.status != 200: return {\"ERROR OCCURED\" + str(await response.text())} html = await response.text() if resortName == ResortName.jisan: result = resort.jisan(html) # ... elif resortName == ResortName.otwo: result = resort.otwo(html) return result except Exception as e: return {\"ERROR\": e} ... async def on_start_up() -\u003e None: fastAPI_logger.info(\"on_start_up\") SingletonAiohttp.get_aiohttp_client() async def on_shutdown() -\u003e None: fastAPI_logger.info(\"on_shutdown\") await SingletonAiohttp.close_aiohttp_client() class Utility\n스키장에 따라서 어떤 곳은 슬로프명이 x축에, 어떤 곳은 y축에 있었고 어떤 곳은 슬로프 오픈 정보와 슬로프 난이도 길이 등을 같이 표시하는 곳이 있었습니다. 이런 데이터들을 규격화 하는 과정이 필요했고 크롤링 하면 무조건 2차원 배열로 [[구분, 슬로프1, 슬로프2], [시간,O,X,..], .. ,[시간,O,X,..]] 만들어서 크롤링이 성공하면 inSuccess 함수에서 DB에 넣는 형식으로 리턴해주었습니다. 크롤링하다가 Exception 발생시에는 해당 리조트의 크롤링 여부가 실패했음을 inFailed 함수가 실행됩니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 class Utiliy: def inSuccess(self, resort_name, array): resortContstantDB = ResortConstant[resort_name] # ... DB 형식에 맞게 수정 array 인자는 무조건 2차원배열로 들어온다 return { \"fetch_status\": { \"resort_code\": resortContstantDB[\"resort_code\"], \"fetch_status\": \"O\", }, \"slope_open_yn\": result, } def inFailed(self, resort_name): resortContstantDB = ResortConstant[resort_name] return { \"fetch_status\": { \"resort_code\": resortContstantDB[\"resort_code\"], \"fetch_status\": \"X\", }, \"slope_open_yn\": [], } class Reosrt\n리조트별로 크롤링 해서 2차원 배열로 리턴합니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 class Resort(Utiliy): # API로 불러올 경우 JSON def wellyhilly(self, res): resort_name = ResortName.duckyousan response = json.loads(res) # ... try: datas = response[\"data\"] # ... 형식에 맞게 수정 return self.makeDbInputData(resort_name, array) except Exception as e: print(\"ERROR : \", e) return self.fetchFailed(resort_name) # 정적페이지인 경우 def otwo(self, html): resort_name = ResortName.otwo # ... try: html = BeautifulSoup(html, \"lxml\") # ... 크롤링 return self.makeDbInputData(resort_name, array) # return self.fetchFailed(resort_name) except Exception as e: print(\"ERROR : \", e) return self.fetchFailed(resort_name) config \u003e database.py .env에서 rds 주소를 불러와서 db연결 세션을 만듭니다.\n1 2 3 4 5 6 7 8 9 10 11 from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from os import getenv SQLALCHEMY_DATABASE_URL = getenv(\"DATABASE_URL\") engine = create_engine(SQLALCHEMY_DATABASE_URL) SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) Base = declarative_base() service \u003e slope_time_service.py\n성공, 실패 여부를 모아놓은 fetch_status_list와 슬로프 현황이 담긴 slope_open_yn_list를 db에 넣어줍니다. bulk_update를 이용하면 한번의 커넥션으로 데이터들을 전송할 수 있습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 from sqlalchemy.orm import Session, aliased from sqlalchemy import select from sqlalchemy import and_ from ..config.database import SessionLocal, engine from contextlib import contextmanager from fastapi.concurrency import contextmanager_in_threadpool from ..model import models models.Base.metadata.create_all(bind=engine) def get_db(): db = SessionLocal()4 try: yield db finally: db.close()4 async def update_slope_time_bulk(fetch_status_list: list, slope_open_yn_list: list): async with contextmanager_in_threadpool(contextmanager(get_db)()) as db: try: db.bulk_update_mappings(models.SkiResort, fetch_status_list) db.bulk_update_mappings(models.SlopeTime, slope_open_yn_list) db.commit() except Exception as e: print(\"update_slope_time_bulk Exeption :\", e) db.rollback() raise main.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 app = FastAPI(docs_url=\"/\", on_startup=[on_start_up], on_shutdown=[on_shutdown]) @app.get(\"/slope/update\") async def fasterUpdateSlope() -\u003e Dict[str, int]: start = time.time() # Async async_calls: List[Coroutine[Any, Any, Any]] = list() # store all async operations async_calls.append(SingletonAiohttp.crawl(ResortName.jisan)) # ... async_calls.append(SingletonAiohttp.crawl(ResortName.duckyousan)) results = await asyncio.gather(*async_calls) # wait for all async operations # Make Data .... # DB Push \u0026 Discord try: await slope_time_service.update_slope_time_bulk( fetch_status_list, slope_open_yn_list ) # ... if not DEBUG: discord_webhook(discord_title, discord_msg) return { \"fetch_status_list\": fetch_status_list, \"slope_open_yn_list\": slope_open_yn_list, } except Exception: # ... if not DEBUG: discord_webhook(discord_title, discord_msg + \"`\") raise HTTPException(status_code=500, detail=\"Server error\") 결과 8개 정도 리조트를 크롤링 했을때 0.3초 ~ 0.4초정도 걸렸습니다. RDS를 아직 저사양 인스턴스를 사용해서 db insert 시간이 더 길었습니다.\n슬로프 오픈 현황 (open_yn) 크롤링 성공 여부 (실패시 마지막 성공 데이터를 보여줍니다)\n꿀팁 디스코드로 결과 보내기 결과를 팀원들에게 실시간으로 공유하고 오류가 있을때는 @channel과 함께 디스코드로 푸쉬를 보냅니다.d\n결과는 discord로 받습니다. Rds 성능이 낮아서 DB Insert 속도가 조금 느립니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 import requests from os import getenv from dotenv import load_dotenv def discord_webhook(title, msg): load_dotenv() url = getenv(\"DISCORD_CRAWLER_MONITOR_URL\") data = { \"content\": msg, \"username\": title, } requests.post(url, json=data) CSR 페이지 공략 CSR로 만들어져서 브라우져가 렌더링하는 페이지일 경우에 최대한 셀레늄을 사용하지 않으려고 선택한 방법입니다. (…계속)\n",
+  "wordCount" : "1750",
+  "inLanguage": "en",
+  "datePublished": "2022-11-10T00:00:00Z",
+  "dateModified": "2022-11-10T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS"
+                            alt="Views"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
+        </div>
+        
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.github.io/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/posts/" title="개발일상">
+                    <span style="font-weight: bold;">개발일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/projects/" title="프로젝트">
+                    <span style="font-weight: bold;">프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/content/algorithm/" title="알고리즘">
+                    <span style="font-weight: bold;">알고리즘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.github.io/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/projects/">Projects</a></div>
+    <h1 class="post-title">
+      전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기
+    </h1>
+    <div class="post-meta">
+      <span title='2022-11-10 00:00:00 +0000 UTC'>November 10, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;cha2hyun
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%93%a4%ec%96%b4%ea%b0%80%eb%a9%b0" aria-label="들어가며">들어가며</a><ul>
+                        
+                <li>
+                    <a href="#%eb%8b%a4%eb%a3%b0-%eb%82%b4%ec%9a%a9" aria-label="다룰 내용">다룰 내용</a></li>
+                <li>
+                    <a href="#%ec%8b%a4%ed%96%89-%ed%99%98%ea%b2%bd" aria-label="실행 환경">실행 환경</a></li></ul>
+                </li>
+                <li>
+                    <a href="#requests-vs-grequests-vs-aiohttp-%eb%ac%b4%ec%97%87%ec%9d%b4-%ec%a0%9c%ec%9d%bc-%eb%b9%a0%eb%a5%b8%ea%b0%80" aria-label="requests vs grequests vs aiohttp 무엇이 제일 빠른가?"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 무엇이 제일 빠른가?</a><ul>
+                        
+                <li>
+                    <a href="#%ec%99%9c-%eb%b9%a8%eb%9d%bc%ec%95%bc-%ed%95%a0%ea%b9%8c" aria-label="왜 빨라야 할까?">왜 빨라야 할까?</a></li>
+                <li>
+                    <a href="#requests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="requests 테스트"><code>requests</code> 테스트</a></li>
+                <li>
+                    <a href="#grequests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="grequests 테스트"><code>grequests</code> 테스트</a></li>
+                <li>
+                    <a href="#aiohttp-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="aiohttp 테스트"><code>aiohttp</code> 테스트</a></li>
+                <li>
+                    <a href="#%ec%86%8d%eb%8f%84-%eb%b9%84%ea%b5%90-%ea%b2%b0%ea%b3%bc" aria-label="속도 비교 결과">속도 비교 결과</a></li>
+                <li>
+                    <a href="#%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%84%a0%ed%83%9d" aria-label="라이브러리 선택">라이브러리 선택</a></li></ul>
+                </li>
+                <li>
+                    <a href="#fastapi--aiohttp%eb%a1%9c-%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0" aria-label="FastAPI &#43; aiohttp로 크롤링하기"><code>FastAPI</code> + <code>aiohttp</code>로 크롤링하기</a><ul>
+                        
+                <li>
+                    <a href="#fastapi-%ec%84%a0%ed%83%9d-%ec%9d%b4%ec%9c%a0" aria-label="FastAPI 선택 이유">FastAPI 선택 이유</a></li>
+                <li>
+                    <a href="#%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8-%ed%8a%b8%eb%a6%ac-%ea%b5%ac%ec%a1%b0" aria-label="프로젝트 트리 구조">프로젝트 트리 구조</a></li>
+                <li>
+                    <a href="#%ec%bd%94%eb%93%9c" aria-label="코드">코드</a></li>
+                <li>
+                    <a href="#cralwer--crawlerv3py" aria-label="cralwer &amp;gt; crawlerV3.py">cralwer &gt; crawlerV3.py</a></li>
+                <li>
+                    <a href="#config--databasepy" aria-label="config &amp;gt; database.py">config &gt; database.py</a></li>
+                <li>
+                    <a href="#mainpy" aria-label="main.py">main.py</a></li>
+                <li>
+                    <a href="#%ea%b2%b0%ea%b3%bc" aria-label="결과">결과</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%ea%bf%80%ed%8c%81" aria-label="꿀팁">꿀팁</a><ul>
+                        
+                <li>
+                    <a href="#%eb%94%94%ec%8a%a4%ec%bd%94%eb%93%9c%eb%a1%9c-%ea%b2%b0%ea%b3%bc-%eb%b3%b4%eb%82%b4%ea%b8%b0" aria-label="디스코드로 결과 보내기">디스코드로 결과 보내기</a></li>
+                <li>
+                    <a href="#csr-%ed%8e%98%ec%9d%b4%ec%a7%80-%ea%b3%b5%eb%9e%b5" aria-label="CSR 페이지 공략">CSR 페이지 공략</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="들어가며">들어가며<a hidden class="anchor" aria-hidden="true" href="#들어가며">#</a></h2>
+<h3 id="다룰-내용">다룰 내용<a hidden class="anchor" aria-hidden="true" href="#다룰-내용">#</a></h3>
+<p><a href="https://cha2hyun.github.io/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/">낭만스키</a>의 기능중 하나인 전국의 스키장의 모든 슬로프 현황을 실시간으로 불러와서 동일한 포맷의 형태로 제공해주는 것을 만드는 과정에 대해서 작성합니다.</p>
+<p>슬로프 현황은 0.1초가 중요할 만큼 실시간성이 필요하지 않기 때문에 크롤링만 담당하는 크롤러 서버를 구축해서 일정 시간마다 한번씩 모든 리조트 사이트를 돌면서 DB에 저장하는 방식을 사용했습니다. 프론트에서 슬로프 현황을 요청할때는 메인 API에서 저장한 DB로 부터 데이터를 표시했습니다.</p>
+<p>여러 시행착오 끝에 가장 빠르게, 가장 효과적인 구조로 크롤링을 하는 방법에 대해 작성했습니다.</p>
+<h3 id="실행-환경">실행 환경<a hidden class="anchor" aria-hidden="true" href="#실행-환경">#</a></h3>
+<p>로컬에서 테스트용으로 사용되는 환경은 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">OS : MacOS Monterey <span class="o">(</span>Mac Studio<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Versions : pipenv<span class="o">(</span>pyenv python3.10.3<span class="o">)</span>, FastAPI<span class="o">(</span>0.84<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Etc : Talend Api Tester, Mysql<span class="o">(</span>AWS RDS<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="requests-vs-grequests-vs-aiohttp-무엇이-제일-빠른가"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 무엇이 제일 빠른가?<a hidden class="anchor" aria-hidden="true" href="#requests-vs-grequests-vs-aiohttp-무엇이-제일-빠른가">#</a></h2>
+<h3 id="왜-빨라야-할까">왜 빨라야 할까?<a hidden class="anchor" aria-hidden="true" href="#왜-빨라야-할까">#</a></h3>
+<p><strong>[문제점]</strong>
+전국의 리조트 15곳을 순차적으로 크롤링하기 떄문에 유저가 업데이트된 정보를 요청하거나 문제가 생겼을 때 강제로 다시 크롤링 로직을 도는데 결과를 반환받기 까지 <strong>수초</strong>가 걸렸습니다.</p>
+<p><code>크롤링 -&gt; db insert -&gt; 다음 리조트 크롤링 -&gt; ... 반복 -&gt; 메인 서버에서 결과값 반환</code></p>
+<p><strong>[해결방안]</strong>
+aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때도 크롤링 결과를 모아 bulk_update를 이용하는 방식으로 변경하여 걸리는 시간을 <strong>0.5초 이내</strong>로 낮출 수 있었습니다.</p>
+<p><code>비동기 크롤링 -&gt; bulk_update로 한번에 insert -&gt; 메인 서버에서 결과값 반환</code></p>
+<p><strong>[테스트방법]</strong>
+<code>requests</code>, <code>grequests</code>, <code>aiohttp</code>를 로컬에서 돌아가는 테스트 서버에 100번씩 요청을 보냈을때 속도를 비교해보고 가장 빠른 방법을 선택했습니다.</p>
+<p>테스트로 사용할 간단한 FastAPI를 실행시켰습니다. 요청을 <strong>0.1</strong>초 후에 리턴합니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># url : http://127.0.0.1:8002/test/{num}</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@app.get</span><span class="p">(</span><span class="s2">&#34;/test/</span><span class="si">{num}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_test</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;num&#34;</span><span class="p">:</span> <span class="n">num</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="requests-테스트"><code>requests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#requests-테스트">#</a></h3>
+<p>테스틀 위해서 앞서 만든 url로 get 요청을 100번 보내서 평균을 내어 1개 요청에 몇초가 소요됬는지 확인해봅니다.</p>
+<blockquote>
+<p>Install requests</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install requests
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>code</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">request_test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">request_test</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>result</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Total -&gt; 11.1368sec
+</span></span><span class="line"><span class="cl">Avg -&gt; 0.1114sec
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="grequests-테스트"><code>grequests</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#grequests-테스트">#</a></h3>
+<p>grequests 는 Gevent를 이용하여 비동기 http request를 할 수 있는 라이브러리입니다. <a href="https://github.com/spyoungtech/grequests">https://github.com/spyoungtech/grequests</a> 마찬가지로 100번의 요청을 보내봤습니다.</p>
+<blockquote>
+<p>install grequests</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install grequests
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>code</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">grequest_test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">grequests</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&#34;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rs</span> <span class="o">=</span> <span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">grequest_test</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>result</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Total -&gt; 0.4132sec
+</span></span><span class="line"><span class="cl">Avg -&gt; 0.0041sec
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="aiohttp-테스트"><code>aiohttp</code> 테스트<a hidden class="anchor" aria-hidden="true" href="#aiohttp-테스트">#</a></h3>
+<p>비동기 크롤링에 가장 보편적으로 많이 사용되는 라이브러리 입니다. 100번의 요청을 보냅니다.</p>
+<blockquote>
+<p>install aiohttp</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pipenv install aiohttp
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>100번의 요청을 보내봅니다.</p>
+<blockquote>
+<p>code</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">ClientSession</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">aiohttp_test</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cnt</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">coroutines</span> <span class="o">=</span> <span class="p">[</span><span class="n">aiohttp_test</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://127.0.0.1:8002/test/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cnt</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coroutines</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">total</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">average</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Total -&gt; </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Avg -&gt; </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">sec&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>result</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Total -&gt; 0.3705sec
+</span></span><span class="line"><span class="cl">Avg -&gt; 0.0037sec
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="속도-비교-결과">속도 비교 결과<a hidden class="anchor" aria-hidden="true" href="#속도-비교-결과">#</a></h3>
+<p>1개의 요청을 처리하는데 걸리는 평균 시간</p>
+<ul>
+<li>requests : 0.1114sec</li>
+<li>grequests : 0.0041sec</li>
+<li>aiohttp : 0.0037sec 🏆</li>
+</ul>
+<br>
+<h3 id="라이브러리-선택">라이브러리 선택<a hidden class="anchor" aria-hidden="true" href="#라이브러리-선택">#</a></h3>
+<p>여러번 계속 테스트 해봐도 <code>aiohttp</code>가 가장 빨랐습니다. 내부망에서 왔다갔다 하는거라 큰 차이가 나진 않았던 것 같습니다. 내부망이 아닌 request 테스트 사이트 <a href="https://requestcatcher.com/">requestcatcher</a>에서 테스트해본 결과도 동일하였습니다.</p>
+<p>0.1초후에 응답하는 api에 100번의 요청을 보냈을 때 싱글스레드(requests)는 평균 0.1114sec 초로 한개의 요청을 끝내고 다음 요청을 진행하는 것을 볼 수 있었습니다. 비동기를 이용했을때는 평균 약 0.004초가 걸렸습니다. 제 환경에서는 약 <strong>25개</strong>의 요청을 동시에 처리할 수 있다는 점을 알 수 있었습니다.</p>
+<p>크롤링하는 서버의 성능에 따라 인터넷 속도나 얼만큼 많은 쓰레드를 사용할 수 있는가에 따라 속도 차이가 좀 더 나겠지만, 전국 스키장의 수가 <strong>20개</strong>가 되지 않으므로 비동기를 이용하여 모든 스키장을 크롤링을 동시에 진행할 것이고 최소 시간은 <strong>가장 크롤링이 오래걸리는 스키장</strong>이 될 것으로 예상했습니다.</p>
+<hr>
+<h2 id="fastapi--aiohttp로-크롤링하기"><code>FastAPI</code> + <code>aiohttp</code>로 크롤링하기<a hidden class="anchor" aria-hidden="true" href="#fastapi--aiohttp로-크롤링하기">#</a></h2>
+<h3 id="fastapi-선택-이유">FastAPI 선택 이유<a hidden class="anchor" aria-hidden="true" href="#fastapi-선택-이유">#</a></h3>
+<p>크롤링 서버는 메인서버에서 분리되어 일정 시간마다 <code>크롤링 &gt; DB Insert</code>만 하는 아주 가볍게 돌아가는 서버이기 떄문에 <code>Django</code>나 <code>Flask</code>보다 가벼운 <code>FastAPI</code>를 선택했습니다. 간혹 오류나 크롤링 실패로 인해서 관리자나 프론트에서 유저가 다시 크롤링하라는 요청을 보내기 위해 get 요청을 받을 수 있게 api로 진행했습니다.</p>
+<br>
+<h3 id="프로젝트-트리-구조">프로젝트 트리 구조<a hidden class="anchor" aria-hidden="true" href="#프로젝트-트리-구조">#</a></h3>
+<p>스키장별로 제공하는 홈페이지가 모두 달랐습니다. 정적페이지로 제공하는지, API가 있는지 등 스키장마다 모두 다른 형태로 리턴받아서 구조와 클린코드를 어떻게 짜야할지 고민이 많았습니다. <strong>같은 형식이 아닌 다양한 여러 페이지</strong>를 가장 빠르게 크롤링하고 어떤식으로 구조를 잡았는지, DB에는 어떻게 효과적으로 Insert 했는지 과정을 소개합니다.</p>
+<blockquote>
+<p>FastAPI 프로젝트 tree</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── Dockerfile
+</span></span><span class="line"><span class="cl">├── docker-compose.yml
+</span></span><span class="line"><span class="cl">├── .env
+</span></span><span class="line"><span class="cl">├── requirements.txt
+</span></span><span class="line"><span class="cl">├── scripts
+</span></span><span class="line"><span class="cl">│   └── db_to_orm.sh
+</span></span><span class="line"><span class="cl">└── src
+</span></span><span class="line"><span class="cl">    ├── config (RDS 연결)
+</span></span><span class="line"><span class="cl">    │   ├── __init__.py
+</span></span><span class="line"><span class="cl">    │   └── database.py
+</span></span><span class="line"><span class="cl">    ├── constant.py (상수값 저장)
+</span></span><span class="line"><span class="cl">    ├── crawler (크롤링)
+</span></span><span class="line"><span class="cl">    │   ├── __init__.py
+</span></span><span class="line"><span class="cl">    │   ├── crawler.py
+</span></span><span class="line"><span class="cl">    ├── main.py (api)
+</span></span><span class="line"><span class="cl">    ├── model (DB모델)
+</span></span><span class="line"><span class="cl">    │   ├── __init__.py
+</span></span><span class="line"><span class="cl">    │   └── models.py
+</span></span><span class="line"><span class="cl">    ├── service (DB insert)
+</span></span><span class="line"><span class="cl">    │   ├── __init__.py
+</span></span><span class="line"><span class="cl">    │   └── slope_time_service.py
+</span></span><span class="line"><span class="cl">    └── utils (결과 Discord 전송)
+</span></span><span class="line"><span class="cl">        └── webhook.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>main.py</code> 에서 get 요청을 처리합니다. 크롤링과 관련된 내용은 <code>crawler.py</code>에 저장하고 크롤링에 필요한 상수값 (resort_code, resort_name 등)은 DB에서 불러와도 되지만 상수로 저장해놓고 사용하는게 더 빠르기 때문에 <code>constant.py</code>에 저장했습니다.</p>
+<p>처리순서는 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 크롤링 요청
+</span></span><span class="line"><span class="cl">2. aiohttp client를 생성하고
+</span></span><span class="line"><span class="cl">3. 코루틴 리스트 배열을 만들고
+</span></span><span class="line"><span class="cl">4. 비동기로 모든 리조트를 크롤링 해서
+</span></span><span class="line"><span class="cl">5. aiohttp client를 종료 후
+</span></span><span class="line"><span class="cl">6. 결과값을 배열에 모아서
+</span></span><span class="line"><span class="cl">7. bulk_update로 DB에 저장하고
+</span></span><span class="line"><span class="cl">8. 크롤링 결과를 Discord에 푸쉬
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="코드">코드<a hidden class="anchor" aria-hidden="true" href="#코드">#</a></h3>
+<h3 id="cralwer--crawlerv3py">cralwer &gt; crawlerV3.py<a hidden class="anchor" aria-hidden="true" href="#cralwer--crawlerv3py">#</a></h3>
+<p><img loading="lazy" src="../img/index/2.png" alt="사진"  />
+
+<em>여러번 테스트 결과 aiohttp 적용이 가장 빨랐다. (좌측:requests, 우측:aiohttp)</em></p>
+<br>
+<blockquote>
+<p>class SingletonAiohttp</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SingletonAiohttp</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sem</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aiohttp_client</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_aiohttp_client</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">timeout</span> <span class="o">=</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientTimeout</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">connector</span> <span class="o">=</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">TCPConnector</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">family</span><span class="o">=</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">limit_per_host</span><span class="o">=</span><span class="n">SIZE_POOL_AIOHTTP</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span> <span class="o">=</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">connector</span><span class="o">=</span><span class="n">connector</span><span class="p">,</span> <span class="n">trust_env</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">close_aiohttp_client</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">await</span> <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">cls</span><span class="o">.</span><span class="n">aiohttp_client</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">resortName</span><span class="p">:</span> <span class="n">ResortName</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">client</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_aiohttp_client</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resort</span> <span class="o">=</span> <span class="n">Resort</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">async</span> <span class="k">with</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">FakeDB</span><span class="p">[</span><span class="n">resortName</span><span class="p">][</span><span class="s2">&#34;url&#34;</span><span class="p">])</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;ERROR OCCURED&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">())}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">html</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">resortName</span> <span class="o">==</span> <span class="n">ResortName</span><span class="o">.</span><span class="n">jisan</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="n">resort</span><span class="o">.</span><span class="n">jisan</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">resortName</span> <span class="o">==</span> <span class="n">ResortName</span><span class="o">.</span><span class="n">otwo</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="n">resort</span><span class="o">.</span><span class="n">otwo</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;ERROR&#34;</span><span class="p">:</span> <span class="n">e</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">on_start_up</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fastAPI_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;on_start_up&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SingletonAiohttp</span><span class="o">.</span><span class="n">get_aiohttp_client</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">on_shutdown</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fastAPI_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;on_shutdown&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">SingletonAiohttp</span><span class="o">.</span><span class="n">close_aiohttp_client</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<blockquote>
+<p>class Utility</p>
+</blockquote>
+<p>스키장에 따라서 어떤 곳은 슬로프명이 x축에, 어떤 곳은 y축에 있었고 어떤 곳은 슬로프 오픈 정보와 슬로프 난이도 길이 등을 같이 표시하는 곳이 있었습니다. 이런 데이터들을 규격화 하는 과정이 필요했고 크롤링 하면 무조건 2차원 배열로 <code>[[구분, 슬로프1, 슬로프2], [시간,O,X,..], .. ,[시간,O,X,..]]</code> 만들어서 크롤링이 성공하면 inSuccess 함수에서 DB에 넣는 형식으로 리턴해주었습니다. 크롤링하다가 Exception 발생시에는 해당 리조트의 크롤링 여부가 실패했음을 inFailed 함수가 실행됩니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Utiliy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">inSuccess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resort_name</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resortContstantDB</span> <span class="o">=</span> <span class="n">ResortConstant</span><span class="p">[</span><span class="n">resort_name</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ... DB 형식에 맞게 수정 array 인자는 무조건 2차원배열로 들어온다</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;fetch_status&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;resort_code&#34;</span><span class="p">:</span> <span class="n">resortContstantDB</span><span class="p">[</span><span class="s2">&#34;resort_code&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;fetch_status&#34;</span><span class="p">:</span> <span class="s2">&#34;O&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;slope_open_yn&#34;</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">inFailed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resort_name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resortContstantDB</span> <span class="o">=</span> <span class="n">ResortConstant</span><span class="p">[</span><span class="n">resort_name</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;fetch_status&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;resort_code&#34;</span><span class="p">:</span> <span class="n">resortContstantDB</span><span class="p">[</span><span class="s2">&#34;resort_code&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;fetch_status&#34;</span><span class="p">:</span> <span class="s2">&#34;X&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;slope_open_yn&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<blockquote>
+<p>class Reosrt</p>
+</blockquote>
+<p>리조트별로 크롤링 해서 2차원 배열로 리턴합니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Resort</span><span class="p">(</span><span class="n">Utiliy</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># API로 불러올 경우 JSON</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wellyhilly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resort_name</span> <span class="o">=</span> <span class="n">ResortName</span><span class="o">.</span><span class="n">duckyousan</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">datas</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&#34;data&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># ... 형식에 맞게 수정</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">makeDbInputData</span><span class="p">(</span><span class="n">resort_name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;ERROR : &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetchFailed</span><span class="p">(</span><span class="n">resort_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 정적페이지인 경우</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">otwo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resort_name</span> <span class="o">=</span> <span class="n">ResortName</span><span class="o">.</span><span class="n">otwo</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&#34;lxml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># ... 크롤링</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">makeDbInputData</span><span class="p">(</span><span class="n">resort_name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># return self.fetchFailed(resort_name)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;ERROR : &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetchFailed</span><span class="p">(</span><span class="n">resort_name</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="config--databasepy">config &gt; database.py<a hidden class="anchor" aria-hidden="true" href="#config--databasepy">#</a></h3>
+<p>.env에서 rds 주소를 불러와서 db연결 세션을 만듭니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getenv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">SQLALCHEMY_DATABASE_URL</span> <span class="o">=</span> <span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">SQLALCHEMY_DATABASE_URL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">SessionLocal</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<blockquote>
+<p>service &gt; slope_time_service.py</p>
+</blockquote>
+<p>성공, 실패 여부를 모아놓은 <code>fetch_status_list</code>와 슬로프 현황이 담긴 <code>slope_open_yn_list</code>를 db에 넣어줍니다. bulk_update를 이용하면 한번의 커넥션으로 데이터들을 전송할 수 있습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span><span class="p">,</span> <span class="n">aliased</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">and_</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">..config.database</span> <span class="kn">import</span> <span class="n">SessionLocal</span><span class="p">,</span> <span class="n">engine</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">fastapi.concurrency</span> <span class="kn">import</span> <span class="n">contextmanager_in_threadpool</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">..model</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">models</span><span class="o">.</span><span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">db</span> <span class="o">=</span> <span class="n">SessionLocal</span><span class="p">()</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">db</span>
+</span></span><span class="line"><span class="cl">    <span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_slope_time_bulk</span><span class="p">(</span><span class="n">fetch_status_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">slope_open_yn_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">contextmanager_in_threadpool</span><span class="p">(</span><span class="n">contextmanager</span><span class="p">(</span><span class="n">get_db</span><span class="p">)())</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">db</span><span class="o">.</span><span class="n">bulk_update_mappings</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">SkiResort</span><span class="p">,</span> <span class="n">fetch_status_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">db</span><span class="o">.</span><span class="n">bulk_update_mappings</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">SlopeTime</span><span class="p">,</span> <span class="n">slope_open_yn_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;update_slope_time_bulk Exeption :&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">db</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="mainpy">main.py<a hidden class="anchor" aria-hidden="true" href="#mainpy">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">docs_url</span><span class="o">=</span><span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="n">on_startup</span><span class="o">=</span><span class="p">[</span><span class="n">on_start_up</span><span class="p">],</span> <span class="n">on_shutdown</span><span class="o">=</span><span class="p">[</span><span class="n">on_shutdown</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.get</span><span class="p">(</span><span class="s2">&#34;/slope/update&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">fasterUpdateSlope</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Async</span>
+</span></span><span class="line"><span class="cl">    <span class="n">async_calls</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Coroutine</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1"># store all async operations</span>
+</span></span><span class="line"><span class="cl">    <span class="n">async_calls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SingletonAiohttp</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">ResortName</span><span class="o">.</span><span class="n">jisan</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">async_calls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SingletonAiohttp</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">ResortName</span><span class="o">.</span><span class="n">duckyousan</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">async_calls</span><span class="p">)</span>  <span class="c1"># wait for all async operations</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Make Data</span>
+</span></span><span class="line"><span class="cl">    <span class="o">....</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># DB Push &amp; Discord</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">slope_time_service</span><span class="o">.</span><span class="n">update_slope_time_bulk</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fetch_status_list</span><span class="p">,</span> <span class="n">slope_open_yn_list</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">discord_webhook</span><span class="p">(</span><span class="n">discord_title</span><span class="p">,</span> <span class="n">discord_msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;fetch_status_list&#34;</span><span class="p">:</span> <span class="n">fetch_status_list</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;slope_open_yn_list&#34;</span><span class="p">:</span> <span class="n">slope_open_yn_list</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">discord_webhook</span><span class="p">(</span><span class="n">discord_title</span><span class="p">,</span> <span class="n">discord_msg</span> <span class="o">+</span> <span class="s2">&#34;`&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&#34;Server error&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="결과">결과<a hidden class="anchor" aria-hidden="true" href="#결과">#</a></h3>
+<p>8개 정도 리조트를 크롤링 했을때 <code>0.3초 ~ 0.4초</code>정도 걸렸습니다. RDS를 아직 저사양 인스턴스를 사용해서 db insert 시간이 더 길었습니다.</p>
+<p><img loading="lazy" src="../img/index/4.png" alt="사진"  />
+
+<em>슬로프 오픈 현황 (open_yn)</em>
+<img loading="lazy" src="../img/index/5.png" alt="사진"  />
+
+<em>크롤링 성공 여부 (실패시 마지막 성공 데이터를 보여줍니다)</em></p>
+<h2 id="꿀팁">꿀팁<a hidden class="anchor" aria-hidden="true" href="#꿀팁">#</a></h2>
+<h3 id="디스코드로-결과-보내기">디스코드로 결과 보내기<a hidden class="anchor" aria-hidden="true" href="#디스코드로-결과-보내기">#</a></h3>
+<p>결과를 팀원들에게 실시간으로 공유하고 오류가 있을때는 <code>@channel</code>과 함께 디스코드로 푸쉬를 보냅니다.d</p>
+<p><img loading="lazy" src="../img/index/3.png" alt="사진"  />
+
+<em>결과는 discord로 받습니다. Rds 성능이 낮아서 DB Insert 속도가 조금 느립니다.</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getenv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">discord_webhook</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">load_dotenv</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;DISCORD_CRAWLER_MONITOR_URL&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">msg</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="csr-페이지-공략">CSR 페이지 공략<a hidden class="anchor" aria-hidden="true" href="#csr-페이지-공략">#</a></h3>
+<p>CSR로 만들어져서 브라우져가 렌더링하는 페이지일 경우에 최대한 셀레늄을 사용하지 않으려고 선택한 방법입니다. (&hellip;계속)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.github.io/tags/fastapi/">FastAPI</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/bs4/">bs4</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/grequests/">grequests</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/requests/">requests</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/aiohttp/">aiohttp</a></li>
+      <li><a href="https://cha2hyun.github.io/tags/crawling/">crawling</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>낭만스키 웹 배포 과정</span>
+  </a>
+  <a class="next" href="https://cha2hyun.github.io/content/algorithm/programmers/lv3/49189/">
+    <span class="title">Next »</span>
+    <br>
+    <span>49189] Python 가장 먼 노드</span>
+  </a>
+</nav>
+
+
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
+</div>
+<div class="share-buttons"></div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
