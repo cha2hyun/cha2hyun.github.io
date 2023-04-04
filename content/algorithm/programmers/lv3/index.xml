@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 03 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>49189] Python 가장 먼 노드</title>
+      <title>프로그래머스 49189] 가장 먼 노드 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/49189/</link>
       <pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>64062] Python 징검다리건너기</title>
+      <title>프로그래머스 64062] 징검다리건너기 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64062/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>67258] Python 보석쇼핑</title>
+      <title>프로그래머스 67258] 보석쇼핑 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/67258/</link>
       <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -38,7 +38,7 @@
     </item>
     
     <item>
-      <title>64064] Python 불량 사용자</title>
+      <title>프로그래머스 64064] 불량 사용자 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/64064/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -47,7 +47,7 @@
     </item>
     
     <item>
-      <title>12979] Python 기지국 설치</title>
+      <title>프로그래머스 12979] 기지국 설치 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12979/</link>
       <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -56,7 +56,7 @@
     </item>
     
     <item>
-      <title>12987] Python 숫자 게임</title>
+      <title>프로그래머스 12987] 숫자 게임 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12987/</link>
       <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -65,7 +65,7 @@
     </item>
     
     <item>
-      <title>12927] Python 야근지수</title>
+      <title>프로그래머스 12927] 야근지수 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12927/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -74,7 +74,7 @@
     </item>
     
     <item>
-      <title>12938] Python 최고의 집합</title>
+      <title>프로그래머스 12938] 최고의 집합 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/12938/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -83,7 +83,7 @@
     </item>
     
     <item>
-      <title>42579] Python 베스트앨범</title>
+      <title>프로그래머스 42579] 베스트앨범 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42579/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -92,7 +92,7 @@
     </item>
     
     <item>
-      <title>42884] Python 단속카메라</title>
+      <title>프로그래머스 42884] 단속카메라 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42884/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -101,7 +101,7 @@
     </item>
     
     <item>
-      <title>42898] Python 등굣길</title>
+      <title>프로그래머스 42898] 등굣길 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/42898/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -110,7 +110,7 @@
     </item>
     
     <item>
-      <title>43162] Python 네트워크</title>
+      <title>프로그래머스 43162] 네트워크 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43162/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -119,7 +119,7 @@
     </item>
     
     <item>
-      <title>43163] Python 단어변환</title>
+      <title>프로그래머스 43163] 단어변환 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43163/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -128,7 +128,7 @@
     </item>
     
     <item>
-      <title>43105] Python 정수 삼각형</title>
+      <title>프로그래머스 43105] 정수 삼각형 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43105/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -137,7 +137,7 @@
     </item>
     
     <item>
-      <title>43268] Python 이중우선순위큐</title>
+      <title>프로그래머스 43268] 이중우선순위큐 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/algorithm/programmers/lv3/43628/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
