@@ -9,9 +9,18 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/crawling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/crawling/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>아프리카도우미 실시간채팅 크롤링하기</title>
+      <title>유튜브 댓글 분석 및 댓글 이벤트 - 파이썬</title>
+      <link>https://cha2hyun.github.io/content/posts/youtubecrawling/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/posts/youtubecrawling/</guid>
+      <description>feat.배돌이의 당구생활 이벤트</description>
+    </item>
+    
+    <item>
+      <title>아프리카도우미 실시간채팅 크롤링하기 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling2/</link>
       <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
       
@@ -20,7 +29,7 @@
     </item>
     
     <item>
-      <title>아프리카TV 실시간채팅 크롤링하기</title>
+      <title>아프리카TV 실시간채팅 크롤링하기 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling1/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
       
@@ -29,7 +38,7 @@
     </item>
     
     <item>
-      <title>유튜브 라이브 실시간채팅 크롤링하기</title>
+      <title>유튜브 라이브 실시간채팅 크롤링하기 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling/</link>
       <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
       
