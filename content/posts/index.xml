@@ -9,7 +9,17 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 28 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Synology Chat 멘션 색상 바꾸기</title>
+      <link>https://cha2hyun.github.io/content/posts/synologychat/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/posts/synologychat/</guid>
+      <description>CSS 변경하여 안읽은 메세지 강조하기</description>
+    </item>
+    
     <item>
       <title>유튜브 댓글 분석 및 댓글 이벤트 - 파이썬</title>
       <link>https://cha2hyun.github.io/content/posts/youtubecrawling/</link>

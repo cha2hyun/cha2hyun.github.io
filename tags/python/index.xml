@@ -9,6 +9,7 @@
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Fri, 28 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>유튜브 댓글 분석 및 댓글 이벤트 - 파이썬</title>
