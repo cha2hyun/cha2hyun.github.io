@@ -10,7 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>자주사용되는 파이썬 알고리즘, 함수 정리</title>
       <link>https://cha2hyun.github.io/content/algorithm/python-algorithms/</link>
@@ -38,6 +38,15 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
       
       <guid>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
       <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
+    </item>
+    
+    <item>
+      <title>첫 Boilerplate 템플릿 도전기 (Nest.js 카카오 OAuth 및 jwt토큰 이용하기)</title>
+      <link>https://cha2hyun.github.io/content/posts/nestjs-graphql-kakao-jwt/</link>
+      <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://cha2hyun.github.io/content/posts/nestjs-graphql-kakao-jwt/</guid>
+      <description>Nest.js + Grahpql + Prisma + Postgres + jwt</description>
     </item>
     
     <item>
