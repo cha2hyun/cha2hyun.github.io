@@ -21,10 +21,34 @@
     <lastmod>2023-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/content/</loc>
-    <lastmod>2023-06-08T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/graphql/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/jwt/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/nest.js/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/postgres/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/content/posts/</loc>
-    <lastmod>2023-06-08T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/prisma/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/tags/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.github.io/content/posts/nestjs-graphql-kakao-jwt/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/synology/</loc>
     <lastmod>2023-06-08T00:00:00+00:00</lastmod>
@@ -33,12 +57,6 @@
     <lastmod>2023-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/content/posts/synologychat/</loc>
-    <lastmod>2023-06-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/tags/</loc>
-    <lastmod>2023-06-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.github.io/</loc>
     <lastmod>2023-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.github.io/tags/bs4/</loc>
