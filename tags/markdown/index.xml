@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>markdown on 채수현 개발일지</title>
     <link>https://cha2hyun.github.io/tags/markdown/</link>
     <description>Recent content in markdown on 채수현 개발일지</description>
     <image>
+      <title>채수현 개발일지</title>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cha2hyun.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Syntax Guide</title>
       <link>https://cha2hyun.github.io/content/posts/markdown-syntac-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/posts/markdown-syntac-guide/</guid>
       <description>마크다운 신택스 가이드 by Hugo Authors</description>
     </item>
-    
   </channel>
 </rss>

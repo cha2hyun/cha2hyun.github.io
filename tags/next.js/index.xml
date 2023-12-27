@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Next.js on 채수현 개발일지</title>
     <link>https://cha2hyun.github.io/tags/next.js/</link>
     <description>Recent content in Next.js on 채수현 개발일지</description>
     <image>
+      <title>채수현 개발일지</title>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/tags/next.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cha2hyun.github.io/tags/next.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next.js] SSR를 이용한 다이나믹라우트 페이지 SEO 최적화의 모든것 &#43; sitemap</title>
       <link>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</guid>
       <description>Next의 꽃 SSR &amp;amp; SEO, 네이버 서치어드바이저, 구글 웹마스터도구 상단 노출 방법</description>
     </item>
-    
     <item>
       <title>Next.js] InfiniteScroll로 무한 스크롤 구현하기</title>
       <link>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
       <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
     </item>
-    
     <item>
       <title>낭만스키 웹 배포 과정</title>
       <link>https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</link>
       <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</guid>
       <description>Next.js + EC2 + Route53 + ACM&amp;amp;Loadbalancer(https) + CI/CD(github action).</description>
     </item>
-    
   </channel>
 </rss>
