@@ -10,7 +10,7 @@
 <meta name="description" content="그래프">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/content/algorithm/programmers/lv3/49189/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e2c4e45c227cff2d0b236143ff7f2e39b6a7f2bd2019a845c0f754cd1b58fa1f.css" integrity="sha256-4sTkXCJ8/y0LI2FD/38uOban8r0gGahFwPdUzRtY&#43;h8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5576da640424b37b04c8e9ad68a43ca4ba8d8fdceeda7ada77589796c3dbf70b.css" integrity="sha256-VXbaZAQks3sEyOmtaKQ8pLqNj9zu2nrad1iXlsPb9ws=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -155,69 +155,61 @@
 
 <header class="header">
     <nav class="nav">
-        <div>
-            <div class="logo">
-                <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
-                        <img
-                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.github.io&count_bg=%235D5D5D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"
-                            alt="Views"
-                            style="margin-left:4px;"
-                        />
-                    </span>
-                </a>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </div>
-                
-            </div>
-            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
-                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+        <div class="logo">
+            <a href="https://cha2hyun.github.io/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                    <img
+                        src="https://visitor-badge.glitch.me/badge?page_id=cha2hyun.github.io&left_color=black&right_color=black&left_text=HITS"
+                        alt="Views"
+                    />
+                </span>
+            </a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </div>
-        
         <ul id="menu">
             <li>
                 <a href="https://cha2hyun.github.io/archives" title="전체">
-                    <span style="font-weight: bold;">전체</span>
+                    <span>전체</span>
                 </a>
             </li>
             <li>
                 <a href="https://cha2hyun.github.io/content/posts/" title="개발일상">
-                    <span style="font-weight: bold;">개발일상</span>
+                    <span>개발일상</span>
                 </a>
             </li>
             <li>
                 <a href="https://cha2hyun.github.io/content/projects/" title="프로젝트">
-                    <span style="font-weight: bold;">프로젝트</span>
+                    <span>프로젝트</span>
                 </a>
             </li>
             <li>
                 <a href="https://cha2hyun.github.io/content/algorithm/" title="알고리즘">
-                    <span style="font-weight: bold;">알고리즘</span>
+                    <span>알고리즘</span>
                 </a>
             </li>
             <li>
                 <a href="https://cha2hyun.github.io/search/" title="검색">
-                    <span style="font-weight: bold;">검색</span>
+                    <span>검색</span>
                 </a>
             </li>
         </ul>
@@ -233,7 +225,14 @@
       프로그래머스 49189] 가장 먼 노드 - 파이썬
     </h1>
     <div class="post-meta">
-      <span title='2022-11-03 00:00:00 +0000 UTC'>November 3, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun
+      <div class="views" style="margin-right: 8px">
+        <span class="views">
+          <img
+            src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fcha2hyun.github.io%2fcontent%2falgorithm%2fprogrammers%2flv3%2f49189%2f&left_color=gray&right_color=gray&left_text=Article Hits"
+            alt="Views"
+          />
+        </span>
+      </div>&lt;span title=&#39;2022-11-03 00:00:00 &#43;0000 UTC&#39;&gt;November 3, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
