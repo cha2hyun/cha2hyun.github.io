@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithms on 채수현 개발일지</title>
     <link>https://cha2hyun.github.io/content/algorithm/</link>
     <description>Recent content in Algorithms on 채수현 개발일지</description>
     <image>
+      <title>채수현 개발일지</title>
       <url>https://cha2hyun.github.io/papermod-cover.png</url>
       <link>https://cha2hyun.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.github.io/content/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cha2hyun.github.io/content/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>자주사용하는 React Recoil, Hooks, Library 등 정리</title>
       <link>https://cha2hyun.github.io/content/algorithm/react-algorithm/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/algorithm/react-algorithm/</guid>
       <description>Recoil yarn add recoil @types/recoil
 주요 API 호출방법 useRecoilState() - Atom을 읽고 쓸 때 사용한다.
 1 2 3 4 5 6 7 8 const counterState = atom({ key: &amp;#34;counterState&amp;#34;, default: 0, }); const [counter, setCounter] = useRecoilState(counterState); const onIncrement = () =&amp;gt; setCounter((prev) =&amp;gt; prev + 1); // counter increases useRecoilValue() - Atom의 값을 반환하고 컴포넌트를 해당 atom에 구독한다.
 1 2 3 4 5 6 7 8 const userState = atom({ key: &amp;#34;userState&amp;#34;, default: { name: &amp;#34;moon&amp;#34;, age: &amp;#34;20&amp;#34; }, }); const user = useRecoilValue(userState); console.</description>
     </item>
-    
     <item>
       <title>자주사용되는 파이썬 알고리즘, 함수 정리</title>
       <link>https://cha2hyun.github.io/content/algorithm/python-algorithms/</link>
       <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.github.io/content/algorithm/python-algorithms/</guid>
       <description>알고리즘 Insertion vs Merge vs Heap vs Quick 상명대학교 컴퓨터과학과 동아리 파느쎄 스터디할때 찍어놨던 유물
 DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &amp;#39;&amp;#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용</description>
     </item>
-    
   </channel>
 </rss>

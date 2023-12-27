@@ -12,7 +12,7 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &#39;&#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/content/algorithm/python-algorithms/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5576da640424b37b04c8e9ad68a43ca4ba8d8fdceeda7ada77589796c3dbf70b.css" integrity="sha256-VXbaZAQks3sEyOmtaKQ8pLqNj9zu2nrad1iXlsPb9ws=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e696ef7a47adff081660c720a44c7bffd926fe8a155dc3a2aa137ab4cf0f1637.css" integrity="sha256-5pbveket/wgWYMcgpEx7/9km/ooVXcOiqhN6tM8PFjc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -213,9 +213,8 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs">
-    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/algorithm/">Algorithms</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/algorithm/">Algorithms</a></div>
+    <h1 class="post-title entry-hint-parent">
       자주사용되는 파이썬 알고리즘, 함수 정리
     </h1>
   </header> <div class="toc">
@@ -1164,11 +1163,16 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 </nav>
 
 
-
-<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
-    Any Comments? 😀
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  Any Comments? 😀
 </div>
-<div class="share-buttons"></div>
 
 
 
@@ -1185,7 +1189,6 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 </article>
     </main>
     
-
 <footer class="footer">
     <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
     <span>
@@ -1193,7 +1196,6 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
-  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

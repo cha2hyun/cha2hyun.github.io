@@ -10,7 +10,7 @@
 <meta name="description" content="서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5576da640424b37b04c8e9ad68a43ca4ba8d8fdceeda7ada77589796c3dbf70b.css" integrity="sha256-VXbaZAQks3sEyOmtaKQ8pLqNj9zu2nrad1iXlsPb9ws=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e696ef7a47adff081660c720a44c7bffd926fe8a155dc3a2aa137ab4cf0f1637.css" integrity="sha256-5pbveket/wgWYMcgpEx7/9km/ooVXcOiqhN6tM8PFjc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -207,9 +207,8 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs">
-    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/projects/">Projects</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/projects/">Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
       전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기
     </h1>
     <div class="post-meta">
@@ -220,7 +219,7 @@
             alt="Views"
           />
         </span>
-      </div>&lt;span title=&#39;2022-11-10 00:00:00 &#43;0000 UTC&#39;&gt;November 10, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;9 min&amp;nbsp;·&amp;nbsp;cha2hyun
+      </div><span title='2022-11-10 00:00:00 +0000 UTC'>November 10, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -239,23 +238,23 @@
                     <a href="#%ec%8b%a4%ed%96%89-%ed%99%98%ea%b2%bd" aria-label="실행 환경">실행 환경</a></li></ul>
                 </li>
                 <li>
-                    <a href="#requests-vs-grequests-vs-aiohttp-%eb%ac%b4%ec%97%87%ec%9d%b4-%ec%a0%9c%ec%9d%bc-%eb%b9%a0%eb%a5%b8%ea%b0%80" aria-label="requests vs grequests vs aiohttp 무엇이 제일 빠른가?"><code>requests</code> vs <code>grequests</code> vs <code>aiohttp</code> 무엇이 제일 빠른가?</a><ul>
+                    <a href="#requests-vs-grequests-vs-aiohttp-%eb%ac%b4%ec%97%87%ec%9d%b4-%ec%a0%9c%ec%9d%bc-%eb%b9%a0%eb%a5%b8%ea%b0%80" aria-label="requests vs grequests vs aiohttp 무엇이 제일 빠른가?">requests vs grequests vs aiohttp 무엇이 제일 빠른가?</a><ul>
                         
                 <li>
                     <a href="#%ec%99%9c-%eb%b9%a8%eb%9d%bc%ec%95%bc-%ed%95%a0%ea%b9%8c" aria-label="왜 빨라야 할까?">왜 빨라야 할까?</a></li>
                 <li>
-                    <a href="#requests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="requests 테스트"><code>requests</code> 테스트</a></li>
+                    <a href="#requests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="requests 테스트">requests 테스트</a></li>
                 <li>
-                    <a href="#grequests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="grequests 테스트"><code>grequests</code> 테스트</a></li>
+                    <a href="#grequests-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="grequests 테스트">grequests 테스트</a></li>
                 <li>
-                    <a href="#aiohttp-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="aiohttp 테스트"><code>aiohttp</code> 테스트</a></li>
+                    <a href="#aiohttp-%ed%85%8c%ec%8a%a4%ed%8a%b8" aria-label="aiohttp 테스트">aiohttp 테스트</a></li>
                 <li>
                     <a href="#%ec%86%8d%eb%8f%84-%eb%b9%84%ea%b5%90-%ea%b2%b0%ea%b3%bc" aria-label="속도 비교 결과">속도 비교 결과</a></li>
                 <li>
                     <a href="#%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%84%a0%ed%83%9d" aria-label="라이브러리 선택">라이브러리 선택</a></li></ul>
                 </li>
                 <li>
-                    <a href="#fastapi--aiohttp%eb%a1%9c-%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0" aria-label="FastAPI &#43; aiohttp로 크롤링하기"><code>FastAPI</code> + <code>aiohttp</code>로 크롤링하기</a><ul>
+                    <a href="#fastapi--aiohttp%eb%a1%9c-%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0" aria-label="FastAPI &#43; aiohttp로 크롤링하기">FastAPI + aiohttp로 크롤링하기</a><ul>
                         
                 <li>
                     <a href="#fastapi-%ec%84%a0%ed%83%9d-%ec%9d%b4%ec%9c%a0" aria-label="FastAPI 선택 이유">FastAPI 선택 이유</a></li>
@@ -264,9 +263,9 @@
                 <li>
                     <a href="#%ec%bd%94%eb%93%9c" aria-label="코드">코드</a></li>
                 <li>
-                    <a href="#cralwer--crawlerv3py" aria-label="cralwer &amp;gt; crawlerV3.py">cralwer &gt; crawlerV3.py</a></li>
+                    <a href="#cralwer--crawlerv3py" aria-label="cralwer &gt; crawlerV3.py">cralwer &gt; crawlerV3.py</a></li>
                 <li>
-                    <a href="#config--databasepy" aria-label="config &amp;gt; database.py">config &gt; database.py</a></li>
+                    <a href="#config--databasepy" aria-label="config &gt; database.py">config &gt; database.py</a></li>
                 <li>
                     <a href="#mainpy" aria-label="main.py">main.py</a></li>
                 <li>
@@ -1131,11 +1130,16 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </nav>
 
 
-
-<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
-    Any Comments? 😀
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  Any Comments? 😀
 </div>
-<div class="share-buttons"></div>
 
 
 
@@ -1152,7 +1156,6 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
 </article>
     </main>
     
-
 <footer class="footer">
     <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
     <span>
@@ -1160,7 +1163,6 @@ aiohttp를 이용해서 비동기 방식으로 변경하고 DB에 insert 할때�
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
-  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

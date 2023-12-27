@@ -10,7 +10,7 @@
 <meta name="description" content="무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.github.io/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5576da640424b37b04c8e9ad68a43ca4ba8d8fdceeda7ada77589796c3dbf70b.css" integrity="sha256-VXbaZAQks3sEyOmtaKQ8pLqNj9zu2nrad1iXlsPb9ws=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e696ef7a47adff081660c720a44c7bffd926fe8a155dc3a2aa137ab4cf0f1637.css" integrity="sha256-5pbveket/wgWYMcgpEx7/9km/ooVXcOiqhN6tM8PFjc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.github.io/favicon-32x32.png">
@@ -207,9 +207,8 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs">
-    </div><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/projects/">Projects</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="https://cha2hyun.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.github.io/content/projects/">Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
       Next.js] InfiniteScroll로 무한 스크롤 구현하기
     </h1>
     <div class="post-meta">
@@ -220,7 +219,7 @@
             alt="Views"
           />
         </span>
-      </div>&lt;span title=&#39;2023-01-04 00:00:00 &#43;0000 UTC&#39;&gt;January 4, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;15 min&amp;nbsp;·&amp;nbsp;cha2hyun
+      </div><span title='2023-01-04 00:00:00 +0000 UTC'>January 4, 2023</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;cha2hyun
 
 </div>
   </header> <div class="toc">
@@ -238,49 +237,49 @@
                     <a href="#api-%ec%a4%80%eb%b9%84" aria-label="API 준비">API 준비</a><ul>
                         
                 <li>
-                    <a href="#viewspy" aria-label="views.py"><code>views.py</code></a></li></ul>
+                    <a href="#viewspy" aria-label="views.py">views.py</a></li></ul>
                 </li>
                 <li>
                     <a href="#next-%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8-%ea%b5%ac%ec%a1%b0" aria-label="Next 프로젝트 구조">Next 프로젝트 구조</a><ul>
                         
                 <li>
-                    <a href="#src-tree" aria-label="src Tree"><code>src Tree</code></a></li></ul>
+                    <a href="#src-tree" aria-label="src Tree">src Tree</a></li></ul>
                 </li>
                 <li>
                     <a href="#infinitescroll-%ec%84%a4%ec%b9%98" aria-label="infiniteScroll 설치">infiniteScroll 설치</a><ul>
                         
                 <li>
-                    <a href="#_apptsx-hydration" aria-label="_app.tsx (Hydration)"><code>_app.tsx (Hydration)</code></a></li>
+                    <a href="#_apptsx-hydration" aria-label="_app.tsx (Hydration)">_app.tsx (Hydration)</a></li>
                 <li>
-                    <a href="#_apptsx" aria-label="_app.tsx"><code>_app.tsx</code></a></li>
+                    <a href="#_apptsx" aria-label="_app.tsx">_app.tsx</a></li>
                 <li>
-                    <a href="#infinitelistskeletontsx" aria-label="InfiniteListSkeleton.tsx"><code>InfiniteListSkeleton.tsx</code></a></li>
+                    <a href="#infinitelistskeletontsx" aria-label="InfiniteListSkeleton.tsx">InfiniteListSkeleton.tsx</a></li>
                 <li>
-                    <a href="#apirequestfunctionjs" aria-label="apiRequestFunction.js"><code>apiRequestFunction.js</code></a></li>
+                    <a href="#apirequestfunctionjs" aria-label="apiRequestFunction.js">apiRequestFunction.js</a></li>
                 <li>
-                    <a href="#useintersectionobserverjs" aria-label="useIntersectionObserver.js"><code>useIntersectionObserver.js</code></a></li>
+                    <a href="#useintersectionobserverjs" aria-label="useIntersectionObserver.js">useIntersectionObserver.js</a></li>
                 <li>
-                    <a href="#useobserverjs" aria-label="useObserver.js"><code>useObserver.js</code></a></li></ul>
+                    <a href="#useobserverjs" aria-label="useObserver.js">useObserver.js</a></li></ul>
                 </li>
                 <li>
                     <a href="#infinitescroll--modal" aria-label="infiniteScroll &#43; Modal">infiniteScroll + Modal</a><ul>
                         
                 <li>
-                    <a href="#layouttsx" aria-label="Layout.tsx"><code>Layout.tsx</code></a></li>
+                    <a href="#layouttsx" aria-label="Layout.tsx">Layout.tsx</a></li>
                 <li>
-                    <a href="#usedialogtsx" aria-label="useDialog.tsx"><code>useDialog.tsx</code></a></li>
+                    <a href="#usedialogtsx" aria-label="useDialog.tsx">useDialog.tsx</a></li>
                 <li>
-                    <a href="#basedialogtsx" aria-label="baseDialog.tsx"><code>baseDialog.tsx</code></a></li>
+                    <a href="#basedialogtsx" aria-label="baseDialog.tsx">baseDialog.tsx</a></li>
                 <li>
-                    <a href="#usedialogstoretsx" aria-label="useDialogStore.tsx"><code>useDialogStore.tsx</code></a></li></ul>
+                    <a href="#usedialogstoretsx" aria-label="useDialogStore.tsx">useDialogStore.tsx</a></li></ul>
                 </li>
                 <li>
                     <a href="#infinitescroll--localstorage--scrolly" aria-label="infiniteScroll &#43; LocalStorage &#43; ScrollY">infiniteScroll + LocalStorage + ScrollY</a><ul>
                         
                 <li>
-                    <a href="#listexampletsx" aria-label="ListExample.tsx"><code>ListExample.tsx</code></a></li>
+                    <a href="#listexampletsx" aria-label="ListExample.tsx">ListExample.tsx</a></li>
                 <li>
-                    <a href="#headertsx" aria-label="header.tsx"><code>header.tsx</code></a></li></ul>
+                    <a href="#headertsx" aria-label="header.tsx">header.tsx</a></li></ul>
                 </li>
                 <li>
                     <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" aria-label="마치며">마치며</a><ul>
@@ -2140,11 +2139,16 @@
 </nav>
 
 
-
-<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
-    Any Comments? 😀
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  Any Comments? 😀
 </div>
-<div class="share-buttons"></div>
 
 
 
@@ -2161,7 +2165,6 @@
 </article>
     </main>
     
-
 <footer class="footer">
     <span>&copy; 2023 <a href="https://cha2hyun.github.io/">채수현 개발일지</a></span>
     <span>
@@ -2169,7 +2172,6 @@
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
-  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
