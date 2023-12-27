@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nest.js on 채수현 개발일지</title>
-    <link>https://cha2hyun.github.io/tags/nest.js/</link>
+    <link>https://cha2hyun.blog/tags/nest.js/</link>
     <description>Recent content in nest.js on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://cha2hyun.github.io/papermod-cover.png</url>
-      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+      <url>https://cha2hyun.blog/papermod-cover.png</url>
+      <link>https://cha2hyun.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 20 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.github.io/tags/nest.js/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cha2hyun.blog/tags/nest.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>첫 Boilerplate 템플릿 도전기 (Nest.js 카카오 OAuth 및 jwt토큰 이용하기)</title>
-      <link>https://cha2hyun.github.io/content/posts/nestjs-graphql-kakao-jwt/</link>
+      <link>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/posts/nestjs-graphql-kakao-jwt/</guid>
+      <guid>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</guid>
       <description>Nest.js + Grahpql + Prisma + Postgres + jwt</description>
     </item>
   </channel>

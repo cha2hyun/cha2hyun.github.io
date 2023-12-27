@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>crawling on 채수현 개발일지</title>
-    <link>https://cha2hyun.github.io/tags/crawling/</link>
+    <link>https://cha2hyun.blog/tags/crawling/</link>
     <description>Recent content in crawling on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://cha2hyun.github.io/papermod-cover.png</url>
-      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+      <url>https://cha2hyun.blog/papermod-cover.png</url>
+      <link>https://cha2hyun.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 28 Apr 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.github.io/tags/crawling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cha2hyun.blog/tags/crawling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>유튜브 댓글 분석 및 댓글 이벤트 - 파이썬</title>
-      <link>https://cha2hyun.github.io/content/posts/youtubecrawling/</link>
+      <link>https://cha2hyun.blog/content/posts/youtubecrawling/</link>
       <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/posts/youtubecrawling/</guid>
+      <guid>https://cha2hyun.blog/content/posts/youtubecrawling/</guid>
       <description>feat.배돌이의 당구생활 이벤트</description>
     </item>
     <item>
       <title>아프리카도우미 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling2/</link>
+      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling2/</link>
       <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling2/</guid>
+      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling2/</guid>
       <description>feat.배돌이의 당구생활) 셀레늄 이용해서 숟가락 얹기</description>
     </item>
     <item>
       <title>아프리카TV 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling1/</link>
+      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling1/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling1/</guid>
+      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling1/</guid>
       <description>feat.배돌이의 당구생활) 리버스엔지니어링 + 소켓연결 + 네트워크탭 분석</description>
     </item>
     <item>
       <title>유튜브 라이브 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling/</link>
+      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling/</link>
       <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/posts/youtubeafreecacrawling/</guid>
+      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling/</guid>
       <description>feat.배돌이의 당구생활) 멀티쓰레딩 + 실행파일로 생성</description>
     </item>
     <item>
       <title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</title>
-      <link>https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
+      <link>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.github.io/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</guid>
+      <guid>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</guid>
       <description>서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.</description>
     </item>
   </channel>

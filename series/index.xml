@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on 채수현 개발일지</title>
-    <link>https://cha2hyun.github.io/series/</link>
+    <link>https://cha2hyun.blog/series/</link>
     <description>Recent content in Series on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://cha2hyun.github.io/papermod-cover.png</url>
-      <link>https://cha2hyun.github.io/papermod-cover.png</link>
+      <url>https://cha2hyun.blog/papermod-cover.png</url>
+      <link>https://cha2hyun.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="https://cha2hyun.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cha2hyun.blog/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
