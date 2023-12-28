@@ -14,11 +14,11 @@
     <lastBuildDate>Mon, 20 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/content/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>첫 Boilerplate 템플릿 도전기 (Nest.js 카카오 OAuth 및 jwt토큰 이용하기)</title>
+      <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
       <link>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</guid>
-      <description>Nest.js + Grahpql + Prisma + Postgres + jwt</description>
+      <description>NestJS + Grahpql + Prisma + Postgres + jwt</description>
     </item>
     <item>
       <title>Synology Chat 멘션 색상 바꾸기</title>
@@ -26,34 +26,6 @@
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/posts/synologychat/</guid>
       <description>CSS 변경하여 안읽은 메세지 강조하기</description>
-    </item>
-    <item>
-      <title>유튜브 댓글 분석 및 댓글 이벤트 - 파이썬</title>
-      <link>https://cha2hyun.blog/content/posts/youtubecrawling/</link>
-      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/youtubecrawling/</guid>
-      <description>feat.배돌이의 당구생활 이벤트</description>
-    </item>
-    <item>
-      <title>아프리카도우미 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling2/</link>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling2/</guid>
-      <description>feat.배돌이의 당구생활) 셀레늄 이용해서 숟가락 얹기</description>
-    </item>
-    <item>
-      <title>아프리카TV 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling1/</link>
-      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling1/</guid>
-      <description>feat.배돌이의 당구생활) 리버스엔지니어링 + 소켓연결 + 네트워크탭 분석</description>
-    </item>
-    <item>
-      <title>유튜브 라이브 실시간채팅 크롤링하기 - 파이썬</title>
-      <link>https://cha2hyun.blog/content/posts/youtubeafreecacrawling/</link>
-      <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/youtubeafreecacrawling/</guid>
-      <description>feat.배돌이의 당구생활) 멀티쓰레딩 + 실행파일로 생성</description>
     </item>
     <item>
       <title>처음으로 오픈소스 Collaborator가 되다</title>

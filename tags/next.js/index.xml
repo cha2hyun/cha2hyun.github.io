@@ -14,21 +14,21 @@
     <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/tags/next.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next.js] next/image 그냥 쓰면 서버는 시한부입니다.</title>
+      <title>next/image 그냥 쓰면 서버는 시한부입니다 💀</title>
       <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
       <description>next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.</description>
     </item>
     <item>
-      <title>Next.js] SSR를 이용한 다이나믹라우트 페이지 SEO 최적화의 모든것 &#43; sitemap</title>
+      <title>SSR를 이용한 SEO 최적화 (구글, 네이버 최상단 노출 성공)</title>
       <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/</guid>
-      <description>Next의 꽃 SSR &amp;amp; SEO, 네이버 서치어드바이저, 구글 웹마스터도구 상단 노출 방법</description>
+      <description>Next.js의 꽃 SSR &amp;amp; SEO, Lighthouse, 네이버 서치어드바이저, 구글 웹마스터도구</description>
     </item>
     <item>
-      <title>Next.js] InfiniteScroll로 무한 스크롤 구현하기</title>
+      <title>InfiniteScroll로 무한 스크롤 구현하기</title>
       <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
