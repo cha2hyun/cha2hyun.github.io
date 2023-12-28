@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Next.js] next/image는 과연 좋을까? | 채수현 개발일지</title>
+<meta name="keywords" content="Next.js, next/image, AWS, Trouble Shooting">
+<meta name="description" content="next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.blog/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Next.js] next/image는 과연 좋을까?" />
+<meta property="og:description" content="next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2023-12-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-12-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Next.js] next/image는 과연 좋을까?"/>
+<meta name="twitter:description" content="next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.blog/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Projects",
+      "item": "https://cha2hyun.blog/content/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Next.js] next/image는 과연 좋을까?",
+      "item": "https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Next.js] next/image는 과연 좋을까?",
+  "name": "Next.js] next\/image는 과연 좋을까?",
+  "description": "next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.",
+  "keywords": [
+    "Next.js", "next/image", "AWS", "Trouble Shooting"
+  ],
+  "articleBody": "\n요약 next/image를 그냥 사용할 때 서버에 저장되는 캐쉬가 점점 늘어나서 서버가 곧 죽게되는 슬픈 이야기..\n어느날 갑자기 찾아온 시련 😱 이미지가 로딩이 안될때 있으시죠? 그게 저에요\n이번년도에 앱으로만 이용되었던 큐찾사를 홈페이지도 개발, 배포하여 수개월동안 안정적으로 운영되었습니다. 일부 마이그레이션이 되지 않은 기능들을 하나씩 붙히고 있던 와중에 어느날 갑자기 이미지가 로딩이되지 않는 사태가 발생했습니다.\n이미지는 S3 버켓에 저장되어 있었는데, S3 url로는 이미지가 잘 로딩되고, 새로고침시 나오는 이미지가 있고 표시되지 않는 이미지도 있었습니다. 앱에서는 모든 사진이 정상적으로 표시되었습니다. 따라서 당연히 홈페이지에 기능을 새로 붙히다가 충돌이 난 것으로 생각했습니다. (지속적으로 안정적으로 운영이 되었기에, 이미지를 뭘 잘못 업로드 했을 거라고도 생각했습니다.)\n그렇게 원인을 부랴부랴 확인하던 와중… 도메인 접속 조차 되지 않는 초유의 사태가 발생하였습니다.\n이러면 진짜 땀이 줄줄납니다.\n아무리 기능이 충돌나더라도 404나 에러페이지로 가지거나 응답은 받아와야하는데 곧이어 nginx 오류 502 bad gateway까지 표시됬습니다. 이때부터는 api서버도 뻗어버렸습니다. 부랴부랴 또 EC2를 확인해보러갑니다..\n아니 넌 왜 또?????????????\nEC2는 넉넉한 인스턴스 플랜을 사용중인데 평상시엔 10% 미만이어야하는 CPU 사용량이 99.9%까지 상한가를 3번 치고 수직 상승했었네요. (Loadbalancer-Auto Scailing을 적용해놨었지만 실제로 테스트는 못해봤지만 이때 적용이 잘 안된다는 것을 이렇게 확인했습니다..ㅎㅎ)\n일단 원인은 비교적 쉽게 찾았습니다. 갑자기 바이럴타서 대박이나서 유저가 순식간에 몰렸던거면 참 좋았겠지만ㅋ, EBS 용량이 40기가였는데 꽉 찼더라구요 더 이상 여유 공간이 없어서 뻗어버렸던 것 같습니다. 인스턴스만 좋으면 뭐하냐고..\n아니, 도커 몇개 뛰우는용인데 40기가가 모잘라..?? 라고 생각하지도 못하고 우선 급한대로 EBS 용량을 늘리고 보는데 EBS가 꽉찼던건 다름 아닌 next/image 캐쉬가 수십기가가 쌓여있었습니다. 우선은 임시방편으로 cron으로 캐쉬폴더를 정리해주는 것을 추가해두고 트러블 슈팅을 진행했습니다. (next/image에서 cache flush를 지원하지 않습니다)\nnext/image 알고 쓰자 S3 버킷 총 용량이 12기가인데 next/image 캐쉬 폴더엔 수십기가가 쌓여있었습니다. next/image 사용시 자동으로 사용자 환경에 따라 이미지를 optimized하고 캐쉬폴더에 저장하기 때문에 여러 환경에서 이미지를 불러오면 각 환경에 맞게 이미지를 optimized 하여 캐쉬로 저장시키기 때문에 배보다 배꼽이 더 커지게 됩니다.\n예를 들면 S3엔 이미지 1Mb x 1개여도 캐쉬폴더엔 EC2 캐쉬폴더엔 최적화된 이미지 0.3Mb x 10개 가 되어 버립니다.\n아니, 그럼 S3에 뭣하러 저장을 허냐.. 어차피 EC2에서 다시 저장할거,, 라고 생각되실 수 있습니다. 저도 그랬습니다. 구글링해보니 Image Doubling 문제를 고민하는 사람들이 많이 있더라구요. 결국 해답은 찾지 못했습니다. Discussion 59234\n우선 CDN을 사용하기로 합니다. 근데… 중요한건… 아니 우리는 이미 CloudFront로 CDN 이미 사용중인데..? 수십기가씩 HIT되고 있었다.. 가성비 좋은 기특한 녀석\n머리가 하얗게 띵해진다. 분명히 CDN을 애초에 프로젝트 초기부터 썻는데 S3 \u003e CDN \u003e EC2 next.js optimized \u003e 유저 여태동안 이렇게 이미지가 불러와졌다고 … ? 분명히 아닐 수 밖에 없는게, 그랬다면 진작에 서버가 뻑났어야하는데 수 개월동안 멀쩡하던게 이제와서 그러는지 이해가 안되던 찰라 문제를 발견했습니다.\n1 2 3 experimental: { images: { unoptimized: true }, } 실험 기능이었던 unoptimized가 next.js 13으로 오면서 실험 기능이 아닌게 되어버린 것.\n1 2 3 4 images: { unoptimized: true domains: [...] }, 진짜.. 코드 한 줄이 서버를 뻑나게 할 수 도 있구나를 몸소 체험해버렸습니다.\n아.. 이래서 deprecated나 experimental은 진짜 주의해야하는 구나..\n이후 홈페이지는 정상 작동 되고 더 이상 배보다 배꼽이 큰 캐쉬를 만들지 않고 CDN에서 알아서 캐싱해서 유저에게 빠르게 보내주고 있습니다.\n결론 next/image를 그냥 사용하면 100% 서버가 뻑나게 되어있음 !!! (EBS용량은 생각보다 비쌉니다) EBS 용량은 한번 늘리면 줄일 수 없으니 주의. 또한 EC2가 S3용량보다 커지게 되는 현상이 무조건 발생한다. CDN을 사용한다면 config에 unuptimized를 둘 것 !!! 코드 한줄이 서버를 뻑나게 할 수 있으니 deprecated나 experimental 사용은 항상 주의. 실전 에러가 압축 성장에 좋다 (?) jpg 보단 webp로 저장하기 원본이미지 하나만 저장하지 않고 여러 상황에 맞는 썸네일 이미지나 디바이스 크기별로 리사이징하여 저장하기 결론보단 교훈에 가깝습니다. 다행히(?) 유저가 많이 몰리지 않는 아침시간에 발생했고 거의 바로 확인해서 즉시 대응은 가능했습니다. 안되면 큰일난다 마인드로 대처하니 순식간에 성장한 느낌도 있습니다.\nnext/image를 일반적으로 사용하면 무조건 서버에서는 캐쉬폴더가 점점 늘어나서 뻑날 수 밖에 없는 구조이지만 이런 내용이 주의적으로 다루어져있지 않았던게 아쉬웠습니다. 로컬 테스트 환경에서는 쉽게 확인할 수 없는 이슈기 때문에 더욱 주의해서 사용해야할 것 같습니다. 😃\nReference https://nextjs.org/docs/pages/api-reference/components/image https://nextjs.org/docs/app/building-your-application/optimizing/images https://velog.io/@devohda/Next.js-%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%8B%9C%EB%8F%84%ED%95%98%EA%B8%B0ing ",
+  "wordCount" : "592",
+  "inLanguage": "en",
+  "datePublished": "2023-12-28T00:00:00Z",
+  "dateModified": "2023-12-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.blog/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
+                </span>
+                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
+            </a>            
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.blog/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/posts/" title="개발일상">
+                    <span style="font-weight: bold;">개발일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/projects/" title="프로젝트">
+                    <span style="font-weight: bold;">프로젝트</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/algorithm/" title="알고리즘">
+                    <span style="font-weight: bold;">알고리즘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+            <li>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </li>
+        </ul>
+        
+    </nav>
+    
+    
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/projects/">Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Next.js] next/image는 과연 좋을까?
+    </h1>
+    <div class="post-meta"><span title='2023-12-28 00:00:00 +0000 UTC'>December 28, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun
+
+
+    </div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%ec%9a%94%ec%95%bd" aria-label="요약">요약</a></li>
+                <li>
+                    <a href="#%ec%96%b4%eb%8a%90%eb%82%a0-%ea%b0%91%ec%9e%90%ea%b8%b0-%ec%b0%be%ec%95%84%ec%98%a8-%ec%8b%9c%eb%a0%a8-" aria-label="어느날 갑자기 찾아온 시련 😱">어느날 갑자기 찾아온 시련 😱</a></li>
+                <li>
+                    <a href="#nextimage-%ec%95%8c%ea%b3%a0-%ec%93%b0%ec%9e%90" aria-label="next/image 알고 쓰자">next/image 알고 쓰자</a></li>
+                <li>
+                    <a href="#%ea%b2%b0%eb%a1%a0" aria-label="결론">결론</a></li>
+                <li>
+                    <a href="#reference" aria-label="Reference">Reference</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><br>
+<h2 id="요약">요약<a hidden class="anchor" aria-hidden="true" href="#요약">#</a></h2>
+<p>next/image를 그냥 사용할 때 서버에 저장되는 캐쉬가 점점 늘어나서 서버가 곧 죽게되는 슬픈 이야기..</p>
+<h2 id="어느날-갑자기-찾아온-시련-">어느날 갑자기 찾아온 시련 😱<a hidden class="anchor" aria-hidden="true" href="#어느날-갑자기-찾아온-시련-">#</a></h2>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/22.png#center"
+         alt="이미지가 로딩이 안될때 있으시죠? 그게 저에요"/> <figcaption>
+            <p>이미지가 로딩이 안될때 있으시죠? 그게 저에요</p>
+        </figcaption>
+</figure>
+
+<p>이번년도에 앱으로만 이용되었던 큐찾사를 홈페이지도 개발, 배포하여 수개월동안 안정적으로 운영되었습니다. 일부 마이그레이션이 되지 않은 기능들을 하나씩 붙히고 있던 와중에 어느날 갑자기 <strong>이미지가 로딩이되지 않는 사태가 발생했습니다.</strong></p>
+<p>이미지는 S3 버켓에 저장되어 있었는데, S3 url로는 이미지가 잘 로딩되고, 새로고침시 나오는 이미지가 있고 표시되지 않는 이미지도 있었습니다. <strong>앱에서는 모든 사진이 정상적으로 표시되었습니다.</strong> 따라서 당연히 홈페이지에 기능을 새로 붙히다가 충돌이 난 것으로 생각했습니다. (지속적으로 안정적으로 운영이 되었기에, 이미지를 뭘 잘못 업로드 했을 거라고도 생각했습니다.)</p>
+<p>그렇게 원인을 부랴부랴 확인하던 와중&hellip; <strong>도메인 접속 조차 되지 않는 초유의 사태</strong>가 발생하였습니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/23.png#center"
+         alt="이러면 진짜 땀이 줄줄납니다."/> <figcaption>
+            <p>이러면 진짜 땀이 줄줄납니다.</p>
+        </figcaption>
+</figure>
+
+<p>아무리 기능이 충돌나더라도 404나 에러페이지로 가지거나 응답은 받아와야하는데 곧이어 nginx 오류 <code>502 bad gateway</code>까지 표시됬습니다. 이때부터는 api서버도 뻗어버렸습니다. 부랴부랴 또 EC2를 확인해보러갑니다..</p>
+<p><figure class="align-center ">
+    <img loading="lazy" src="../img/25.png#center"
+         alt="아니 넌 왜 또?????????????"/> <figcaption>
+            <p>아니 넌 왜 또?????????????</p>
+        </figcaption>
+</figure>
+
+EC2는 넉넉한 인스턴스 플랜을 사용중인데 <code>평상시엔 10% 미만</code>이어야하는 CPU 사용량이 <code>99.9%</code>까지 상한가를 3번 치고 수직 상승했었네요. (Loadbalancer-Auto Scailing을 적용해놨었지만 실제로 테스트는 못해봤지만 이때 적용이 잘 안된다는 것을 이렇게 확인했습니다..ㅎㅎ)</p>
+<p>일단 원인은 비교적 쉽게 찾았습니다. 갑자기 바이럴타서 대박이나서 유저가 순식간에 몰렸던거면 참 좋았겠지만ㅋ, EBS 용량이 40기가였는데 꽉 찼더라구요 더 이상 여유 공간이 없어서 뻗어버렸던 것 같습니다.
+<figure class="align-center ">
+    <img loading="lazy" src="../img/26.png#center"
+         alt="인스턴스만 좋으면 뭐하냐고.."/> <figcaption>
+            <p>인스턴스만 좋으면 뭐하냐고..</p>
+        </figcaption>
+</figure>
+</p>
+<p>아니, 도커 몇개 뛰우는용인데 40기가가 모잘라..?? 라고 생각하지도 못하고 우선 급한대로 EBS 용량을 늘리고 보는데 EBS가 꽉찼던건 다름 아닌 <code>next/image 캐쉬가</code> 수십기가가 쌓여있었습니다. 우선은 임시방편으로 cron으로 캐쉬폴더를 정리해주는 것을 추가해두고 트러블 슈팅을 진행했습니다. (next/image에서 cache flush를 지원하지 않습니다)</p>
+<br>
+<h2 id="nextimage-알고-쓰자">next/image 알고 쓰자<a hidden class="anchor" aria-hidden="true" href="#nextimage-알고-쓰자">#</a></h2>
+<p>S3 버킷 총 용량이 12기가인데 next/image 캐쉬 폴더엔 수십기가가 쌓여있었습니다. next/image 사용시 자동으로 사용자 환경에 따라 이미지를 optimized하고 캐쉬폴더에 저장하기 때문에 여러 환경에서 이미지를 불러오면 각 환경에 맞게 이미지를 optimized 하여 캐쉬로 저장시키기 때문에 배보다 배꼽이 더 커지게 됩니다.</p>
+<blockquote>
+<p>예를 들면 <code>S3엔 이미지 1Mb x 1개</code>여도 캐쉬폴더엔 <code>EC2 캐쉬폴더엔 최적화된 이미지 0.3Mb x 10개</code> 가 되어 버립니다.</p>
+</blockquote>
+<p>아니, 그럼 S3에 뭣하러 저장을 허냐.. 어차피 EC2에서 다시 저장할거,, 라고 생각되실 수 있습니다. 저도 그랬습니다. 구글링해보니 Image Doubling 문제를 고민하는 사람들이 많이 있더라구요. 결국 해답은 찾지 못했습니다. <a href="https://github.com/vercel/next.js/discussions/59234" target="_blank">Discussion 59234</a></p>
+<p>우선 CDN을 사용하기로 합니다. 근데&hellip; 중요한건&hellip; 아니 우리는 이미 CloudFront로 CDN 이미 사용중인데..?
+<figure class="align-center ">
+    <img loading="lazy" src="../img/27.png#center"
+         alt="수십기가씩 HIT되고 있었다.. 가성비 좋은 기특한 녀석"/> <figcaption>
+            <p>수십기가씩 HIT되고 있었다.. 가성비 좋은 기특한 녀석</p>
+        </figcaption>
+</figure>
+</p>
+<p>머리가 하얗게 띵해진다. 분명히 CDN을 애초에 프로젝트 초기부터 썻는데 <code>S3 &gt; CDN &gt; EC2 next.js optimized &gt; 유저</code> 여태동안 이렇게 이미지가 불러와졌다고 &hellip; ? 분명히 아닐 수 밖에 없는게, 그랬다면 진작에 서버가 뻑났어야하는데 수 개월동안 멀쩡하던게 이제와서 그러는지 이해가 안되던 찰라 문제를 발견했습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">experimental</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">images</span><span class="o">:</span> <span class="p">{</span> <span class="nx">unoptimized</span>: <span class="kt">true</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>실험 기능이었던 unoptimized가 next.js 13으로 오면서 실험 기능이 아닌게 되어버린 것.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">images</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">unoptimized</span>: <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">domains</span><span class="o">:</span> <span class="p">[...]</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>진짜.. 코드 한 줄이 서버를 뻑나게</code> 할 수 도 있구나를 몸소 체험해버렸습니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/28.png#center"
+         alt="아.. 이래서 deprecated나 experimental은 진짜 주의해야하는 구나.."/> <figcaption>
+            <p>아.. 이래서 deprecated나 experimental은 진짜 주의해야하는 구나..</p>
+        </figcaption>
+</figure>
+
+<p>이후 홈페이지는 정상 작동 되고 <strong>더 이상 배보다 배꼽이 큰 캐쉬를 만들지 않고</strong> CDN에서 알아서 캐싱해서 유저에게 빠르게 보내주고 있습니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/29.png#center"/> 
+</figure>
+
+<br>
+<h2 id="결론">결론<a hidden class="anchor" aria-hidden="true" href="#결론">#</a></h2>
+<ol>
+<li>next/image를 그냥 사용하면 <strong>100%</strong> 서버가 뻑나게 되어있음 !!! (EBS용량은 생각보다 비쌉니다)</li>
+<li>EBS 용량은 한번 늘리면 줄일 수 없으니 주의.</li>
+<li>또한 EC2가 S3용량보다 커지게 되는 현상이 무조건 발생한다.</li>
+<li>CDN을 사용한다면 <code>config에 unuptimized</code>를 둘 것 !!!</li>
+<li>코드 한줄이 서버를 뻑나게 할 수 있으니 deprecated나 experimental 사용은 항상 주의.</li>
+<li>실전 에러가 압축 성장에 좋다 (?)</li>
+<li>jpg 보단 webp로 저장하기</li>
+<li>원본이미지 하나만 저장하지 않고 여러 상황에 맞는 썸네일 이미지나 디바이스 크기별로 리사이징하여 저장하기</li>
+</ol>
+<p>결론보단 교훈에 가깝습니다. 다행히(?) 유저가 많이 몰리지 않는 아침시간에 발생했고 거의 바로 확인해서 즉시 대응은 가능했습니다. 안되면 큰일난다 마인드로 대처하니 순식간에 성장한 느낌도 있습니다.</p>
+<p>next/image를 일반적으로 사용하면 무조건 서버에서는 캐쉬폴더가 점점 늘어나서 뻑날 수 밖에 없는 구조이지만 이런 내용이 주의적으로 다루어져있지 않았던게 아쉬웠습니다. 로컬 테스트 환경에서는 쉽게 확인할 수 없는 이슈기 때문에 더욱 주의해서 사용해야할 것 같습니다. 😃</p>
+<hr>
+<h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
+<ul>
+<li><a href="https://nextjs.org/docs/pages/api-reference/components/image">https://nextjs.org/docs/pages/api-reference/components/image</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/optimizing/images">https://nextjs.org/docs/app/building-your-application/optimizing/images</a></li>
+<li><a href="https://velog.io/@devohda/Next.js-%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%8B%9C%EB%8F%84%ED%95%98%EA%B8%B0ing">https://velog.io/@devohda/Next.js-%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%8B%9C%EB%8F%84%ED%95%98%EA%B8%B0ing</a></li>
+</ul>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.blog/tags/next.js/">Next.js</a></li>
+      <li><a href="https://cha2hyun.blog/tags/next/image/">next/image</a></li>
+      <li><a href="https://cha2hyun.blog/tags/aws/">AWS</a></li>
+      <li><a href="https://cha2hyun.blog/tags/trouble-shooting/">Trouble Shooting</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.blog/content/algorithm/python-algorithms/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>자주사용되는 파이썬 알고리즘, 함수 정리</span>
+  </a>
+  <a class="next" href="https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/ssrandseo/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Next.js] SSR를 이용한 다이나믹라우트 페이지 SEO 최적화의 모든것 &#43; sitemap</span>
+  </a>
+</nav>
+
+
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  궁금하신 점이 있으신가요? 😀
+</div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
