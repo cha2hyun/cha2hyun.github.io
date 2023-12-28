@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS on 채수현 개발일지</title>
-    <link>https://cha2hyun.blog/tags/aws/</link>
-    <description>Recent content in AWS on 채수현 개발일지</description>
+    <title>Trouble Shooting on 채수현 개발일지</title>
+    <link>https://cha2hyun.blog/tags/trouble-shooting/</link>
+    <description>Recent content in Trouble Shooting on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
       <url>https://cha2hyun.blog/papermod-cover.png</url>
@@ -12,20 +12,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cha2hyun.blog/tags/trouble-shooting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next.js] next/image는 과연 좋을까?</title>
       <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
       <description>next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.</description>
-    </item>
-    <item>
-      <title>낭만스키 웹 배포 과정</title>
-      <link>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</guid>
-      <description>Next.js + EC2 + Route53 + ACM&amp;amp;Loadbalancer(https) + CI/CD(github action).</description>
     </item>
   </channel>
 </rss>

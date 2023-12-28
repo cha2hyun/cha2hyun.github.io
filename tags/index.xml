@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>https://cha2hyun.blog/tags/aws/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Next.js</title>
+      <link>https://cha2hyun.blog/tags/next.js/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/tags/next.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trouble Shooting</title>
+      <link>https://cha2hyun.blog/tags/trouble-shooting/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/tags/trouble-shooting/</guid>
+      <description></description>
+    </item>
     <item>
       <title>graphql</title>
       <link>https://cha2hyun.blog/tags/graphql/</link>
@@ -119,13 +140,6 @@
       <description></description>
     </item>
     <item>
-      <title>Next.js</title>
-      <link>https://cha2hyun.blog/tags/next.js/</link>
-      <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/next.js/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>SEO</title>
       <link>https://cha2hyun.blog/tags/seo/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
@@ -165,13 +179,6 @@
       <link>https://cha2hyun.blog/tags/react-query/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/tags/react-query/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AWS</title>
-      <link>https://cha2hyun.blog/tags/aws/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/aws/</guid>
       <description></description>
     </item>
     <item>
@@ -228,6 +235,13 @@
       <link>https://cha2hyun.blog/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>next/image</title>
+      <link>https://cha2hyun.blog/tags/next/image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/tags/next/image/</guid>
       <description></description>
     </item>
   </channel>
