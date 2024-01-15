@@ -32,10 +32,28 @@
     <loc>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/</loc>
     <lastmod>2022-11-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://cha2hyun.blog/tags/aws/</loc>
-    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://cha2hyun.blog/content/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/kali-linux/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/content/posts/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/content/posts/hacking/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/aws/</loc>
     <lastmod>2023-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/next.js/</loc>
@@ -44,13 +62,7 @@
     <loc>https://cha2hyun.blog/content/projects/</loc>
     <lastmod>2023-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://cha2hyun.blog/tags/</loc>
-    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://cha2hyun.blog/tags/trouble-shooting/</loc>
-    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/</loc>
     <lastmod>2023-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/content/algorithm/</loc>
@@ -66,9 +78,6 @@
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/postgres/</loc>
-    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/content/posts/</loc>
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/prisma/</loc>

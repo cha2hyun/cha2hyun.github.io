@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>아프리카TV 실시간채팅 크롤링</title>
@@ -21,7 +21,7 @@
       <description>리버스엔지니어링 + 소켓연결 + 네트워크탭 분석. feat) 아프리카도우미</description>
     </item>
     <item>
-      <title>자주사용하는 React Recoil, Hooks, Library 등 정리</title>
+      <title>자주사용되는 React 알고리즘, 라이브러리 정리</title>
       <link>https://cha2hyun.blog/content/algorithm/react-algorithm/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/algorithm/react-algorithm/</guid>
@@ -59,6 +59,13 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
       <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
+    </item>
+    <item>
+      <title>웹해킹] M1 Mac에 Kali Linux 설치 (1)</title>
+      <link>https://cha2hyun.blog/content/posts/hacking/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/posts/hacking/</guid>
+      <description>Setup</description>
     </item>
     <item>
       <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
