@@ -21,7 +21,14 @@
       <description>리버스엔지니어링 + 소켓연결 + 네트워크탭 분석. feat) 아프리카도우미</description>
     </item>
     <item>
-      <title>자주사용되는 React 알고리즘, 라이브러리 정리</title>
+      <title>next/image 그냥 쓰면 서버는 시한부입니다 💀</title>
+      <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
+      <description>next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.</description>
+    </item>
+    <item>
+      <title>자주사용되는 리액트 알고리즘, 라이브러리 정리</title>
       <link>https://cha2hyun.blog/content/algorithm/react-algorithm/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://cha2hyun.blog/content/algorithm/react-algorithm/</guid>
@@ -29,22 +36,6 @@
 주요 API 호출방법 useRecoilState() - Atom을 읽고 쓸 때 사용한다.
 1 2 3 4 5 6 7 8 const counterState = atom({ key: &amp;#34;counterState&amp;#34;, default: 0, }); const [counter, setCounter] = useRecoilState(counterState); const onIncrement = () =&amp;gt; setCounter((prev) =&amp;gt; prev + 1); // counter increases useRecoilValue() - Atom의 값을 반환하고 컴포넌트를 해당 atom에 구독한다.
 1 2 3 4 5 6 7 8 const userState = atom({ key: &amp;#34;userState&amp;#34;, default: { name: &amp;#34;moon&amp;#34;, age: &amp;#34;20&amp;#34; }, }); const user = useRecoilValue(userState); console.</description>
-    </item>
-    <item>
-      <title>자주사용되는 파이썬 알고리즘, 함수 정리</title>
-      <link>https://cha2hyun.blog/content/algorithm/python-algorithms/</link>
-      <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/algorithm/python-algorithms/</guid>
-      <description>알고리즘 Insertion vs Merge vs Heap vs Quick 상명대학교 컴퓨터과학과 동아리 파느쎄 스터디할때 찍어놨던 유물
-DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
-최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &amp;#39;&amp;#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용</description>
-    </item>
-    <item>
-      <title>next/image 그냥 쓰면 서버는 시한부입니다 💀</title>
-      <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
-      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
-      <description>next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.</description>
     </item>
     <item>
       <title>SSR를 이용한 SEO 최적화 (구글, 네이버 최상단 노출 성공)</title>
@@ -61,11 +52,34 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
       <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
     </item>
     <item>
-      <title>웹해킹] M1 Mac에 Kali Linux 설치 (1)</title>
-      <link>https://cha2hyun.blog/content/posts/hacking/</link>
+      <title>자주사용되는 파이썬 알고리즘, 함수 정리</title>
+      <link>https://cha2hyun.blog/content/algorithm/python-algorithms/</link>
+      <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/python-algorithms/</guid>
+      <description>알고리즘 Insertion vs Merge vs Heap vs Quick 상명대학교 컴퓨터과학과 동아리 파느쎄 스터디할때 찍어놨던 유물
+DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
+최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &amp;#39;&amp;#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색)) 두 노드 사이의 최단 거리를 찾을 때 사용</description>
+    </item>
+    <item>
+      <title>해킹] kioptrix-level-1</title>
+      <link>https://cha2hyun.blog/content/hacking/kioptrix1/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/hacking/</guid>
+      <guid>https://cha2hyun.blog/content/hacking/kioptrix1/</guid>
       <description>Setup</description>
+    </item>
+    <item>
+      <title>해킹] M1 Mac에 Kali Linux 설치 (1)</title>
+      <link>https://cha2hyun.blog/content/posts/hacking1/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/posts/hacking1/</guid>
+      <description>Setup</description>
+    </item>
+    <item>
+      <title>해킹] Kali Linux 설치</title>
+      <link>https://cha2hyun.blog/content/hacking/hacking1/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/hacking/hacking1/</guid>
+      <description>실리콘 맥에 칼리리눅스 가상환경으로 띄우고 초기 설정진행하기</description>
     </item>
     <item>
       <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>

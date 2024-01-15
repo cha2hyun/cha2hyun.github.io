@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>해킹] M1 Mac에 Kali Linux 설치 (1) | 채수현 개발일지</title>
+<meta name="keywords" content="Kali Linux, 해킹">
+<meta name="description" content="Setup">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.blog/content/posts/hacking1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.blog/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="해킹] M1 Mac에 Kali Linux 설치 (1)" />
+<meta property="og:description" content="Setup" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.blog/content/posts/hacking1/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2024-01-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
+
+<meta name="twitter:title" content="해킹] M1 Mac에 Kali Linux 설치 (1)"/>
+<meta name="twitter:description" content="Setup"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.blog/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://cha2hyun.blog/content/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "해킹] M1 Mac에 Kali Linux 설치 (1)",
+      "item": "https://cha2hyun.blog/content/posts/hacking1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "해킹] M1 Mac에 Kali Linux 설치 (1)",
+  "name": "해킹] M1 Mac에 Kali Linux 설치 (1)",
+  "description": "Setup",
+  "keywords": [
+    "Kali Linux", "해킹"
+  ],
+  "articleBody": "\n들어가며 프로젝트를 진행할 때 내가만든 웹에서 취약점이 있진 않을까 막연하게 생각이 들때가 있습니다. 규모가 작은 개인프로젝트의 경우 크게 상관없지만, 회사에서 진행하는 프로젝트가 서비스 규모가 커지면서 취약점에 대한 고민이 생겼습니다. (최근 랜섬웨어 걸리기도했고…)\n고등학생 때 정보보안동아리에서 webhacking.kr 문제를 풀었었던 경험과 Normaltic Place님께서 올려주신 강의를 토대로 진행합니다.\n실리콘 맥 + VMware Fusion 13 (Kali Linux)로 진행합니다.\nSetup 가상환경 설치 VMware, UTM, VirtualBox중 한개로 가상환경을 진행합니다. 저의경우 VMware를 이용했습니다.\nVmawre Fusion VMware Fusion 13을 공식홈페이지에서 받습니다. 라이센스는 회원가입하면 무료로 발급받을 수 있습니다.\nUTM 1 brew install --cask utm brew로 설치되지 않는경우 공식홈페이지에서 받습니다.\nVirtual Box 1 brew install --cask virtualbox brew로 설치되지 않는경우 공식홈페이지에서 받습니다.\n실리콘용으로 받으면 됩니다.\nKali Linux 설치 공식홈페이지에서 silicon 용 공식홈페이지 칼리리눅스 이미지파일을 받습니다.\nKali Linux iso 파일을 Import 하여 설치합니다. 운영체제를 선택하라고 나오면 Kali Linux는 Debian으로 맞는 커널을 선택해주시면됩니다.\nGraphic 설치 언어 및 위치를 한국으로 사용자 추가하고 나머지는 모두 Default 값으로 진행합니다. 마지막에 디스크 파티션하기에서 바뀐 점을 디스크에 쓰시겠습니까?가 나오면 예를 눌러줍니다. 프로그램 선택 및 설치도 default로 체크되어있는 것을 설치합니다. 이후 자동으로 설치가 시작됩니다. (10분정도 소요)\n설치 완료 화면\nKali Linux 설정 apt-get update, upgrade 1 2 sudo apt-get update sudo apt-get upgarde -y 해상도변경 1 xrandr -s 1920x1080 이후 display 가서 apply를 눌러준다. (안하면 재부팅시 다시 돌아와버림), vmware 설정에서 retina 체크해주고 reboot\n한글 설정 1 2 3 sudo apt-get install fcitx-lib* sudo apt-get install fcitx-hangul sudo apt-get install fonts-nanum 클립보드 공유 1 2 sudo apt install spice-vdagent spice-webdavd reboot Network VMware 설정에서 Network Adapter를 열어서 Bridged Networking 으로 설정해줍니다.\nDefault\nBridged Network 선택시\nssh 설정 루트로 로그인하기 위해서 config 를 수정합니다.\n1 vim /etc/ssh/sshd_config 에서 PermitRootLogin yes로 수정 ssh root 패스워드 설정\n1 2 sudo su passwd 1 service ssh start 클라이언트에서 ssh 접속\n1 ssh root@IP주소 pwntools, 파이썬 설치 1 sudo apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential -y import시 에러가 안나오면 성공\npwndbg 설치 1 2 3 4 sudo apt-get install gdb -y git clone https://github.com/pwndbg/pwndbg cd pwndbg ./setup.sh onegadget 설치 1 2 sudo apt install ruby sudo gem install one_gadget 테스트용 취약 서버 올리기 kioptrix-level-1-1을 받아서 UTM으로 실행해줍니다. 실리콘에서 실행시키기 위해 유튜브를 참고하였습니다.\nStep 1:- Download Kioptrix level 1 vulnerable system Step 2:- Unzip the file through Unzip rar (download from App Store) Step 3:- Open the unzip Folder in terminal Step 4:- qemu-img convert -p -O qcow2 *.vmdk output.qcow2 (write this command in terminal ) Step 5:- Open Utm Step 6: - Create new Virtual machine Step 7:- Click on the Emulate Button Step 8:- Skip ISO BOOT Step 9:- Click Continue Step 10:- Open virtual Setting Step 11:- Click Qemu Step 12:- Tick RNG and force ps/2 controller Step 13:- Delete Drive Step 14:- Import new drive and select .qocw2 file from kioptrix folder Information Gathering ping scan 하여 취약 ip 찾기 information gathering 어떤 ip가 살아있는지 ping scan을 일일이 날리지 않고 한번에 해줌, python이나 shell로 코드를 짜도 되고 nmap을 사용해도 가능 이때 flag는 -sn을 사용한다.\n1 nmap -sn 192.168.0.1-255 위에서 찾은 ip로 취약한 Port 찾기 flag는 -A을 사용한다. -v 옵션을 주어서 어떤 내용인지 로그를 전부 출력한다\n1 nmap -sn 192.168.0.1-255 Reference https://velog.io/@younghyun/M1-MacBook%EC%97%90%EC%84%9C-%EA%B0%80%EC%83%81%EB%A8%B8%EC%8B%A0-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0UTM-Kali-Linux ",
+  "wordCount" : "503",
+  "inLanguage": "en",
+  "datePublished": "2024-01-15T00:00:00Z",
+  "dateModified": "2024-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.blog/content/posts/hacking1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.blog/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
+                </span>
+                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
+            </a>            
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.blog/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/posts/" title="일상">
+                    <span style="font-weight: bold;">일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/projects/" title="플젝">
+                    <span style="font-weight: bold;">플젝</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/algorithm/" title="공부">
+                    <span style="font-weight: bold;">공부</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/hacking/" title="해킹">
+                    <span style="font-weight: bold;">해킹</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+            <li>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </li>
+        </ul>
+        
+    </nav>
+    
+    
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      해킹] M1 Mac에 Kali Linux 설치 (1)
+    </h1>
+    <div class="post-meta"><span title='2024-01-15 00:00:00 +0000 UTC'>January 15, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun
+
+
+    </div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%93%a4%ec%96%b4%ea%b0%80%eb%a9%b0" aria-label="들어가며">들어가며</a></li>
+                <li>
+                    <a href="#setup" aria-label="Setup">Setup</a><ul>
+                        
+                <li>
+                    <a href="#%ea%b0%80%ec%83%81%ed%99%98%ea%b2%bd-%ec%84%a4%ec%b9%98" aria-label="가상환경 설치">가상환경 설치</a></li>
+                <li>
+                    <a href="#kali-linux-%ec%84%a4%ec%b9%98" aria-label="Kali Linux 설치">Kali Linux 설치</a></li>
+                <li>
+                    <a href="#kali-linux-%ec%84%a4%ec%a0%95" aria-label="Kali Linux 설정">Kali Linux 설정</a><ul>
+                        
+                <li>
+                    <a href="#apt-get-update-upgrade" aria-label="apt-get update, upgrade">apt-get update, upgrade</a></li>
+                <li>
+                    <a href="#%ed%95%b4%ec%83%81%eb%8f%84%eb%b3%80%ea%b2%bd" aria-label="해상도변경">해상도변경</a></li>
+                <li>
+                    <a href="#%ed%95%9c%ea%b8%80-%ec%84%a4%ec%a0%95" aria-label="한글 설정">한글 설정</a></li>
+                <li>
+                    <a href="#%ed%81%b4%eb%a6%bd%eb%b3%b4%eb%93%9c-%ea%b3%b5%ec%9c%a0" aria-label="클립보드 공유">클립보드 공유</a></li>
+                <li>
+                    <a href="#network" aria-label="Network">Network</a></li>
+                <li>
+                    <a href="#ssh-%ec%84%a4%ec%a0%95" aria-label="ssh 설정">ssh 설정</a></li>
+                <li>
+                    <a href="#pwntools-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%84%a4%ec%b9%98" aria-label="pwntools, 파이썬 설치">pwntools, 파이썬 설치</a></li>
+                <li>
+                    <a href="#pwndbg-%ec%84%a4%ec%b9%98" aria-label="pwndbg 설치">pwndbg 설치</a></li>
+                <li>
+                    <a href="#onegadget-%ec%84%a4%ec%b9%98" aria-label="onegadget 설치">onegadget 설치</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8%ec%9a%a9-%ec%b7%a8%ec%95%bd-%ec%84%9c%eb%b2%84-%ec%98%ac%eb%a6%ac%ea%b8%b0" aria-label="테스트용 취약 서버 올리기">테스트용 취약 서버 올리기</a></li>
+                <li>
+                    <a href="#information-gathering" aria-label="Information Gathering">Information Gathering</a><ul>
+                        
+                <li>
+                    <a href="#ping-scan-%ed%95%98%ec%97%ac-%ec%b7%a8%ec%95%bd-ip-%ec%b0%be%ea%b8%b0" aria-label="ping scan 하여 취약 ip 찾기">ping scan 하여 취약 ip 찾기</a><ul>
+                        
+                <li>
+                    <a href="#%ec%9c%84%ec%97%90%ec%84%9c-%ec%b0%be%ec%9d%80-ip%eb%a1%9c-%ec%b7%a8%ec%95%bd%ed%95%9c-port-%ec%b0%be%ea%b8%b0" aria-label="위에서 찾은 ip로 취약한 Port 찾기">위에서 찾은 ip로 취약한 Port 찾기</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#reference" aria-label="Reference">Reference</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><br>
+<h2 id="들어가며">들어가며<a hidden class="anchor" aria-hidden="true" href="#들어가며">#</a></h2>
+<p>프로젝트를 진행할 때 내가만든 웹에서 취약점이 있진 않을까 막연하게 생각이 들때가 있습니다. 규모가 작은 개인프로젝트의 경우 크게 상관없지만, 회사에서 진행하는 프로젝트가 서비스 규모가 커지면서 취약점에 대한 고민이 생겼습니다. (최근 랜섬웨어 걸리기도했고&hellip;)</p>
+<p>고등학생 때 정보보안동아리에서 webhacking.kr 문제를 풀었었던 경험과 <a href="https://www.youtube.com/playlist?list=PLilfVAwqeInVt0FM0G4fADAkbtRc8L1p6" target="_blank">Normaltic Place</a>님께서 올려주신 강의를 토대로 진행합니다.</p>
+<p>실리콘 맥 + VMware Fusion 13 (Kali Linux)로 진행합니다.</p>
+<h2 id="setup">Setup<a hidden class="anchor" aria-hidden="true" href="#setup">#</a></h2>
+<h3 id="가상환경-설치">가상환경 설치<a hidden class="anchor" aria-hidden="true" href="#가상환경-설치">#</a></h3>
+<p>VMware, UTM, VirtualBox중 한개로 가상환경을 진행합니다. 저의경우 VMware를 이용했습니다.</p>
+<ol>
+<li>Vmawre Fusion</li>
+</ol>
+<p>VMware Fusion 13을 <a href="https://www.vmware.com/kr/products/fusion/fusion-evaluation.html" target="_blank">공식홈페이지</a>에서 받습니다. 라이센스는 회원가입하면 무료로 발급받을 수 있습니다.</p>
+<ol start="2">
+<li>UTM</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install --cask utm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>brew로 설치되지 않는경우 <a href="https://mac.getutm.app//" target="_blank">공식홈페이지</a>에서 받습니다.</p>
+<ol start="3">
+<li>Virtual Box</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install --cask virtualbox
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>brew로 설치되지 않는경우 <a href="https://www.virtualbox.org/" target="_blank">공식홈페이지</a>에서 받습니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/44.png#center"
+         alt="실리콘용으로 받으면 됩니다."/> <figcaption>
+            <p>실리콘용으로 받으면 됩니다.</p>
+        </figcaption>
+</figure>
+
+<h3 id="kali-linux-설치">Kali Linux 설치<a hidden class="anchor" aria-hidden="true" href="#kali-linux-설치">#</a></h3>
+<p>공식홈페이지에서 silicon 용 <a href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank">공식홈페이지</a> 칼리리눅스 이미지파일을 받습니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/45.png#center"/> 
+</figure>
+
+<p>Kali Linux iso 파일을 Import 하여 설치합니다. 운영체제를 선택하라고 나오면 Kali Linux는 Debian으로 맞는 커널을 선택해주시면됩니다.</p>
+<ul>
+<li>Graphic 설치</li>
+<li>언어 및 위치를 한국으로</li>
+<li>사용자 추가하고</li>
+<li>나머지는 모두 Default 값으로 진행합니다.</li>
+<li>마지막에 <code>디스크 파티션하기</code>에서 <code>바뀐 점을 디스크에 쓰시겠습니까?</code>가 나오면 <code>예</code>를 눌러줍니다.</li>
+<li>프로그램 선택 및 설치도 default로 체크되어있는 것을 설치합니다.</li>
+</ul>
+<p>이후 자동으로 설치가 시작됩니다. (10분정도 소요)</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/48.jpeg#center"
+         alt="설치 완료 화면"/> <figcaption>
+            <p>설치 완료 화면</p>
+        </figcaption>
+</figure>
+
+<h3 id="kali-linux-설정">Kali Linux 설정<a hidden class="anchor" aria-hidden="true" href="#kali-linux-설정">#</a></h3>
+<h4 id="apt-get-update-upgrade">apt-get update, upgrade<a hidden class="anchor" aria-hidden="true" href="#apt-get-update-upgrade">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get upgarde -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="해상도변경">해상도변경<a hidden class="anchor" aria-hidden="true" href="#해상도변경">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">xrandr -s 1920x1080
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이후 display 가서 apply를 눌러준다. (안하면 재부팅시 다시 돌아와버림), vmware 설정에서 retina 체크해주고 reboot</p>
+<h4 id="한글-설정">한글 설정<a hidden class="anchor" aria-hidden="true" href="#한글-설정">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install fcitx-lib*
+</span></span><span class="line"><span class="cl">sudo apt-get install fcitx-hangul
+</span></span><span class="line"><span class="cl">sudo apt-get install fonts-nanum
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="클립보드-공유">클립보드 공유<a hidden class="anchor" aria-hidden="true" href="#클립보드-공유">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install spice-vdagent spice-webdavd
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="network">Network<a hidden class="anchor" aria-hidden="true" href="#network">#</a></h4>
+<p>VMware 설정에서 Network Adapter를 열어서 <code>Bridged Networking</code> 으로 설정해줍니다.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="../img/50.png#center"
+         alt="Default"/> <figcaption>
+            <p>Default</p>
+        </figcaption>
+</figure>
+
+<figure class="align-center ">
+    <img loading="lazy" src="../img/51.png#center"
+         alt="Bridged Network 선택시"/> <figcaption>
+            <p>Bridged Network 선택시</p>
+        </figcaption>
+</figure>
+
+<h4 id="ssh-설정">ssh 설정<a hidden class="anchor" aria-hidden="true" href="#ssh-설정">#</a></h4>
+<p>루트로 로그인하기 위해서 config 를 수정합니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/ssh/sshd_config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>에서 <code>PermitRootLogin yes</code>로 수정
+<figure class="align-center ">
+    <img loading="lazy" src="../img/52.png#center"/> 
+</figure>
+</p>
+<p>ssh root 패스워드 설정</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="align-center ">
+    <img loading="lazy" src="../img/53.png#center"/> 
+</figure>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">service ssh start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>클라이언트에서 ssh 접속</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh root@IP주소
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="align-center ">
+    <img loading="lazy" src="../img/54.png#center"/> 
+</figure>
+
+<h4 id="pwntools-파이썬-설치">pwntools, 파이썬 설치<a hidden class="anchor" aria-hidden="true" href="#pwntools-파이썬-설치">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="align-center ">
+    <img loading="lazy" src="../img/49.png#center"
+         alt="import시 에러가 안나오면 성공"/> <figcaption>
+            <p>import시 에러가 안나오면 성공</p>
+        </figcaption>
+</figure>
+
+<h4 id="pwndbg-설치">pwndbg 설치<a hidden class="anchor" aria-hidden="true" href="#pwndbg-설치">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install gdb -y
+</span></span><span class="line"><span class="cl">git clone https://github.com/pwndbg/pwndbg
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> pwndbg
+</span></span><span class="line"><span class="cl">./setup.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="onegadget-설치">onegadget 설치<a hidden class="anchor" aria-hidden="true" href="#onegadget-설치">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt install ruby
+</span></span><span class="line"><span class="cl">sudo gem install one_gadget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br/>
+<hr>
+<br/>
+<h2 id="테스트용-취약-서버-올리기">테스트용 취약 서버 올리기<a hidden class="anchor" aria-hidden="true" href="#테스트용-취약-서버-올리기">#</a></h2>
+<p><a href="https://vulnhub.com/entry/kioptrix-level-1-1,22/">kioptrix-level-1-1</a>을 받아서 UTM으로 실행해줍니다. 실리콘에서 실행시키기 위해 <a href="https://www.youtube.com/watch?v=BVPFACvXihY">유튜브</a>를 참고하였습니다.</p>
+<ul>
+<li>Step 1:- Download Kioptrix level 1 vulnerable system</li>
+<li>Step 2:- Unzip the file through Unzip rar (download from App Store)</li>
+<li>Step 3:- Open the unzip Folder in terminal</li>
+<li>Step 4:- qemu-img convert -p -O qcow2 *.vmdk output.qcow2 (write this command in terminal )</li>
+<li>Step 5:- Open Utm</li>
+<li>Step 6: - Create new Virtual machine</li>
+<li>Step 7:- Click on the Emulate Button</li>
+<li>Step 8:- Skip ISO BOOT</li>
+<li>Step 9:- Click Continue</li>
+<li>Step 10:- Open virtual Setting</li>
+<li>Step 11:- Click Qemu</li>
+<li>Step 12:- Tick RNG and force ps/2 controller</li>
+<li>Step 13:- Delete Drive</li>
+<li>Step 14:- Import new drive and select .qocw2 file from kioptrix folder</li>
+</ul>
+<h2 id="information-gathering">Information Gathering<a hidden class="anchor" aria-hidden="true" href="#information-gathering">#</a></h2>
+<h3 id="ping-scan-하여-취약-ip-찾기">ping scan 하여 취약 ip 찾기<a hidden class="anchor" aria-hidden="true" href="#ping-scan-하여-취약-ip-찾기">#</a></h3>
+<p>information gathering 어떤 ip가 살아있는지 ping scan을 일일이 날리지 않고 한번에 해줌, python이나 shell로 코드를 짜도 되고 nmap을 사용해도 가능 이때 flag는 <code>-sn</code>을 사용한다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -sn 192.168.0.1-255
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="위에서-찾은-ip로-취약한-port-찾기">위에서 찾은 ip로 취약한 Port 찾기<a hidden class="anchor" aria-hidden="true" href="#위에서-찾은-ip로-취약한-port-찾기">#</a></h4>
+<p>flag는 <code>-A</code>을 사용한다. <code>-v</code> 옵션을 주어서 어떤 내용인지 로그를 전부 출력한다</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -sn 192.168.0.1-255
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
+<ul>
+<li><a href="https://velog.io/@younghyun/M1-MacBook%EC%97%90%EC%84%9C-%EA%B0%80%EC%83%81%EB%A8%B8%EC%8B%A0-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0UTM-Kali-Linux">https://velog.io/@younghyun/M1-MacBook%EC%97%90%EC%84%9C-%EA%B0%80%EC%83%81%EB%A8%B8%EC%8B%A0-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0UTM-Kali-Linux</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.blog/tags/kali-linux/">Kali Linux</a></li>
+      <li><a href="https://cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/">해킹</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.blog/content/hacking/kioptrix1/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>해킹] kioptrix-level-1</span>
+  </a>
+  <a class="next" href="https://cha2hyun.blog/content/hacking/hacking1/">
+    <span class="title">Next »</span>
+    <br>
+    <span>해킹] Kali Linux 설치</span>
+  </a>
+</nav>
+
+
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  궁금하신 점이 있으신가요? 😀
+</div>
+
+
+
+
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="cha2hyun/cha2hyun.github.io"
+  data-repo-id="R_kgDOICTfkg"
+  data-category="Comments"
+  data-category-id="DIC_kwDOICTfks4CcDAW"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="ko"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
