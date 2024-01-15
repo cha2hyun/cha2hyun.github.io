@@ -41,9 +41,6 @@
     <loc>https://cha2hyun.blog/tags/kali-linux/</loc>
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://cha2hyun.blog/content/posts/</loc>
-    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://cha2hyun.blog/tags/</loc>
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -54,9 +51,6 @@
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/content/hacking/kioptrix1/</loc>
-    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/content/posts/hacking1/</loc>
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/content/hacking/hacking1/</loc>
@@ -87,6 +81,9 @@
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/postgres/</loc>
+    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/content/posts/</loc>
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/prisma/</loc>
