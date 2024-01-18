@@ -110,8 +110,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=python3\n풀이 시도 1\n애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved 되었다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def solution(babbling): from itertools import permutations answer = 0 words = [\"aya\", \"ye\", \"woo\", \"ma\"] words_permutaions = [] for i in range(1, len(words) + 1): for word in permutations(words, i): words_permutaions.append(\"\".join(word)) for bab in babbling: if bab in words_permutaions: answer += 1 return answer 다른사람풀이 solution.py 1 2 3 4 5 6 7 8 import re def solution(babbling): regex = re.compile('^(aya|ye|woo|ma)+$') cnt=0 for e in babbling: if regex.match(e): cnt+=1 return cnt ",
-  "wordCount" : "129",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=python3\n풀이 시도 1\n애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def solution(babbling): from itertools import permutations answer = 0 words = [\"aya\", \"ye\", \"woo\", \"ma\"] words_permutaions = [] for i in range(1, len(words) + 1): for word in permutations(words, i): words_permutaions.append(\"\".join(word)) for bab in babbling: if bab in words_permutaions: answer += 1 return answer 다른사람풀이 solution.py 1 2 3 4 5 6 7 8 import re def solution(babbling): regex = re.compile('^(aya|ye|woo|ma)+$') cnt=0 for e in babbling: if regex.match(e): cnt+=1 return cnt ",
+  "wordCount" : "128",
   "inLanguage": "en",
   "datePublished": "2024-01-17T00:00:00Z",
   "dateModified": "2024-01-17T00:00:00Z",
@@ -254,7 +254,7 @@
 <blockquote>
 <p>시도 1</p>
 </blockquote>
-<p>애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved 되었다.</p>
+<p>애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved.</p>
 
 
 <div class="terminal space shadow">
