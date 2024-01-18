@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬 | 채수현 개발일지</title>
+<title>프로그래머스 12985] 예상 대진표 | 채수현 개발일지</title>
 <meta name="keywords" content="programmers">
 <meta name="description" content="연습문제">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/">
+<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
@@ -54,17 +54,17 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="프로그래머스 120876] 겹치는 선분의 길이 - 파이썬" />
+</noscript><meta property="og:title" content="프로그래머스 12985] 예상 대진표" />
 <meta property="og:description" content="연습문제" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
-<meta property="article:published_time" content="2024-01-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-17T00:00:00+00:00" />
+<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2024-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-18T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
 
-<meta name="twitter:title" content="프로그래머스 120876] 겹치는 선분의 길이 - 파이썬"/>
+<meta name="twitter:title" content="프로그래머스 12985] 예상 대진표"/>
 <meta name="twitter:description" content="연습문제"/>
 
 
@@ -94,8 +94,14 @@
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
-      "item": "https://cha2hyun.blog/content/algorithm/programmers/etc/120876/"
+      "name": "LV2",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/lv2/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "프로그래머스 12985] 예상 대진표",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/"
     }
   ]
 }
@@ -104,24 +110,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
-  "name": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
+  "headline": "프로그래머스 12985] 예상 대진표",
+  "name": "프로그래머스 12985] 예상 대진표",
   "description": "연습문제",
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3\n풀이 시도 1\ndots에 대한 조합을 구하고 나올수 있는 기울기를 구한다음에 기울기가 중복이 된 경우 평행이라고 가정하였으나, 67/100으로 탈락\n모든 조합을 구한 경우 AB직선과 BC직선은 비교할 필요가 없는데 비교하게 되어 탈락한 것 같다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 def solution(dots): from itertools import combinations slopes = [] for i in combinations(dots, 2): if i[1][0] - i[0][0] != 0: slope = (i[1][0] - i[0][0]) / (i[1][1] - i[0][1]) if slope in slopes: return 1 else: slopes.append(slope) return 0 시도 2\n각 원소에대한 기울기를 직접 구해서 진행하여 solved\nsolution.py 1 2 3 4 5 6 7 8 9 10 def gradient(a, b): return (a[1] - b[1]) / (a[0] - b[0]) def solution(dots): p1, p2, p3, p4 = dots[:4] if gradient(p3, p1) == gradient(p4, p2) or gradient(p4, p3) == gradient(p2, p1): return 1 else: return 0 다른사람풀이 solution.py 1 2 3 4 5 6 def solution(dots): [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]=dots answer1 = ((y1-y2)*(x3-x4) == (y3-y4)*(x1-x2)) answer2 = ((y1-y3)*(x2-x4) == (y2-y4)*(x1-x3)) answer3 = ((y1-y4)*(x2-x3) == (y2-y3)*(x1-x4)) return 1 if answer1 or answer2 or answer3 else 0 ",
-  "wordCount" : "186",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12985\n풀이 시도 1\nN이 2^20 이하의 자연수라고 되어있어서 완전탐색은 안된다고 생각하고 진행했다. (하지만 결국 N은 아무런 고려할 필요가 없었음) 부전승이 없고 n은 무조건 2의 지수승이라고 하였고 무조건 A, B는 이긴다고 가정하였으므로 A와 B가 계속 이겨서 결국 마주쳤을때를 구하면 된다.\nA가 4일때\n1R A\n2R = A//2 = 2\n3R A = A//2 = 1\nB가 7일때\n1R B = 7\n2R B = B//2 = 3\n3R B = B//2 = 1\nA와 B가 붙는거는(같아지는건) 3 Round 이다.\n문제에서 제시하는 그대로 풀면 된다. 여기서 중요한건 a+1, b+1로 비교하는건데 홀수 vs 짝수가 1, 2가 될 수 있고, 2, 3이 될 수 있다. 이때 1, 2는 지금 붙지만 2, 3은 다음 번에 붙기 때문에 두 쌍을 나누는 단순한 방법으로 1을 더하고 몫을 구하는 //2를 하면된다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n, a, b): round = 1 while a != b: a = (a + 1) // 2 b = (b + 1) // 2 # 혹은 한줄로 표현할 수도 있음 # a, b = (a+1)//2, (b+1)//2 round += 1 return round 다른사람풀이 solution.py xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..😳\n1 2 def solution(n,a,b): return ((a-1)^(b-1)).bit_length() ",
+  "wordCount" : "193",
   "inLanguage": "en",
-  "datePublished": "2024-01-17T00:00:00Z",
-  "dateModified": "2024-01-17T00:00:00Z",
+  "datePublished": "2024-01-18T00:00:00Z",
+  "dateModified": "2024-01-18T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "cha2hyun"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cha2hyun.blog/content/algorithm/programmers/etc/120876/"
+    "@id": "https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/"
   },
   "publisher": {
     "@type": "Organization",
@@ -221,11 +227,11 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a></div>
+    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title entry-hint-parent">
-      프로그래머스 120876] 겹치는 선분의 길이 - 파이썬
+      프로그래머스 12985] 예상 대진표
     </h1>
-    <div class="post-meta"><span title='2024-01-17 00:00:00 +0000 UTC'>January 17, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2024-01-18 00:00:00 +0000 UTC'>January 18, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
 
 
     </div>
@@ -249,64 +255,42 @@
 </div>
 
   <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
-<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3">https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3</a></p>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12985">https://school.programmers.co.kr/learn/courses/30/lessons/12985</a></p>
 <h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
 <blockquote>
 <p>시도 1</p>
 </blockquote>
-<p>dots에 대한 조합을 구하고 나올수 있는 기울기를 구한다음에 기울기가 중복이 된 경우 평행이라고 가정하였으나, 67/100으로 탈락</p>
-<p>모든 조합을 구한 경우 AB직선과 BC직선은 비교할 필요가 없는데 비교하게 되어 탈락한 것 같다.</p>
-
-
-<div class="terminal space shadow">
-  <div class="top">
-    <div class="btns">
-      <span class="circle red"></span>
-      <span class="circle yellow"></span>
-      <span class="circle green"></span>
-    </div>
-    <div class="title">
-      solution.py
-    </div>
-  </div>
-  <div class="terminalbody"><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">slopes</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">dots</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">slope</span> <span class="ow">in</span> <span class="n">slopes</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">slopes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></div>
-</div>
-<br />
-
-<blockquote>
-<p>시도 2</p>
-</blockquote>
-<p>각 원소에대한 기울기를 직접 구해서 진행하여 solved</p>
+<p>N이 2^20 이하의 자연수라고 되어있어서 완전탐색은 안된다고 생각하고 진행했다. (하지만 결국 N은 아무런 고려할 필요가 없었음) 부전승이 없고 n은 무조건 2의 지수승이라고 하였고 무조건 A, B는 이긴다고 가정하였으므로 A와 B가 계속 이겨서 결국 마주쳤을때를 구하면 된다.</p>
+<ul>
+<li>
+<p>A가 4일때</p>
+</li>
+<li>
+<p>1R A</p>
+</li>
+<li>
+<p>2R = A//2 = 2</p>
+</li>
+<li>
+<p>3R A = A//2 = 1</p>
+</li>
+<li>
+<p>B가 7일때</p>
+</li>
+<li>
+<p>1R B = 7</p>
+</li>
+<li>
+<p>2R B = B//2 = 3</p>
+</li>
+<li>
+<p>3R B = B//2 = 1</p>
+</li>
+<li>
+<p>A와 B가 붙는거는(같아지는건) 3 Round 이다.</p>
+</li>
+</ul>
+<p>문제에서 제시하는 그대로 풀면 된다. 여기서 중요한건 <code>a+1, b+1</code>로 비교하는건데 홀수 vs 짝수가 1, 2가 될 수 있고, 2, 3이 될 수 있다. 이때 1, 2는 지금 붙지만 2, 3은 다음 번에 붙기 때문에 두 쌍을 나누는 단순한 방법으로 1을 더하고 몫을 구하는 <code>//2</code>를 하면된다.</p>
 
 
 <div class="terminal space shadow">
@@ -334,16 +318,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">round</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 혹은 한줄로 표현할 수도 있음</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># a, b = (a+1)//2, (b+1)//2</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">round</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span> <span class="o">=</span> <span class="n">dots</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="o">==</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="ow">or</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span> <span class="o">==</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">round</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>
@@ -364,22 +348,15 @@
       solution.py
     </div>
   </div>
-  <div class="terminalbody"><div class="highlight"><div class="chroma">
+  <div class="terminalbody"><p>xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..😳</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">],</span> <span class="p">[</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="p">[</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">],</span> <span class="p">[</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">]]</span><span class="o">=</span><span class="n">dots</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer1</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x3</span><span class="o">-</span><span class="n">x4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y3</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer2</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x3</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer3</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x3</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x4</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer1</span> <span class="ow">or</span> <span class="n">answer2</span> <span class="ow">or</span> <span class="n">answer3</span> <span class="k">else</span> <span class="mi">0</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>
@@ -395,15 +372,15 @@
       <li><a href="https://cha2hyun.blog/tags/programmers/">programmers</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/">
+  <a class="prev" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/">
     <span class="title">« Prev</span>
     <br>
-    <span>프로그래머스 12985] 예상 대진표</span>
+    <span>프로그래머스 12980] 점프와 순간 이동</span>
   </a>
-  <a class="next" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120956/">
+  <a class="next" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/">
     <span class="title">Next »</span>
     <br>
-    <span>프로그래머스 120956] 옹알이(1) - 파이썬</span>
+    <span>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</span>
   </a>
 </nav>
 
