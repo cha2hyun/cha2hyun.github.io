@@ -116,8 +116,8 @@
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12985\n풀이 시도 1\nN이 2^20 이하의 자연수라고 되어있어서 완전탐색은 안된다고 생각하고 진행했다. (하지만 결국 N은 아무런 고려할 필요가 없었음) 부전승이 없고 n은 무조건 2의 지수승이라고 하였고 무조건 A, B는 이긴다고 가정하였으므로 A와 B가 계속 이겨서 결국 마주쳤을때를 구하면 된다.\nA가 4일때\n1R A\n2R = A//2 = 2\n3R A = A//2 = 1\nB가 7일때\n1R B = 7\n2R B = B//2 = 3\n3R B = B//2 = 1\nA와 B가 붙는거는(같아지는건) 3 Round 이다.\n문제에서 제시하는 그대로 풀면 된다. 여기서 중요한건 a+1, b+1로 비교하는건데 홀수 vs 짝수가 1, 2가 될 수 있고, 2, 3이 될 수 있다. 이때 1, 2는 지금 붙지만 2, 3은 다음 번에 붙기 때문에 두 쌍을 나누는 단순한 방법으로 1을 더하고 몫을 구하는 //2를 하면된다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n, a, b): round = 1 while a != b: a = (a + 1) // 2 b = (b + 1) // 2 # 혹은 한줄로 표현할 수도 있음 # a, b = (a+1)//2, (b+1)//2 round += 1 return round 다른사람풀이 solution.py xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..😳\n1 2 def solution(n,a,b): return ((a-1)^(b-1)).bit_length() ",
-  "wordCount" : "193",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12985\n풀이 시도 1\nN이 2^20 이하의 자연수라고 되어있어서 완전탐색은 안된다고 생각하고 진행했다. (하지만 결국 N은 아무런 고려할 필요가 없었음) 부전승이 없고 n은 무조건 2의 지수승이라고 하였고 무조건 A, B는 이긴다고 가정하였으므로 A와 B가 계속 이겨서 결국 마주쳤을때를 구하면 된다.\nA가 4일때\n1R A\n2R = A//2 = 2\n3R A = A//2 = 1\nB가 7일때\n1R B = 7\n2R B = B//2 = 3\n3R B = B//2 = 1\nA와 B가 붙는거는(같아지는건) 3 Round 이다.\n문제에서 제시하는 그대로 풀면 된다. 여기서 중요한건 a+1, b+1로 비교하는건데 홀수 vs 짝수가 1, 2가 될 수 있고, 2, 3이 될 수 있다. 이때 1, 2는 지금 붙지만 2, 3은 다음 번에 붙기 때문에 두 쌍을 나누는 단순한 방법으로 1을 더하고 몫을 구하는 //2를 하면된다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n, a, b): round = 1 while a != b: a = (a + 1) // 2 b = (b + 1) // 2 # 혹은 한줄로 표현할 수도 있음 # a, b = (a+1)//2, (b+1)//2 round += 1 return round 다른사람풀이 xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..시간복잡도 O(1)로 끝판왕 풀이 인것 같다. 이분은 컴퓨터 그자체 이신것 같다… 😳\nsolution.py 1 2 def solution(n,a,b): return ((a-1)^(b-1)).bit_length() ",
+  "wordCount" : "204",
   "inLanguage": "en",
   "datePublished": "2024-01-18T00:00:00Z",
   "dateModified": "2024-01-18T00:00:00Z",
@@ -335,6 +335,7 @@
 <br />
 
 <h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
+<p>xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..시간복잡도 O(1)로 끝판왕 풀이 인것 같다. 이분은 컴퓨터 그자체 이신것 같다&hellip; 😳</p>
 
 
 <div class="terminal space shadow">
@@ -348,8 +349,7 @@
       solution.py
     </div>
   </div>
-  <div class="terminalbody"><p>xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..😳</p>
-<div class="highlight"><div class="chroma">
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
