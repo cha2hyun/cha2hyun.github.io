@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬 | 채수현 개발일지</title>
+<title>프로그래머스 12980] 점프와 순간 이동 | 채수현 개발일지</title>
 <meta name="keywords" content="programmers">
 <meta name="description" content="연습문제">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/">
+<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
@@ -54,17 +54,17 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="프로그래머스 120876] 겹치는 선분의 길이 - 파이썬" />
+</noscript><meta property="og:title" content="프로그래머스 12980] 점프와 순간 이동" />
 <meta property="og:description" content="연습문제" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
-<meta property="article:published_time" content="2024-01-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-17T00:00:00+00:00" />
+<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2024-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-18T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
 
-<meta name="twitter:title" content="프로그래머스 120876] 겹치는 선분의 길이 - 파이썬"/>
+<meta name="twitter:title" content="프로그래머스 12980] 점프와 순간 이동"/>
 <meta name="twitter:description" content="연습문제"/>
 
 
@@ -94,8 +94,14 @@
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
-      "item": "https://cha2hyun.blog/content/algorithm/programmers/etc/120876/"
+      "name": "LV2",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/lv2/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "프로그래머스 12980] 점프와 순간 이동",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/"
     }
   ]
 }
@@ -104,24 +110,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
-  "name": "프로그래머스 120876] 겹치는 선분의 길이 - 파이썬",
+  "headline": "프로그래머스 12980] 점프와 순간 이동",
+  "name": "프로그래머스 12980] 점프와 순간 이동",
   "description": "연습문제",
   "keywords": [
     "programmers"
   ],
-  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3\n풀이 시도 1\ndots에 대한 조합을 구하고 나올수 있는 기울기를 구한다음에 기울기가 중복이 된 경우 평행이라고 가정하였으나, 67/100으로 탈락\n모든 조합을 구한 경우 AB직선과 BC직선은 비교할 필요가 없는데 비교하게 되어 탈락한 것 같다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 def solution(dots): from itertools import combinations slopes = [] for i in combinations(dots, 2): if i[1][0] - i[0][0] != 0: slope = (i[1][0] - i[0][0]) / (i[1][1] - i[0][1]) if slope in slopes: return 1 else: slopes.append(slope) return 0 시도 2\n각 원소에대한 기울기를 직접 구해서 진행하여 solved\nsolution.py 1 2 3 4 5 6 7 8 9 10 def gradient(a, b): return (a[1] - b[1]) / (a[0] - b[0]) def solution(dots): p1, p2, p3, p4 = dots[:4] if gradient(p3, p1) == gradient(p4, p2) or gradient(p4, p3) == gradient(p2, p1): return 1 else: return 0 다른사람풀이 solution.py 1 2 3 4 5 6 def solution(dots): [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]=dots answer1 = ((y1-y2)*(x3-x4) == (y3-y4)*(x1-x2)) answer2 = ((y1-y3)*(x2-x4) == (y2-y4)*(x1-x3)) answer3 = ((y1-y4)*(x2-x3) == (y2-y3)*(x1-x4)) return 1 if answer1 or answer2 or answer3 else 0 ",
-  "wordCount" : "186",
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12980\n풀이 시도 1\n점화식을 이용해서 푸려고 그림으로 그려보니 두가지 규칙을 찾게 되었다. n개의 칸이 짝수면 n+1개의 칸은 n개를 갔을때의 건전지 + 1개가 소요된다. 그리고 n개의 칸이 2의 제곱승이면 1이 된다.\ndp[1] = 1 (2^0) dp[2] = 1 (2^1) dp[3] = dp[2] + 1 = 2 dp[4] = 1 (2^2) dp[5] = dp[4] + 1 = 2 dp[6] = 2 dp[7] = dp[6] + 1 = 3 dp[8] = 1 (2^3) dp[9] = dp[8] + 1 = 2 그리고 쩜프는 2의배수씩 순간이동하기 떄문에 다음에 오는 dp[10]은 결국 dp[5]에서 순간이동하는 것 과 같으므로 dp[5]와 배터리가 같다\ndp[10] = dp[5] 규칙을 정리하니 다음과 같은 점화식을 얻을 수 있었다.\nn = 홀수인경우 : dp[n] = dp[n-1] + 1 n = 짝수인 경우 : dp[n] = dp[n/2] dp[0] = 0 dp[1] = dp[0] + 1 = 1 dp[2] = dp[1] = 1 dp[3] = dp[2] + 1 = 2 dp[4] = dp[2] = 1 dp[5] = dp[4] + 1 = 2 dp[6] = dp[3] = dp[2] + 1 = 2 dp[7] = dp[6] + 1 = 3 dp[8] = dp[4] = dp[2] = dp[1] = 1 dp[9] = dp[8] + 1 = 2 dp[10] = dp[5] = dp[4] + 1 = dp[2] + 1 = 2 solution.py 1 2 3 4 5 6 7 8 9 10 def solution(n): dp = [0 for _ in range(0, n)] dp[0], dp[1], dp[2] = 0, 1, 1 for i in range(3, n): if i % 2 == 0: dp[i] = dp[int((i + 1) / 2)] else: dp[i] = dp[i - 1] + 1 print(i, dp) return dp[-1] 시도 2\n시도 1이랑 비슷한데 접근을 잘못했었다. 쉬운문제였는데 너무 복잡하게 생각한게 탓이었다…. 예를들어 5,000으로 생각하면 다음과 같다\nflag = 1 (한칸은 무조건 전진해야하므로) 5000 / 2 = 2500 2500 / 2 = 1250 1250 / 2 = 625 625 / 2 = 312 … 나머지 있으므로 flag += 1 312 / 2 = 156 156 / 2 = 78 78 / 2 = 39 39 / 2 = 19 … 나머지 있으므로 flag += 1 19 / 2 = 9 … 나머지 있으므로 flag += 1 9 / 2 = 4 … 나머지 있으므로 flag += 1 4 / 2 = 2 2 / 2 = 1 return flag = 5 난이도 있는 점화식을 계속 풀었어서 그런지 문제 자체를 너무 복잡하게 생각했었던 것 같다. 손으로 써보는 버릇을 들여야 겠다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n): dp = [0 for _ in range(0, n)] dp[0], dp[1], dp[2] = 0, 1, 1 for i in range(3, n): if i % 2 == 0: dp[i] = dp[int((i + 1) / 2)] else: dp[i] = dp[i - 1] + 1 print(i, dp) return dp[-1] 다른사람풀이 또 곰곰히 보니까 2진수로 전환해서 1이 남은 수랑 똑같다… 이진수로 변환해서 1을 체크하면 더 쉽게 풀수 있었을텐데 아쉬움이 든다. 나눗셈하면서 2진수 생각을 왜 못했을까 🤣\nsolution.py 1 2 def solution(n): return bin(n).count('1') ",
+  "wordCount" : "481",
   "inLanguage": "en",
-  "datePublished": "2024-01-17T00:00:00Z",
-  "dateModified": "2024-01-17T00:00:00Z",
+  "datePublished": "2024-01-18T00:00:00Z",
+  "dateModified": "2024-01-18T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "cha2hyun"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cha2hyun.blog/content/algorithm/programmers/etc/120876/"
+    "@id": "https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/"
   },
   "publisher": {
     "@type": "Organization",
@@ -221,11 +227,11 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a></div>
+    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title entry-hint-parent">
-      프로그래머스 120876] 겹치는 선분의 길이 - 파이썬
+      프로그래머스 12980] 점프와 순간 이동
     </h1>
-    <div class="post-meta"><span title='2024-01-17 00:00:00 +0000 UTC'>January 17, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2024-01-18 00:00:00 +0000 UTC'>January 18, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun
 
 
     </div>
@@ -249,13 +255,43 @@
 </div>
 
   <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
-<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3">https://school.programmers.co.kr/learn/courses/30/lessons/120876?language=python3</a></p>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12980">https://school.programmers.co.kr/learn/courses/30/lessons/12980</a></p>
 <h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
 <blockquote>
 <p>시도 1</p>
 </blockquote>
-<p>dots에 대한 조합을 구하고 나올수 있는 기울기를 구한다음에 기울기가 중복이 된 경우 평행이라고 가정하였으나, 67/100으로 탈락</p>
-<p>모든 조합을 구한 경우 AB직선과 BC직선은 비교할 필요가 없는데 비교하게 되어 탈락한 것 같다.</p>
+<p>점화식을 이용해서 푸려고 그림으로 그려보니 두가지 규칙을 찾게 되었다. <code>n개의 칸이 짝수면 n+1개의 칸은 n개를 갔을때의 건전지 + 1개가 소요된다.</code> 그리고 <code>n개의 칸이 2의 제곱승이면 1이 된다.</code></p>
+<ul>
+<li>dp[1] = 1 (2^0)</li>
+<li>dp[2] = 1 (2^1)</li>
+<li>dp[3] = dp[2] + 1 = 2</li>
+<li>dp[4] = 1 (2^2)</li>
+<li>dp[5] = dp[4] + 1 = 2</li>
+<li>dp[6] = 2</li>
+<li>dp[7] = dp[6] + 1 = 3</li>
+<li>dp[8] = 1 (2^3)</li>
+<li>dp[9] = dp[8] + 1 = 2</li>
+</ul>
+<p>그리고 쩜프는 2의배수씩 순간이동하기 떄문에 다음에 오는 dp[10]은 결국 dp[5]에서 순간이동하는 것 과 같으므로 dp[5]와 배터리가 같다</p>
+<ul>
+<li>dp[10] = dp[5]</li>
+</ul>
+<p>규칙을 정리하니 다음과 같은 점화식을 얻을 수 있었다.</p>
+<ul>
+<li>n = 홀수인경우 : dp[n] = dp[n-1] + 1</li>
+<li>n = 짝수인 경우 : dp[n] = dp[n/2]</li>
+<li>dp[0] = 0</li>
+<li>dp[1] = dp[0] + 1 = 1</li>
+<li>dp[2] = dp[1] = 1</li>
+<li>dp[3] = dp[2] + 1 = 2</li>
+<li>dp[4] = dp[2] = 1</li>
+<li>dp[5] = dp[4] + 1 = 2</li>
+<li>dp[6] = dp[3] = dp[2] + 1 = 2</li>
+<li>dp[7] = dp[6] + 1 = 3</li>
+<li>dp[8] = dp[4] = dp[2] = dp[1] = 1</li>
+<li>dp[9] = dp[8] + 1 = 2</li>
+<li>dp[10] = dp[5] = dp[4] + 1 = dp[2] + 1 = 2</li>
+</ul>
 
 
 <div class="terminal space shadow">
@@ -281,22 +317,18 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">slopes</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">dots</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">slope</span> <span class="ow">in</span> <span class="n">slopes</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">slopes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>
@@ -306,7 +338,24 @@
 <blockquote>
 <p>시도 2</p>
 </blockquote>
-<p>각 원소에대한 기울기를 직접 구해서 진행하여 solved</p>
+<p>시도 1이랑 비슷한데 접근을 잘못했었다. 쉬운문제였는데 너무 복잡하게 생각한게 탓이었다&hellip;. 예를들어 5,000으로 생각하면 다음과 같다</p>
+<ul>
+<li><code>flag = 1 (한칸은 무조건 전진해야하므로)</code></li>
+<li>5000 / 2 = 2500</li>
+<li>2500 / 2 = 1250</li>
+<li>1250 / 2 = 625</li>
+<li>625 / 2 = 312 &hellip; 나머지 있으므로 <code>flag += 1</code></li>
+<li>312 / 2 = 156</li>
+<li>156 / 2 = 78</li>
+<li>78 / 2 = 39</li>
+<li>39 / 2 = 19 &hellip; 나머지 있으므로 <code>flag += 1</code></li>
+<li>19 / 2 = 9 &hellip; 나머지 있으므로 <code>flag += 1</code></li>
+<li>9 / 2 = 4 &hellip; 나머지 있으므로 <code>flag += 1</code></li>
+<li>4 / 2 = 2</li>
+<li>2 / 2 = 1</li>
+<li><code>return flag = 5</code></li>
+</ul>
+<p>난이도 있는 점화식을 계속 풀었어서 그런지 문제 자체를 너무 복잡하게 생각했었던 것 같다. 손으로 써보는 버릇을 들여야 겠다.</p>
 
 
 <div class="terminal space shadow">
@@ -334,16 +383,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span> <span class="o">=</span> <span class="n">dots</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="o">==</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="ow">or</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span> <span class="o">==</span> <span class="n">gradient</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>
@@ -351,6 +400,7 @@
 <br />
 
 <h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
+<p>또 곰곰히 보니까 2진수로 전환해서 1이 남은 수랑 똑같다&hellip; 이진수로 변환해서 1을 체크하면 더 쉽게 풀수 있었을텐데 아쉬움이 든다. 나눗셈하면서 2진수 생각을 왜 못했을까 🤣</p>
 
 
 <div class="terminal space shadow">
@@ -368,18 +418,10 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">dots</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">],</span> <span class="p">[</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="p">[</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">],</span> <span class="p">[</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">]]</span><span class="o">=</span><span class="n">dots</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer1</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x3</span><span class="o">-</span><span class="n">x4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y3</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer2</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x3</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">answer3</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span><span class="o">-</span><span class="n">y4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x3</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x4</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">answer1</span> <span class="ow">or</span> <span class="n">answer2</span> <span class="ow">or</span> <span class="n">answer3</span> <span class="k">else</span> <span class="mi">0</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>
@@ -395,15 +437,15 @@
       <li><a href="https://cha2hyun.blog/tags/programmers/">programmers</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/">
+  <a class="prev" href="https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/">
     <span class="title">« Prev</span>
     <br>
-    <span>프로그래머스 12985] 예상 대진표</span>
+    <span>프로그래머스 12971] 스티커모으기(2) - 파이썬</span>
   </a>
-  <a class="next" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120956/">
+  <a class="next" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/">
     <span class="title">Next »</span>
     <br>
-    <span>프로그래머스 120956] 옹알이(1) - 파이썬</span>
+    <span>프로그래머스 12985] 예상 대진표</span>
   </a>
 </nav>
 

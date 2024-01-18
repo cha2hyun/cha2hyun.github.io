@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/tags/programmers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로그래머스 12971] 스티커모으기(2) - 파이썬</title>
+      <link>https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/</guid>
+      <description>연습문제</description>
+    </item>
+    <item>
+      <title>프로그래머스 12980] 점프와 순간 이동</title>
+      <link>https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/</guid>
+      <description>연습문제</description>
+    </item>
+    <item>
+      <title>프로그래머스 12985] 예상 대진표</title>
+      <link>https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/</guid>
+      <description>연습문제</description>
+    </item>
     <item>
       <title>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</title>
       <link>https://cha2hyun.blog/content/algorithm/programmers/etc/120876/</link>

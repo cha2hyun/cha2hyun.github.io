@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/content/algorithm/programmers/lv3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로그래머스 12971] 스티커모으기(2) - 파이썬</title>
+      <link>https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/</guid>
+      <description>연습문제</description>
+    </item>
     <item>
       <title>프로그래머스 49189] 가장 먼 노드 - 파이썬</title>
       <link>https://cha2hyun.blog/content/algorithm/programmers/lv3/49189/</link>
