@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>프로그래머스 120956] 옹알이(1) - 파이썬 | 채수현 개발일지</title>
+<meta name="keywords" content="programmers">
+<meta name="description" content="연습문제">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120956/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.blog/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="프로그래머스 120956] 옹알이(1) - 파이썬" />
+<meta property="og:description" content="연습문제" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/programmers/etc/120956/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2024-01-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-17T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
+
+<meta name="twitter:title" content="프로그래머스 120956] 옹알이(1) - 파이썬"/>
+<meta name="twitter:description" content="연습문제"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.blog/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Algorithms",
+      "item": "https://cha2hyun.blog/content/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "프로그래머스 문제풀이",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "프로그래머스 120956] 옹알이(1) - 파이썬",
+      "item": "https://cha2hyun.blog/content/algorithm/programmers/etc/120956/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "프로그래머스 120956] 옹알이(1) - 파이썬",
+  "name": "프로그래머스 120956] 옹알이(1) - 파이썬",
+  "description": "연습문제",
+  "keywords": [
+    "programmers"
+  ],
+  "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=python3\n풀이 시도 1\n애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved 되었다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def solution(babbling): from itertools import permutations answer = 0 words = [\"aya\", \"ye\", \"woo\", \"ma\"] words_permutaions = [] for i in range(1, len(words) + 1): for word in permutations(words, i): words_permutaions.append(\"\".join(word)) for bab in babbling: if bab in words_permutaions: answer += 1 return answer 다른사람풀이 solution.py 1 2 3 4 5 6 7 8 import re def solution(babbling): regex = re.compile('^(aya|ye|woo|ma)+$') cnt=0 for e in babbling: if regex.match(e): cnt+=1 return cnt ",
+  "wordCount" : "129",
+  "inLanguage": "en",
+  "datePublished": "2024-01-17T00:00:00Z",
+  "dateModified": "2024-01-17T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.blog/content/algorithm/programmers/etc/120956/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.blog/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
+                </span>
+                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
+            </a>            
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.blog/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/posts/" title="일상">
+                    <span style="font-weight: bold;">일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/projects/" title="플젝">
+                    <span style="font-weight: bold;">플젝</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/algorithm/" title="공부">
+                    <span style="font-weight: bold;">공부</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/hacking/" title="해킹">
+                    <span style="font-weight: bold;">해킹</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+            <li>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </li>
+        </ul>
+        
+    </nav>
+    
+    
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a></div>
+    <h1 class="post-title entry-hint-parent">
+      프로그래머스 120956] 옹알이(1) - 파이썬
+    </h1>
+    <div class="post-meta"><span title='2024-01-17 00:00:00 +0000 UTC'>January 17, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun
+
+
+    </div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c" aria-label="문제">문제</a></li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a></li>
+                <li>
+                    <a href="#%eb%8b%a4%eb%a5%b8%ec%82%ac%eb%9e%8c%ed%92%80%ec%9d%b4" aria-label="다른사람풀이">다른사람풀이</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=python3">https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=python3</a></p>
+<h3 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h3>
+<blockquote>
+<p>시도 1</p>
+</blockquote>
+<p>애기가 옹알이 할 수 있는 단어는 4개뿐이므로 단어 4개를 조합할 수 있는 모든 순열을 구한뒤, babbling 인자로 들어오는게 조합이 가능한지 확인하는 것으로 풀었다. 아이가 옹알이 할 수 있는 단어가 늘어날수록 효울성에서 떨어질 거라 생각하였지만 바로 solved 되었다.</p>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">babbling</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;aya&#34;</span><span class="p">,</span> <span class="s2">&#34;ye&#34;</span><span class="p">,</span> <span class="s2">&#34;woo&#34;</span><span class="p">,</span> <span class="s2">&#34;ma&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words_permutaions</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">permutations</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">words_permutaions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">bab</span> <span class="ow">in</span> <span class="n">babbling</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">bab</span> <span class="ow">in</span> <span class="n">words_permutaions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+<h3 id="다른사람풀이">다른사람풀이<a hidden class="anchor" aria-hidden="true" href="#다른사람풀이">#</a></h3>
+
+
+<div class="terminal space shadow">
+  <div class="top">
+    <div class="btns">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
+    </div>
+    <div class="title">
+      solution.py
+    </div>
+  </div>
+  <div class="terminalbody"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">babbling</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;^(aya|ye|woo|ma)+$&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">babbling</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">regex</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cnt</span><span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">cnt</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<br />
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://cha2hyun.blog/tags/programmers/">programmers</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://cha2hyun.blog/content/algorithm/programmers/etc/120876/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</span>
+  </a>
+  <a class="next" href="https://cha2hyun.blog/content/hacking/kioptrix1/">
+    <span class="title">Next »</span>
+    <br>
+    <span>해킹] kioptrix-level-1</span>
+  </a>
+</nav>
+
+
+<div
+  style="
+    padding-top: 15px;
+    padding-bottom: 2px;
+    font-size: x-large;
+    font-weight: 700;
+  "
+>
+  궁금하신 점이 있으신가요? 😀
+</div>
+
+
+
+
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="cha2hyun/cha2hyun.github.io"
+  data-repo-id="R_kgDOICTfkg"
+  data-category="Comments"
+  data-category-id="DIC_kwDOICTfks4CcDAW"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="ko"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
