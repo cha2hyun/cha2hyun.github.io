@@ -13,19 +13,5 @@
     <language>en</language>
     <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/content/algorithm/programmers/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</title>
-      <link>https://cha2hyun.blog/content/algorithm/programmers/etc/120876/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/algorithm/programmers/etc/120876/</guid>
-      <description>연습문제</description>
-    </item>
-    <item>
-      <title>프로그래머스 120956] 옹알이(1) - 파이썬</title>
-      <link>https://cha2hyun.blog/content/algorithm/programmers/etc/120956/</link>
-      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/algorithm/programmers/etc/120956/</guid>
-      <description>연습문제</description>
-    </item>
   </channel>
 </rss>
