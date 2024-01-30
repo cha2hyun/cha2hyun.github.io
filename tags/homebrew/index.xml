@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>macOS on 채수현 개발일지</title>
-    <link>https://cha2hyun.blog/tags/macos/</link>
-    <description>Recent content in macOS on 채수현 개발일지</description>
+    <title>homebrew on 채수현 개발일지</title>
+    <link>https://cha2hyun.blog/tags/homebrew/</link>
+    <description>Recent content in homebrew on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
       <url>https://cha2hyun.blog/papermod-cover.png</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 30 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cha2hyun.blog/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>프로 개발자처럼 맥 세팅하기</title>
       <link>https://cha2hyun.blog/content/posts/mac-brew-list/</link>
