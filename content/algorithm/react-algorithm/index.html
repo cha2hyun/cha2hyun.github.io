@@ -13,7 +13,7 @@
 1 2 3 4 5 6 7 8 const userState = atom({ key: &#34;userState&#34;, default: { name: &#34;moon&#34;, age: &#34;20&#34; }, }); const user = useRecoilValue(userState); console.">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.blog/content/algorithm/react-algorithm/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e101c64fade41186dce194e30cf9ac31add774d65925e79e6abda73f402a3a42.css" integrity="sha256-4QHGT63kEYbc4ZTjDPmsMa3XdNZZJeeear2nP0AqOkI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
@@ -152,13 +152,45 @@
 
 <header class="header">
     <nav class="nav">
-        <div class="logo">
-            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
-                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
-                </span>
-                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
-            </a>            
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.github.io&count_bg=%235D5D5D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"
+                            alt="Views"
+                            style="margin-left:4px;"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
         </div>
+        
         <ul id="menu">
             <li>
                 <a href="https://cha2hyun.blog/archives" title="전체">
@@ -190,42 +222,16 @@
                     <span style="font-weight: bold;">검색</span>
                 </a>
             </li>
-            <li>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </div>
-            </li>
         </ul>
-        
     </nav>
-    
-    
 </header>
 <main class="main">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a></div>
-    <h1 class="post-title entry-hint-parent">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a></div>
+    <h1 class="post-title">
       자주사용되는 리액트 알고리즘, 라이브러리 정리
     </h1>
   </header> <div class="toc">
@@ -243,7 +249,7 @@
                 <li>
                     <a href="#%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-atom-selector-%ec%82%ac%ec%9a%a9-%eb%b0%a9%eb%b2%95" aria-label="기본적인 atom, selector 사용 방법">기본적인 atom, selector 사용 방법</a></li>
                 <li>
-                    <a href="#%eb%b9%84%eb%8f%99%ea%b8%b0-%ec%b2%98%eb%a6%ac%eb%b0%a9%eb%b2%95-%ea%b3%b5%ec%8b%9d%eb%ac%b8%ec%84%9c-%ea%bc%ad-%eb%b3%b4%ea%b8%b0httpsrecoiljsorgkodocsguidesasynchronous-data-queries" aria-label="비동기 처리방법 (⭐️공식문서 꼭 보기)">비동기 처리방법 (⭐️공식문서 꼭 보기)</a><ul>
+                    <a href="#%eb%b9%84%eb%8f%99%ea%b8%b0-%ec%b2%98%eb%a6%ac%eb%b0%a9%eb%b2%95-%ea%b3%b5%ec%8b%9d%eb%ac%b8%ec%84%9c-%ea%bc%ad-%eb%b3%b4%ea%b8%b0httpsrecoiljsorgkodocsguidesasynchronous-data-queries" aria-label="비동기 처리방법 (⭐️공식문서 꼭 보기)">비동기 처리방법 <a href="https://recoiljs.org/ko/docs/guides/asynchronous-data-queries">(⭐️공식문서 꼭 보기)</a></a><ul>
                         
                 <li>
                     <a href="#atom-selector-suspense%eb%a5%bc-%ec%9d%b4%ec%9a%a9" aria-label="atom, selector, suspense를 이용">atom, selector, suspense를 이용</a></li>
@@ -259,13 +265,13 @@
                     <a href="#library" aria-label="Library">Library</a><ul>
                         
                 <li>
-                    <a href="#js-cookie--%ec%bf%a0%ed%82%a4-%ea%b4%80%eb%a0%a8-%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-githubhttpsgithubcomjs-cookiejs-cookie" aria-label="js-cookie : 쿠키 관련 라이브러리 (github)">js-cookie : 쿠키 관련 라이브러리 (github)</a></li></ul>
+                    <a href="#js-cookie--%ec%bf%a0%ed%82%a4-%ea%b4%80%eb%a0%a8-%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-githubhttpsgithubcomjs-cookiejs-cookie" aria-label="js-cookie : 쿠키 관련 라이브러리 (github)">js-cookie : 쿠키 관련 라이브러리 <a href="https://github.com/js-cookie/js-cookie">(github)</a></a></li></ul>
                 </li>
                 <li>
                     <a href="#custom-hook" aria-label="Custom Hook">Custom Hook</a><ul>
                         
                 <li>
-                    <a href="#useasync-bloghttpsvelogioleehaeun0api-ed98b8ecb69ced9598eb8a94-ecbba4ec8aa4ed8580-ed9b85-eba78ceb93a4eab8b0" aria-label="useAsync (blog)">useAsync (blog)</a><ul>
+                    <a href="#useasync-bloghttpsvelogioleehaeun0api-ed98b8ecb69ced9598eb8a94-ecbba4ec8aa4ed8580-ed9b85-eba78ceb93a4eab8b0" aria-label="useAsync (blog)">useAsync <a href="https://velog.io/@leehaeun0/Api-%ED%98%B8%EC%B6%9C%ED%95%98%EB%8A%94-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%9B%85-%EB%A7%8C%EB%93%A4%EA%B8%B0">(blog)</a></a><ul>
                         
                 <li>
                     <a href="#callback-%ec%9d%b8%ec%9e%90%eb%a1%9c-%eb%93%a4%ec%96%b4%ec%98%a4%eb%8a%94-api-%ec%98%88%ec%8b%9c" aria-label="Callback 인자로 들어오는 api 예시">Callback 인자로 들어오는 api 예시</a></li>
@@ -1044,34 +1050,19 @@
 </nav>
 
 
-<div
-  style="
-    padding-top: 15px;
-    padding-bottom: 2px;
-    font-size: x-large;
-    font-weight: 700;
-  "
->
-  궁금하신 점이 있으신가요? 😀
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
 </div>
-
-
+<div class="share-buttons"></div>
 
 
 
 <script
-  src="https://giscus.app/client.js"
-  data-repo="cha2hyun/cha2hyun.github.io"
-  data-repo-id="R_kgDOICTfkg"
-  data-category="Comments"
-  data-category-id="DIC_kwDOICTfks4CcDAW"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="dark_dimmed"
-  data-lang="ko"
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
   crossorigin="anonymous"
   async
 ></script>
@@ -1080,9 +1071,15 @@
 </article>
     </main>
     
+
 <footer class="footer">
     <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
-    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

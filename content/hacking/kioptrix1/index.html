@@ -10,7 +10,7 @@
 <meta name="description" content="Setup">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.blog/content/hacking/kioptrix1/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e101c64fade41186dce194e30cf9ac31add774d65925e79e6abda73f402a3a42.css" integrity="sha256-4QHGT63kEYbc4ZTjDPmsMa3XdNZZJeeear2nP0AqOkI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
@@ -104,8 +104,8 @@
   "keywords": [
     "Kali Linux", "해킹"
   ],
-  "articleBody": "\nkioptrix1 서버 올리기 kioptrix-level-1-1을 받아서 UTM으로 실행해줍니다. 실리콘에서 실행시키기 위해 유튜브를 참고하였습니다. 이때 qemu 사용하기 위해 brew 로 설치가 필요합니다.\n1 brew install qemu Step 1:- Download Kioptrix level 1 vulnerable system Step 2:- Unzip the file through Unzip rar (download from App Store) Step 3:- Open the unzip Folder in terminal Step 4:- qemu-img convert -p -O qcow2 *.vmdk output.qcow2 (write this command in terminal ) Step 5:- Open Utm Step 6: - Create new Virtual machine Step 7:- Click on the Emulate Button Step 8:- Skip ISO BOOT Step 9:- Click Continue Step 10:- Open virtual Setting Step 11:- Click Qemu Step 12:- Tick RNG and force ps/2 controller Step 13:- Delete Drive Step 14:- Import new drive and select .qocw2 file from kioptrix folder 여기에 추가로 네트워크 설정에서 브릿지로 설정해줍니다.\nInformation Gathering ping scan 하여 취약 ip 찾기 information gathering 어떤 ip가 살아있는지 ping scan을 일일이 날리지 않고 한번에 해줌, python이나 shell로 코드를 짜도 되고 nmap을 사용해도 가능 이때 flag는 -sn을 사용한다.\n1 nmap -sn 192.168.0.1-255 위에서 찾은 ip로 취약한 Port 찾기 취약한 ip를 찾았다면 어떤 포트가 열려있는지 확인합니다. flag는 -A을 사용한다. -v 옵션을 주어서 어떤 내용인지 로그를 전부 출력한다\n1 nmap -v -A 192.168.0.X 테스트로 localhost로 웹서버 몇개를 띄웠습니다\nsearchsploit으로 취약점 찾기 위에서 열린 포트중에 어떤 취약점이 있는지 확인할 수 있습니다. 예시) nginx, apache, mod_ssl 등\n1 searchsploit mod_ssl 어떠한 취약점이 있는지 확인할 수 있습니다. 사용할 파일은 복사하여 사용합니다.\n1 cp /usr/share/exploitdb/exploits/{위에서나온PATH} /복사할 path gobuster 사용하기 웹페이지의 경로를 Broute Force 방식으로 무작위 대입하여 어떠한 경로가 있는지 파악하는 툴입니다.\n1 sudo apt install gobuster 기본적으로 dirbuster 에 대한 broute force 내용들이 저장되어 있습니다. 경로는 /usr/share/wordlists/dirbuster/ 하위에 있습니다. 사용 방법은 다음과 같습니다.\n1 gobuster dir -u [웹주소] -w /usr/share/wordlists/dirbuster/[사용할 파일] -t [쓰레드수] --exclude-length [제외할 length string 예시) 100-400] 명령어를 실행하게 되면 적용한 파일에 있는 주소가 있는지 확인하여 결과를 보여줍니다.\n계속… Reference https://www.youtube.com/@Normaltic 사장님 안녕하세요 채수현 팀장입니다. 이번년도에 급여(혹은 혹수달 보너스)가 어떻게 진행될 지 궁금하여 연락드렸습니다.\n",
-  "wordCount" : "317",
+  "articleBody": "\nkioptrix1 서버 올리기 kioptrix-level-1-1을 받아서 UTM으로 실행해줍니다. 실리콘에서 실행시키기 위해 유튜브를 참고하였습니다. 이때 qemu 사용하기 위해 brew 로 설치가 필요합니다.\n1 brew install qemu Step 1:- Download Kioptrix level 1 vulnerable system Step 2:- Unzip the file through Unzip rar (download from App Store) Step 3:- Open the unzip Folder in terminal Step 4:- qemu-img convert -p -O qcow2 *.vmdk output.qcow2 (write this command in terminal ) Step 5:- Open Utm Step 6: - Create new Virtual machine Step 7:- Click on the Emulate Button Step 8:- Skip ISO BOOT Step 9:- Click Continue Step 10:- Open virtual Setting Step 11:- Click Qemu Step 12:- Tick RNG and force ps/2 controller Step 13:- Delete Drive Step 14:- Import new drive and select .qocw2 file from kioptrix folder 여기에 추가로 네트워크 설정에서 브릿지로 설정해줍니다.\nInformation Gathering ping scan 하여 취약 ip 찾기 information gathering 어떤 ip가 살아있는지 ping scan을 일일이 날리지 않고 한번에 해줌, python이나 shell로 코드를 짜도 되고 nmap을 사용해도 가능 이때 flag는 -sn을 사용한다.\n1 nmap -sn 192.168.0.1-255 위에서 찾은 ip로 취약한 Port 찾기 취약한 ip를 찾았다면 어떤 포트가 열려있는지 확인합니다. flag는 -A을 사용한다. -v 옵션을 주어서 어떤 내용인지 로그를 전부 출력한다\n1 nmap -v -A 192.168.0.X 테스트로 localhost로 웹서버 몇개를 띄웠습니다\nsearchsploit으로 취약점 찾기 위에서 열린 포트중에 어떤 취약점이 있는지 확인할 수 있습니다. 예시) nginx, apache, mod_ssl 등\n1 searchsploit mod_ssl 어떠한 취약점이 있는지 확인할 수 있습니다. 사용할 파일은 복사하여 사용합니다.\n1 cp /usr/share/exploitdb/exploits/{위에서나온PATH} /복사할 path gobuster 사용하기 웹페이지의 경로를 Broute Force 방식으로 무작위 대입하여 어떠한 경로가 있는지 파악하는 툴입니다.\n1 sudo apt install gobuster 기본적으로 dirbuster 에 대한 broute force 내용들이 저장되어 있습니다. 경로는 /usr/share/wordlists/dirbuster/ 하위에 있습니다. 사용 방법은 다음과 같습니다.\n1 gobuster dir -u [웹주소] -w /usr/share/wordlists/dirbuster/[사용할 파일] -t [쓰레드수] --exclude-length [제외할 length string 예시) 100-400] 명령어를 실행하게 되면 적용한 파일에 있는 주소가 있는지 확인하여 결과를 보여줍니다.\n계속… Reference https://www.youtube.com/@Normaltic ",
+  "wordCount" : "304",
   "inLanguage": "en",
   "datePublished": "2024-01-15T00:00:00Z",
   "dateModified": "2024-01-15T00:00:00Z",
@@ -143,13 +143,45 @@
 
 <header class="header">
     <nav class="nav">
-        <div class="logo">
-            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
-                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
-                </span>
-                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
-            </a>            
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.github.io&count_bg=%235D5D5D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"
+                            alt="Views"
+                            style="margin-left:4px;"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
         </div>
+        
         <ul id="menu">
             <li>
                 <a href="https://cha2hyun.blog/archives" title="전체">
@@ -181,48 +213,22 @@
                     <span style="font-weight: bold;">검색</span>
                 </a>
             </li>
-            <li>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </div>
-            </li>
         </ul>
-        
     </nav>
-    
-    
 </header>
 <main class="main">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/hacking/">해킹</a></div>
-    <h1 class="post-title entry-hint-parent">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/hacking/">해킹</a></div>
+    <h1 class="post-title">
       해킹] kioptrix-level-1
     </h1>
-    <div class="post-meta"><span title='2024-01-15 00:00:00 +0000 UTC'>January 15, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta">
+      &lt;span title=&#39;2024-01-15 00:00:00 &#43;0000 UTC&#39;&gt;January 15, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;cha2hyun
 
-
-    </div>
+</div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
@@ -245,7 +251,7 @@
                     <a href="#gobuster-%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0" aria-label="gobuster 사용하기">gobuster 사용하기</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%ea%b3%84%ec%86%8d" aria-label="계속&hellip;">계속&hellip;</a></li>
+                    <a href="#%ea%b3%84%ec%86%8d" aria-label="계속&amp;hellip;">계속&hellip;</a></li>
                 <li>
                     <a href="#reference" aria-label="Reference">Reference</a>
                 </li>
@@ -372,8 +378,6 @@
 <ul>
 <li><a href="https://www.youtube.com/@Normaltic">https://www.youtube.com/@Normaltic</a></li>
 </ul>
-<p>사장님 안녕하세요 채수현 팀장입니다.
-이번년도에 급여(혹은 혹수달 보너스)가 어떻게 진행될 지 궁금하여 연락드렸습니다.</p>
 
 
   </div>
@@ -397,34 +401,19 @@
 </nav>
 
 
-<div
-  style="
-    padding-top: 15px;
-    padding-bottom: 2px;
-    font-size: x-large;
-    font-weight: 700;
-  "
->
-  궁금하신 점이 있으신가요? 😀
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
 </div>
-
-
+<div class="share-buttons"></div>
 
 
 
 <script
-  src="https://giscus.app/client.js"
-  data-repo="cha2hyun/cha2hyun.github.io"
-  data-repo-id="R_kgDOICTfkg"
-  data-category="Comments"
-  data-category-id="DIC_kwDOICTfks4CcDAW"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="dark_dimmed"
-  data-lang="ko"
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
   crossorigin="anonymous"
   async
 ></script>
@@ -433,9 +422,15 @@
 </article>
     </main>
     
+
 <footer class="footer">
     <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
-    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

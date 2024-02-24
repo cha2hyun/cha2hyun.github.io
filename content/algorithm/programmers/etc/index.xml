@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ETC on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/content/algorithm/programmers/etc/</link>
     <description>Recent content in ETC on 채수현 개발일지</description>
     <image>
-      <title>채수현 개발일지</title>
       <url>https://cha2hyun.blog/papermod-cover.png</url>
       <link>https://cha2hyun.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/content/algorithm/programmers/etc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.blog/content/algorithm/programmers/etc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</title>
       <link>https://cha2hyun.blog/content/algorithm/programmers/etc/120876/</link>
       <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://cha2hyun.blog/content/algorithm/programmers/etc/120876/</guid>
       <description>연습문제</description>
     </item>
+    
     <item>
       <title>프로그래머스 120956] 옹알이(1) - 파이썬</title>
       <link>https://cha2hyun.blog/content/algorithm/programmers/etc/120956/</link>
       <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://cha2hyun.blog/content/algorithm/programmers/etc/120956/</guid>
       <description>연습문제</description>
     </item>
+    
   </channel>
 </rss>

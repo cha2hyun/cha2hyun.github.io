@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>FE 기술면접 준비 | 채수현 개발일지</title>
+<meta name="keywords" content="">
+<meta name="description" content="💡 현재 글은 미완성 단계입니다.
+브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침.">
+<meta name="author" content="cha2hyun">
+<link rel="canonical" href="https://cha2hyun.blog/content/algorithm/frontend/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e101c64fade41186dce194e30cf9ac31add774d65925e79e6abda73f402a3a42.css" integrity="sha256-4QHGT63kEYbc4ZTjDPmsMa3XdNZZJeeear2nP0AqOkI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://cha2hyun.blog/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="FE 기술면접 준비" />
+<meta property="og:description" content="💡 현재 글은 미완성 단계입니다.
+브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cha2hyun.blog/content/algorithm/frontend/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/><meta property="article:section" content="content" />
+<meta property="article:published_time" content="2024-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-24T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
+
+<meta name="twitter:title" content="FE 기술면접 준비"/>
+<meta name="twitter:description" content="💡 현재 글은 미완성 단계입니다.
+브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Contents",
+      "item": "https://cha2hyun.blog/content/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Algorithms",
+      "item": "https://cha2hyun.blog/content/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "FE 기술면접 준비",
+      "item": "https://cha2hyun.blog/content/algorithm/frontend/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "FE 기술면접 준비",
+  "name": "FE 기술면접 준비",
+  "description": "💡 현재 글은 미완성 단계입니다.\n브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침.",
+  "keywords": [
+    
+  ],
+  "articleBody": " 💡 현재 글은 미완성 단계입니다.\n브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침. 서버에 요청 전송 및 응답 TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 서버는 해당하는 웹페이지의 내용에 포함된 HTTP응답 메세지를 전송 (HTML, CSS, JS 등의 파일을 받아옴) 서버로받은 HTML파일을 렌더링 브라우저 렌더링 과정 참고 : https://www.youtube.com/watch?v=z1Jj7Xg-TkU\nHTML 파싱 → DOM트리 생성 서버로부터 전달받은 HTML은 바이트스트림(8비트)으로 되어있는데 이를 문자열로 변경 토큰화과정을 진행. 브라우저가 가지고 있는 토큰과 비교하여 해당 문자가 HTML 파일인지 비교합니다. 이때 토큰은 시작 혹은 종료태그 속성, 속성값 등을 의미 토큰화과정에서 노드가 생성되고 노드가 모여 거대한 DOM트리가 생성 DOM트리를 생성하는 과정에서 img나 link같은 태그를 만나게 되면 태그안에 있는 리소스를 다운 DOM트리를 생성하는 과정에서 script 태그를 만나게 되면 브라우저는 DOM생성을 중단하고 script 태그안에있는 자바스크립트를 해석 CSS 파싱 → CSSOM 트리 생성 DOM 트리를 생성하는 과정과 유사 렌더트리 생성 DOM 트리 + CSSOM 트리를 합쳐서 렌더트리를 생성한다 레이아웃 (리플로우) 위치, 크기, 계산 속성 요소의 크기나 좌표와 같은 좌표를 갖은 레이아웃 트리를 생성 이때 display:none 속성은 렌더트리에 포함되지 않음 position, left, top, right, weidth, hegith, margin, padding, border, display, float 등 페인트 (리페인트) 꾸미기 속성 렌더트리를 따라서 페인트 기록이 생성. 요소를 렌더링하는 순서나 여러개의 레이어로 나눈다음 텍스트, 색, 이미지 보더, 그림자 등 시각적인 부분을 그리는 과정을 지남 background, box-shadow, border-radius, border-style, color, outline 등 Composite 페인트 단계에서 만든 여러가지 레이어를 하나로 합성하고 스크린에 픽셀로 나타내게 됨 수정이 일어난다면 렌더트리를 다시 생성하게 된다. (연산이 많이 일어나는 작업) 이때 수정된 부분이 어떤것인지에 따라서 리플로우 과정을 건너뛸 수 있다. 단 transform, opacity는 GPU가 관여하는 속성으로 DOM트리를 변경하지 않도록 설계되어 있기 때문에 리플로우 리페인트를 건너띌 수 있다. HTTPS (Hyper Text Transfer Protocol Secure) 과정 참고 : https://www.youtube.com/watch?v=H6lpFRpyl14\n핸드셰이크 과정을 거침. 클라이언트는 랜덤데이터를 서버에 보내고 서버는 응답으로 랜덤데이터와 인증서를 함께 보냄 클라이언트는 전달받은 인증서가 진짜인지 브라우저에 내장된 CA들의 정보를 통해 확인함 인증서는 CA의 개인키로 암호화되어 있고 브라우저에 저장된 CA의 공개키로 복호화를 합니다. 이때 복호화에 성공하면 서버로부터 받은 인증서는 검증된 것임. 복호화할 수 없다면 안전하지 않은 페이지로 Warning이 표시됨 복호화된 인증서에는 서버의 공개키가 포함되어 있음. 핸드셰이크때 이용한 랜덤데이터를 서버의 공개키로 암호화해서 서버로 보내지게되고 양쪽에서 일련의 과정을 통해 동일한 대칭키를 갖게 됨 서버와 클라이언트는 대칭키를 이용해서 데이터를 암호화하여 주고 받게됩니다. (계속 비대칭키를 이용하면 연산이 많아지기 때문 즉, 비대칭키로 만든 대칭키를 사용하게됩니다.) URL vs URI URI (Uniform Resource Identifier) 정의: 웹 상의 자원을 식별하는 유일한 주소입니다. URI는 리소스를 찾기 위한 일반적인 용어로, URL과 URN을 포함하는 상위 개념입니다. 예시: https://example.com/path/to/resource 이것은 리소스를 찾기 위한 전체적인 주소를 나타냅니다. URL (Uniform Resource Locator) 정의: 리소스가 실제로 위치한 곳을 가리키는 주소입니다. URL은 리소스에 접근하기 위한 구체적인 위치 정보를 제공합니다. 구성 요소: 프로토콜(예: http, https), 호스트 이름(도메인 이름 또는 IP 주소), 포트 번호(선택적), 경로(리소스가 있는 위치), 쿼리 문자열(선택적), 프래그먼트(선택적) 등을 포함합니다. 예시: https://www.example.com/articles/uri-vs-url-vs-urn 이것은 웹 상의 특정 자원을 찾기 위한 구체적인 위치를 나타냅니다. URN (Uniform Resource Name) 정의: 리소스의 위치와 무관하게 리소스를 유일하게 식별하는 이름입니다. URN은 리소스가 실제로 어디에 있는지, 혹은 어떻게 접근해야 하는지와는 관계없이 리소스를 식별하기 위한 영구적인 이름을 제공합니다. 용도: 주로 도서관, 문서 아카이브 등에서 문서나 출판물 등의 리소스에 대한 영구적인 식별자로 사용됩니다. 예시: urn:isbn:0451450523 이것은 특정한 책을 식별하기 위한 ISBN 코드를 나타냅니다. Javascript Prototype 참고 - https://www.youtube.com/watch?v=wUgmzvExL_E\n1 2 3 4 5 6 7 8 9 10 11 12 var test = [2, 1, 4]; // var test = new Array(2, 1, 4); test.sort(); // Array 객체의 prototype중 sort가 있기에 사용할 수 있음 test.sortReverse(); // undefined, Array 객체가 prototype중 sortReverse 가 없기 때문 Array.prototype.sortReverse = function () { return ... } test.sortReverse() [5,7,6].sortReverse(); // Array객체의 prototype에 sortReverse를 정의해주어서 앞으로 모든 배열에 사용할 수 있게됨 // prototype은 상위 객체의 유전자라고 생각하면 편함 prototype은 무엇인가요?\nJS는 프로토타입 기반 언어로 객체의 상속이 프로토타입으로 이루어집니다. 프로토타입은 특정 객체 유형의 모든 인스턴스가 공유하는 객체입니다. 이 속성은 메서드와 속성을 상속하기 위해 사용됩니다. prototype chain은 무엇인가요?\n객체가 속성이나 메서드에 접근하려고 시도할 때, 해당 속성이나 메서드를 찾기 위해 JS엔진이 따르는 경로입니다. 객체에서 직접 속성이나 메서드를 찾을 수 없는 경우, JS는 객체의 프로토타입 (즉 그 객체의 생성자 함수의 prototype)으로 이동하여 거기에서 속성이나 메서드를 찾는데 이 과정은 프로토타입 체인의 최상단에 도달할때 까지, 즉 null이 프로토타입으로 설정될 때 까지 반복됩니다. function.bind가 되는 이유는 무엇인가요?\n자바스크립트의 모든 함수가 Function 객체의 인스턴스인데 function 객체의 프로토타입에 정의되어 있기에 모든 함수에서 bind를 사용할 수 있습니다. function.bind는 새로운 함수를 생성하며, 이 새로운 함수의 this가 bind 메서드에 전돨된 값으로 설정됩니다. 이는 함수가 호출될 때 주어진 this 값과 인자들을 사용하여 실행되도록 합니다. bind는 함수의 실행 컨텍스트를 명시적으로 설정할 때 유용하며 특히 콜백 함수나 이벤트 핸들러에서 this의 값이 예상대로 설정되지 않을때 문제를 해결하는데 사용됩니다. 상속은 어떻게 구현하나요?\n프로토타입 체인을 사용하여 상속을 구현할 수 있습니다. 하위 클래스(생성자함수)의 프로토타입을 상위 클래스의 인스턴스로 설정함으로써 이루어집니다. extends를 사용하여 클래스간에 상속을 정의할 수 있으며 super 를 사용하여 부모 클래스의 생성자를 호출할 수 있습니다. this 참고 : https://www.youtube.com/watch?v=tDZROpAdJ9w\nthis는 무엇인가요?\nthis는 현재 실행 컨텍스트의 객체를 참조하는 식별자입니다. 즉, 현재 코드가 실행되고 있는 “주변 환경\"을 가리킵니다. 함수 내에서 this의 값은 그 함수가 호출되는 방식에 따라 달라집니다. this는 언제 결정되나요?\nthis의 값은 함수가 호출될 때 결정됩니다. 주요 규칙은 다음과 같습니다 전역 컨텍스트에서 this는 전역 객체를 가리킵니다. 브라우저에서는 window, Node.js에서는 global 객체가 됩니다. 객체의 메서드로서 호출될 때, this는 그 메서드를 호출한 객체를 가리킵니다. 생성자 함수에서, this는 새로 생성되는 객체 인스턴스를 가리킵니다. 이벤트 핸들러에서, this는 이벤트를 받는 DOM 요소를 가리킵니다. Arrow Function에서의 this는 무엇인가요?\n화살표 함수(arrow function)에서의 this는 다릅니다. 화살표 함수는 자신의 this를 가지지 않고, 대신에 함수가 생성될 때의 this값을 “렉시컬하게” 바인딩합니다. 즉, 화살표 함수 내부에서의 this는 화살표 함수를 둘러싼 외부 스코프의 this와 같습니다. this를 변경하는 방법은 무엇인가요?\n참조 : https://www.youtube.com/watch?v=KfuyXQLFNW4 JavaScript에서는 call, apply, 그리고 bind 함수를 이용해 함수 호출 시 this의 값을 명시적으로 설정할 수 있습니다. call과 apply는 함수를 즉시 호출하면서 첫 번째 인자로 this를 설정합니다. call은 개별 인자를, apply는 인자 배열을 받습니다. bind는 함수의 this값을 영구히 바꿀 수 있는 새 함수를 반환합니다. 이는 Function.prototype에 정의되어 있으며, bind를 호출하는 함수의 복사본을 생성하고, 이 복사본에서 this의 값을 첫 번째 인자로 전달된 값으로 고정합니다. Scope 스코프란 무엇인가요?\n변수이름, 함수이름, 클래스이름 과같은 식별자가 본인이 선언된 위치에 따라 다른 코드에서 자신이 참조될 수 있을지 없을지 결정되는 것 스코프 체인이란 무엇인가요 ?\n스코프는 함수의 위치에 따라서 계층적인 구조를 가질 수 있음 이렇게 계층적인 구조로 연결된 것을 스코프체인이라고 함 예를들어 Inner scope \u003e Outer Scope \u003e 전역 스코프 처럼 계층적인 구조임 변수를 참조할때 JS 엔진은 스코프 체인을 통해 변수를 참조함 아래에서 위로 반방향성으로만 존재하여 하위스코프는 상위스코프를 참조할 수 있지만 반대는 되지 않음 스코프 레벨이란 무엇인가 ?\n블록 레벨 스코프 (if, for) = ES6의 let, const 함수 레벨 스코프 = 함수 동적스코프 - 함수가 호출되는 시점에 결정\n정적스코프(렉시컬스코프) - 함수가 정의되는 시점에 결정 자바스크립트에서 함수는 상위 스코프를 참조하기 때문에 본인의 내부 슬롯에 상위 스코프에 대한 참조를 저장합니다.\n함수가 호출되면 실행되는 과정은 ?\n함수호출 -\u003e 실행 컨텍스트 생성 -\u003e 실행 컨텍스트 스택 푸쉬 -\u003e 렉시컬 환경 생성 (식별자, 식별자에 바인딩 된 값, 상위 렉시켤 환경에 대한 참조) -\u003e 실행 컨덱스트 스택 POP Closure 참고 : https://www.youtube.com/watch?v=tpl2oXQkGZs\n클로져는 무엇인가요? 상위 스코프의 식별자를 참조하고 있음. 클로져를 활용한 구현경험 커링이 무엇인지 고차함수는 무엇인지 스코프-클로져 Functional Programming 배열의 고차함수 어떤것을 사용하는지 reduce를 어떻게 구현하는지 합성은 상속과 어떤 장점이 있는지 Immutable 장단점은 어떤것이 있는지 OOP ES lasses 상속은 어떻게 하고 캡슐화는 어떻게하는지 객체를 나누는 단위는? 의존성을 낮추는 방법은? (사례중심) 비동기 Promise, async/await 차이는? promise 패턴 설명 setTimeout에 Promise를 적용하면? 동시에 여러개의 관계없는 요청을 한다면? Task queue vs Micro task queue? 객체 객체 표현 방식중 자주 사용하는지? class, prototype, literal 차이 자주 사용하는 메서드는? JSON 데이터 파싱시 가장 신경쓰이는 것은? 대문자 객체와 소문자 객체는 무엇이 차이있는지 (Object vs object) 얕은복사와 깊은복사 이벤트 실행방법 이벤트 버블링, 이벤트 캡쳐링 타입스크립트 Pick, Omit 기타 generateor가 무엇인가요? ES Next 관심있는 문법은? 정규표현식은 무엇이고 언제사용하는지? Debugging 버그 문제를 어떻게 해결하는지? 본인만의 디버깅 방식은? calling stack? network 오류 상황에 어떻게 확인하는지? (break 포인트?) ",
+  "wordCount" : "1307",
+  "inLanguage": "en",
+  "datePublished": "2024-02-24T00:00:00Z",
+  "dateModified": "2024-02-24T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "cha2hyun"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cha2hyun.blog/content/algorithm/frontend/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "채수현 개발일지",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cha2hyun.blog/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.github.io&count_bg=%235D5D5D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"
+                            alt="Views"
+                            style="margin-left:4px;"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
+        </div>
+        
+        <ul id="menu">
+            <li>
+                <a href="https://cha2hyun.blog/archives" title="전체">
+                    <span style="font-weight: bold;">전체</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/posts/" title="일상">
+                    <span style="font-weight: bold;">일상</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/projects/" title="플젝">
+                    <span style="font-weight: bold;">플젝</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/algorithm/" title="공부">
+                    <span style="font-weight: bold;">공부</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/content/hacking/" title="해킹">
+                    <span style="font-weight: bold;">해킹</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://cha2hyun.blog/search/" title="검색">
+                    <span style="font-weight: bold;">검색</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs">
+    </div><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a></div>
+    <h1 class="post-title">
+      FE 기술면접 준비
+    </h1>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80" aria-label="브라우저">브라우저</a><ul>
+                        
+                <li>
+                    <a href="#%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80%ec%97%90-url%ec%9d%84-%ec%9e%85%eb%a0%a5%ed%95%98%eb%a9%b4-%ec%83%9d%ea%b8%b0%eb%8a%94-%ec%9d%bc" aria-label="브라우저에 URL을 입력하면 생기는 일">브라우저에 URL을 입력하면 생기는 일</a></li>
+                <li>
+                    <a href="#%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80-%eb%a0%8c%eb%8d%94%eb%a7%81-%ea%b3%bc%ec%a0%95" aria-label="브라우저 렌더링 과정">브라우저 렌더링 과정</a></li>
+                <li>
+                    <a href="#https-hyper-text-transfer-protocol-secure-%ea%b3%bc%ec%a0%95" aria-label="HTTPS (Hyper Text Transfer Protocol Secure) 과정">HTTPS (Hyper Text Transfer Protocol Secure) 과정</a></li>
+                <li>
+                    <a href="#url-vs-uri" aria-label="URL vs URI">URL vs URI</a></li></ul>
+                </li>
+                <li>
+                    <a href="#javascript" aria-label="Javascript">Javascript</a><ul>
+                        
+                <li>
+                    <a href="#prototype" aria-label="Prototype">Prototype</a></li>
+                <li>
+                    <a href="#this" aria-label="this">this</a></li>
+                <li>
+                    <a href="#scope" aria-label="Scope">Scope</a></li>
+                <li>
+                    <a href="#closure" aria-label="Closure">Closure</a></li>
+                <li>
+                    <a href="#functional-programming" aria-label="Functional Programming">Functional Programming</a></li>
+                <li>
+                    <a href="#oop" aria-label="OOP">OOP</a></li>
+                <li>
+                    <a href="#%eb%b9%84%eb%8f%99%ea%b8%b0" aria-label="비동기">비동기</a></li>
+                <li>
+                    <a href="#%ea%b0%9d%ec%b2%b4" aria-label="객체">객체</a></li>
+                <li>
+                    <a href="#%ec%9d%b4%eb%b2%a4%ed%8a%b8-%ec%8b%a4%ed%96%89%eb%b0%a9%eb%b2%95" aria-label="이벤트 실행방법">이벤트 실행방법</a></li>
+                <li>
+                    <a href="#%ed%83%80%ec%9e%85%ec%8a%a4%ed%81%ac%eb%a6%bd%ed%8a%b8" aria-label="타입스크립트">타입스크립트</a></li>
+                <li>
+                    <a href="#%ea%b8%b0%ed%83%80" aria-label="기타">기타</a></li>
+                <li>
+                    <a href="#debugging" aria-label="Debugging">Debugging</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>💡 현재 글은 미완성 단계입니다.</p>
+</blockquote>
+<h2 id="브라우저">브라우저<a hidden class="anchor" aria-hidden="true" href="#브라우저">#</a></h2>
+<h3 id="브라우저에-url을-입력하면-생기는-일">브라우저에 URL을 입력하면 생기는 일<a hidden class="anchor" aria-hidden="true" href="#브라우저에-url을-입력하면-생기는-일">#</a></h3>
+<ol>
+<li>URL해석
+<ol>
+<li>브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출</li>
+</ol>
+</li>
+<li>DNS 조회 (분산형 DB)
+<ol>
+<li>호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답</li>
+<li>이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의</li>
+<li>접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음</li>
+</ol>
+</li>
+<li>서버연결
+<ol>
+<li>브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐)</li>
+<li>이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침.</li>
+</ol>
+</li>
+<li>서버에 요청 전송 및 응답
+<ol>
+<li>TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 서버는 해당하는 웹페이지의 내용에 포함된 HTTP응답 메세지를 전송 (HTML, CSS, JS 등의 파일을 받아옴)</li>
+</ol>
+</li>
+<li>서버로받은 HTML파일을 렌더링</li>
+</ol>
+<h3 id="브라우저-렌더링-과정">브라우저 렌더링 과정<a hidden class="anchor" aria-hidden="true" href="#브라우저-렌더링-과정">#</a></h3>
+<p>참고 : <a href="https://www.youtube.com/watch?v=z1Jj7Xg-TkU">https://www.youtube.com/watch?v=z1Jj7Xg-TkU</a></p>
+<ol>
+<li>HTML 파싱 → DOM트리 생성
+<ol>
+<li>서버로부터 전달받은 HTML은 바이트스트림(8비트)으로 되어있는데 이를 문자열로 변경</li>
+<li>토큰화과정을 진행. 브라우저가 가지고 있는 토큰과 비교하여 해당 문자가 HTML 파일인지 비교합니다. 이때 토큰은 시작 혹은 종료태그 속성, 속성값 등을 의미</li>
+<li>토큰화과정에서 노드가 생성되고 노드가 모여 거대한 DOM트리가 생성</li>
+<li>DOM트리를 생성하는 과정에서 <code>img</code>나 <code>link</code>같은 태그를 만나게 되면 태그안에 있는 리소스를 다운</li>
+<li>DOM트리를 생성하는 과정에서 <code>script</code> 태그를 만나게 되면 브라우저는 DOM생성을 중단하고 <code>script</code> 태그안에있는 자바스크립트를 해석</li>
+</ol>
+</li>
+<li>CSS 파싱 → CSSOM 트리 생성
+<ol>
+<li>DOM 트리를 생성하는 과정과 유사</li>
+</ol>
+</li>
+<li>렌더트리 생성
+<ol>
+<li>DOM 트리 + CSSOM 트리를 합쳐서 렌더트리를 생성한다</li>
+<li>레이아웃 (리플로우)
+<ol>
+<li>위치, 크기, 계산 속성</li>
+<li>요소의 크기나 좌표와 같은 좌표를 갖은 레이아웃 트리를 생성</li>
+<li>이때 display:none 속성은 렌더트리에 포함되지 않음</li>
+<li><code>position, left, top, right, weidth, hegith, margin, padding, border, display, float</code> 등</li>
+</ol>
+</li>
+<li>페인트 (리페인트)
+<ol>
+<li>꾸미기 속성</li>
+<li>렌더트리를 따라서 페인트 기록이 생성. 요소를 렌더링하는 순서나 여러개의 레이어로 나눈다음 텍스트, 색, 이미지 보더, 그림자 등 시각적인 부분을 그리는 과정을 지남</li>
+<li><code>background, box-shadow, border-radius, border-style, color, outline</code> 등</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Composite
+<ol>
+<li>페인트 단계에서 만든 여러가지 레이어를 하나로 합성하고 스크린에 픽셀로 나타내게 됨</li>
+</ol>
+</li>
+<li>수정이 일어난다면
+<ol>
+<li>렌더트리를 다시 생성하게 된다. (연산이 많이 일어나는 작업)</li>
+<li>이때 수정된 부분이 어떤것인지에 따라서 리플로우 과정을 건너뛸 수 있다.</li>
+<li>단 <code>transform</code>, <code>opacity</code>는 GPU가 관여하는 속성으로 DOM트리를 변경하지 않도록 설계되어 있기 때문에 리플로우 리페인트를 건너띌 수 있다.</li>
+</ol>
+</li>
+</ol>
+<h3 id="https-hyper-text-transfer-protocol-secure-과정">HTTPS (Hyper Text Transfer Protocol Secure) 과정<a hidden class="anchor" aria-hidden="true" href="#https-hyper-text-transfer-protocol-secure-과정">#</a></h3>
+<p>참고 : <a href="https://www.youtube.com/watch?v=H6lpFRpyl14">https://www.youtube.com/watch?v=H6lpFRpyl14</a></p>
+<ol>
+<li>핸드셰이크 과정을 거침. 클라이언트는 랜덤데이터를 서버에 보내고 서버는 응답으로 랜덤데이터와 인증서를 함께 보냄</li>
+<li>클라이언트는 전달받은 인증서가 진짜인지 브라우저에 내장된 CA들의 정보를 통해 확인함</li>
+<li>인증서는 CA의 개인키로 암호화되어 있고 브라우저에 저장된 CA의 공개키로 복호화를 합니다. 이때 복호화에 성공하면 서버로부터 받은 인증서는 검증된 것임. 복호화할 수 없다면 안전하지 않은 페이지로 Warning이 표시됨</li>
+<li>복호화된 인증서에는 서버의 공개키가 포함되어 있음.</li>
+<li>핸드셰이크때 이용한 랜덤데이터를 서버의 공개키로 암호화해서 서버로 보내지게되고 양쪽에서 일련의 과정을 통해 동일한 대칭키를 갖게 됨</li>
+<li>서버와 클라이언트는 대칭키를 이용해서 데이터를 암호화하여 주고 받게됩니다. (계속 비대칭키를 이용하면 연산이 많아지기 때문 즉, 비대칭키로 만든 대칭키를 사용하게됩니다.)</li>
+</ol>
+<h3 id="url-vs-uri">URL vs URI<a hidden class="anchor" aria-hidden="true" href="#url-vs-uri">#</a></h3>
+<ul>
+<li>URI (Uniform Resource Identifier)
+<ul>
+<li>정의: 웹 상의 자원을 식별하는 유일한 주소입니다. URI는 리소스를 찾기 위한 일반적인 용어로, URL과 URN을 포함하는 상위 개념입니다.</li>
+<li>예시: <a href="https://example.com/path/to/resource">https://example.com/path/to/resource</a> 이것은 리소스를 찾기 위한 전체적인 주소를 나타냅니다.</li>
+</ul>
+</li>
+<li>URL (Uniform Resource Locator)
+<ul>
+<li>정의: 리소스가 실제로 위치한 곳을 가리키는 주소입니다. URL은 리소스에 접근하기 위한 구체적인 위치 정보를 제공합니다.</li>
+<li>구성 요소: 프로토콜(예: http, https), 호스트 이름(도메인 이름 또는 IP 주소), 포트 번호(선택적), 경로(리소스가 있는 위치), 쿼리 문자열(선택적), 프래그먼트(선택적) 등을 포함합니다.</li>
+<li>예시: <a href="https://www.example.com/articles/uri-vs-url-vs-urn">https://www.example.com/articles/uri-vs-url-vs-urn</a> 이것은 웹 상의 특정 자원을 찾기 위한 구체적인 위치를 나타냅니다.</li>
+</ul>
+</li>
+<li>URN (Uniform Resource Name)
+<ul>
+<li>정의: 리소스의 위치와 무관하게 리소스를 유일하게 식별하는 이름입니다. URN은 리소스가 실제로 어디에 있는지, 혹은 어떻게 접근해야 하는지와는 관계없이 리소스를 식별하기 위한 영구적인 이름을 제공합니다.</li>
+<li>용도: 주로 도서관, 문서 아카이브 등에서 문서나 출판물 등의 리소스에 대한 영구적인 식별자로 사용됩니다.</li>
+<li>예시: urn:isbn:0451450523 이것은 특정한 책을 식별하기 위한 ISBN 코드를 나타냅니다.</li>
+</ul>
+</li>
+</ul>
+<br />
+<h2 id="javascript">Javascript<a hidden class="anchor" aria-hidden="true" href="#javascript">#</a></h2>
+<h3 id="prototype">Prototype<a hidden class="anchor" aria-hidden="true" href="#prototype">#</a></h3>
+<p>참고 - <a href="https://www.youtube.com/watch?v=wUgmzvExL_E">https://www.youtube.com/watch?v=wUgmzvExL_E</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> <span class="c1">// var test = new Array(2, 1, 4);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">test</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span> <span class="c1">// Array 객체의 prototype중 sort가 있기에 사용할 수 있음
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">.</span><span class="nx">sortReverse</span><span class="p">();</span> <span class="c1">// undefined, Array 객체가 prototype중 sortReverse 가 없기 때문
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sortReverse</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">.</span><span class="nx">sortReverse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">sortReverse</span><span class="p">();</span> <span class="c1">// Array객체의 prototype에 sortReverse를 정의해주어서 앞으로 모든 배열에 사용할 수 있게됨
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype은 상위 객체의 유전자라고 생각하면 편함
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>prototype은 무엇인가요?</p>
+<ul>
+<li>JS는 프로토타입 기반 언어로 객체의 상속이 프로토타입으로 이루어집니다. 프로토타입은 특정 객체 유형의 모든 인스턴스가 공유하는 객체입니다. 이 속성은 메서드와 속성을 상속하기 위해 사용됩니다.</li>
+</ul>
+</li>
+<li>
+<p>prototype chain은 무엇인가요?</p>
+<ul>
+<li>객체가 속성이나 메서드에 접근하려고 시도할 때, 해당 속성이나 메서드를 찾기 위해 JS엔진이 따르는 경로입니다. 객체에서 직접 속성이나 메서드를 찾을 수 없는 경우, JS는 객체의 프로토타입 (즉 그 객체의 생성자 함수의 prototype)으로 이동하여 거기에서 속성이나 메서드를 찾는데 이 과정은 프로토타입 체인의 최상단에 도달할때 까지, 즉 null이 프로토타입으로 설정될 때 까지 반복됩니다.</li>
+</ul>
+</li>
+<li>
+<p>function.bind가 되는 이유는 무엇인가요?</p>
+<ul>
+<li>자바스크립트의 모든 함수가 Function 객체의 인스턴스인데 function 객체의 프로토타입에 정의되어 있기에 모든 함수에서 bind를 사용할 수 있습니다.</li>
+<li>function.bind는 새로운 함수를 생성하며, 이 새로운 함수의 this가 bind 메서드에 전돨된 값으로 설정됩니다. 이는 함수가 호출될 때 주어진 this 값과 인자들을 사용하여 실행되도록 합니다. bind는 함수의 실행 컨텍스트를 명시적으로 설정할 때 유용하며 특히 콜백 함수나 이벤트 핸들러에서 this의 값이 예상대로 설정되지 않을때 문제를 해결하는데 사용됩니다.</li>
+</ul>
+</li>
+<li>
+<p>상속은 어떻게 구현하나요?</p>
+<ul>
+<li>프로토타입 체인을 사용하여 상속을 구현할 수 있습니다. 하위 클래스(생성자함수)의 프로토타입을 상위 클래스의 인스턴스로 설정함으로써 이루어집니다. extends를 사용하여 클래스간에 상속을 정의할 수 있으며 super 를 사용하여 부모 클래스의 생성자를 호출할 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="this">this<a hidden class="anchor" aria-hidden="true" href="#this">#</a></h3>
+<p>참고 : <a href="https://www.youtube.com/watch?v=tDZROpAdJ9w">https://www.youtube.com/watch?v=tDZROpAdJ9w</a></p>
+<ul>
+<li>
+<p>this는 무엇인가요?</p>
+<ul>
+<li>this는 현재 실행 컨텍스트의 객체를 참조하는 식별자입니다. 즉, 현재 코드가 실행되고 있는 &ldquo;주변 환경&quot;을 가리킵니다. 함수 내에서 this의 값은 그 함수가 호출되는 방식에 따라 달라집니다.</li>
+</ul>
+</li>
+<li>
+<p>this는 언제 결정되나요?</p>
+<ul>
+<li>this의 값은 함수가 호출될 때 결정됩니다. 주요 규칙은 다음과 같습니다</li>
+<li>전역 컨텍스트에서 this는 전역 객체를 가리킵니다.</li>
+<li>브라우저에서는 window, Node.js에서는 global 객체가 됩니다.</li>
+<li>객체의 메서드로서 호출될 때, this는 그 메서드를 호출한 객체를 가리킵니다.</li>
+<li>생성자 함수에서, this는 새로 생성되는 객체 인스턴스를 가리킵니다.</li>
+<li>이벤트 핸들러에서, this는 이벤트를 받는 DOM 요소를 가리킵니다.</li>
+</ul>
+</li>
+<li>
+<p>Arrow Function에서의 this는 무엇인가요?</p>
+<ul>
+<li>화살표 함수(arrow function)에서의 this는 다릅니다. 화살표 함수는 자신의 this를 가지지 않고, 대신에 함수가 생성될 때의 this값을 &ldquo;렉시컬하게&rdquo; 바인딩합니다. 즉, 화살표 함수 내부에서의 this는 화살표 함수를 둘러싼 외부 스코프의 this와 같습니다.</li>
+</ul>
+</li>
+<li>
+<p>this를 변경하는 방법은 무엇인가요?</p>
+<ul>
+<li>참조 : <a href="https://www.youtube.com/watch?v=KfuyXQLFNW4">https://www.youtube.com/watch?v=KfuyXQLFNW4</a></li>
+<li>JavaScript에서는 call, apply, 그리고 bind 함수를 이용해 함수 호출 시 this의 값을 명시적으로 설정할 수 있습니다.</li>
+<li>call과 apply는 함수를 즉시 호출하면서 첫 번째 인자로 this를 설정합니다. call은 개별 인자를, apply는 인자 배열을 받습니다.</li>
+<li>bind는 함수의 this값을 영구히 바꿀 수 있는 새 함수를 반환합니다. 이는 Function.prototype에 정의되어 있으며, bind를 호출하는 함수의 복사본을 생성하고, 이 복사본에서 this의 값을 첫 번째 인자로 전달된 값으로 고정합니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="scope">Scope<a hidden class="anchor" aria-hidden="true" href="#scope">#</a></h3>
+<ul>
+<li>
+<p>스코프란 무엇인가요?</p>
+<ul>
+<li>변수이름, 함수이름, 클래스이름 과같은 식별자가 본인이 선언된 위치에 따라 다른 코드에서 자신이 참조될 수 있을지 없을지 결정되는 것</li>
+</ul>
+</li>
+<li>
+<p>스코프 체인이란 무엇인가요 ?</p>
+<ul>
+<li>스코프는 함수의 위치에 따라서 계층적인 구조를 가질 수 있음 이렇게 계층적인 구조로 연결된 것을 스코프체인이라고 함</li>
+<li>예를들어 Inner scope &gt; Outer Scope &gt; 전역 스코프 처럼 계층적인 구조임</li>
+<li>변수를 참조할때 JS 엔진은 스코프 체인을 통해 변수를 참조함</li>
+<li>아래에서 위로 반방향성으로만 존재하여 하위스코프는 상위스코프를 참조할 수 있지만 반대는 되지 않음</li>
+</ul>
+</li>
+<li>
+<p>스코프 레벨이란 무엇인가 ?</p>
+<ul>
+<li>블록 레벨 스코프 (if, for) = ES6의 let, const</li>
+<li>함수 레벨 스코프 = 함수</li>
+</ul>
+</li>
+<li>
+<p>동적스코프 - 함수가 호출되는 시점에 결정</p>
+</li>
+<li>
+<p>정적스코프(렉시컬스코프) - 함수가 정의되는 시점에 결정 자바스크립트에서 함수는 상위 스코프를 참조하기 때문에 본인의 내부 슬롯에 상위 스코프에 대한 참조를 저장합니다.</p>
+</li>
+<li>
+<p>함수가 호출되면 실행되는 과정은 ?</p>
+<ul>
+<li>함수호출 -&gt; 실행 컨텍스트 생성 -&gt; 실행 컨텍스트 스택 푸쉬 -&gt; 렉시컬 환경 생성 (식별자, 식별자에 바인딩 된 값, 상위 렉시켤 환경에 대한 참조) -&gt; 실행 컨덱스트 스택 POP</li>
+</ul>
+</li>
+</ul>
+<h3 id="closure">Closure<a hidden class="anchor" aria-hidden="true" href="#closure">#</a></h3>
+<p>참고 : <a href="https://www.youtube.com/watch?v=tpl2oXQkGZs">https://www.youtube.com/watch?v=tpl2oXQkGZs</a></p>
+<ul>
+<li>클로져는 무엇인가요?
+<ul>
+<li>상위 스코프의 식별자를 참조하고 있음.</li>
+</ul>
+</li>
+<li>클로져를 활용한 구현경험</li>
+<li>커링이 무엇인지</li>
+<li>고차함수는 무엇인지</li>
+<li>스코프-클로져</li>
+</ul>
+<h3 id="functional-programming">Functional Programming<a hidden class="anchor" aria-hidden="true" href="#functional-programming">#</a></h3>
+<ul>
+<li>배열의 고차함수 어떤것을 사용하는지</li>
+<li>reduce를 어떻게 구현하는지</li>
+<li>합성은 상속과 어떤 장점이 있는지</li>
+<li>Immutable 장단점은 어떤것이 있는지</li>
+</ul>
+<h3 id="oop">OOP<a hidden class="anchor" aria-hidden="true" href="#oop">#</a></h3>
+<ul>
+<li>ES lasses 상속은 어떻게 하고 캡슐화는 어떻게하는지</li>
+<li>객체를 나누는 단위는?</li>
+<li>의존성을 낮추는 방법은? (사례중심)</li>
+</ul>
+<h3 id="비동기">비동기<a hidden class="anchor" aria-hidden="true" href="#비동기">#</a></h3>
+<ul>
+<li>Promise, async/await 차이는?</li>
+<li>promise 패턴 설명</li>
+<li>setTimeout에 Promise를 적용하면?</li>
+<li>동시에 여러개의 관계없는 요청을 한다면?</li>
+<li>Task queue vs Micro task queue?</li>
+</ul>
+<h3 id="객체">객체<a hidden class="anchor" aria-hidden="true" href="#객체">#</a></h3>
+<ul>
+<li>객체 표현 방식중 자주 사용하는지?</li>
+<li>class, prototype, literal 차이</li>
+<li>자주 사용하는 메서드는?</li>
+<li>JSON 데이터 파싱시 가장 신경쓰이는 것은?</li>
+<li>대문자 객체와 소문자 객체는 무엇이 차이있는지 (Object vs object)</li>
+<li>얕은복사와 깊은복사</li>
+</ul>
+<h3 id="이벤트-실행방법">이벤트 실행방법<a hidden class="anchor" aria-hidden="true" href="#이벤트-실행방법">#</a></h3>
+<ul>
+<li>이벤트 버블링, 이벤트 캡쳐링</li>
+</ul>
+<h3 id="타입스크립트">타입스크립트<a hidden class="anchor" aria-hidden="true" href="#타입스크립트">#</a></h3>
+<ul>
+<li>Pick, Omit</li>
+</ul>
+<h3 id="기타">기타<a hidden class="anchor" aria-hidden="true" href="#기타">#</a></h3>
+<ul>
+<li>generateor가 무엇인가요?</li>
+<li>ES Next 관심있는 문법은?</li>
+<li>정규표현식은 무엇이고 언제사용하는지?</li>
+</ul>
+<h3 id="debugging">Debugging<a hidden class="anchor" aria-hidden="true" href="#debugging">#</a></h3>
+<ul>
+<li>버그 문제를 어떻게 해결하는지?</li>
+<li>본인만의 디버깅 방식은?</li>
+<li>calling stack?</li>
+<li>network 오류 상황에 어떻게 확인하는지? (break 포인트?)</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/">
+    <span class="title">Next »</span>
+    <br>
+    <span>아프리카TV 실시간채팅 크롤링</span>
+  </a>
+</nav>
+
+
+
+<div style="padding-top:15px; padding-bottom:2px; font-size: x-large; font-weight: 700;">
+    Any Comments? 😀
+</div>
+<div class="share-buttons"></div>
+
+
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="cha2hyun/blog-comments"
+  issue-term="title"
+  theme="boxy-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+  </footer>
+</article>
+    </main>
+    
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

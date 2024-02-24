@@ -10,7 +10,7 @@
 <meta name="description" content="프로그래머스 코딩테스트 연습 LV2">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e101c64fade41186dce194e30cf9ac31add774d65925e79e6abda73f402a3a42.css" integrity="sha256-4QHGT63kEYbc4ZTjDPmsMa3XdNZZJeeear2nP0AqOkI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
@@ -115,13 +115,45 @@
 
 <header class="header">
     <nav class="nav">
-        <div class="logo">
-            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
-                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
-                </span>
-                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
-            </a>            
+        <div>
+            <div class="logo">
+                <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center;">
+                        <img
+                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.github.io&count_bg=%235D5D5D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"
+                            alt="Views"
+                            style="margin-left:4px;"
+                        />
+                    </span>
+                </a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="logo" style="margin-bottom: -30px; margin-top: -30px; font-size: 15px;">
+                <span>기억은 유한하나, 기록은 무한하다 📚</span>
+            </div>
         </div>
+        
         <ul id="menu">
             <li>
                 <a href="https://cha2hyun.blog/archives" title="전체">
@@ -153,43 +185,25 @@
                     <span style="font-weight: bold;">검색</span>
                 </a>
             </li>
-            <li>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </div>
-            </li>
         </ul>
-        
     </nav>
-    
-    
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a></div>
+<header class="page-header"><div class="breadcrumbs">
+    </div><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/content/algorithm/programmers/">프로그래머스 문제풀이</a></div>
   <h1>
     LV2
-    <a href="/content/algorithm/programmers/lv2/index.xml" title="RSS" aria-label="RSS">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" height="23">
+    <a href="index.xml" title="RSS" aria-label="RSS">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="23"
+      >
         <path d="M4 11a9 9 0 0 1 9 9" />
         <path d="M4 4a16 16 0 0 1 16 16" />
         <circle cx="5" cy="19" r="1" />
@@ -204,152 +218,230 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12980] 점프와 순간 이동
+    <h2>프로그래머스 12980] 점프와 순간 이동
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2024-01-18 00:00:00 +0000 UTC'>January 18, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12980] 점프와 순간 이동" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2024-01-18 00:00:00 &#43;0000 UTC&#39;&gt;January 18, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12980] 점프와 순간 이동"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12980/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12985] 예상 대진표
+    <h2>프로그래머스 12985] 예상 대진표
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2024-01-18 00:00:00 +0000 UTC'>January 18, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12985] 예상 대진표" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2024-01-18 00:00:00 &#43;0000 UTC&#39;&gt;January 18, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12985] 예상 대진표"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12985/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12973] 짝지어 제거하기 - 파이썬
+    <h2>프로그래머스 12973] 짝지어 제거하기 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>2017 팁스타운</p>
+    <p>
+      2017 팁스타운
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-10-24 00:00:00 +0000 UTC'>October 24, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12973] 짝지어 제거하기 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12973/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-10-24 00:00:00 &#43;0000 UTC&#39;&gt;October 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12973] 짝지어 제거하기 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12973/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12981] 영어 끝말잇기 - 파이썬
+    <h2>프로그래머스 12981] 영어 끝말잇기 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>Summer/Winter Coding(~2018)</p>
+    <p>
+      Summer/Winter Coding(~2018)
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-10-24 00:00:00 +0000 UTC'>October 24, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12981] 영어 끝말잇기 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12981/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-10-24 00:00:00 &#43;0000 UTC&#39;&gt;October 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12981] 영어 끝말잇기 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12981/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12911] 다음 큰 숫자 - 파이썬
+    <h2>프로그래머스 12911] 다음 큰 숫자 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-26 00:00:00 +0000 UTC'>September 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12911] 다음 큰 숫자 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12911/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-26 00:00:00 &#43;0000 UTC&#39;&gt;September 26, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12911] 다음 큰 숫자 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12911/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12924] 숫자의 표현 - 파이썬
+    <h2>프로그래머스 12924] 숫자의 표현 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>스택/큐</p>
+    <p>
+      스택/큐
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-25 00:00:00 +0000 UTC'>September 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12924] 숫자의 표현 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12924/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-25 00:00:00 &#43;0000 UTC&#39;&gt;September 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12924] 숫자의 표현 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12924/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12945] 피보나치 수 - 파이썬
+    <h2>프로그래머스 12945] 피보나치 수 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-25 00:00:00 +0000 UTC'>September 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12945] 피보나치 수 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12945/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-25 00:00:00 &#43;0000 UTC&#39;&gt;September 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12945] 피보나치 수 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12945/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12909] 올바른 괄호 - 파이썬
+    <h2>프로그래머스 12909] 올바른 괄호 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>스택/큐</p>
+    <p>
+      스택/큐
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12909] 올바른 괄호 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12909/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-24 00:00:00 &#43;0000 UTC&#39;&gt;September 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12909] 올바른 괄호 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12909/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12939] Python 최댓값과 최솟값 - 파이썬
+    <h2>프로그래머스 12939] Python 최댓값과 최솟값 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12939] Python 최댓값과 최솟값 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12939/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-24 00:00:00 &#43;0000 UTC&#39;&gt;September 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12939] Python 최댓값과 최솟값 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12939/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12941] Python 최솟값 만들기 - 파이썬
+    <h2>프로그래머스 12941] Python 최솟값 만들기 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12941] Python 최솟값 만들기 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12941/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-24 00:00:00 &#43;0000 UTC&#39;&gt;September 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12941] Python 최솟값 만들기 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12941/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬
+    <h2>프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>연습문제</p>
+    <p>
+      연습문제
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12951/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-24 00:00:00 &#43;0000 UTC&#39;&gt;September 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/12951/"
+  ></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">프로그래머스 70129] 이진 변환 반복하기 - 파이썬
+    <h2>프로그래머스 70129] 이진 변환 반복하기 - 파이썬
     </h2>
   </header>
   <div class="entry-content">
-    <p>월간 코드 챌린지 시즌1</p>
+    <p>
+      월간 코드 챌린지 시즌1
+    </p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 프로그래머스 70129] 이진 변환 반복하기 - 파이썬" href="https://cha2hyun.blog/content/algorithm/programmers/lv2/70129/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2022-09-24 00:00:00 &#43;0000 UTC&#39;&gt;September 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;cha2hyun</footer>
+  <a
+    class="entry-link"
+    aria-label="post link to 프로그래머스 70129] 이진 변환 반복하기 - 파이썬"
+    href="https://cha2hyun.blog/content/algorithm/programmers/lv2/70129/"
+  ></a>
 </article>
     </main>
     
+
 <footer class="footer">
     <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
-    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+  
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

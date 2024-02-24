@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>LocalStorage on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/tags/localstorage/</link>
     <description>Recent content in LocalStorage on 채수현 개발일지</description>
     <image>
-      <title>채수현 개발일지</title>
       <url>https://cha2hyun.blog/papermod-cover.png</url>
       <link>https://cha2hyun.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/tags/localstorage/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.blog/tags/localstorage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>InfiniteScroll로 무한 스크롤 구현하기</title>
       <link>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
       <guid>https://cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/infinitescroll/</guid>
       <description>무한 스크롤과 뒤로가기시 스크롤된 위치를 기억하기.</description>
     </item>
+    
   </channel>
 </rss>
