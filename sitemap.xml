@@ -47,6 +47,21 @@
     <loc>https://cha2hyun.blog/</loc>
     <lastmod>2024-02-24T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://cha2hyun.blog/tags/homebrew/</loc>
+    <lastmod>2024-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/macos/</loc>
+    <lastmod>2024-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/content/posts/</loc>
+    <lastmod>2024-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/tags/</loc>
+    <lastmod>2024-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cha2hyun.blog/content/posts/mac-brew-list/</loc>
+    <lastmod>2024-01-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cha2hyun.blog/content/algorithm/programmers/lv2/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
@@ -54,9 +69,6 @@
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/programmers/</loc>
-    <lastmod>2024-01-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/tags/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/content/algorithm/programmers/lv3/12971/</loc>
@@ -111,9 +123,6 @@
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/postgres/</loc>
-    <lastmod>2023-11-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/content/posts/</loc>
     <lastmod>2023-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/tags/prisma/</loc>
@@ -211,15 +220,6 @@
   </url><url>
     <loc>https://cha2hyun.blog/content/algorithm/programmers/lv3/64064/</loc>
     <lastmod>2022-10-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/tags/brew/</loc>
-    <lastmod>2022-10-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/tags/macos/</loc>
-    <lastmod>2022-10-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cha2hyun.blog/content/posts/mac-brew-list/</loc>
-    <lastmod>2022-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cha2hyun.blog/content/algorithm/programmers/lv3/12979/</loc>
     <lastmod>2022-10-26T00:00:00+00:00</lastmod>

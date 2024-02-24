@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>grequests on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/tags/grequests/</link>
     <description>Recent content in grequests on 채수현 개발일지</description>
-    <image>
-      <url>https://cha2hyun.blog/papermod-cover.png</url>
-      <link>https://cha2hyun.blog/papermod-cover.png</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cha2hyun.blog/tags/grequests/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cha2hyun.blog/tags/grequests/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</title>
       <link>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://cha2hyun.blog/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/</guid>
       <description>서버에서 크롤링을하여 데이터를 가공하여 DB에 저장해야 할때 어떤 방법이 가장 적합했는지 기록합니다.</description>
     </item>
-    
   </channel>
 </rss>
