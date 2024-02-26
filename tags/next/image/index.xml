@@ -4,6 +4,11 @@
     <title>next/image on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/tags/next/image/</link>
     <description>Recent content in next/image on 채수현 개발일지</description>
+    <image>
+      <title>채수현 개발일지</title>
+      <url>https://cha2hyun.blog/papermod-cover.png</url>
+      <link>https://cha2hyun.blog/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <atom:link href="https://cha2hyun.blog/tags/next/image/index.xml" rel="self" type="application/rss+xml" />

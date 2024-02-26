@@ -4,9 +4,14 @@
     <title>프로그래머스 문제풀이 on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/content/algorithm/programmers/</link>
     <description>Recent content in 프로그래머스 문제풀이 on 채수현 개발일지</description>
+    <image>
+      <title>채수현 개발일지</title>
+      <url>https://cha2hyun.blog/papermod-cover.png</url>
+      <link>https://cha2hyun.blog/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/content/algorithm/programmers/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
