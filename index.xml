@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FE 기술면접 준비</title>
+      <link>https://cha2hyun.blog/content/algorithm/frontend-algorithm/</link>
+      <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://cha2hyun.blog/content/algorithm/frontend-algorithm/</guid>
+      <description>💡 현재 글은 미완성 단계입니다.
+브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침.</description>
+    </item>
     <item>
       <title>아프리카TV 실시간채팅 크롤링</title>
       <link>https://cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</link>
