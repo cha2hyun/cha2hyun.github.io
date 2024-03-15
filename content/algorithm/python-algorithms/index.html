@@ -12,7 +12,7 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 최대한 깊이 내려간 뒤 더이상 깊이 갈 곳이 없을 경우 옆으로 이동 다른 노드로 넘어가기 전에 해당 깊이를 완벽하게 탐색 경로의 특징을 저장해야 하는 문제에서 유리 스택 혹은 재귀함수 이용 DFS 1 2 3 4 5 6 7 8 9 # DFS 메서드 정의 def dfs(graph, v, visited): # 현재 노드를 방문 처리 visited[v] = True print(v, end = &#39;&#39;) # 현재 노드와 연결된 다른 노드를 재귀적으로 방문 for i in graph[v]: if not visited[i]: dfs(graph, i, visited) BFS (너비우선탐색) 두 노드 사이의 최단 거리를 찾을 때 사용">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="https://cha2hyun.blog/content/algorithm/python-algorithms/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.06cc1401233af506ee36c5cc89872a4bb4866704e48f666797e0ab85a990bd8f.css" integrity="sha256-BswUASM69QbuNsXMiYcqS7SGZwTkj2Znl&#43;CrhamQvY8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a0df97853b646022cff587d94d85b7235723b13f55f2c0ed1e6b317d931ddfa5.css" integrity="sha256-oN&#43;XhTtkYCLP9YfZTYW3I1cjsT9V8sDtHmsxfZMd36U=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
@@ -20,6 +20,7 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
 <link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://cha2hyun.blog/content/algorithm/python-algorithms/">
 <noscript>
     <style>
         #theme-toggle,
@@ -209,6 +210,8 @@ DFS (깊이우선탐색) 모든 노드를 방문할때 이방법을 선택
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                     </button>
+                    <ul class="lang-switch"><li>|</li>
+                    </ul>
                 </div>
             </li>
         </ul>
