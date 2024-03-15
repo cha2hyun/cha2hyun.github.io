@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>next/image on 채수현 개발일지</title>
+    <title>Next/Image on 채수현 개발일지</title>
     <link>https://cha2hyun.blog/tags/next/image/</link>
-    <description>Recent content in next/image on 채수현 개발일지</description>
+    <description>Recent content in Next/Image on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
       <url>https://cha2hyun.blog/papermod-cover.png</url>
@@ -11,6 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://cha2hyun.blog/tags/next/image/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>next/image 그냥 쓰면 서버는 시한부입니다 💀</title>
