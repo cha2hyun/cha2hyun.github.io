@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Jwt on 채수현 개발일지</title>
+    <title>Jwt on &lt;cha2hyun /&gt;</title>
     <link>https://blog.cha2hyun.com/tags/jwt/</link>
-    <description>Recent content in Jwt on 채수현 개발일지</description>
+    <description>Recent content in Jwt on &lt;cha2hyun /&gt;</description>
     <image>
-      <title>채수현 개발일지</title>
+      <title>&lt;cha2hyun /&gt;</title>
       <url>https://blog.cha2hyun.com/papermod-cover.png</url>
       <link>https://blog.cha2hyun.com/papermod-cover.png</link>
     </image>
