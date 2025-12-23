@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Prisma on 채수현 개발일지</title>
-    <link>https://cha2hyun.blog/tags/prisma/</link>
+    <link>https://home.cha2hyun.blog/tags/prisma/</link>
     <description>Recent content in Prisma on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://cha2hyun.blog/papermod-cover.png</url>
-      <link>https://cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
+      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Mon, 20 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/tags/prisma/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.blog/tags/prisma/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
-      <link>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</link>
+      <link>https://home.cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</guid>
+      <guid>https://home.cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/</guid>
       <description>NestJS + Grahpql + Prisma + Postgres + jwt</description>
     </item>
   </channel>

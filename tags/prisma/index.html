@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="채수현 개발일지">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://cha2hyun.blog/tags/prisma/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a0df97853b646022cff587d94d85b7235723b13f55f2c0ed1e6b317d931ddfa5.css" integrity="sha256-oN&#43;XhTtkYCLP9YfZTYW3I1cjsT9V8sDtHmsxfZMd36U=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://cha2hyun.blog/favicon/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://cha2hyun.blog/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://cha2hyun.blog/favicon/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://cha2hyun.blog/favicon/apple-icon-76x76.png">
-<link rel="mask-icon" href="https://cha2hyun.blog/safari-pinned-tab.svg">
+<link rel="canonical" href="https://home.cha2hyun.blog/tags/prisma/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.86f6066d7130525813443e8903a2068321c628315d580b277954cd68a96e68c0.css" integrity="sha256-hvYGbXEwUlgTRD6JA6IGgyHGKDFdWAsneVTNaKluaMA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://home.cha2hyun.blog/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://home.cha2hyun.blog/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://home.cha2hyun.blog/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://home.cha2hyun.blog/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://home.cha2hyun.blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://cha2hyun.blog/tags/prisma/index.xml">
-<link rel="alternate" hreflang="en" href="https://cha2hyun.blog/tags/prisma/">
+<link rel="alternate" type="application/rss+xml" href="https://home.cha2hyun.blog/tags/prisma/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://home.cha2hyun.blog/tags/prisma/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,123 +37,107 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:title" content="Prisma" />
-<meta property="og:description" content="채수현 개발일지" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://cha2hyun.blog/tags/prisma/" /><meta property="og:image" content="https://cha2hyun.blog/papermod-cover.png"/>
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://cha2hyun.blog/papermod-cover.png"/>
-
-<meta name="twitter:title" content="Prisma"/>
-<meta name="twitter:description" content="채수현 개발일지"/>
-
-</head>
-
-<body class="list" id="top">
+</noscript>
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
     } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
+       document.querySelector("html").dataset.theme = 'light';
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
     }
 
-</script>
+</script><meta property="og:url" content="https://home.cha2hyun.blog/tags/prisma/">
+  <meta property="og:site_name" content="채수현 개발일지">
+  <meta property="og:title" content="Prisma">
+  <meta property="og:description" content="채수현 개발일지">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://home.cha2hyun.blog/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://home.cha2hyun.blog/papermod-cover.png">
+<meta name="twitter:title" content="Prisma">
+<meta name="twitter:description" content="채수현 개발일지">
 
-<header class="header">
+</head>
+<body class="list" id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
-                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
-                </span>
-                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
-            </a>            
+            <a href="https://home.cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://cha2hyun.blog/archives" title="전체">
-                    <span style="font-weight: bold;">전체</span>
+                <a href="https://home.cha2hyun.blog/archives" title="전체">
+                    <span>전체</span>
                 </a>
             </li>
             <li>
-                <a href="https://cha2hyun.blog/content/posts/" title="일상">
-                    <span style="font-weight: bold;">일상</span>
+                <a href="https://home.cha2hyun.blog/content/posts/" title="일상">
+                    <span>일상</span>
                 </a>
             </li>
             <li>
-                <a href="https://cha2hyun.blog/content/projects/" title="플젝">
-                    <span style="font-weight: bold;">플젝</span>
+                <a href="https://home.cha2hyun.blog/content/algorithm/" title="공부">
+                    <span>공부</span>
                 </a>
             </li>
             <li>
-                <a href="https://cha2hyun.blog/content/algorithm/" title="공부">
-                    <span style="font-weight: bold;">공부</span>
+                <a href="https://home.cha2hyun.blog/search/" title="검색">
+                    <span>검색</span>
                 </a>
-            </li>
-            <li>
-                <a href="https://cha2hyun.blog/content/hacking/" title="해킹">
-                    <span style="font-weight: bold;">해킹</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://cha2hyun.blog/search/" title="검색">
-                    <span style="font-weight: bold;">검색</span>
-                </a>
-            </li>
-            <li>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-
-                </div>
             </li>
         </ul>
-        
     </nav>
-    
-    
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://cha2hyun.blog/tags/">Tags</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://home.cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.blog/tags/">Tags</a></div>
   <h1>
     Prisma
     <a href="/tags/prisma/index.xml" title="RSS" aria-label="RSS">
@@ -175,14 +159,19 @@
   <div class="entry-content">
     <p>NestJS &#43; Grahpql &#43; Prisma &#43; Postgres &#43; jwt</p>
   </div>
-  <footer class="entry-footer"><span title='2023-11-20 00:00:00 +0000 UTC'>November 20, 2023</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;cha2hyun</footer>
-  <a class="entry-link" aria-label="post link to 첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)" href="https://cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/"></a>
+  <footer class="entry-footer"><span title='2023-11-20 00:00:00 +0000 UTC'>November 20, 2023</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>cha2hyun</span></footer>
+  <a class="entry-link" aria-label="post link to 첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)" href="https://home.cha2hyun.blog/content/posts/nestjs-graphql-kakao-jwt/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://cha2hyun.blog/">채수현 개발일지</a></span>
-    
+        <span>&copy; 2025 <a href="https://home.cha2hyun.blog/">채수현 개발일지</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
@@ -191,9 +180,14 @@
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -234,11 +228,12 @@
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
