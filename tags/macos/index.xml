@@ -15,9 +15,9 @@
     <atom:link href="https://blog.cha2hyun.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>프로 개발자처럼 맥 세팅하기 명령어 모음 (설명X)</title>
-      <link>https://blog.cha2hyun.com/content/posts/mac-brew-list/</link>
+      <link>https://blog.cha2hyun.com/content/daily/mac-brew-list/</link>
       <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/mac-brew-list/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/mac-brew-list/</guid>
       <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드</description>
     </item>
   </channel>
