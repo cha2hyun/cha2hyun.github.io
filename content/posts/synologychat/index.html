@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/posts/synologychat/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/posts/synologychat/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="Synology Chat 멘션 색상 바꾸기">
   <meta property="og:description" content="CSS 변경하여 안읽은 메세지 강조하기">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2023-06-08T00:00:00+00:00">
@@ -126,7 +126,7 @@
   ],
   "articleBody": "\n들어가며 회사에서 Slack을 쓰다가 Synology Chat 으로 변경하였습니다. 챗봇의 자유도가 조금 낮다는 단점이 있지만 아무래도 NAS만 있으면 공짜에 기록도 반영구적으로 저장되는 장점이 있습니다. 다만 제일 큰 단점이 바로 안읽은 메세지의 가독성이 영 꽝이라는점..\n잘 안보인다구..\n따로 테마를 커스텀할 수 있게 설정이 오픈되어있지 않아서 포기했던 찰나 NAS 어딘가에 CSS파일이 있지 않을까? 라는 생각이 들었습니다. SSH로 접속하여 파일을 뒤져봅니다. (SSH 설정은 따로 해주어야합니다.) Synology Chat CSS파일 찾기 1 ssh -p 포트번호 계정@NAS주소 SSH 접속 비밀번호 한번틀림\nSynology Chat의 파일들은 다음 경로에 있는걸 찾을 수 있었습니다.\n1 cd /volume1/@appstore/Chat/ui 해당 파일을 우선 에디터로 열기 위해 접근 가능한 디렉토리로 복사합니다. 필요한 파일은 style.css light.css dark.css 입니다\n1 2 3 cp /volume1/@appstore/Chat/ui/style.css /volume1/kimchi-cloud cp /volume1/@appstore/Chat/ui/light.css /volume1/kimchi-cloud cp /volume1/@appstore/Chat/ui/dark.css /volume1/kimchi-cloud 시놀로지 파일 스테이션을 보면 옮겨진 것을 확인 할 수 있습니다. CSS 클래스 분석 Synology Chat 앱으로는 어떤 부분을 수정해야할지 확인하기 힘드므로 웹 버전으로 접속해서 관리자 도구를 이용해서 클래스명을 확인합니다. 웹으로 접근 하기 위해 시놀로지에서 설정이 필요합니다.\n관리자 도구로 확인해보면 안읽은 메세지는 highlight highlight-mention 클래스가 있는 것을 볼 수 있습니다. 아까 복사한 style.css light.css dark.css를 vscode로 열어서 highlight 를 검색해보고 분석해본 결과 style.css 에서 공통적으로 스타일을 지정하고 light.css (라이트테마), dark.css (다크테마)에서 추가적으로 폰트 색상이나 이런것을 따로 적용하는 것을 알 수 있었습니다.\n다음 코드 샘플을 수정하여 light.css, dark.css 뒤에 붙혀넣기 합니다. 저의 경우 라이트테마에선 빨간색, 다크테마에선 노란색으로 표시하게끔 했습니다.\ncss 커스텀 1 2 3 4 5 6 7 8 9 .syno-chat .channel-list-item.highlight .name, .syno-chat.syno-chat-integration .chat-list-main .highlight.chat-list-item .name { font-weight: bold; opacity: 1; color: red !important; /* 표시할 색상 입력 */ } CSS 수정하기 vi 에디터로 light.css, dark.css 파일을 엽니다. 단, 수정하려면 루트권한이 있어야합니다\n1 sudo vi dark.css i를 눌러 insert 모드로 변경후 end를 눌러 맨 하단으로가서 아까 작성한 코드를 붙혀넣습니다. esc눌러서 insert mode에서 빠져나오고 :wq로 저장후 종료합니다. 맨하단에 한줄로 복사하면 된다\n결과 dark.css 와 light.css 모두 저장해주시고 새로고침 하거나 프로그램을 껏다 키면 멘션되는 색상이 잘 변경된 것을 볼 수 있습니다. 👏 안볼래야 안볼수가 없는 노란색\n빠른적용하기 (요약) 시놀로지 업데이트 하면 풀리는 경우가 있습니다. 나중에 다시 적용하기 위해 방법만 간단히 요약합니다.\nssh 1 2 3 4 5 ssh -p 포트번호 계정@NAS주소 cd /volume1/@appstore/Chat/ui # 하단의 코드 각 파일의 맨 뒷줄에 복사 sudo vi light.css sudo vi dark.css light.css 1 .syno-chat .channel-list-item.highlight .name,.syno-chat.syno-chat-integration .chat-list-main .highlight.chat-list-item .name{font-weight:bold;opacity:1;color:red!important;} dark.css 1 .syno-chat .channel-list-item.highlight .name,.syno-chat.syno-chat-integration .chat-list-main .highlight.chat-list-item .name{font-weight:bold;opacity:1;color:yellow!important;} 마치며 해당 방법으로 멘션되는 색상 뿐만아니라 다른 부분들도 다양하게 수정할 수 있습니다. 예를들어 봇을 더 강조한다던지, 글씨체를 바꾼다던지 등 ! (시놀로지 챗이 애초에 지원해줬으면 더 좋았겠지만 !..)\n더 궁금하신 내용이 있으면 아래 댓글을 이용해주시기 바랍니다 :)\n",
   "wordCount" : "400",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2023-06-08T00:00:00Z",
   "dateModified": "2023-06-08T00:00:00Z",
   "author":{
@@ -204,17 +204,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Synology Chat 멘션 색상 바꾸기
     </h1>
-    <div class="post-meta"><span title='2023-06-08 00:00:00 +0000 UTC'>June 8, 2023</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2023-06-08 00:00:00 +0000 UTC'>2023년 6월 8일</span>&nbsp;·&nbsp;<span>2 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -484,12 +484,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/posts/nestjs-graphql-kakao-jwt/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>유튜브 API를 이용한 댓글 오래 버티기 이벤트</span>
   </a>
@@ -648,12 +648,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

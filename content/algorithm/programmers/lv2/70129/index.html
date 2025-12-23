@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/70129/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/70129/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 70129] 이진 변환 반복하기 - 파이썬">
   <meta property="og:description" content="월간 코드 챌린지 시즌1">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-09-24T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/70129\n풀이 시도 1\nx의 모든 0을 제거합니다. 어차피 문자열이 0과 1밖에 없으므로 현재 길이에서 0의 갯수를 빼면된다. (굳이 0이 빠졌을때 어떤 값이 나오는지 값을 저장하지 않아도 된다.) x의 길이를 c라고 하면, x를 “c를 2진법으로 표현한 문자열\"로 바꿉니다. format(s, ‘b’) -\u003e 2진수로 변환하는 내장함수 solution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 def solution(s): delete_zero_cnt = 0 while_cnt = 0 while True: if s == \"1\": break while_cnt += 1 zero_cnt = 0 for char in s: if char == \"0\": zero_cnt += 1 delete_zero_cnt += zero_cnt s = len(s) - zero_cnt # 이진수로 변환 s = format(s, 'b') return [while_cnt, delete_zero_cnt] 다른사람 풀이\nsolution.py 1 2 3 4 5 6 7 8 def solution(s): a, b = 0, 0 while s != '1': a += 1 num = s.count('1') b += len(s) - num s = bin(num)[2:] return [a, b] ",
   "wordCount" : "151",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-09-24T00:00:00Z",
   "dateModified": "2022-09-24T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 70129] 이진 변환 반복하기 - 파이썬
     </h1>
-    <div class="post-meta"><span title='2022-09-24 00:00:00 +0000 UTC'>September 24, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-09-24 00:00:00 +0000 UTC'>2022년 9월 24일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -365,12 +365,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12951/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/posts/markdown-syntac-guide/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>Markdown Syntax Guide</span>
   </a>
@@ -529,12 +529,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

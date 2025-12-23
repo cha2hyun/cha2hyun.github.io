@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="낭만스키 웹 배포 과정">
   <meta property="og:description" content="Next.js &#43; EC2 &#43; Route53 &#43; ACM&amp;Loadbalancer(https) &#43; CI/CD(github action).">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-11-18T00:00:00+00:00">
@@ -126,7 +126,7 @@
   ],
   "articleBody": "들어가며 이전 글에서 FastAPI로 제작한 전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기에서 크롤링한 데이터는 RDS서버에 저장되었습니다. 이후 다른 팀원들과 협업하여 Spring(깃헙)으로 API 서버를 제작하였습니다. 이번 글에서는 Next.js의 프로젝트를 서버에 첫 배포하는 과정을 기록하였습니다.\n낭만스키 웹은 어떻게 제작되었나요 ? 낭만스키 프론트는 제가 제일 좋아하는 조합인 Next.js + Typescript + Tailwind CSS 조합으로 제작하였습니다. 스타터팩 theodorusclarence/ts-nextjs-tailwind-starter를 설치하시면 편합니다. 실행은 PM2를 이용하여 클러스터 모드로 여러 코어를 이용할 수 있게 하였습니다.\n낭만스키 PC버전 미리보기 낭만스키 첫번째 웹\n낭만스키 모바일버전 미리보기 당연히 모바일 반응형으로 제작\n",
   "wordCount" : "80",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-11-18T00:00:00Z",
   "dateModified": "2022-11-18T00:00:00Z",
   "author":{
@@ -204,17 +204,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/projects/">Projects</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/projects/">Projects</a></div>
     <h1 class="post-title entry-hint-parent">
       낭만스키 웹 배포 과정
     </h1>
-    <div class="post-meta"><span title='2022-11-18 00:00:00 +0000 UTC'>November 18, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-11-18 00:00:00 +0000 UTC'>2022년 11월 18일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -266,12 +266,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/posts/firstcollaborator/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>처음으로 오픈소스 Collaborator가 되다</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/fastapi_aiohttp/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>전국 스키장 슬로프 실시간 정보 (빠르게)크롤링 하기</span>
   </a>
@@ -430,12 +430,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

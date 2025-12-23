@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12945/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12945/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 12945] 피보나치 수 - 파이썬">
   <meta property="og:description" content="연습문제">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-09-25T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12945\n풀이 시도 1\n재귀를 사용하지 않고 for문으로 돌렸습니다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n): fabo = [None] * (n + 1) fabo[0] = 0 fabo[1] = 1 for i in range(n + 1): if i \u003c 2: pass else: fabo[i] = (fabo[i - 1] + fabo[i - 2]) % 1234567 return fabo[n] 다른사람 풀이\nsolution.py 1 2 3 4 5 6 7 def fibonacci(num): a,b = 0,1 for i in range(num): a,b = b,a+b return a print(fibonacci(3)) ",
   "wordCount" : "86",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-09-25T00:00:00Z",
   "dateModified": "2022-09-25T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 12945] 피보나치 수 - 파이썬
     </h1>
-    <div class="post-meta"><span title='2022-09-25 00:00:00 +0000 UTC'>September 25, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-09-25 00:00:00 +0000 UTC'>2022년 9월 25일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -340,12 +340,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12924/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 12924] 숫자의 표현 - 파이썬</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12909/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>프로그래머스 12909] 올바른 괄호 - 파이썬</span>
   </a>
@@ -504,12 +504,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

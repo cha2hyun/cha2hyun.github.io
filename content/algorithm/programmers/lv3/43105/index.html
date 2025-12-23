@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/43105/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/43105/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 43105] 정수 삼각형 - 파이썬">
   <meta property="og:description" content="동적계획법(Dynamic Programing)">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-10-20T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/43105\n풀이 시도 1 index 에러를 없애기 위해 배열 앞뒤에 0을 추가후 top-down 으로 내려가면서 현재 배열 원소에 최대값을 더해주고 마지막 배열중 가장 최대값을 리턴합니다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def solution(triangle): # index 에러 방지 위해 앞 뒤에 0인 원소를 추가합니다. triangle = [[0] + line + [0] for line in triangle] # print(triangle) # 맨앞은 0이니깐 1부터 for i in range(1, len(triangle)): # 맨앞은 0이고 2씩 증가하여 가운데 수를 넘어뛰어도 됨 for j in range(1, i+2): # 현재 원소 + 이전 인접하는 두개의 원소중 최대값을 더함 triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j]) # 마지막줄 원소중 최대값 리턴 return max(triangle[-1]) s = solution([[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]) print(s) 다른사람풀이 solution.py 1 solution = lambda t, l = []: max(l) if not t else solution(t[1:], [max(x,y)+z for x,y,z in zip([0]+l, l+[0], t[0])]) ",
   "wordCount" : "152",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-10-20T00:00:00Z",
   "dateModified": "2022-10-20T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 43105] 정수 삼각형 - 파이썬
     </h1>
-    <div class="post-meta"><span title='2022-10-20 00:00:00 +0000 UTC'>October 20, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-10-20 00:00:00 +0000 UTC'>2022년 10월 20일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -337,12 +337,12 @@ index 에러를 없애기 위해 배열 앞뒤에 0을 추가후 top-down 으로
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/43163/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 43163] 단어변환 - 파이썬</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/43628/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>프로그래머스 43268] 이중우선순위큐 - 파이썬</span>
   </a>
@@ -501,12 +501,12 @@ index 에러를 없애기 위해 배열 앞뒤에 0을 추가후 top-down 으로
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 
