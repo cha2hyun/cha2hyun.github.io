@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>해킹 on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.blog/content/hacking/</link>
+    <link>https://home.cha2hyun.com/content/hacking/</link>
     <description>Recent content in 해킹 on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
-      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.com/papermod-cover.png</url>
+      <link>https://home.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.blog/content/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.com/content/hacking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>해킹] kioptrix-level-1</title>
-      <link>https://home.cha2hyun.blog/content/hacking/kioptrix1/</link>
+      <link>https://home.cha2hyun.com/content/hacking/kioptrix1/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/hacking/kioptrix1/</guid>
+      <guid>https://home.cha2hyun.com/content/hacking/kioptrix1/</guid>
       <description>Setup</description>
     </item>
     <item>
       <title>해킹] M1맥에 Kali Linux 설치 (VMware Fusion 13)</title>
-      <link>https://home.cha2hyun.blog/content/hacking/hacking1/</link>
+      <link>https://home.cha2hyun.com/content/hacking/hacking1/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/hacking/hacking1/</guid>
+      <guid>https://home.cha2hyun.com/content/hacking/hacking1/</guid>
       <description>실리콘 맥에 칼리리눅스 가상환경으로 띄우고 초기 설정진행하기</description>
     </item>
   </channel>
