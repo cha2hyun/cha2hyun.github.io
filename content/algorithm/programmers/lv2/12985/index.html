@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12985/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12985/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 12985] 예상 대진표">
   <meta property="og:description" content="연습문제">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2024-01-18T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12985\n풀이 시도 1\nN이 2^20 이하의 자연수라고 되어있어서 완전탐색은 안된다고 생각하고 진행했다. (하지만 결국 N은 아무런 고려할 필요가 없었음) 부전승이 없고 n은 무조건 2의 지수승이라고 하였고 무조건 A, B는 이긴다고 가정하였으므로 A와 B가 계속 이겨서 결국 마주쳤을때를 구하면 된다.\nA가 4일때\n1R A\n2R = A//2 = 2\n3R A = A//2 = 1\nB가 7일때\n1R B = 7\n2R B = B//2 = 3\n3R B = B//2 = 1\nA와 B가 붙는거는(같아지는건) 3 Round 이다.\n문제에서 제시하는 그대로 풀면 된다. 여기서 중요한건 a+1, b+1로 비교하는건데 홀수 vs 짝수가 1, 2가 될 수 있고, 2, 3이 될 수 있다. 이때 1, 2는 지금 붙지만 2, 3은 다음 번에 붙기 때문에 두 쌍을 나누는 단순한 방법으로 1을 더하고 몫을 구하는 //2를 하면된다.\nsolution.py 1 2 3 4 5 6 7 8 9 10 def solution(n, a, b): round = 1 while a != b: a = (a + 1) // 2 b = (b + 1) // 2 # 혹은 한줄로 표현할 수도 있음 # a, b = (a+1)//2, (b+1)//2 round += 1 return round 다른사람풀이 xor 연산 결과의 길이를 리턴해주면 라운드가 나온다..시간복잡도 O(1)로 끝판왕 풀이 인것 같다. 이분은 컴퓨터 그자체 이신것 같다… 😳\nsolution.py 1 2 def solution(n,a,b): return ((a-1)^(b-1)).bit_length() ",
   "wordCount" : "204",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2024-01-18T00:00:00Z",
   "dateModified": "2024-01-18T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/">LV2</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 12985] 예상 대진표
     </h1>
-    <div class="post-meta"><span title='2024-01-18 00:00:00 +0000 UTC'>January 18, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2024-01-18 00:00:00 +0000 UTC'>2024년 1월 18일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -360,12 +360,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12980/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 12980] 점프와 순간 이동</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/programmers/etc/120876/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>프로그래머스 120876] 겹치는 선분의 길이 - 파이썬</span>
   </a>
@@ -524,12 +524,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

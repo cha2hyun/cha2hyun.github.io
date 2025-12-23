@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12927/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12927/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 12927] 야근지수 - 파이썬">
   <meta property="og:description" content="연습문제">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-10-21T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12927\n풀이 시도 1\n12938과 비슷한 문제지만 배열의 원소의 합이 최대값이 아닌 제곱의 최소값을 찾아야 하는 문제. 가장 많은 작업을 먼저 처리해야하는 것이 유리하다. heap을 이용한 greedy 알고리즘\nworks를 힙을 구성하면서 모두 음수로 치환한다. (최대값을 pop 하기 위해, 제곱시 어차피 양수로 변함) - heapq 사용 작업량을 1 감소시키고 다시 힙에 push 남은 야근시간 만큼 반복 heap 에 남아있는 원소중 음수는 작업이 필요한 작업량으로 원소에 제곱하여 리턴한다. solution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 def solution(n, works): import heapq # 1 음수로 치환하여 heap을 만든다 works = [-work for work in works] heapq.heapify(works) # 2~3 작업량을 1 감소시키고 다시 힙에 푸쉬 (n만큼) for i in range(n): work = heapq.heappop(works) heapq.heappush(works, work + 1) # 4 남은것중 음수인 원소는 앞으로 해야할 야근임 answer = 0 for i in works: if i \u003c 0: answer += i*i return answer 다른사람풀이 같은 구조지만 파이써닉한 코드\nsolution.py 1 2 3 4 5 6 from heapq import heapify, heappush, heappop def solution(n, works): heapify(works := [-i for i in works]) for i in range(min(n, abs(sum(works)))): heappush(works, heappop(works)+1) return sum([i*i for i in works]) ",
   "wordCount" : "190",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-10-21T00:00:00Z",
   "dateModified": "2022-10-21T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 12927] 야근지수 - 파이썬
     </h1>
-    <div class="post-meta"><span title='2022-10-21 00:00:00 +0000 UTC'>October 21, 2022</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-10-21 00:00:00 +0000 UTC'>2022년 10월 21일</span>&nbsp;·&nbsp;<span>1 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -360,12 +360,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/12981/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 12981] 영어 끝말잇기 - 파이썬</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12938/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>프로그래머스 12938] 최고의 집합 - 파이썬</span>
   </a>
@@ -524,12 +524,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

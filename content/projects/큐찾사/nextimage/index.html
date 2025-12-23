@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="next/image 그냥 쓰면 서버는 시한부입니다 💀">
   <meta property="og:description" content="next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2023-12-28T00:00:00+00:00">
@@ -128,7 +128,7 @@
   ],
   "articleBody": "\n요약 next/image를 그냥 사용할 때 서버에 저장되는 캐쉬가 점점 늘어나서 서버가 곧 죽게되는 슬픈 이야기..\n어느날 갑자기 찾아온 시련 😱 이미지가 로딩이 안될때 있으시죠? 그게 저에요\n이번년도에 앱으로만 이용되었던 큐찾사를 홈페이지도 개발, 배포하여 수개월동안 안정적으로 운영되었습니다. 일부 마이그레이션이 되지 않은 기능들을 하나씩 붙히고 있던 와중에 어느날 갑자기 이미지가 로딩이되지 않는 사태가 발생했습니다.\n이미지는 S3 버켓에 저장되어 있었는데, S3 url로는 이미지가 잘 로딩되고, 새로고침시 나오는 이미지가 있고 표시되지 않는 이미지도 있었습니다. 앱에서는 모든 사진이 정상적으로 표시되었습니다. 따라서 당연히 홈페이지에 기능을 새로 붙히다가 충돌이 난 것으로 생각했습니다. (지속적으로 안정적으로 운영이 되었기에, 이미지를 뭘 잘못 업로드 했을 거라고도 생각했습니다.)\n그렇게 원인을 부랴부랴 확인하던 와중… 도메인 접속 조차 되지 않는 초유의 사태가 발생하였습니다.\n이러면 진짜 땀이 줄줄납니다.\n아무리 기능이 충돌나더라도 404나 에러페이지로 가지거나 응답은 받아와야하는데 곧이어 nginx 오류 502 bad gateway까지 표시됬습니다. 이때부터는 api서버도 뻗어버렸습니다. 부랴부랴 또 EC2를 확인해보러갑니다..\n아니 넌 왜 또?????????????\nEC2는 넉넉한 인스턴스 플랜을 사용중인데 평상시엔 10% 미만이어야하는 CPU 사용량이 99.9%까지 상한가를 3번 치고 수직 상승했었네요. (Loadbalancer-Auto Scailing을 적용해놨었지만 실제로 테스트는 못해봤지만 이때 적용이 잘 안된다는 것을 이렇게 확인했습니다..ㅎㅎ)\n일단 원인은 비교적 쉽게 찾았습니다. 갑자기 바이럴타서 대박이나서 유저가 순식간에 몰렸던거면 참 좋았겠지만ㅋ, EBS 용량이 40기가였는데 꽉 찼더라구요 더 이상 여유 공간이 없어서 뻗어버렸던 것 같습니다. 인스턴스만 좋으면 뭐하냐고..\n아니, 도커 몇개 뛰우는용인데 40기가가 모잘라..?? 라고 생각하지도 못하고 우선 급한대로 EBS 용량을 늘리고 보는데 EBS가 꽉찼던건 다름 아닌 next/image 캐쉬가 수십기가가 쌓여있었습니다. 우선은 임시방편으로 cron으로 캐쉬폴더를 정리해주는 것을 추가해두고 트러블 슈팅을 진행했습니다. (next/image에서 cache flush를 지원하지 않습니다)\nnext/image 알고 쓰자 S3 버킷 총 용량이 12기가인데 next/image 캐쉬 폴더엔 수십기가가 쌓여있었습니다. next/image 사용시 자동으로 사용자 환경에 따라 이미지를 optimized하고 캐쉬폴더에 저장하기 때문에 여러 환경에서 이미지를 불러오면 각 환경에 맞게 이미지를 optimized 하여 캐쉬로 저장시키기 때문에 배보다 배꼽이 더 커지게 됩니다.\n예를 들면 S3엔 이미지 1Mb x 1개 = 1mb여도 EC2 캐쉬폴더엔 최적화된 이미지 xMb x y개 = xyMb 가 되어 버립니다.\n아니, 그럼 S3에 뭣하러 저장을 허냐.. 어차피 EC2에서 다시 저장할거,, 라고 생각되실 수 있습니다. 저도 그랬습니다. 구글링해보니 Image Doubling 문제를 고민하는 사람들이 많이 있더라구요. 결국 해답은 찾지 못했습니다. Discussion 59234\n우선 CDN을 사용하기로 합니다. 근데… 중요한건… 아니 우리는 이미 CloudFront로 CDN 이미 사용중인데..? 수십기가씩 HIT되고 있었다.. 가성비 좋은 기특한 녀석\n머리가 하얗게 띵해집니다. 분명히 CDN을 애초에 프로젝트 초기부터 썻는데 S3 \u003e CDN \u003e EC2 next.js optimized \u003e 유저 여태동안 이렇게 이미지가 불러와졌다고 … ? 분명히 아닐 수 밖에 없는게, 그랬다면 진작에 서버가 뻑났어야합니다. 수 개월동안 멀쩡하던게 이제와서 그러는지 이해가 안되던 찰라 문제를 발견했습니다.\n1 2 3 experimental: { images: { unoptimized: true }, } 실험 기능이었던 unoptimized가 next.js 13으로 오면서 실험 기능이 아닌게 되어버린 것.\n1 2 3 4 images: { unoptimized: true domains: [...] }, 진짜.. 코드 한 줄이 서버를 뻑나게 할 수 도 있구나를 몸소 체험해버렸습니다.\n아.. 이래서 deprecated나 experimental은 진짜 주의해야하는 구나..\n이후 홈페이지는 정상 작동 되고 더 이상 배보다 배꼽이 큰 캐쉬를 만들지 않고 CDN에서 알아서 캐싱해서 유저에게 빠르게 보내주고 있습니다.\n결론 next/image를 그냥 사용하면 100% 서버가 뻑나게 되어있음 !!! (EBS용량은 생각보다 비쌉니다) EBS 용량은 한번 늘리면 줄일 수 없으니 주의. 또한 EC2가 S3용량보다 커지게 되는 현상이 무조건 발생한다. CDN을 사용한다면 config에 unuptimized를 둘 것 !!! 코드 한줄이 서버를 뻑나게 할 수 있으니 deprecated나 experimental 사용은 항상 주의. 실전 에러가 압축 성장에 좋다 (?) jpg 보단 webp로 저장하기 원본이미지 하나만 저장하지 않고 여러 상황에 맞는 썸네일 이미지나 디바이스 크기별로 리사이징하여 저장하기 결론보단 교훈에 가깝습니다. 다행히(?) 유저가 많이 몰리지 않는 아침시간에 발생했고 거의 바로 확인해서 즉시 대응은 가능했습니다. 안되면 큰일난다 마인드로 대처하니 순식간에 성장한 느낌도 있습니다.\nnext/image를 일반적으로 사용하면 무조건 서버에서는 캐쉬폴더가 점점 늘어나서 뻑날 수 밖에 없는 구조이지만 이런 내용이 주의적으로 다루어져있지 않았던게 아쉬웠습니다. 로컬 테스트 환경에서는 쉽게 확인할 수 없는 이슈기 때문에 더욱 주의해서 사용해야할 것 같습니다. 😃\nReference https://nextjs.org/docs/pages/api-reference/components/image https://nextjs.org/docs/app/building-your-application/optimizing/images https://velog.io/@devohda/Next.js-%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%8B%9C%EB%8F%84%ED%95%98%EA%B8%B0ing ",
   "wordCount" : "595",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2023-12-28T00:00:00Z",
   "dateModified": "2023-12-28T00:00:00Z",
   "author":{
@@ -206,17 +206,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/projects/">Projects</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/projects/">Projects</a></div>
     <h1 class="post-title entry-hint-parent">
       next/image 그냥 쓰면 서버는 시한부입니다 💀
     </h1>
-    <div class="post-meta"><span title='2023-12-28 00:00:00 +0000 UTC'>December 28, 2023</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2023-12-28 00:00:00 +0000 UTC'>2023년 12월 28일</span>&nbsp;·&nbsp;<span>3 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -367,12 +367,12 @@ EC2는 넉넉한 인스턴스 플랜을 사용중인데 <code>평상시엔 10% �
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/frontend-algorithm/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>FE 기술면접 준비</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/react-algorithm/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>자주사용되는 리액트 알고리즘, 라이브러리 정리</span>
   </a>
@@ -531,12 +531,12 @@ EC2는 넉넉한 인스턴스 플랜을 사용중인데 <code>평상시엔 10% �
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 

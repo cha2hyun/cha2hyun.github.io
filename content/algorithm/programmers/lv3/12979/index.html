@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="ko" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12979/">
+<link rel="alternate" hreflang="ko" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12979/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="프로그래머스 12979] 기지국 설치 - 파이썬">
   <meta property="og:description" content="Summer/Winter Coding(~2018)">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2022-10-26T00:00:00+00:00">
@@ -137,7 +137,7 @@
   ],
   "articleBody": "문제 https://school.programmers.co.kr/learn/courses/30/lessons/12979\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 문제 설명 N개의 아파트가 일렬로 쭉 늘어서 있습니다. 이 중에서 일부 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 기술이 발전해 5g 수요가 높아져 4g 기지국을 5g 기지국으로 바꾸려 합니다. 그런데 5g 기지국은 4g 기지국보다 전달 범위가 좁아, 4g 기지국을 5g 기지국으로 바꾸면 어떤 아파트에는 전파가 도달하지 않습니다. 예를 들어 11개의 아파트가 쭉 늘어서 있고, [4, 11] 번째 아파트 옥상에는 4g 기지국이 설치되어 있습니다. 만약 이 4g 기지국이 전파 도달 거리가 1인 5g 기지국으로 바뀔 경우 모든 아파트에 전파를 전달할 수 없습니다. (전파의 도달 거리가 W일 땐, 기지국이 설치된 아파트를 기준으로 전파를 양쪽으로 W만큼 전달할 수 있습니다.) 이때, 우리는 5g 기지국을 최소로 설치하면서 모든 아파트에 전파를 전달하려고 합니다. 위의 예시에선 최소 3개의 아파트 옥상에 기지국을 설치해야 모든 아파트에 전파를 전달할 수 있습니다. 아파트의 개수 N, 현재 기지국이 설치된 아파트의 번호가 담긴 1차원 배열 stations, 전파의 도달 거리 W가 매개변수로 주어질 때, 모든 아파트에 전파를 전달하기 위해 증설해야 할 기지국 개수의 최솟값을 리턴하는 solution 함수를 완성해주세요 제한사항 N: 200,000,000 이하의 자연수 stations의 크기: 10,000 이하의 자연수 stations는 오름차순으로 정렬되어 있고, 배열에 담긴 수는 N보다 같거나 작은 자연수입니다. W: 10,000 이하의 자연수 입출력 예 N\tstations\tW\tanswer 11\t[4, 11]\t1\t3 16\t[9]\t2\t3 풀이 Greedy한 방법으로 최소한의 시간복잡도로 풀어야하는 문제.\n처음 시도로는 n 길이인 모든 원소가 1인 스택을 선언후 스테이션을 돌면서 이미 커버가 가능한 구간은 0으로 변경한 다음 연속되는 원소의 값이 1인 구간을 뽑아서 최소한의 갯수로 모든 범위를 커버하려 했지만 효율성에서 탈락하였다 🥲\n다시 시도한 방법으로는 우선 전파 1개가 최대한으로 커버할 수 있는 범위는 2w + 1로 정해놓고 제공받은 스테이션 까지 최소 몇개를 깔아야할지 포문으로 한번 돌고 남은 범위를 더해주면 된다. O(N)\nsolution.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 def solution(n, stations, w): from math import ceil answer = 0 # 스테이션이 최대 커버할 수 있는 거리는 왼쪽 w + 오른쪽 w + 본인 max_range = w + w + 1 # 시작 위치 cursor = 1 for station in stations: # 제공받은 스테이션까지 최소 몇개를 깔아야하는지 answer += ceil((station - w - cursor) / max_range) # 깔았다면 시작 위치 변경 cursor = station + w + 1 # 기존에 깔린 station 돌은 커서 위치가 전체 길이보다 작을 경우 if n \u003e= cursor: answer += ceil((n - cursor + 1) / max_range) return answer 다른사람풀이 내림을 활용한 풀이\nsolution.py 1 2 3 4 5 6 7 8 def solution(n, arr, w): bef=-w cnt=0 ww=w*2+1 for x in arr: cnt+=(x-bef-1)//ww bef=x return cnt+(n+w-bef)//ww ",
   "wordCount" : "426",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2022-10-26T00:00:00Z",
   "dateModified": "2022-10-26T00:00:00Z",
   "author":{
@@ -215,17 +215,17 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">홈</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/">프로그래머스 문제풀이</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/">LV3</a></div>
     <h1 class="post-title entry-hint-parent">
       프로그래머스 12979] 기지국 설치 - 파이썬
     </h1>
-    <div class="post-meta"><span title='2022-10-26 00:00:00 +0000 UTC'>October 26, 2022</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
+    <div class="post-meta"><span title='2022-10-26 00:00:00 +0000 UTC'>2022년 10월 26일</span>&nbsp;·&nbsp;<span>2 분</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
 </div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -403,12 +403,12 @@
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/64064/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>프로그래머스 64064] 불량 사용자 - 파이썬</span>
   </a>
   <a class="next" href="https://home.cha2hyun.com/content/algorithm/programmers/lv3/12987/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>프로그래머스 12987] 숫자 게임 - 파이썬</span>
   </a>
@@ -567,12 +567,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '복사';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '복사 완료!';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '복사';
             }, 2000);
         }
 
