@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Websockets on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.blog/tags/websockets/</link>
+    <link>https://home.cha2hyun.com/tags/websockets/</link>
     <description>Recent content in Websockets on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
-      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.com/papermod-cover.png</url>
+      <link>https://home.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.blog/tags/websockets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.com/tags/websockets/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>아프리카TV 실시간채팅 크롤링</title>
-      <link>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</link>
+      <link>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</guid>
+      <guid>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</guid>
       <description>리버스엔지니어링 + 소켓연결 + 네트워크탭 분석. feat) 아프리카도우미</description>
     </item>
     <item>
       <title>유튜브 API를 이용한 댓글 오래 버티기 이벤트</title>
-      <link>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</link>
+      <link>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</link>
       <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</guid>
+      <guid>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</guid>
       <description>유튜브에 댓글이 N분동안 달리지 않으면 승리하게 됩니다. feat)팩토리</description>
     </item>
     <item>
       <title>유튜브 라이브 실시간채팅 크롤링</title>
-      <link>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</link>
+      <link>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</link>
       <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</guid>
+      <guid>https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</guid>
       <description>exe 실행파일로 추출하여 추첨까지 자동화</description>
     </item>
   </channel>

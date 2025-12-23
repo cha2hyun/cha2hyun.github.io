@@ -2,99 +2,99 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>LV2 on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/</link>
+    <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/</link>
     <description>Recent content in LV2 on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
-      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.com/papermod-cover.png</url>
+      <link>https://home.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.blog/content/algorithm/programmers/lv2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.com/content/algorithm/programmers/lv2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>프로그래머스 12980] 점프와 순간 이동</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12980/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12980/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12980/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12980/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12985] 예상 대진표</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12985/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12985/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12985/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12985/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12973] 짝지어 제거하기 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12973/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12973/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12973/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12973/</guid>
       <description>2017 팁스타운</description>
     </item>
     <item>
       <title>프로그래머스 12981] 영어 끝말잇기 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12981/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12981/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12981/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12981/</guid>
       <description>Summer/Winter Coding(~2018)</description>
     </item>
     <item>
       <title>프로그래머스 12911] 다음 큰 숫자 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12911/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12911/</link>
       <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12911/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12911/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12924] 숫자의 표현 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12924/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12924/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12924/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12924/</guid>
       <description>스택/큐</description>
     </item>
     <item>
       <title>프로그래머스 12945] 피보나치 수 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12945/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12945/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12945/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12945/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12909] 올바른 괄호 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12909/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12909/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12909/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12909/</guid>
       <description>스택/큐</description>
     </item>
     <item>
       <title>프로그래머스 12939] Python 최댓값과 최솟값 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12939/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12939/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12939/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12939/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12941] Python 최솟값 만들기 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12941/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12941/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12941/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12941/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 12951] JadenCase 문자열 만들기 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12951/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12951/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/12951/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/12951/</guid>
       <description>연습문제</description>
     </item>
     <item>
       <title>프로그래머스 70129] 이진 변환 반복하기 - 파이썬</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/70129/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/programmers/lv2/70129/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/programmers/lv2/70129/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/programmers/lv2/70129/</guid>
       <description>월간 코드 챌린지 시즌1</description>
     </item>
   </channel>

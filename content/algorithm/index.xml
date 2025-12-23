@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Algorithms on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.blog/content/algorithm/</link>
+    <link>https://home.cha2hyun.com/content/algorithm/</link>
     <description>Recent content in Algorithms on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
-      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.com/papermod-cover.png</url>
+      <link>https://home.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.blog/content/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.com/content/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FE 기술면접 준비</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/frontend-algorithm/</link>
       <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/frontend-algorithm/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;💡 현재 글은 미완성 단계입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>자주사용되는 리액트 알고리즘, 라이브러리 정리</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/react-algorithm/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/react-algorithm/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/react-algorithm/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/react-algorithm/</guid>
       <description>&lt;h3 id=&#34;recoil&#34;&gt;Recoil&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;yarn add recoil @types/recoil&lt;/code&gt;&lt;/p&gt;
 &lt;h4 id=&#34;주요-api-호출방법&#34;&gt;주요 API 호출방법&lt;/h4&gt;
@@ -115,9 +115,9 @@
     </item>
     <item>
       <title>자주사용되는 파이썬 알고리즘, 함수 정리</title>
-      <link>https://home.cha2hyun.blog/content/algorithm/python-algorithms/</link>
+      <link>https://home.cha2hyun.com/content/algorithm/python-algorithms/</link>
       <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.blog/content/algorithm/python-algorithms/</guid>
+      <guid>https://home.cha2hyun.com/content/algorithm/python-algorithms/</guid>
       <description>&lt;br /&gt;
 &lt;h2 id=&#34;알고리즘&#34;&gt;알고리즘&lt;/h2&gt;
 &lt;h3 id=&#34;insertion-vs-merge-vs-heap-vs-quick&#34;&gt;Insertion vs Merge vs Heap vs Quick&lt;/h3&gt;

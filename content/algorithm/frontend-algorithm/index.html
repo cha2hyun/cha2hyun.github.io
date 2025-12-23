@@ -41,16 +41,16 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
 브라우저 렌더링 과정
 참고 : https://www.youtube.com/watch?v=z1Jj7Xg-TkU">
 <meta name="author" content="cha2hyun">
-<link rel="canonical" href="https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/">
+<link rel="canonical" href="https://home.cha2hyun.com/content/algorithm/frontend-algorithm/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.86f6066d7130525813443e8903a2068321c628315d580b277954cd68a96e68c0.css" integrity="sha256-hvYGbXEwUlgTRD6JA6IGgyHGKDFdWAsneVTNaKluaMA=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://home.cha2hyun.blog/favicon/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://home.cha2hyun.blog/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://home.cha2hyun.blog/favicon/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://home.cha2hyun.blog/favicon/apple-icon-76x76.png">
-<link rel="mask-icon" href="https://home.cha2hyun.blog/safari-pinned-tab.svg">
+<link rel="icon" href="https://home.cha2hyun.com/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://home.cha2hyun.com/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://home.cha2hyun.com/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://home.cha2hyun.com/favicon/apple-icon-76x76.png">
+<link rel="mask-icon" href="https://home.cha2hyun.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/">
+<link rel="alternate" hreflang="en" href="https://home.cha2hyun.com/content/algorithm/frontend-algorithm/">
 <noscript>
     <style>
         #theme-toggle,
@@ -102,7 +102,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/">
+</script><meta property="og:url" content="https://home.cha2hyun.com/content/algorithm/frontend-algorithm/">
   <meta property="og:site_name" content="채수현 개발일지">
   <meta property="og:title" content="FE 기술면접 준비">
   <meta property="og:description" content=" 💡 현재 글은 미완성 단계입니다.
@@ -112,9 +112,9 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     <meta property="article:section" content="content">
     <meta property="article:published_time" content="2024-02-24T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-02-24T00:00:00+00:00">
-      <meta property="og:image" content="https://home.cha2hyun.blog/papermod-cover.png">
+      <meta property="og:image" content="https://home.cha2hyun.com/papermod-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://home.cha2hyun.blog/papermod-cover.png">
+<meta name="twitter:image" content="https://home.cha2hyun.com/papermod-cover.png">
 <meta name="twitter:title" content="FE 기술면접 준비">
 <meta name="twitter:description" content="
 💡 현재 글은 미완성 단계입니다.
@@ -160,19 +160,19 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
       "@type": "ListItem",
       "position":  1 ,
       "name": "Contents",
-      "item": "https://home.cha2hyun.blog/content/"
+      "item": "https://home.cha2hyun.com/content/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Algorithms",
-      "item": "https://home.cha2hyun.blog/content/algorithm/"
+      "item": "https://home.cha2hyun.com/content/algorithm/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "FE 기술면접 준비",
-      "item": "https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/"
+      "item": "https://home.cha2hyun.com/content/algorithm/frontend-algorithm/"
     }
   ]
 }
@@ -190,7 +190,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
   "articleBody": " 💡 현재 글은 미완성 단계입니다.\n브라우저 브라우저에 URL을 입력하면 생기는 일 URL해석 브라우저에 입력된 URL을 해석하여 해당하는 웹페이지의 호스트명, 프로토콜 정보를 추출 DNS 조회 (분산형 DB) 호스트명을 IP주소로 변환하기 위해 DNS 서버에 쿼리를 보내고 DNS서버는 IP주소를 응답 이때 PC의 host 파일 - DNS cache - 공유기(라우터)의 DNS - ISP의 DNS를 먼저 확인하고 없다면 DNS 서버에 질의 접속자의 IP에 따라서 가장 가까운 CDN(GSBL)을 전달받을 수도 있음 서버연결 브라우저는 DNS 서버로 부터 얻은 IP 주소를 이용하여 해당 서버에 TCP 연결을 시도 (TCP 연결이 성공하면 HTTP requests가 보내짐) 이때 URL해석에서 얻은 프로토콜이 HTTPS 일 경우 TLS 핸드셰이크 과정을 거침. 서버에 요청 전송 및 응답 TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 서버는 해당하는 웹페이지의 내용에 포함된 HTTP응답 메세지를 전송 (HTML, CSS, JS 등의 파일을 받아옴) 서버로받은 HTML파일을 렌더링 브라우저 렌더링 과정 참고 : https://www.youtube.com/watch?v=z1Jj7Xg-TkU\nHTML 파싱 → DOM트리 생성 서버로부터 전달받은 HTML은 바이트스트림(8비트)으로 되어있는데 이를 문자열로 변경 토큰화과정을 진행. 브라우저가 가지고 있는 토큰과 비교하여 해당 문자가 HTML 파일인지 비교합니다. 이때 토큰은 시작 혹은 종료태그 속성, 속성값 등을 의미 토큰화과정에서 노드가 생성되고 노드가 모여 거대한 DOM트리가 생성 DOM트리를 생성하는 과정에서 img나 link같은 태그를 만나게 되면 태그안에 있는 리소스를 다운 DOM트리를 생성하는 과정에서 script 태그를 만나게 되면 브라우저는 DOM생성을 중단하고 script 태그안에있는 자바스크립트를 해석 CSS 파싱 → CSSOM 트리 생성 DOM 트리를 생성하는 과정과 유사 렌더트리 생성 DOM 트리 + CSSOM 트리를 합쳐서 렌더트리를 생성한다 레이아웃 (리플로우) 위치, 크기, 계산 속성 요소의 크기나 좌표와 같은 좌표를 갖은 레이아웃 트리를 생성 이때 display:none 속성은 렌더트리에 포함되지 않음 position, left, top, right, weidth, hegith, margin, padding, border, display, float 등 페인트 (리페인트) 꾸미기 속성 렌더트리를 따라서 페인트 기록이 생성. 요소를 렌더링하는 순서나 여러개의 레이어로 나눈다음 텍스트, 색, 이미지 보더, 그림자 등 시각적인 부분을 그리는 과정을 지남 background, box-shadow, border-radius, border-style, color, outline 등 Composite 페인트 단계에서 만든 여러가지 레이어를 하나로 합성하고 스크린에 픽셀로 나타내게 됨 수정이 일어난다면 렌더트리를 다시 생성하게 된다. (연산이 많이 일어나는 작업) 이때 수정된 부분이 어떤것인지에 따라서 리플로우 과정을 건너뛸 수 있다. 단 transform, opacity는 GPU가 관여하는 속성으로 DOM트리를 변경하지 않도록 설계되어 있기 때문에 리플로우 리페인트를 건너띌 수 있다. HTTPS (Hyper Text Transfer Protocol Secure) 과정 참고 : https://www.youtube.com/watch?v=H6lpFRpyl14\n핸드셰이크 과정을 거침. 클라이언트는 랜덤데이터를 서버에 보내고 서버는 응답으로 랜덤데이터와 인증서를 함께 보냄 클라이언트는 전달받은 인증서가 진짜인지 브라우저에 내장된 CA들의 정보를 통해 확인함 인증서는 CA의 개인키로 암호화되어 있고 브라우저에 저장된 CA의 공개키로 복호화를 합니다. 이때 복호화에 성공하면 서버로부터 받은 인증서는 검증된 것임. 복호화할 수 없다면 안전하지 않은 페이지로 Warning이 표시됨 복호화된 인증서에는 서버의 공개키가 포함되어 있음. 핸드셰이크때 이용한 랜덤데이터를 서버의 공개키로 암호화해서 서버로 보내지게되고 양쪽에서 일련의 과정을 통해 동일한 대칭키를 갖게 됨 서버와 클라이언트는 대칭키를 이용해서 데이터를 암호화하여 주고 받게됩니다. (계속 비대칭키를 이용하면 연산이 많아지기 때문 즉, 비대칭키로 만든 대칭키를 사용하게됩니다.) URL vs URI URI (Uniform Resource Identifier) 정의: 웹 상의 자원을 식별하는 유일한 주소입니다. URI는 리소스를 찾기 위한 일반적인 용어로, URL과 URN을 포함하는 상위 개념입니다. 예시: https://example.com/path/to/resource 이것은 리소스를 찾기 위한 전체적인 주소를 나타냅니다. URL (Uniform Resource Locator) 정의: 리소스가 실제로 위치한 곳을 가리키는 주소입니다. URL은 리소스에 접근하기 위한 구체적인 위치 정보를 제공합니다. 구성 요소: 프로토콜(예: http, https), 호스트 이름(도메인 이름 또는 IP 주소), 포트 번호(선택적), 경로(리소스가 있는 위치), 쿼리 문자열(선택적), 프래그먼트(선택적) 등을 포함합니다. 예시: https://www.example.com/articles/uri-vs-url-vs-urn 이것은 웹 상의 특정 자원을 찾기 위한 구체적인 위치를 나타냅니다. URN (Uniform Resource Name) 정의: 리소스의 위치와 무관하게 리소스를 유일하게 식별하는 이름입니다. URN은 리소스가 실제로 어디에 있는지, 혹은 어떻게 접근해야 하는지와는 관계없이 리소스를 식별하기 위한 영구적인 이름을 제공합니다. 용도: 주로 도서관, 문서 아카이브 등에서 문서나 출판물 등의 리소스에 대한 영구적인 식별자로 사용됩니다. 예시: urn:isbn:0451450523 이것은 특정한 책을 식별하기 위한 ISBN 코드를 나타냅니다. Javascript Prototype 참고 - https://www.youtube.com/watch?v=wUgmzvExL_E\n1 2 3 4 5 6 7 8 9 10 11 12 var test = [2, 1, 4]; // var test = new Array(2, 1, 4); test.sort(); // Array 객체의 prototype중 sort가 있기에 사용할 수 있음 test.sortReverse(); // undefined, Array 객체가 prototype중 sortReverse 가 없기 때문 Array.prototype.sortReverse = function () { return ... } test.sortReverse() [5,7,6].sortReverse(); // Array객체의 prototype에 sortReverse를 정의해주어서 앞으로 모든 배열에 사용할 수 있게됨 // prototype은 상위 객체의 유전자라고 생각하면 편함 prototype은 무엇인가요?\nJS는 프로토타입 기반 언어로 객체의 상속이 프로토타입으로 이루어집니다. 프로토타입은 특정 객체 유형의 모든 인스턴스가 공유하는 객체입니다. 이 속성은 메서드와 속성을 상속하기 위해 사용됩니다. prototype chain은 무엇인가요?\n객체가 속성이나 메서드에 접근하려고 시도할 때, 해당 속성이나 메서드를 찾기 위해 JS엔진이 따르는 경로입니다. 객체에서 직접 속성이나 메서드를 찾을 수 없는 경우, JS는 객체의 프로토타입 (즉 그 객체의 생성자 함수의 prototype)으로 이동하여 거기에서 속성이나 메서드를 찾는데 이 과정은 프로토타입 체인의 최상단에 도달할때 까지, 즉 null이 프로토타입으로 설정될 때 까지 반복됩니다. 즉 프로토타입을 계속 상속하는데 필요한 속성이나 메서드에 접근할때 찾을 때 까지 상위 객체로 올라가게 되는데 이것을 프로토타입 체인이라고 합니다. function.bind가 되는 이유는 무엇인가요?\n자바스크립트의 모든 함수가 Function 객체의 인스턴스인데 function 객체의 프로토타입에 정의되어 있기에 모든 함수에서 bind를 사용할 수 있습니다. function.bind는 새로운 함수를 생성하며, 이 새로운 함수의 this가 bind 메서드에 전돨된 값으로 설정됩니다. 이는 함수가 호출될 때 주어진 this 값과 인자들을 사용하여 실행되도록 합니다. bind는 함수의 실행 컨텍스트를 명시적으로 설정할 때 유용하며 특히 콜백 함수나 이벤트 핸들러에서 this의 값이 예상대로 설정되지 않을때 문제를 해결하는데 사용됩니다. 상속은 어떻게 구현하나요?\n생성자 함수인 경우에는 프로토타입 체인을 사용하여 상속을 구현할 수 있습니다. 하위 클래스(생성자함수)의 프로토타입을 상위 클래스의 인스턴스로 설정함으로써 이루어집니다. 생성자 함수에서는 .prototype 객체에 직접 하려면 .__proto__ 명령어로 상속을 진행할 수 있습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 const Bmw = function (color) { this.color = color; }; Bmw.prototype.wheels = 4; Bmw.prototype.drive = function () { console.log(\"Drive\"); }; Bmw.prototype.navigation = 1; Bmw.prototype.stop = function () { console.log(\"Stop\"); }; const ix3 = new Bmw(\"red\"); // ix3 instanceof Bmw --\u003e true const x5 = new Bmw(\"blue\"); // x5.constructor === Bmw --\u003e true // 프로토타입을 아래처럼 한번에 선언하게되면 consturctor가 사라지게됨 // x5.constructor === Bmw --\u003e false // 그래서 한줄씩 풀어서 쓰는거나 Bmw.prototype = { constructor: Bmw, // constructor를 직접 명시해야함 wheels: 4, drive() { console.log(\"Drive\"); } navigation: 1, stop() { console.log(\"Stop\"); }, } Class인 경우에는 extends를 사용하여 클래스간에 상속을 정의할 수 있으며 이때 상위 클래스의 내용이 Prototype으로 상속됩니다. super 를 사용하여 부모 클래스의 생성자를 호출할 수 있습니다.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 class Car { constructor(color) { this.color = color; this.wheels = 4; } dirve() { console.log(\"Drive..\"); } stop() { console.log(\"Stop!\"); } } class Bmw extends Car { constructor(color) { // 부모클래스의 constructor를 오버라이딩 해야하기 때문에 동일한 color 인자를 받아야함 super(color); // constructor에서 this를 빈 객체 {} 로 받아와 리턴하는데 상속받는 경우에 이 과정을 건너뛰기 때문에 super를 사용하여 부모 클래스의 constructor를 super를 이용하여 선언해야함 this.navigation = 1; } // constructor 생성자를 따로 호출하지 않으면 아래처럼 실행됨 // constructor(..args){ // super(...args); //} park() { console.log(\"Park\"); } stop() { console.log(\"Why\"); // 이때 프로토타입 체인을 통해서 부모클래스 까지 가지 않고 메서드 오버라이딩이 되어버림 super.stop(); // 부모 클래스의 stop을 사용하려면 이렇게 } } this 참고 : https://www.youtube.com/watch?v=tDZROpAdJ9w\nthis는 무엇인가요?\nthis는 현재 실행 컨텍스트의 객체를 참조하는 식별자입니다. 즉, 현재 코드가 실행되고 있는 “주변 환경\"을 가리킵니다. 함수 내에서 this의 값은 그 함수가 호출되는 방식에 따라 달라집니다. this는 언제 결정되나요?\nthis의 값은 함수가 호출될 때 결정됩니다. 주요 규칙은 다음과 같습니다 전역 컨텍스트에서 this는 전역 객체를 가리킵니다. 브라우저에서는 window, Node.js에서는 global 객체가 됩니다. 객체의 메서드로서 호출될 때, this는 그 메서드를 호출한 객체를 가리킵니다. 생성자 함수에서, this는 새로 생성되는 객체 인스턴스를 가리킵니다. 이벤트 핸들러에서, this는 이벤트를 받는 DOM 요소를 가리킵니다. Arrow Function에서의 this는 무엇인가요?\n화살표 함수(arrow function)에서의 this는 다릅니다. 화살표 함수는 자신의 this를 가지지 않고, 대신에 함수가 생성될 때의 this값을 “렉시컬하게” 바인딩합니다. 즉, 화살표 함수 내부에서의 this는 화살표 함수를 둘러싼 외부 스코프의 this와 같습니다. this를 변경하는 방법은 무엇인가요?\n참조 : https://www.youtube.com/watch?v=KfuyXQLFNW4 JavaScript에서는 call, apply, 그리고 bind 함수를 이용해 함수 호출 시 this의 값을 명시적으로 설정할 수 있습니다. call과 apply는 함수를 즉시 호출하면서 첫 번째 인자로 this를 설정합니다. call은 개별 인자를, apply는 인자 배열을 받습니다. bind는 함수의 this값을 영구히 바꿀 수 있는 새 함수를 반환합니다. 이는 Function.prototype에 정의되어 있으며, bind를 호출하는 함수의 복사본을 생성하고, 이 복사본에서 this의 값을 첫 번째 인자로 전달된 값으로 고정합니다. Scope 스코프란 무엇인가요?\n변수이름, 함수이름, 클래스이름 과같은 식별자가 본인이 선언된 위치에 따라 다른 코드에서 자신이 참조될 수 있을지 없을지 결정되는 것 스코프 체인이란 무엇인가요 ?\n스코프는 함수의 위치에 따라서 계층적인 구조를 가질 수 있음 이렇게 계층적인 구조로 연결된 것을 스코프체인이라고 함 예를들어 Inner scope \u003e Outer Scope \u003e 전역 스코프 처럼 계층적인 구조임 변수를 참조할때 JS 엔진은 스코프 체인을 통해 변수를 참조함 아래에서 위로 반방향성으로만 존재하여 하위스코프는 상위스코프를 참조할 수 있지만 반대는 되지 않음 스코프 레벨이란 무엇인가 ?\n블록 레벨 스코프 (if, for) = ES6의 let, const 함수 레벨 스코프 = 함수 동적스코프 - 함수가 호출되는 시점에 결정\n정적스코프(렉시컬스코프) - 함수가 정의되는 시점에 결정 자바스크립트에서 함수는 상위 스코프를 참조하기 때문에 본인의 내부 슬롯에 상위 스코프에 대한 참조를 저장합니다.\n함수가 호출되면 실행되는 과정은 ?\n함수호출 -\u003e 실행 컨텍스트 생성 -\u003e 실행 컨텍스트 스택 푸쉬 -\u003e 렉시컬 환경 생성 (식별자, 식별자에 바인딩 된 값, 상위 렉시켤 환경에 대한 참조) -\u003e 실행 컨덱스트 스택 POP Closure 참고 : https://www.youtube.com/watch?v=tpl2oXQkGZs\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 const Bmw = function (color) { this.color = color; }; const ix3 = new Bmw(\"red\"); ix3.color = \"blue\"; // 이렇게 사용하면 color가 바뀌어짐 // 클로져를 활용해서 바꿀수 없고 초기값만 받아올 수 있게 할 수 있음 const Bmw = function (color) { const c = color; this.getColor = function () { // getColor는 생성될 당시의 컨텍스트를 기억함 console.log(c); }; }; ix3.getColor(); // 클로져를 색상을 가져올 수 있으나 바꿀 수 없게 할 수 있음 클로져는 무엇인가요? 상위 스코프의 식별자를 참조하고 있음. 클로져를 활용한 구현경험 커링이 무엇인지 고차함수는 무엇인지 스코프-클로져 Functional Programming 배열의 고차함수 어떤것을 사용하는지 reduce를 어떻게 구현하는지 합성은 상속과 어떤 장점이 있는지 Immutable 장단점은 어떤것이 있는지 OOP ES lasses 상속은 어떻게 하고 캡슐화는 어떻게하는지 객체를 나누는 단위는? 의존성을 낮추는 방법은? (사례중심) 비동기 Promise, async/await 차이는?\n1 2 3 4 5 6 7 8 9 10 11 new Promise 는 state와 result를 property로 갖음 state: pending result: undefined resolve(value) resolve가 실행되면 state: fulfilled (이행됨) result: value reject(error) 실패하면 state: rejected(거부됨) result: error 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 const pr = new Promise((resolve, reject) =\u003e { // resolve -\u003e 성공한 경우 실행되는 Callback 함수 // reject -\u003e 실패한 경우 실행되는 Callback 함수 }); pr.then( function (result) {}, // 이행되었을 때 실행 function (err) {} // 거절되었을 때 실행 ); // catch를 이용하여 명확하게 구분할 수 있음 pr.then(function (result) {}) .catch(function (err) {}) .finally(function () { // 이행이 되었든 거절이되었든 처리가 완료되면 항상 실행됨 ex) 로딩화면 없애기 console.log(\"끝\"); }); 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 const order1 = () =\u003e { return new Promise((res, rej) =\u003e { setTimeout(() =\u003e { res(\"1번주문완료\"); }, 1000); }); }; const order2 = (message) =\u003e { console.log(message); return new Promise((res, rej) =\u003e { setTimeout(() =\u003e { rej(\"2번주문실패\"); }, 3000); }); }; const order3 = (message) =\u003e { console.log(message); return new Promise((res, rej) =\u003e { setTimeout(() =\u003e { res(\"3번주문완료\"); }, 2000); }); }; // promise chain // 하나의 작업이 완료되면 다시 넘어감 총 1 + 3 + 2 = 6초가 걸림 order1() .then((res) =\u003e order2(res)) // \"1번주문완료\" 출력 후 reject .then((res) =\u003e order3(res)) // 실행되지 않음 .then((res) =\u003e consol.log(res)); // 실행되지 않음 .catch(console.log) // \"2번주문실패\" 출력 .finally(()=\u003e {console.log(\"끝\")}) // \"끝\" 출력 // async await 사용하면 이렇게 바꿀 수 있음 // promise then을 사용하는 것보다 가독성이 좋고 명확하게 보여짐 async function order() { try{ const result1 = await order1(); const result2 = await order2(result1); const result3 = await order2(result2); console.log(result3); } catch (e) { console.log(e) } console.log(\"끝\"); } order(); // Promise.all // 비동기로 실행 모든 작업이 완료될때 까지 기다리는데 3초정도 걸림 // 만약 하나라도 reject가 되면 에러 발생함 따라서 모든 값들이 필요할때 사용하면 됨 // 전부 성공하면 [\"1번주문완료\", \"2번주문완료\", \"3번주문완료\"] Promise.all([order1(), order2(), order3()]).then(res)=\u003e{ console.log(res); } // async await 사용하면 이렇게 바꿀 수 있음 // promise then을 사용하는 것보다 가독성이 좋고 명확하게 보여짐 async function order() { try{ const result = await Promise.all([order1(), order2(), order3()]); } catch (e) { console.log(e) } } order(); // Promise.race // 하나라도 끝나는 작업이 있으면 리턴함 // \"1번주문완료\" 가 1초만에 출력되고 종료됨 // 이행되든 거부되든 가장 빠른걸 먼저 출력 Promise.race([order1(), order2(), order3()]).then(res)=\u003e{ console.log(res); } // Promise.any // 프로미스중에 가장 먼저 이행된 객체 반환 Promise.any([order1(), order2(), order3()]).then(res)=\u003e{ console.log(res); } 1 2 3 4 5 6 7 8 9 10 11 12 13 14 async function getName() { // 함수앞에 async를 붙히면 Promise를 반환하게됨 return \"cha2hyun\"; } console.log(getName()); // Promise {:\"cha2hyun\"} getName().then((name) =\u003e console.log(name)); // cha2hyun function getName() { return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(name); }, 1000); }); } 1 2 3 4 5 6 7 async function showName() { const result = await getName(\"cha2hyun\"); // Promise가 끝날때 까지 기다림 즉 1초후에 이름이 찍힘 console.log(result); } console.log(\"시작\"); // \"시작\" 찍히고 showName(); // 1초후에 \"cha2hyun\" 찍힘 promise 패턴 설명\nsetTimeout에 Promise를 적용하면?\n동시에 여러개의 관계없는 요청을 한다면?\nTask queue vs Micro task queue?\nGenerator generator란 ?\n함수의 실행을 멈추었다가 다시 실행할 수 있음\nSymbol.iterator 메서드가 있음. iterator를 반환함 예시) 배열, 문자열\niterator는 next 메서드를 가지고 value와 done 속성을 가진 객체를 반환한다\n작업이 끝나면 done은 true를 갖는다\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 // 함수 앞에 *을 붙힘 function* fn() { try { console.log(\"1\"); yield 1; console.log(\"2\"); yield 2; console.log(\"3\"); yield 3; return \"finish\"; } catch (e) { console.log(e); } } const a = fn(); // next() // a -\u003e fn{} // a.next -\u003e \"1\" {value: 1, done: false} // a.next -\u003e \"2\" {value: 2, done: false} // a.next -\u003e \"3\" {value: 3, done: false} // a.next -\u003e {value: \"finish\", done: true} // a.next -\u003e {value: undefined, done: true} // return() // a -\u003e fn{} // a.next -\u003e \"1\" {value: 1, done: false} // a.return(\"end\") -\u003e {value: end, done: true} // a.next -\u003e {value: undefined, done: true} // throw() // a -\u003e fn{} // a.next -\u003e \"1\" {value: 1, done: false} // a.throw(new Error('err')) -\u003e \"Error: err\" {value: undefined, done: true} 객체 객체 표현 방식중 자주 사용하는지? class, prototype, literal 차이 자주 사용하는 메서드는? JSON 데이터 파싱시 가장 신경쓰이는 것은? 대문자 객체와 소문자 객체는 무엇이 차이있는지 (Object vs object) 얕은복사와 깊은복사 이벤트 실행방법 이벤트 버블링, 이벤트 캡쳐링 타입스크립트 Pick, Omit\n접근제한자\npublic - 자식클래스, 클래스인스턴스 모두 접근 가능 protected - 자식 클래스에서 접근 가능 인스턴스에서는 접근 불가 private - 해당 클래스 내부에서만 접근 가능 (변수명 앞에 #을 찍는걸로 할 수 있음) readonly - 수정할 수 없게 (constructor에서만 수정할 수 있음) static - this로 선언 못하고 class 명으로 선언해야함 추상클래스\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 추상클래스 abstract class Car { // class 앞에 abstract가 있으면 추상클래스로 선언됨 color: string; constructor(color: string) { this.color = color; } start() { console.log('start'); } abstract doSomething():void; } const car = new Car(\"red\") // abstract class는 new로 선언할 수 없음 class Bmw extends Car { constructor(color: string) { super(color); } doSomething() {} // doSomething이 abstract이기 때문에 오버라이드해서 구현을 꼭 해야함 } const car = new Bmw(\"red\") // 호출할 수 있게됨 Generic\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // 유니온 타입 이용시 function getSize(arr: number[] | string[] : boolean[]: object[] ): number { return arr.length; } const arr1 = [1, 2, 3]; const arr2 = [\"a\", \"b\", \"c\"]; const arr3 = [true, false, true]; const arr4 = [{}, {}, { name: \"cha2hyun\" }]; // Generic 타입 이용시 function getSize\u003cT\u003e(arr: T[]): number { return arr.length; } const arr1 = [1, 2, 3]; const arr2 = [\"a\", \"b\", \"c\"]; const arr3 = [true, false, true]; const arr4 = [{}, {}, { name: \"cha2hyun\" }]; getSize\u003cnumber\u003e(arr1); 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 // any type interface Mobile { name: string; price: number; options: any; } // Generic type interface Mobile\u003cT\u003e { name: string; price: number; options: T; } const m1: Mobile\u003cstring\u003e = { name: \"cha2hyun\", price: 900, options: \"good\", }; const m2: Mobile\u003c{ color: string }\u003e = { name: \"cha2hyun\", price: 900, options: { color: \"red\" }, }; keyof : property 키값을 union type으로\n1 2 3 4 5 6 interface User { id: number; name: string; } type UserKey = keyof User; // 'id' | 'name' const uk:UserKey = \"id\" Partial : property를 모두 optional로 변경\n1 2 3 4 5 6 7 8 9 10 11 12 interface User { id: number; name: string; } // 이렇게하면 name이 없어서 에러 let admin: User = { id: 1, }; // Partial을 쓰면 User 프로퍼티가 모두 Optional로 변경되서 사용 가능 let admin: Partial\u003cUser\u003e = { id: 1, }; Required : property를 모두 필수로 바까줌\n1 2 3 4 5 6 7 8 9 10 11 12 interface User { id: number; name?: string; } // 이렇게하면 name은 옵셔널이기 때문에 에러가 발생하지 않음 let admin: User = { id: 1, }; // 에러발생 옵셔널을 모두 필수로 바꾸어서 name도 필수값이 됨 let admin: Required\u003cUser\u003e = { id: 1, }; Record\n1 2 3 4 5 6 7 8 type Grade = \"1\" | \"2\" | \"3\" | \"4\"; type Score = \"A\" | \"B\" | \"C\" | \"D\"; const score: Record\u003cGrade, Score\u003e = { 1: \"A\", 2: \"B\", 3: \"C\", 4: \"D\", }; 기타 generateor가 무엇인가요? ES Next 관심있는 문법은? 정규표현식은 무엇이고 언제사용하는지? Debugging 버그 문제를 어떻게 해결하는지? 본인만의 디버깅 방식은? calling stack? network 오류 상황에 어떻게 확인하는지? (break 포인트?) null vs undefined null과 undefined는 JavaScript에서 “없음\"을 나타내는 두 가지 다른 값입니다. 둘 사이에는 몇 가지 주요 차이점이 있습니다\n의미적 차이\nundefined는 변수가 선언되었지만 값이 할당되지 않은 상태를 나타냅니다. 즉, 변수의 값이 아직 정의되지 않았음을 의미합니다. null은 변수에 값이 없음을 의도적으로 나타내는 데 사용됩니다. 즉, 변수가 “비어있음” 또는 “아무것도 가리키지 않음\"을 의도적으로 표현할 때 사용합니다. 타입:\ntypeof undefined는 “undefined\"를 반환합니다. typeof null은 오래된 JavaScript의 버그로 인해 “object\"를 반환합니다. 이는 null이 실제로는 기본 타입임에도 불구하고 발생하는 일종의 이상한 결과입니다. 기본값:\n함수에서 명시적인 반환값이 없을 경우 undefined를 반환합니다. 변수를 선언만 하고 초기화하지 않았을 때, 그 변수의 기본값은 undefined입니다. 사용 상황:\nundefined는 주로 JavaScript 엔진에 의해 할당되며, 개발자가 직접 사용하는 경우는 드뭅니다. null은 개발자가 변수에 ‘값이 없음’을 명시적으로 나타내고 싶을 때 사용합니다. 이러한 차이점에도 불구하고, null과 undefined는 둘 다 “없음\"을 나타내기 때문에, 느슨한 동등 연산자(==)를 사용하여 비교할 경우 서로 같다고 평가됩니다(null == undefined는 true를 반환). 그러나, 엄격한 동등 연산자(===)를 사용할 경우, 이 두 값은 서로 다르다고 평가됩니다(null === undefined는 false를 반환). ",
   "wordCount" : "3123",
   "inLanguage": "en",
-  "image": "https://home.cha2hyun.blog/papermod-cover.png","datePublished": "2024-02-24T00:00:00Z",
+  "image": "https://home.cha2hyun.com/papermod-cover.png","datePublished": "2024-02-24T00:00:00Z",
   "dateModified": "2024-02-24T00:00:00Z",
   "author":{
     "@type": "Person",
@@ -198,14 +198,14 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://home.cha2hyun.blog/content/algorithm/frontend-algorithm/"
+    "@id": "https://home.cha2hyun.com/content/algorithm/frontend-algorithm/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "채수현 개발일지",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://home.cha2hyun.blog/favicon/favicon.ico"
+      "url": "https://home.cha2hyun.com/favicon/favicon.ico"
     }
   }
 }
@@ -215,7 +215,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://home.cha2hyun.blog/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지</a>
+            <a href="https://home.cha2hyun.com/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -241,22 +241,22 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
         </div>
         <ul id="menu">
             <li>
-                <a href="https://home.cha2hyun.blog/archives" title="전체">
+                <a href="https://home.cha2hyun.com/archives" title="전체">
                     <span>전체</span>
                 </a>
             </li>
             <li>
-                <a href="https://home.cha2hyun.blog/content/posts/" title="일상">
+                <a href="https://home.cha2hyun.com/content/posts/" title="일상">
                     <span>일상</span>
                 </a>
             </li>
             <li>
-                <a href="https://home.cha2hyun.blog/content/algorithm/" title="공부">
+                <a href="https://home.cha2hyun.com/content/algorithm/" title="공부">
                     <span>공부</span>
                 </a>
             </li>
             <li>
-                <a href="https://home.cha2hyun.blog/search/" title="검색">
+                <a href="https://home.cha2hyun.com/search/" title="검색">
                     <span>검색</span>
                 </a>
             </li>
@@ -267,7 +267,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://home.cha2hyun.blog/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.blog/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.blog/content/algorithm/">Algorithms</a></div>
+    <div class="breadcrumbs"><a href="https://home.cha2hyun.com/">Home</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/">Contents</a>&nbsp;»&nbsp;<a href="https://home.cha2hyun.com/content/algorithm/">Algorithms</a></div>
     <h1 class="post-title entry-hint-parent">
       FE 기술면접 준비
     </h1>
@@ -1512,12 +1512,12 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://home.cha2hyun.blog/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/">
+  <a class="prev" href="https://home.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/">
     <span class="title">« Prev</span>
     <br>
     <span>아프리카TV 실시간채팅 크롤링</span>
   </a>
-  <a class="next" href="https://home.cha2hyun.blog/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/">
+  <a class="next" href="https://home.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/">
     <span class="title">Next »</span>
     <br>
     <span>next/image 그냥 쓰면 서버는 시한부입니다 💀</span>
@@ -1528,7 +1528,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on x"
-            href="https://x.com/intent/tweet/?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;url=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f&amp;hashtags=">
+            href="https://x.com/intent/tweet/?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;url=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f&amp;hashtags=">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -1537,7 +1537,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f&amp;title=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;summary=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;source=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f&amp;title=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;summary=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;source=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -1546,7 +1546,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f&title=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84">
+            href="https://reddit.com/submit?url=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f&title=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -1555,7 +1555,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -1564,7 +1564,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on whatsapp"
-            href="https://api.whatsapp.com/send?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84%20-%20https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
+            href="https://api.whatsapp.com/send?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84%20-%20https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -1573,7 +1573,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on telegram"
-            href="https://telegram.me/share/url?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;url=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
+            href="https://telegram.me/share/url?text=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&amp;url=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -1582,7 +1582,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share FE 기술면접 준비 on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&u=https%3a%2f%2fhome.cha2hyun.blog%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
+            href="https://news.ycombinator.com/submitlink?t=FE%20%ea%b8%b0%ec%88%a0%eb%a9%b4%ec%a0%91%20%ec%a4%80%eb%b9%84&u=https%3a%2f%2fhome.cha2hyun.com%2fcontent%2falgorithm%2ffrontend-algorithm%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
@@ -1597,7 +1597,7 @@ TCP연결에 성공했다면 브라우저는 서버에 HTTP 요청을 보내고 
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://home.cha2hyun.blog/">채수현 개발일지</a></span> · 
+        <span>&copy; 2025 <a href="https://home.cha2hyun.com/">채수현 개발일지</a></span> · 
 
     <span>
         Powered by
