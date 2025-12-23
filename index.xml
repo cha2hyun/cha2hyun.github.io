@@ -15,9 +15,9 @@
     <atom:link href="https://blog.cha2hyun.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>아프리카TV 실시간채팅 크롤링</title>
-      <link>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</link>
+      <link>https://blog.cha2hyun.com/content/dev/afreecatv-crawling/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/afreecatv-crawling/</guid>
+      <guid>https://blog.cha2hyun.com/content/dev/afreecatv-crawling/</guid>
       <description>리버스엔지니어링 + 소켓연결 + 네트워크탭 분석. feat) 아프리카도우미</description>
     </item>
     <item>
@@ -213,9 +213,9 @@
     </item>
     <item>
       <title>프로 개발자처럼 맥 세팅하기 명령어 모음 (설명X)</title>
-      <link>https://blog.cha2hyun.com/content/posts/mac-brew-list/</link>
+      <link>https://blog.cha2hyun.com/content/daily/mac-brew-list/</link>
       <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/mac-brew-list/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/mac-brew-list/</guid>
       <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드</description>
     </item>
     <item>
@@ -269,37 +269,37 @@
     </item>
     <item>
       <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
-      <link>https://blog.cha2hyun.com/content/posts/nestjs-graphql-kakao-jwt/</link>
+      <link>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/nestjs-graphql-kakao-jwt/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</guid>
       <description>NestJS + Grahpql + Prisma + Postgres + jwt</description>
     </item>
     <item>
       <title>Synology Chat 멘션 색상 바꾸기</title>
-      <link>https://blog.cha2hyun.com/content/posts/synologychat/</link>
+      <link>https://blog.cha2hyun.com/content/daily/synologychat/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/synologychat/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/synologychat/</guid>
       <description>CSS 변경하여 안읽은 메세지 강조하기</description>
     </item>
     <item>
-      <title>유튜브 API를 이용한 댓글 오래 버티기 이벤트</title>
-      <link>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</link>
+      <title>유튜브에 댓글이 N분동안 달리지 않으면 승리하게 됩니다</title>
+      <link>https://blog.cha2hyun.com/content/dev/youtube-comment-event/</link>
       <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-comment-event/</guid>
-      <description>유튜브에 댓글이 N분동안 달리지 않으면 승리하게 됩니다. feat)팩토리</description>
+      <guid>https://blog.cha2hyun.com/content/dev/youtube-comment-event/</guid>
+      <description>유튜브 API를 이용한 댓글 오래 버티기 feat)팩토리</description>
     </item>
     <item>
       <title>유튜브 라이브 실시간채팅 크롤링</title>
-      <link>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</link>
+      <link>https://blog.cha2hyun.com/content/dev/youtube-live-crawling/</link>
       <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/projects/%EB%B0%B0%EB%8F%8C%EC%9D%B4%EC%9D%98%EB%8B%B9%EA%B5%AC%EC%83%9D%ED%99%9C/youtube-live-crawling/</guid>
+      <guid>https://blog.cha2hyun.com/content/dev/youtube-live-crawling/</guid>
       <description>exe 실행파일로 추출하여 추첨까지 자동화</description>
     </item>
     <item>
       <title>처음으로 오픈소스 Collaborator가 되다</title>
-      <link>https://blog.cha2hyun.com/content/posts/firstcollaborator/</link>
+      <link>https://blog.cha2hyun.com/content/daily/firstcollaborator/</link>
       <pubDate>Tue, 07 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/firstcollaborator/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/firstcollaborator/</guid>
       <description>오픈소스 생태계에 기여하기</description>
     </item>
     <item>
@@ -493,9 +493,9 @@
     </item>
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://blog.cha2hyun.com/content/posts/markdown-syntac-guide/</link>
+      <link>https://blog.cha2hyun.com/content/daily/markdown-syntac-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/markdown-syntac-guide/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/markdown-syntac-guide/</guid>
       <description>마크다운 신택스 가이드 by Hugo Authors</description>
     </item>
   </channel>

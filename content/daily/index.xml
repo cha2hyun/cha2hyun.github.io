@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Daily on 채수현 개발일지</title>
+    <link>https://blog.cha2hyun.com/content/daily/</link>
+    <description>Recent content in Daily on 채수현 개발일지</description>
+    <image>
+      <title>채수현 개발일지</title>
+      <url>https://blog.cha2hyun.com/papermod-cover.png</url>
+      <link>https://blog.cha2hyun.com/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>ko</language>
+    <lastBuildDate>Tue, 30 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.cha2hyun.com/content/daily/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로 개발자처럼 맥 세팅하기 명령어 모음 (설명X)</title>
+      <link>https://blog.cha2hyun.com/content/daily/mac-brew-list/</link>
+      <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.cha2hyun.com/content/daily/mac-brew-list/</guid>
+      <description>언젠가 다시 보기 위해 작성한 초기 셋업 가이드</description>
+    </item>
+    <item>
+      <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
+      <link>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</link>
+      <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</guid>
+      <description>NestJS + Grahpql + Prisma + Postgres + jwt</description>
+    </item>
+    <item>
+      <title>Synology Chat 멘션 색상 바꾸기</title>
+      <link>https://blog.cha2hyun.com/content/daily/synologychat/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cha2hyun.com/content/daily/synologychat/</guid>
+      <description>CSS 변경하여 안읽은 메세지 강조하기</description>
+    </item>
+    <item>
+      <title>처음으로 오픈소스 Collaborator가 되다</title>
+      <link>https://blog.cha2hyun.com/content/daily/firstcollaborator/</link>
+      <pubDate>Tue, 07 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cha2hyun.com/content/daily/firstcollaborator/</guid>
+      <description>오픈소스 생태계에 기여하기</description>
+    </item>
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://blog.cha2hyun.com/content/daily/markdown-syntac-guide/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://blog.cha2hyun.com/content/daily/markdown-syntac-guide/</guid>
+      <description>마크다운 신택스 가이드 by Hugo Authors</description>
+    </item>
+  </channel>
+</rss>

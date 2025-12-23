@@ -15,9 +15,9 @@
     <atom:link href="https://blog.cha2hyun.com/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>첫 Boilerplate 템플릿 (NestJS 카카오 OAuth 및 jwt토큰 이용하기)</title>
-      <link>https://blog.cha2hyun.com/content/posts/nestjs-graphql-kakao-jwt/</link>
+      <link>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cha2hyun.com/content/posts/nestjs-graphql-kakao-jwt/</guid>
+      <guid>https://blog.cha2hyun.com/content/daily/nestjs-graphql-kakao-jwt/</guid>
       <description>NestJS + Grahpql + Prisma + Postgres + jwt</description>
     </item>
   </channel>
