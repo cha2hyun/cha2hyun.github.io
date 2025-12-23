@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +7,10 @@
 <meta name="robots" content="index, follow">
 <title>아프리카TV 실시간채팅 크롤링하기 - 파이썬 | 채수현 개발일지</title>
 <meta name="keywords" content="python, websockets, bs4, selenium, crawling">
-<meta name="description" content="feat.배돌이의 당구생활) 리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석">
+<meta name="description" content="리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석">
 <meta name="author" content="cha2hyun">
 <link rel="canonical" href="http://localhost:1313/content/posts/youtubeafreecacrawling1/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a0df97853b646022cff587d94d85b7235723b13f55f2c0ed1e6b317d931ddfa5.css" integrity="sha256-oN&#43;XhTtkYCLP9YfZTYW3I1cjsT9V8sDtHmsxfZMd36U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.86f6066d7130525813443e8903a2068321c628315d580b277954cd68a96e68c0.css" integrity="sha256-hvYGbXEwUlgTRD6JA6IGgyHGKDFdWAsneVTNaKluaMA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon/favicon-32x32.png">
@@ -36,37 +36,59 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:title" content="아프리카TV 실시간채팅 크롤링하기 - 파이썬" />
-<meta property="og:description" content="feat.배돌이의 당구생활) 리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/content/posts/youtubeafreecacrawling1/" /><meta property="og:image" content="http://localhost:1313/papermod-cover.png"/><meta property="article:section" content="content" />
-<meta property="article:published_time" content="2023-03-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-03-23T00:00:00+00:00" />
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png"/>
-
-<meta name="twitter:title" content="아프리카TV 실시간채팅 크롤링하기 - 파이썬"/>
-<meta name="twitter:description" content="feat.배돌이의 당구생활) 리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석"/>
+</script><meta property="og:url" content="http://localhost:1313/content/posts/youtubeafreecacrawling1/">
+  <meta property="og:site_name" content="채수현 개발일지">
+  <meta property="og:title" content="아프리카TV 실시간채팅 크롤링하기 - 파이썬">
+  <meta property="og:description" content="리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="content">
+    <meta property="article:published_time" content="2023-03-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-23T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Websockets">
+    <meta property="article:tag" content="Bs4">
+    <meta property="article:tag" content="Selenium">
+    <meta property="article:tag" content="Crawling">
+      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:title" content="아프리카TV 실시간채팅 크롤링하기 - 파이썬">
+<meta name="twitter:description" content="리버스엔지니어링 &#43; 소켓연결 &#43; 네트워크탭 분석">
 
 
 <script type="application/ld+json">
@@ -101,14 +123,14 @@
   "@type": "BlogPosting",
   "headline": "아프리카TV 실시간채팅 크롤링하기 - 파이썬",
   "name": "아프리카TV 실시간채팅 크롤링하기 - 파이썬",
-  "description": "feat.배돌이의 당구생활) 리버스엔지니어링 + 소켓연결 + 네트워크탭 분석",
+  "description": "리버스엔지니어링 + 소켓연결 + 네트워크탭 분석",
   "keywords": [
     "python", "websockets", "bs4", "selenium", "crawling"
   ],
   "articleBody": "👉 시리즈 유튜브 실시간채팅 크롤링하기\n아프리카TV 실시간채팅 크롤링하기 (현재글)\n아프리카도우미 실시간채팅 크롤링하기\n유튜브 댓글 분석 및 댓글 이벤트 들어가며 방송프로그램으로 OBS를 사용하고 있는데, 최근 M1맥 업데이트로 동시송출 플러그인 사용이 가능해졌습니다. 유트브에서 유튜브 + 아프리카TV로 넘어가는 계획중인데 추첨방송을 계속 이어서 진행하기 위해 유튜브, 아프리카tv 두개 채팅을 실시간으로 크롤링하려 합니다.\n아프리카TV의 경우 참고할만한 레퍼런스가 매우 매우 매우 없는 (누가하겠냐고..) 맨땅에 해딩이었습니다 🥲 분석해보았지만 글에 설명되어 있듯이 예외케이스가 존재하니 참고 부탁드립니다.\n아프리카TV 채팅방 분석 탭이동 하면 소켓연결이 끊어지고 다시 돌아오면 새로 연결된다\n크롬의 개발자도구 네트워크탭을 분석해보면 아프리카TV의 채팅방의 경우 대략적으로 다음과 같이 웹소켓 서버와 연결됨을 알 수 있습니다.\n사람이 동영상을 보고있는지 계속 확인하는 웹소켓 1개 일정시간마다 핸드쉐이크를 꼐속 진행한다\n사람이 동영상을 보고있다고 판단되면 채팅방 연결하는 웹소켓 1개 맨 처음에만 핸드쉐이크\n사람이 동영상을 안보고있다고 판단되면 모든 소켓 연결을 끊어버립니다. 소리는 들려도 채팅은 보여지지 않습니다. 다시 동영상에 입장하면 당연히 처음부터 소켓연결을 재시작하기 떄문에 이전 채팅 내용들이 사라지게 됩니다 입장, 퇴장 여부도 전부 소켓에 찍힙니다.\n우선 가장 중요한 부분은 실제 채팅이 오고 가는 것이 찍히는 위 2번 웹소켓입니다. 해당 웹소켓에 연결하기 위해서는 ⭐️다음 값들을⭐️ 알아야합니다.\n웹소켓 주소 채팅방 입장시 받아오는 API 혹은 1번 웹소켓에서 불러와질 수 있습니다.\n핸드쉐이크때 필요한 값 위의 웹소켓 주소를 받아올때 같이 넘겨받는 값이 특정 bytes array 구조로 보내져야합니다.\n우선은 1번 2번은 재껴두고 소켓에 연결해서 채팅을 넘겨받을 수 있는지 확인해보겠습니다.\n어떻게든 채팅을 불러올 수 있을까? (소켓 분석) 총 2번의 핸드쉐이크 혹은 정보를 전달하는 것을 알 수 있습니다. 각각의 핸드쉐이크때 어떠한 정보를 보내야 연결이 성공되어 나머지 정보도 전달받는지 분석이 필요합니다.\n우선은 채팅방을 어떻게든 연결하여 정보를 출력하기 위해 받은 키값 그대로 연결해보겠습니다.\n첫번째 핸드쉐이크 첫번째 핸드쉐이크의 값중 유의미한 값은 A32.로 시작합니다. 네트워크탭을 분석해본 결과 아프리카TV API로 요청을 보낼때 쿠키로 함께 보내지는 PdboxTicket 값임을 확인했습니다.\n두번째 핸드쉐이크 두번째 핸드쉐이크는 _ 로 나누어지거나 \u0026으로 값이 나누어 져있었습니다. \u0026으로 나누어진 것을 보면 뭔가 파라미터 값을 전송하는 것으로 예측 할 수 있습니다. 전달되는 값들은 API의 리스폰스나 JS파일을 분석하면 나옵니다. 우선은 파이썬으로 핸드쉐이크떄 보내지는 값을 그대로 전송했을때 연결이 되는지 확인해봅니다 Test Code 해당값을 UTF-8즉 string 형태로 그대로 복사할 경우 깨져서 보여지지 않기 떄문에 base64 값으로 복사한다음에 코드에서 복호화 하는 형태로 진행합니다.\n핸드쉐이크 테스트 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 import certifi import ssl import base64 import asyncio import websockets # WSS 연결 위한 SSL 설정 ssl_context = ssl.create_default_context() ssl_context.load_verify_locations(certifi.where()) ssl_context.check_hostname = False ssl_context.verify_mode = ssl.CERT_NONE # 아래 3개 변수값은 어딘가의 API로 부터 받은 값들의 조합으로 우선은 그대로 사용 Base64PdboxTicket = 'GwkwMDAxMDAwNTg3MDAMLkEzMi43YmJUNTZ2eUhNOWZLWmsuQ1V0N0dxNXdzSW95ZGdUejRvT0JkUGJEVTRPTEJjbDNEUkFUenJUYkhrQzlYRmtiZnl1YXMwUzE3SFlyZDFjbFU1VzV4U3hpTUJYS2lmV25fVXFDQThWWUYxczVidE04QzJuenhWN3NEVzlTcHFPM2V4VHNHQUMxU3ZmNTlCNUE1bDVrUFJsZHpleHB4OGxKbkJFYXE5UXNLbW1KQ21TTExQRm1JNkc3Q0FHZ1R0UDFWcGhzaTYzTDZXUHRDdkRPalZDNTg1LXVJQV9hRGRxcTlWX1pOWUlBQ0N3d3Yxb0NDckRLeE9icldKS0xpQlNrbGs3bW1TMkkwWVdtNnhiMDB2TG53OGJuQXVyZzRyNkpHeWVma0ZDWmZaM0V6c29LTEFwRU9xeFlkX0JXMVNxRWVNM1FuNkoyc0E5Y0d5WGFZLWhySm5wblJGNmN4RzFPTWJBSi1KVGVXc2JTLTNaNUNULS1fUW1vTWJCb2stSmJwUmt1Y1oxMURJSkFpY25NZmwxaWtzU1Y4aHh6YUVqWVExb19pamI1OXVCWUNYMlNsMFdLSEwydjk4WkhSLXZGNjNRRDY5VEtqSEpjaHBIaDh0RFNzUUxJekc3WUFZbmpKYjl3cDlvV2JfVi0wSFgyRFRYVnVUSEtKRTFPMWNtbHE1bC1qaXZ6bW1HdnJ0WnVmQVVfRG1NQzA1bUpPelNxZTl0bzNKVFZmMjBJWldfWXFpW...==' Base64ChannelInfo = 'GwkwMDAyMDAwMjk3MDAMOTYxOAw0NTY1MzFjMDg0YjUxMGJkOTAyYWViZDcyMjFiMjUyNl92bGZ2bGY3ODlfMjQ1NTkwMzY1X2lvcwwwDAxsb2cRBiYGc2V0X2JwcwY9BjgwMDAGJgZ2aWV3X2JwcwY9BjEwMDAGJgZxdWFsaXR5Bj0Gbm9ybWFsBiYGdXVpZAY9BjFlNDNjZjZkMzc5MTNjMzZiMzVkNTgwZTBiNTY1NmVjBiYGZ2VvX2NjBj0GS1IGJgZnZW9fcmMGPQYxMQYmBmFjcHRfbGFuZwY9BmtvX0tSBiYGc3ZjX2xhbmcGPQZrb19LUgYmBmpvaW5fY2MGPQY0MTAScHdkERJhdXRoX2luZm8RTlVMTBJwdmVyETESYWNjZXNzX3N5c3R...=' WSSUrl = 'wss://chat-76dbfccf.afreecatv.com:8001/Websocket/vlfvlf789' async def connect(): # 웹 소켓에 접속을 합니다. async with websockets.connect(WSSUrl, subprotocols=['chat'], ssl=ssl_context, ping_interval=None) as websocket: # 핸드쉐이크 await websocket.send(base64.b64decode(Base64PdboxTicket)) await websocket.recv() await websocket.send(base64.b64decode(Base64ChannelInfo)) # 이후부터 채팅내용 받아와짐 while True: try: data = await websocket.recv() print(data) except Exception as e: print(\"ERROR:\", e) asyncio.get_event_loop().run_until_complete(connect()) 코드 실행시 데이터를 성공적으로 잘 받아오는 것을 확인 할 수 있었습니다.\n단, 바이트 코드로 되어있으면서 hex 값이랑 평문이랑 섞여있기 때문에 해당 데이터를 복호화 해줍니다. \\x0c 값이 계속 보이는 것으로 보아 해당 값으로 split 해주고 utf-8로 변환하였습니다.\n1 2 3 4 5 6 def decode(bytes): test = bytes.split(b'\\x0c') res = [] for i in test: res.append(str(i, 'utf-8')) print(res) 해당 코드로 복호화 하였을 경우에 유의미한 값이 보여지는 것을 확인했습니다. res[1] 값에 따라서 배열의 크기가 변경되는 것을 보아 해당 값을 기준으로 어떤 데이터인지 유추해볼 수 있습니다. 여러번 테스트해본 결과 다음과 같습니다.\nres[1] = 1 일때 res[2]=id res[3]=닉네임가 채팅방에 입장 하였음 res[1] = -1 일때 res[2]=id res[3]=닉네임가 채팅방에 퇴장 하였음 res[1] = '문자열' 일때 res[1]=닉네임 res[2]=id res[6]=채팅내용 보여지는 채팅입니다. 다른 경우에는 매니저 이거나 팬 일때 아이디가 색상으로 표시되는 경우 등이 있었지만 위 3가지만 으로도 충분히 목표를 달성하여 더이상 분석을 진행하진 않았습니다.\n최종 복호화 코드로 채팅 내용만 불러오게 하였습니다.\n1 2 3 4 5 6 7 8 9 10 11 def decode(bytes): test = bytes.split(b'\\x0c') res = [] for i in test: res.append(str(i, 'utf-8')) if(res[1] != '-1' and res[1] != '1' and '|' not in res[1]): if(len(res) \u003e 5): print(res[1], res[2], res[6]) else: # print(res) pass 결과 채팅 받아오기 성공!\n🚨 5분이 지나면 ERROR: no close frame received or sent 메세지와 함께 소켓 연결이 끊어집니다.\n[심화] URL만으로 채팅을 자동으로 불러올 수 있을까? 아프리카TV 채팅창 내용을 불러오는 것 까지는 성공했습니다 ! 다만 네트워크탭을 켜서 필요한 값들을 복사할 수는 없기에 해당 값들까지 분석하여 URL만 제공해도 모든것이 자동으로 돌아가져야 합니다. 위에서 연결하고 추출까지 성공했기 때문에 이제부터 필요한 값은 딱 3개 입니다.\n👉 채팅방 url 👉 첫번째 핸드쉐이크 👉 두번째 핸드쉐이크 채팅방 URL 찾기 채팅에 연결되면서 두번 핸드쉐이크할때 변화되는 값들을 확인해보고 해당 값들이 어떤 api에서 왔는지 분석해보았습니다.\nAPI 주소 : https://live.afreecatv.com/afreeca/player_live_api.php?bjid={bid}\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 def player_live_api(bno, bid): # type=aid 일 경우 aid(.A32~~~)불러옴 data = {'bid': bid, 'bno':bno, 'type':'live', 'confirm_adult':'false', 'player_type':'html5', 'mode':'landing', 'from_api':'0', 'pwd':'', 'stream_type':'common', 'quality':'HD'} res = requests.post(f'https://live.afreecatv.com/afreeca/player_live_api.php?bjid={bid}', data=data, headers=headers).json() # wss연결할 채팅 Url CHDOMAIN = res[\"CHANNEL\"][\"CHDOMAIN\"].lower() # 채팅방 번호 CHATNO = res[\"CHANNEL\"][\"CHATNO\"] # 채팅방 포트 번호 인데 1을 더해주어야함 CHPT = str(int(res[\"CHANNEL\"][\"CHPT\"]) + 1) # 첫번재 핸드쉐이크때 사용할 티켓 TK = res[\"CHANNEL\"][\"BJID\"] # 두번째 핸드쉐이크때 사용할 티켓 FTK = res[\"CHANNEL\"][\"FTK\"] # bj 명 BJID = res[\"CHANNEL\"][\"BJID\"] # 제목 TITLE = res[\"CHANNEL\"][\"TITLE\"] return CHDOMAIN, CHATNO, FTK, TITLE, BJID, TK, CHPT 네트워크 탭을 보면 해당 API에 2번 POST요청을 보냅니다. 헤더값에 따라 받아오는 채팅 연결 도메인값이 변경되므로 헤더 설정을 꼭 잘해주어야합니다.\n헤더 참고\n헤더는 네트워크탭에서 확인할 수 있으며 그대로 진행하였습니다.. 단, 중간에 PdboxSaveTicket의 경우 로그인 혹은 일정 시간 이후 변경되는 것으로 확인하였습니다. 따라서 테스트 하다가 채팅 내용을 불러 올 수 없을 경우에 헤더를 일단 변경해주면 채팅방 URL을 확인할 수 있습니다 (헤더 없어도 채팅방 url 받을 수 있습니다)\n첫번째 핸드쉐이크 키값 찾기 시력이 약 0.1 정도 감소된듯 하다\n핸드쉐이크 값을 비교해보니 변경되는부분, 고정인부분, API로 불러오는부분이 있었습니다.\n1 2 secret_1 = f'\u001b\t000100058200\f.{tk}\f16\f' secret_2 = f'\u001b\t000200030000\f{chat_no}\f{ftk}\f0\flog\u0011\u0006\u0026\u0006set_bps\u0006=\u00068000\u0006\u0026\u0006view_bps\u0006=\u00061000\u0006\u0026\u0006quality\u0006=\u0006normal\u0006\u0026\u0006uuid\u0006=\u00061e43cf6d37913c36b35d580e0b5656ec\u0006\u0026\u0006geo_cc\u0006=\u0006KR\u0006\u0026\u0006geo_rc\u0006=\u000611\u0006\u0026\u0006acpt_lang\u0006=\u0006ko_KR\u0006\u0026\u0006svc_lang\u0006=\u0006ko_KR\u0006\u0026\u0006join_cc\u0006=\u0006410\u0012pwd\u0011\u0012auth_info\u0011NULL\u0012pver\u00111\u0012access_system\u0011html5\u0012\f' secret_1 의 경우에 000100058200 (5820 부분)\nsecret_2 의 경우에 000200030000 (3000 부분)\n일단 방송중인 방을 셀레늄으로 받아와서 아까 찾은 API에 날려서 어떠한 공통점들이 있는지 확인해보려합니다.\n테스트 코드\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 from selenium import webdriver from selenium.webdriver.common.by import By from selenium.webdriver.chrome.service import Service from webdriver_manager.chrome import ChromeDriverManager import requests # DRIVER = webdriver.Chrome(service=Service(ChromeDriverManager().install())) DRIVER = webdriver.Chrome('./chromedriver') url = 'https://www.afreecatv.com/' DRIVER.get(url) DRIVER.implicitly_wait(3) href = [] cBox_info = DRIVER.find_elements(By.CLASS_NAME, 'cBox-info') for c in cBox_info: url = c.find_element(By.CLASS_NAME, 'title').get_attribute('href') print(url) href.append(url) for h in href: bid = h.split('/')[-2] bno = h.split('/')[-1] res = requests.post(f'https://live.afreecatv.com/afreeca/player_live_api.php?bjid={bid}', data={'bid': bid, 'bno':bno, 'type':'live', 'confirm_adult':'false', 'player_type':'html5', 'mode':'landing', 'from_api':'0','pwd':'','stream_type':'common','quality':'HD'}, headers=headers).json() CHDOMAIN = res[\"CHANNEL\"][\"CHDOMAIN\"].lower() CHATNO = res[\"CHANNEL\"][\"CHATNO\"] FTK = res[\"CHANNEL\"][\"FTK\"] TITLE = res[\"CHANNEL\"][\"TITLE\"] BJID = res[\"CHANNEL\"][\"BJID\"] TK = res[\"CHANNEL\"][\"BJID\"] print(CHDOMAIN, CHATNO, FTK, TITLE, BJID) 테스트 결과\n셀레늄… 다시 보니 선녀 같다\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 chat-dee93642.afreecatv.com 1832 b730cac99de4c43e485636cd95a95171_ahrasmall_245682917_html5 신입여캠 예쁜음방 찾는사람♥신청곡 브금 라이브 뽑기 스쿼트 ahrasmall chat-6e0a4c42.afreecatv.com 401 ee461619bb3d078951729641e140f043_wkdtnvndeod2_245680218_html5 쉬고온 폼 어떨란감(맞방 맞즐 맞팬 미션 환영 시참 가능) wkdtnvndeod2 chat-dee93642.afreecatv.com 8068 db550a2aa702133b90053db49559fc32_0100151_245682923_html5 [신입]롤 3일차 칼바람 시참방송 ෆ.̮ෆ 0100151 chat-dee93642.afreecatv.com 8041 f771fc0888b0b5a27b6f40700c3b6d3a_truelight89_245682906_html5 매일 9am 아줌마 영이랑 벚꽃 구경 갈 사람? truelight89 chat-dee93642.afreecatv.com 8007 fabe810c6f46dcea461c4510eadf8dca_wkdrn0405_245677828_html5 실버 4의 랭겜에는 어떤 사람들이 있을까? wkdrn0405 chat-dee93642.afreecatv.com 1617 82b9432c8b887e2e53b60771e3fcf919_pmw1131_245683267_html5 신입남캠 58일차💋오늘은 레몬치즈의 날🧀 pmw1131 chat-6e0a4c42.afreecatv.com 5137 c4f178bf7263e2bd265bd76efd824556_louloumomo_245682407_html5 미국여자의 일본여행 비행기놓침 louloumomo chat-dee93642.afreecatv.com 6986 2ecd8e2f6a77e283736425eac8eec0f9_namnice1_245682825_html5 업사부 투자수업!! 환상적 수익행진~!#주식#ELW#선물옵션#해외선물!!#주린이#업사부#황금알#김성남#불개미#코인! namnice1 chat-dee93642.afreecatv.com 1832 4026375bc10725e389daf8da51889779_ahrasmall_245682917_html5 신입여캠 예쁜음방 찾는사람♥신청곡 브금 라이브 뽑기 스쿼트 ahrasmall chat-6e0a4c42.afreecatv.com 401 57d27877f877ef1e80f62e31fb814884_wkdtnvndeod2_245680218_html5 쉬고온 폼 어떨란감(맞방 맞즐 맞팬 미션 환영 시참 가능) wkdtnvndeod2 chat-dee93642.afreecatv.com 8068 c629e4348ac69be8f452569494d7a869_0100151_245682923_html5 [신입]롤 3일차 칼바람 시참방송 ෆ.̮ෆ 0100151 chat-dee93642.afreecatv.com 8041 904c6dc021fa1ae3fabff201d15101d2_truelight89_245682906_html5 매일 9am 아줌마 영이랑 벚꽃 구경 갈 사람? truelight89 chat-dee93642.afreecatv.com 8007 5b21a6ddb7a1729111762b5b39dcb56c_wkdrn0405_245677828_html5 실버 4의 랭겜에는 어떤 사람들이 있을까? wkdrn0405 chat-dee93642.afreecatv.com 1617 1931b0cc33b8ecf29a8569007f6f815b_pmw1131_245683267_html5 신입남캠 58일차💋오늘은 레몬치즈의 날🧀 pmw1131 chat-6e0a4c42.afreecatv.com 5137 4a71361598af0d481297fc7439aa7a76_louloumomo_245682407_html5 미국여자의 일본여행 비행기놓침 louloumomo chat-dee93642.afreecatv.com 6986 f8967d0187c2169670e9da82005928d0_namnice1_245682825_html5 업사부 투자수업!! 환상적 수익행진~!#주식#ELW#선물옵션#해외선물!!#주린이#업사부#황금알#김성남#불개미#코인! namnice1 chat-dee93642.afreecatv.com 703 74a4437c1f784a3c32e1ce14c3fb80a0_lovely5959_245674550_html5 수피 수힛 스맵 민교 vs 나닝 사장 밧드 교용 킬내기 사비빵 lovely5959 chat-6e0a4c42.afreecatv.com 9996 6aef02482a9b6446d4736b8ab4416d5e_townboy_245672930_html5 스맵임니다 배그의신 ^^ townboy chat-6e0a4c42.afreecatv.com 3761 a5be977fac8f11d27de3f7c62b8261ff_drumkyn_245683107_html5 주식왕용느★정신차리고 왔습니다 drumkyn chat-dee93642.afreecatv.com 4320 bd63b62701fdc62dd804baae84987e4c_wnstn0905_245674053_html5 박사장 킬내기 ^^ wnstn0905 chat-6e0a4c42.afreecatv.com 59 070c9c5fdcc4fa5c73ba74ed03534fa5_since821_245144841_html5 [생]음악방송 멜론 인기가요 슬픈발라드 24시간 듣기 좋은 노래 명곡 100 히트곡 차트음방최신가요팝송힙합댄스곡뮤직라디오퀵뷰신입BJ since821 chat-dee93642.afreecatv.com 7213 7eca7d68afba49201955e48b2114c1e6_na2un_245679460_html5 사비빵 ^ㅛ^ na2un chat-6e0a4c42.afreecatv.com 1979 30c8f01aed8e85431af29005ebdba03e_giltae1124_245682339_html5 마스터 승급전 1승1패 giltae1124 chat-6e0a4c42.afreecatv.com 5065 d70b5ea61501657e88a5000944275e2b_wwe1_245682996_html5 [생방송] WWE RAW LIVE 1557회 wwe1 chat-dee93642.afreecatv.com 1595 b9fdf6637769710dcc39155c194583b0_dldmssk_245683163_html5 늦었습니다 dldmssk chat-6e0a4c42.afreecatv.com 6667 55f36f872db59d3c3db4f2e992987db0_tsoul7_245664669_html5 대한민국 어죽1등 대흥식당 tsoul7 chat-dee93642.afreecatv.com 8486 a7a7b4c0417d781f8c0a9771479b7b29_suhee0051_245677530_html5 수힛 수피 스맵 민교 vs 나닝 사장 밧드 교용 킬내기 야미 suhee0051 chat-dee93642.afreecatv.com 4542 16a1bc62a4d357a422e9aa2f63f4fac0_wnddnjs3124_245682295_html5 오늘 태국 출국합니다 저는 비행기값 게이지 안차면 안갑니다 ......부천 정중만 설영욱 와이퍼 이수혁 나루토 품바 박공 하르 wnddnjs3124 chat-6e0a4c42.afreecatv.com 1779 3dd7b7d32ebe399045c639d71874d558_sunwo2534_245683271_html5 JUP 뉴스 분량전쟁 특별게스트 함께 X야옹민지 sunwo2534 chat-6e0a4c42.afreecatv.com 2010 58c69912e19990fa9cc3fcf7bd3d5dd3_gjgj3274_245683016_html5 스타 소룡이 래더 강의방송 욕하러오지마세요. gjgj3274 chat-6e0a4c42.afreecatv.com 9853 acf465cffcb8a267607f0fcf47507432_todakman1151_245682511_html5 드릴말씀이 있습니다 (어그로임) 범프리카 todakman1151 chat-6e0a4c42.afreecatv.com 7662 ccd30ea7baa9e681d74244b058b72810_dlrnf_245683294_html5 긴급회의 시작 합니다_세쌍컴퍼니 x 세찬 dlrnf chat-dee93642.afreecatv.com 7871 872ef2c55774dfcac9278408bdb2881d_o31511_245682721_html5 [무파] 다이아 77개 캐기 [로나월드:서수길형님] o31511 ... 채팅 URL의 경우 두가지로 어떻게 분류하는진 확인할 수 없으나 url에서 채팅번호를 기준으로 방입장이 되는 것을 확인할 수 있었습니다. 테스트 크롤링으로 핸드쉐이크에 대한 유의미한 결과를 얻진 못했습니다.\n💡 그러던중 PdTicket 값이 API에서 불러와질때 쿠키가 없으면 불러와지질 않는다는 것을 보고 비회원 즉 쿠키에 티켓값이 없는 상태로 진행하기로 하였습니다. 비회원일 경우에 첫번째 핸드쉐이크때 해당 티켓값 (로그인 정보)를 받지 않기 떄문에 티켓값이 갱신되거나 헤더가 변경되는 경우를 제외해도 된다는 이점이 있습니다.\n비회원 테스트 결과\n첫번째 키 값 secret_1\n전: 0001000XX200.A32.XXX..\n후: 000100000600.16 (고정)\n두번째 키 값 secret_2\n전: 00020003XX0 (로그인 쿠키값이 있을 경우에)\n후: 00020002XX0 (비회원)\n첫번째 핸드쉐이크는 고정이므로 필요한 3개 값 중 2개는 해결 되었습니다.\n두번째 핸드쉐이크 키값 찾기 이제 남은건 두번째 핸드쉐이크 인데 위 처럼 2자리 숫자가 감이 오질 않아서 무작정 정리해보기 시작했습니다. 네트워크탭 두번째 핸드쉐이크 키값, bj닉네임, 닉네임 길이를 무작정 적어보기 시작했습니다.\n정리해보니 닉네임 길이에 따른 규칙을 찾을 수 있었습니다. 여기서 이상한건 lovely5959 만 뭔가 -1 오차가 있었습니다. 찜찜하기는 해도 랜덤테스트해도 거의 다 맞긴 해도 100% 정확하지 않습니다\n코드 아프리카 TV 실시간 채팅 긁어오기.최종.최종,최종.최종의최종... 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 import certifi import json import ssl import base64 import asyncio import requests import websockets # WSS 연결 위한 SSL 설정 ssl_context = ssl.create_default_context() ssl_context.load_verify_locations(certifi.where()) ssl_context.check_hostname = False ssl_context.verify_mode = ssl.CERT_NONE def decode(bytes): test = bytes.split(b'\\x0c') res = [] for i in test: res.append(str(i, 'utf-8')) if(res[1] != '-1' and res[1] != '1' and '|' not in res[1]): if(len(res) \u003e 5): print(res[1], '\\t| ', res[2], '|', res[6]) else: print(res) pass def player_live_api(bno, bid): # type=aid 일 경우 aid(.A32~~~)불러옴 data = {'bid': bid, 'bno':bno, 'type':'live', 'confirm_adult':'false', 'player_type':'html5', 'mode':'landing', 'from_api':'0', 'pwd':'', 'stream_type':'common', 'quality':'HD'} res = requests.post(f'https://live.afreecatv.com/afreeca/player_live_api.php?bjid={bid}', data=data).json() CHDOMAIN = res[\"CHANNEL\"][\"CHDOMAIN\"].lower() CHATNO = res[\"CHANNEL\"][\"CHATNO\"] FTK = res[\"CHANNEL\"][\"FTK\"] TITLE = res[\"CHANNEL\"][\"TITLE\"] BJID = res[\"CHANNEL\"][\"BJID\"] CHPT = str(int(res[\"CHANNEL\"][\"CHPT\"]) + 1) return CHDOMAIN, CHATNO, FTK, TITLE, BJID, CHPT async def connect(url): BNO = str(url.split('/')[-1]) BID = str(url.split('/')[-2]) CHDOMAIN, CHATNO, FTK, TITLE, BJID, CHPT = player_live_api(BNO, BID) KEY = '' if(len(BJID) == 5): KEY = '80' elif(len(BJID) == 6): KEY = '81' elif(len(BJID) == 7): KEY = '82' elif(len(BJID) == 8): KEY = '83' elif(len(BJID) == 9): KEY = '84' elif(len(BJID) == 10): KEY = '85' elif(len(BJID) == 11): KEY = '86' elif(len(BJID) == 12): KEY = '87' handshake = f'\u001b\t00020002{KEY}00\f{CHATNO}\f{FTK}\f0\flog\u0011\u0006\u0026\u0006set_bps\u0006=\u00068000\u0006\u0026\u0006view_bps\u0006=\u00061000\u0006\u0026\u0006quality\u0006=\u0006normal\u0006\u0026\u0006uuid\u0006=\u00061e43cf6d37913c36b35d580e0b5656ec\u0006\u0026\u0006geo_cc\u0006=\u0006KR\u0006\u0026\u0006geo_rc\u0006=\u000611\u0006\u0026\u0006acpt_lang\u0006=\u0006ko_KR\u0006\u0026\u0006svc_lang\u0006=\u0006ko_KR\u0012pwd\u0011\u0012auth_info\u0011NULL\u0012pver\u00111\u0012access_system\u0011html5\u0012\f' async with websockets.connect(f\"wss://{CHDOMAIN}:{CHPT}/Websocket/{BID}\", subprotocols=['chat'],ssl=ssl_context, ping_interval=None) as websocket: # 핸드쉐이크 # await websocket.send(secret_1) await websocket.send('\u001b\t000100000600\f16\f') data = await websocket.recv() await websocket.send(handshake) # 이후부터 채팅내용 받아와짐 while True: try: data = await websocket.recv() decode(data) except Exception as e: print(\"ERROR:\", e) # break url = input(\"아프리카TV URL을 입력해주세요 : \") asyncio.get_event_loop().run_until_complete(connect(url)) 결과 마무리 채팅방과 소켓으로 연결되기 때문에 성능적으로 매우 편~~안 했습니다. 궁금하신 점이 있으면 댓글로 남겨주시기 바라며 해당 글이 도움이 되셨길 바랍니다 :)\n",
   "wordCount" : "1973",
   "inLanguage": "en",
-  "datePublished": "2023-03-23T00:00:00Z",
+  "image": "http://localhost:1313/papermod-cover.png","datePublished": "2023-03-23T00:00:00Z",
   "dateModified": "2023-03-23T00:00:00Z",
   "author":{
     "@type": "Person",
@@ -129,90 +151,57 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지<span style="justify-content: center; padding-left:7px;">
-                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcha2hyun.blog&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/>
-                </span>
-                <div style="font-size: 14px; margin-top:-30px; font-weight: normal;">📚 기억은 유한하나, 기록은 무한하다</div>
-            </a>            
+            <a href="http://localhost:1313/" accesskey="h" title="채수현 개발일지 (Alt + H)">채수현 개발일지</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
         <ul id="menu">
             <li>
                 <a href="http://localhost:1313/archives" title="전체">
-                    <span style="font-weight: bold;">전체</span>
+                    <span>전체</span>
                 </a>
             </li>
             <li>
                 <a href="http://localhost:1313/content/posts/" title="일상">
-                    <span style="font-weight: bold;">일상</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/content/projects/" title="플젝">
-                    <span style="font-weight: bold;">플젝</span>
+                    <span>일상</span>
                 </a>
             </li>
             <li>
                 <a href="http://localhost:1313/content/algorithm/" title="공부">
-                    <span style="font-weight: bold;">공부</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/content/hacking/" title="해킹">
-                    <span style="font-weight: bold;">해킹</span>
+                    <span>공부</span>
                 </a>
             </li>
             <li>
                 <a href="http://localhost:1313/search/" title="검색">
-                    <span style="font-weight: bold;">검색</span>
+                    <span>검색</span>
                 </a>
             </li>
-            <li>
-                <div class="logo-switches">
-                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                    <ul class="lang-switch"><li>|</li>
-                    </ul>
-                </div>
-            </li>
         </ul>
-        
     </nav>
-    
-    
 </header>
 <main class="main">
 
@@ -222,22 +211,15 @@
     <h1 class="post-title entry-hint-parent">
       아프리카TV 실시간채팅 크롤링하기 - 파이썬
       <span class="entry-hint" title="Draft">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="35"
-          viewBox="0 -960 960 960"
-          fill="currentColor"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
           <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"
-          />
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
         </svg>
       </span>
     </h1>
-    <div class="post-meta"><span title='2023-03-23 00:00:00 +0000 UTC'>March 23, 2023</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;cha2hyun
+    <div class="post-meta"><span title='2023-03-23 00:00:00 +0000 UTC'>March 23, 2023</span>&nbsp;·&nbsp;<span>10 min</span>&nbsp;·&nbsp;<span>cha2hyun</span>
 
-
-    </div>
+</div>
   </header> <div class="toc">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
@@ -719,7 +701,7 @@
 </div><p>테스트 결과</p>
 <figure class="align-center ">
     <img loading="lazy" src="../img/5.gif#center"
-         alt="셀레늄&amp;hellip; 다시 보니 선녀 같다"/> <figcaption>
+         alt="셀레늄&hellip; 다시 보니 선녀 같다"/> <figcaption>
             <p>셀레늄&hellip; 다시 보니 선녀 같다</p>
         </figcaption>
 </figure>
@@ -1053,45 +1035,85 @@
 </nav>
 
 
-<div
-  style="
-    padding-top: 15px;
-    padding-bottom: 2px;
-    font-size: x-large;
-    font-weight: 700;
-  "
->
-  궁금하신 점이 있으신가요? 😀
-</div>
-
-
-
-
-
-<script
-  src="https://giscus.app/client.js"
-  data-repo="cha2hyun/cha2hyun.github.io"
-  data-repo-id="R_kgDOICTfkg"
-  data-category="Comments"
-  data-category-id="DIC_kwDOICTfks4CcDAW"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="dark_dimmed"
-  data-lang="ko"
-  crossorigin="anonymous"
-  async
-></script>
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on x"
+            href="https://x.com/intent/tweet/?text=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac&amp;url=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f&amp;hashtags=python%2cwebsockets%2cbs4%2cselenium%2ccrawling">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f&amp;title=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac&amp;summary=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac&amp;source=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f&title=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on whatsapp"
+            href="https://api.whatsapp.com/send?text=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac%20-%20http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on telegram"
+            href="https://telegram.me/share/url?text=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac&amp;url=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 아프리카TV 실시간채팅 크롤링하기 - 파이썬 on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%ec%95%84%ed%94%84%eb%a6%ac%ec%b9%b4TV%20%ec%8b%a4%ec%8b%9c%ea%b0%84%ec%b1%84%ed%8c%85%20%ed%81%ac%eb%a1%a4%eb%a7%81%ed%95%98%ea%b8%b0%20-%20%ed%8c%8c%ec%9d%b4%ec%8d%ac&u=http%3a%2f%2flocalhost%3a1313%2fcontent%2fposts%2fyoutubeafreecacrawling1%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
 
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://localhost:1313/">채수현 개발일지</a></span>
-    
+        <span>&copy; 2025 <a href="http://localhost:1313/">채수현 개발일지</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
@@ -1100,9 +1122,14 @@
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -1143,11 +1170,12 @@
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

@@ -1,261 +1,261 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on 채수현 개발일지</title>
-    <link>https://cha2hyun.blog/tags/</link>
+    <link>https://home.cha2hyun.blog/tags/</link>
     <description>Recent content in Tags on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://cha2hyun.blog/papermod-cover.png</url>
-      <link>https://cha2hyun.blog/papermod-cover.png</link>
+      <url>https://home.cha2hyun.blog/papermod-cover.png</url>
+      <link>https://home.cha2hyun.blog/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.153.2</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cha2hyun.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://home.cha2hyun.blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bs4</title>
-      <link>https://cha2hyun.blog/tags/bs4/</link>
+      <link>https://home.cha2hyun.blog/tags/bs4/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/bs4/</guid>
+      <guid>https://home.cha2hyun.blog/tags/bs4/</guid>
       <description></description>
     </item>
     <item>
       <title>Crawling</title>
-      <link>https://cha2hyun.blog/tags/crawling/</link>
+      <link>https://home.cha2hyun.blog/tags/crawling/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/crawling/</guid>
+      <guid>https://home.cha2hyun.blog/tags/crawling/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://cha2hyun.blog/tags/python/</link>
+      <link>https://home.cha2hyun.blog/tags/python/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/python/</guid>
+      <guid>https://home.cha2hyun.blog/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Selenium</title>
-      <link>https://cha2hyun.blog/tags/selenium/</link>
+      <link>https://home.cha2hyun.blog/tags/selenium/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/selenium/</guid>
+      <guid>https://home.cha2hyun.blog/tags/selenium/</guid>
       <description></description>
     </item>
     <item>
       <title>Websockets</title>
-      <link>https://cha2hyun.blog/tags/websockets/</link>
+      <link>https://home.cha2hyun.blog/tags/websockets/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/websockets/</guid>
+      <guid>https://home.cha2hyun.blog/tags/websockets/</guid>
       <description></description>
     </item>
     <item>
       <title>Homebrew</title>
-      <link>https://cha2hyun.blog/tags/homebrew/</link>
+      <link>https://home.cha2hyun.blog/tags/homebrew/</link>
       <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/homebrew/</guid>
+      <guid>https://home.cha2hyun.blog/tags/homebrew/</guid>
       <description></description>
     </item>
     <item>
       <title>MacOS</title>
-      <link>https://cha2hyun.blog/tags/macos/</link>
+      <link>https://home.cha2hyun.blog/tags/macos/</link>
       <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/macos/</guid>
+      <guid>https://home.cha2hyun.blog/tags/macos/</guid>
       <description></description>
     </item>
     <item>
       <title>Programmers</title>
-      <link>https://cha2hyun.blog/tags/programmers/</link>
+      <link>https://home.cha2hyun.blog/tags/programmers/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/programmers/</guid>
+      <guid>https://home.cha2hyun.blog/tags/programmers/</guid>
       <description></description>
     </item>
     <item>
       <title>Kali Linux</title>
-      <link>https://cha2hyun.blog/tags/kali-linux/</link>
+      <link>https://home.cha2hyun.blog/tags/kali-linux/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/kali-linux/</guid>
+      <guid>https://home.cha2hyun.blog/tags/kali-linux/</guid>
       <description></description>
     </item>
     <item>
       <title>해킹</title>
-      <link>https://cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/</link>
+      <link>https://home.cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/</guid>
+      <guid>https://home.cha2hyun.blog/tags/%ED%95%B4%ED%82%B9/</guid>
       <description></description>
     </item>
     <item>
       <title>AWS</title>
-      <link>https://cha2hyun.blog/tags/aws/</link>
+      <link>https://home.cha2hyun.blog/tags/aws/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/aws/</guid>
+      <guid>https://home.cha2hyun.blog/tags/aws/</guid>
       <description></description>
     </item>
     <item>
       <title>Next.js</title>
-      <link>https://cha2hyun.blog/tags/next.js/</link>
+      <link>https://home.cha2hyun.blog/tags/next.js/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/next.js/</guid>
+      <guid>https://home.cha2hyun.blog/tags/next.js/</guid>
       <description></description>
     </item>
     <item>
       <title>Next/Image</title>
-      <link>https://cha2hyun.blog/tags/next/image/</link>
+      <link>https://home.cha2hyun.blog/tags/next/image/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/next/image/</guid>
+      <guid>https://home.cha2hyun.blog/tags/next/image/</guid>
       <description></description>
     </item>
     <item>
       <title>Trouble Shooting</title>
-      <link>https://cha2hyun.blog/tags/trouble-shooting/</link>
+      <link>https://home.cha2hyun.blog/tags/trouble-shooting/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/trouble-shooting/</guid>
+      <guid>https://home.cha2hyun.blog/tags/trouble-shooting/</guid>
       <description></description>
     </item>
     <item>
       <title>Graphql</title>
-      <link>https://cha2hyun.blog/tags/graphql/</link>
+      <link>https://home.cha2hyun.blog/tags/graphql/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/graphql/</guid>
+      <guid>https://home.cha2hyun.blog/tags/graphql/</guid>
       <description></description>
     </item>
     <item>
       <title>Jwt</title>
-      <link>https://cha2hyun.blog/tags/jwt/</link>
+      <link>https://home.cha2hyun.blog/tags/jwt/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/jwt/</guid>
+      <guid>https://home.cha2hyun.blog/tags/jwt/</guid>
       <description></description>
     </item>
     <item>
       <title>NestJS</title>
-      <link>https://cha2hyun.blog/tags/nestjs/</link>
+      <link>https://home.cha2hyun.blog/tags/nestjs/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/nestjs/</guid>
+      <guid>https://home.cha2hyun.blog/tags/nestjs/</guid>
       <description></description>
     </item>
     <item>
       <title>Postgres</title>
-      <link>https://cha2hyun.blog/tags/postgres/</link>
+      <link>https://home.cha2hyun.blog/tags/postgres/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/postgres/</guid>
+      <guid>https://home.cha2hyun.blog/tags/postgres/</guid>
       <description></description>
     </item>
     <item>
       <title>Prisma</title>
-      <link>https://cha2hyun.blog/tags/prisma/</link>
+      <link>https://home.cha2hyun.blog/tags/prisma/</link>
       <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/prisma/</guid>
+      <guid>https://home.cha2hyun.blog/tags/prisma/</guid>
       <description></description>
     </item>
     <item>
       <title>Synology</title>
-      <link>https://cha2hyun.blog/tags/synology/</link>
+      <link>https://home.cha2hyun.blog/tags/synology/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/synology/</guid>
+      <guid>https://home.cha2hyun.blog/tags/synology/</guid>
       <description></description>
     </item>
     <item>
       <title>Synology Chat</title>
-      <link>https://cha2hyun.blog/tags/synology-chat/</link>
+      <link>https://home.cha2hyun.blog/tags/synology-chat/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/synology-chat/</guid>
+      <guid>https://home.cha2hyun.blog/tags/synology-chat/</guid>
       <description></description>
     </item>
     <item>
       <title>Collaborator</title>
-      <link>https://cha2hyun.blog/tags/collaborator/</link>
+      <link>https://home.cha2hyun.blog/tags/collaborator/</link>
       <pubDate>Tue, 07 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/collaborator/</guid>
+      <guid>https://home.cha2hyun.blog/tags/collaborator/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>https://cha2hyun.blog/tags/git/</link>
+      <link>https://home.cha2hyun.blog/tags/git/</link>
       <pubDate>Tue, 07 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/git/</guid>
+      <guid>https://home.cha2hyun.blog/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Next-Sitemap</title>
-      <link>https://cha2hyun.blog/tags/next-sitemap/</link>
+      <link>https://home.cha2hyun.blog/tags/next-sitemap/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/next-sitemap/</guid>
+      <guid>https://home.cha2hyun.blog/tags/next-sitemap/</guid>
       <description></description>
     </item>
     <item>
       <title>SEO</title>
-      <link>https://cha2hyun.blog/tags/seo/</link>
+      <link>https://home.cha2hyun.blog/tags/seo/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/seo/</guid>
+      <guid>https://home.cha2hyun.blog/tags/seo/</guid>
       <description></description>
     </item>
     <item>
       <title>SSR</title>
-      <link>https://cha2hyun.blog/tags/ssr/</link>
+      <link>https://home.cha2hyun.blog/tags/ssr/</link>
       <pubDate>Fri, 17 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/ssr/</guid>
+      <guid>https://home.cha2hyun.blog/tags/ssr/</guid>
       <description></description>
     </item>
     <item>
       <title>Infinite Scroll</title>
-      <link>https://cha2hyun.blog/tags/infinite-scroll/</link>
+      <link>https://home.cha2hyun.blog/tags/infinite-scroll/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/infinite-scroll/</guid>
+      <guid>https://home.cha2hyun.blog/tags/infinite-scroll/</guid>
       <description></description>
     </item>
     <item>
       <title>LocalStorage</title>
-      <link>https://cha2hyun.blog/tags/localstorage/</link>
+      <link>https://home.cha2hyun.blog/tags/localstorage/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/localstorage/</guid>
+      <guid>https://home.cha2hyun.blog/tags/localstorage/</guid>
       <description></description>
     </item>
     <item>
       <title>Modal</title>
-      <link>https://cha2hyun.blog/tags/modal/</link>
+      <link>https://home.cha2hyun.blog/tags/modal/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/modal/</guid>
+      <guid>https://home.cha2hyun.blog/tags/modal/</guid>
       <description></description>
     </item>
     <item>
       <title>React Query</title>
-      <link>https://cha2hyun.blog/tags/react-query/</link>
+      <link>https://home.cha2hyun.blog/tags/react-query/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/react-query/</guid>
+      <guid>https://home.cha2hyun.blog/tags/react-query/</guid>
       <description></description>
     </item>
     <item>
       <title>Aiohttp</title>
-      <link>https://cha2hyun.blog/tags/aiohttp/</link>
+      <link>https://home.cha2hyun.blog/tags/aiohttp/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/aiohttp/</guid>
+      <guid>https://home.cha2hyun.blog/tags/aiohttp/</guid>
       <description></description>
     </item>
     <item>
       <title>FastAPI</title>
-      <link>https://cha2hyun.blog/tags/fastapi/</link>
+      <link>https://home.cha2hyun.blog/tags/fastapi/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/fastapi/</guid>
+      <guid>https://home.cha2hyun.blog/tags/fastapi/</guid>
       <description></description>
     </item>
     <item>
       <title>Grequests</title>
-      <link>https://cha2hyun.blog/tags/grequests/</link>
+      <link>https://home.cha2hyun.blog/tags/grequests/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/grequests/</guid>
+      <guid>https://home.cha2hyun.blog/tags/grequests/</guid>
       <description></description>
     </item>
     <item>
       <title>Requests</title>
-      <link>https://cha2hyun.blog/tags/requests/</link>
+      <link>https://home.cha2hyun.blog/tags/requests/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/requests/</guid>
+      <guid>https://home.cha2hyun.blog/tags/requests/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>https://cha2hyun.blog/tags/markdown/</link>
+      <link>https://home.cha2hyun.blog/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://cha2hyun.blog/tags/markdown/</guid>
+      <guid>https://home.cha2hyun.blog/tags/markdown/</guid>
       <description></description>
     </item>
   </channel>
