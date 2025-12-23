@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AWS on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.com/tags/aws/</link>
+    <link>https://blog.cha2hyun.com/tags/aws/</link>
     <description>Recent content in AWS on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.com/papermod-cover.png</url>
-      <link>https://home.cha2hyun.com/papermod-cover.png</link>
+      <url>https://blog.cha2hyun.com/papermod-cover.png</url>
+      <link>https://blog.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.cha2hyun.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>next/image 그냥 쓰면 서버는 시한부입니다 💀</title>
-      <link>https://home.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
+      <link>https://blog.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
+      <guid>https://blog.cha2hyun.com/content/projects/%ED%81%90%EC%B0%BE%EC%82%AC/nextimage/</guid>
       <description>next/image 사용하다가 플aws 서버가 뻗었습니다. 모르고 쓰면 100% 서버 뻗습니다.</description>
     </item>
     <item>
       <title>낭만스키 웹 배포 과정</title>
-      <link>https://home.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</link>
+      <link>https://blog.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</link>
       <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</guid>
+      <guid>https://blog.cha2hyun.com/content/projects/%EB%82%AD%EB%A7%8C%EC%8A%A4%ED%82%A4/first_deploy/</guid>
       <description>Next.js + EC2 + Route53 + ACM&amp;amp;Loadbalancer(https) + CI/CD(github action).</description>
     </item>
   </channel>

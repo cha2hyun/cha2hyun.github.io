@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Markdown on 채수현 개발일지</title>
-    <link>https://home.cha2hyun.com/tags/markdown/</link>
+    <link>https://blog.cha2hyun.com/tags/markdown/</link>
     <description>Recent content in Markdown on 채수현 개발일지</description>
     <image>
       <title>채수현 개발일지</title>
-      <url>https://home.cha2hyun.com/papermod-cover.png</url>
-      <link>https://home.cha2hyun.com/papermod-cover.png</link>
+      <url>https://blog.cha2hyun.com/papermod-cover.png</url>
+      <link>https://blog.cha2hyun.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>ko</language>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://home.cha2hyun.com/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.cha2hyun.com/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://home.cha2hyun.com/content/posts/markdown-syntac-guide/</link>
+      <link>https://blog.cha2hyun.com/content/posts/markdown-syntac-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://home.cha2hyun.com/content/posts/markdown-syntac-guide/</guid>
+      <guid>https://blog.cha2hyun.com/content/posts/markdown-syntac-guide/</guid>
       <description>마크다운 신택스 가이드 by Hugo Authors</description>
     </item>
   </channel>

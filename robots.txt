@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://home.cha2hyun.com/sitemap.xml
+Sitemap: https://blog.cha2hyun.com/sitemap.xml
